@@ -1,0 +1,123 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": false,
+        "designer|userAlias": "dlglogin",
+        "designer|userClassName": "DlgLogin",
+        "height": 346,
+        "id": "WndLogin",
+        "modal": true,
+        "resizable": false,
+        "title": "Iniciar Sesi\\u00f3n",
+        "titleAlign": "center",
+        "width": 322
+    },
+    "name": "MyWindow",
+    "configAlternates": {
+        "resizable": "boolean"
+    },
+    "designerId": "5df603e9-7952-454a-90ab-57fa5c191624",
+    "viewControllerInstanceId": "8874f302-df7d-4868-909b-b1348210746e",
+    "viewModelInstanceId": "99ec0551-da61-42d4-bbd5-803d559c3ed0",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "container|align": "stretch",
+                "container|pack": "center",
+                "layout": "vbox",
+                "maxHeight": null,
+                "title": ""
+            },
+            "name": "MyForm",
+            "designerId": "e9bc0dc8-5ce9-4012-b36b-adb3de3932f4",
+            "cn": [
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 200,
+                        "layout|flex": 1,
+                        "src": "resources/Logo-Telnet.png",
+                        "style": "display: block;    margin-left: auto;    margin-right: auto",
+                        "width": 150
+                    },
+                    "name": "MyImg1",
+                    "configAlternates": {
+                        "style": "string"
+                    },
+                    "designerId": "7afc9f7d-3052-4cf8-b7f5-d0641deb640c"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "enableKeyEvents": true,
+                        "fieldLabel": "Password",
+                        "id": "passwordTextFieldLogeo",
+                        "inputType": "password",
+                        "labelAlign": "top",
+                        "labelStyle": "text-align:center",
+                        "layout|flex": null
+                    },
+                    "name": "MyTextField",
+                    "designerId": "663f31ee-17fd-4fc2-bda7-f891c10b471c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom"
+            },
+            "name": "MyToolbar1",
+            "designerId": "40e4b236-9529-44f4-ba20-60f521abb40f",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/padlock_s.png",
+                        "id": "btnLogin",
+                        "layout|flex": null,
+                        "text": "Iniciar Sesión"
+                    },
+                    "name": "MyButton3",
+                    "designerId": "3b99f365-fa75-40f6-abf9-6ef5d7cdbe76"
+                }
+            ]
+        }
+    ]
+}

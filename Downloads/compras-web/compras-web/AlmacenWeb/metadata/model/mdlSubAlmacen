@@ -1,0 +1,41 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mdlSubAlmacen"
+    },
+    "name": "mdlGeneric1",
+    "designerId": "e7856a14-6ce4-4d05-9170-e63004d9b21a",
+    "cn": [
+        {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "claveAlmacen"
+            },
+            "name": "MyNumber1",
+            "designerId": "6207ed66-6a08-4ccc-bbc3-c8de92d5c1e9"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nombre"
+            },
+            "name": "MyField21",
+            "designerId": "1e092564-9da1-4ee7-ac25-9b4ace58e630"
+        }
+    ]
+}

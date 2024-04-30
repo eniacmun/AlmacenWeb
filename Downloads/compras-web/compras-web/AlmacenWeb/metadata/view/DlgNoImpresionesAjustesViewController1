@@ -1,0 +1,92 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgmotivosajustes",
+        "designer|userClassName": "DlgNoImpresionesAjustesViewController1"
+    },
+    "name": "DlgNoImpresionesAjustesViewController1",
+    "designerId": "37cc4cd7-d0c0-4617-af09-540dd9e13b4d",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAceptar1",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "AsignarPreguntaMotivos",
+                "implHandler": [
+                    "var motivo = Ext.ComponentMgr.get(\"cmbNoImpresiones1\").getValue();",
+                    "this.AsignaMotivo(motivo);",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "AsignarPreguntaMotivos",
+            "designerId": "7cba6b39-114d-448b-9912-09bb8c7a998d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbNoImpresiones1",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "PreguntaMotivos",
+                "implHandler": [
+                    "var request = {}; request.method=\"obtienemotivos\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "console.log(component.ownerCt);",
+                    "var motivo = component.ownerCt.currentMotivoAjuste;",
+                    "request.params.push({\"name\":\"tipo\",\"value\":motivo});",
+                    "var currentController=this;",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    if (response.items.length==1){",
+                    "        currentController.AsignaMotivo(response.items[0].value);",
+                    "    }else if (response.items.length > 1){",
+                    "        component = Ext.ComponentMgr.get(\"cmbNoImpresiones1\");",
+                    "        component.getStore().loadData(response.items);",
+                    "        component.setValue(response.items[0].value);",
+                    "    }",
+                    "});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "PreguntaMotivos",
+            "designerId": "035e5da9-b110-4dd7-ae65-6db0903dcab5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "motivo"
+                ],
+                "fn": "AsignaMotivo",
+                "implHandler": [
+                    "        Ext.WindowMgr.get(\"wndPreguntaMotivos\").parentController.preguntarNoImpresiones(motivo);",
+                    "        Ext.WindowMgr.get(\"wndPreguntaMotivos\").close();"
+                ]
+            },
+            "name": "AsignaMotivo",
+            "designerId": "97afe0e0-c42b-4693-a875-9b8a9096187d"
+        }
+    ]
+}

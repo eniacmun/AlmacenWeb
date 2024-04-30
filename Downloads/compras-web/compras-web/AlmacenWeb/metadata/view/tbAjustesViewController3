@@ -1,0 +1,329 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tbtransferencia",
+        "designer|userClassName": "tbAjustesViewController3"
+    },
+    "name": "tbAjustesViewController3",
+    "designerId": "e65c0ed9-b1b2-497c-ad62-967b4ef44c03",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAjustes3",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "InitializeEnvironment",
+                "implHandler": [
+                    "window.tipoInvenario = 4;",
+                    "Ext.ComponentMgr.get(\"gridConsultaClasificaciones\").columns[4].setText(\"Cantidad a transferir\");;",
+                    "window.InventariosBeforeEdit = this.BeforeEdit;",
+                    "window.InventariosAfterEdit = this.AfterEdit;",
+                    "window.AjustesRealizados = {};"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "InitializeEnvironment",
+            "designerId": "e8346690-e0af-42da-8100-cd3dff4b1e23"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "editor, context, eOpts"
+                ],
+                "fn": "BeforeEdit",
+                "implHandler": [
+                    "console.log(record);",
+                    "var record = context.record;",
+                    "if(record.get(\"editable\")){",
+                    "    return true;",
+                    "} else{",
+                    "    return false;",
+                    "}"
+                ]
+            },
+            "name": "BeforeEdit",
+            "designerId": "4e3d2c1c-5e4c-466b-8c0f-046b38d708b6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "editor, context, Opts"
+                ],
+                "fn": "AfterEdit",
+                "implHandler": [
+                    "var Existencia = context.value;",
+                    "var ClaveProducto = context.record.get(\"Clave\");",
+                    "var Concepto = context.record.get(\"Concepto\");",
+                    "var Unidad = context.record.get(\"Unidad\");",
+                    "var InventarioDiario = context.record.get(\"InventarioDiario\");",
+                    "var Clasificacion = context.record.get(\"Clasificacion\");",
+                    "var CantExistencia = parseFloat(Existencia);",
+                    "var currentExistencia =context.record.get(\"CurrentExistencia\");",
+                    "var maximoPermitido =context.record.get(\"maximoPermitido\");",
+                    "if (CantExistencia > 0){",
+                    "    //se guarda en el objeto de AjustesRealizados",
+                    "    if (context.value != context.originalValue){ //es diferente de la existencia",
+                    "        window.AjustesRealizados[ClaveProducto] = {\"Clave\":ClaveProducto,\"Existencia\":Existencia,",
+                    "                                                   \"Concepto\":Concepto,\"Unidad\":Unidad,",
+                    "                                                   \"InventarioDiario\":InventarioDiario,",
+                    "                                                   \"Clasificacion\":Clasificacion, \"CurrentExistencia\":currentExistencia,",
+                    "                                                   \"maximoPermitido\":maximoPermitido};",
+                    "    }",
+                    "    editor.completeEdit();",
+                    "    editor.startEditByPosition({",
+                    "        row: context.rowIdx+1,",
+                    "        column: context.colIdx",
+                    "    });",
+                    "}else{",
+                    "    if(CantExistencia < 0 ){",
+                    "        context.record.beginEdit();",
+                    "        context.record.set(\"Existencia\", context.originalValue);",
+                    "        context.record.commit();",
+                    "        editor.cancelEdit();",
+                    "    } else {",
+                    "        context.record.beginEdit();",
+                    "        context.record.set(\"Existencia\", \"\");",
+                    "        context.record.commit();",
+                    "        editor.cancelEdit();",
+                    "        delete window.AjustesRealizados[ClaveProducto];",
+                    "    }",
+                    "    return false;",
+                    "}"
+                ]
+            },
+            "name": "AfterEdit",
+            "designerId": "790f1e27-a80a-4414-8fa9-f8c2ef240ff4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAjustes3",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "Ajustar",
+                "implHandler": [
+                    "if(window.claveAlmacen == window.claveAlmacenDestino){",
+                    "    Ext.Msg.alert(\"\", \"Seleccione un almacén distinto.\");",
+                    "    return;",
+                    "}",
+                    "var option = this.validarAjustes();",
+                    "if (option){",
+                    "    this.realizaAjustes();",
+                    "}"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "Ajustar",
+            "designerId": "69912ceb-cf68-4163-9ce8-9f771bb23bc3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validarAjustes",
+                "implHandler": [
+                    "var retVal = true;",
+                    "var ajustesExcedidos = [];",
+                    "for(var claveprod in window.AjustesRealizados){",
+                    "    var prod = window.AjustesRealizados[claveprod];",
+                    "    var cantidad = parseFloat(prod.Existencia);",
+                    "    var existencia = parseFloat(Ext.util.Base64.decode(prod.CurrentExistencia));",
+                    "    var cantidadMaximaPermitida = prod.maximoPermitido;",
+                    "",
+                    "    if (existencia <= cantidadMaximaPermitida){ //la existencia actual es menor a la permitida se tiene que aplicar la validacion",
+                    "        if (cantidad > cantidadMaximaPermitida){",
+                    "            //se debe mostrar la ventana de contraseña del supervisor",
+                    "            prod.cantidadMaximaValidacion = cantidadMaximaPermitida;",
+                    "            ajustesExcedidos.push(prod);",
+                    "        }",
+                    "    }else if (existencia > cantidadMaximaPermitida){",
+                    "        if (cantidad > existencia){",
+                    "            prod.cantidadMaximaValidacion = existencia;",
+                    "            ajustesExcedidos.push(prod);",
+                    "        }",
+                    "    }",
+                    "",
+                    "}",
+                    "",
+                    "if (ajustesExcedidos.length > 0){",
+                    "",
+                    "    //return true",
+                    "    var wnd = Ext.create(\"almacen.view.DlgExistenciaAlerta\", {id:\"wndPreciosAlerta\"});",
+                    "    wnd.parentController=this;",
+                    "    wnd.center();",
+                    "    wnd.show();",
+                    "    Ext.ComponentMgr.get(\"gridProductosPrecios1\").getStore().loadData(ajustesExcedidos);",
+                    "    return false;",
+                    "}else {",
+                    "    return true;",
+                    "}"
+                ]
+            },
+            "name": "validarAjustes",
+            "designerId": "b2265a83-b5da-4ab6-95b1-9c5dfcf613dd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "noImpresiones",
+                    "motivoAjuste"
+                ],
+                "fn": "registrarAjustes",
+                "implHandler": [
+                    "var ajustesx = [];",
+                    "",
+                    "for (var claveprod in window.AjustesRealizados){",
+                    "    prod = window.AjustesRealizados[claveprod];",
+                    "    prod.CurrentExistencia = escape(prod.CurrentExistencia);",
+                    "    ajustesx.push(window.AjustesRealizados[claveprod]);",
+                    "}",
+                    "",
+                    "var objAjustes = {",
+                    "    tipoAjuste:motivoAjuste,",
+                    "    noImpresiones:noImpresiones,",
+                    "    ajustes:ajustesx",
+                    "};",
+                    "var decoded = Ext.encode(objAjustes);",
+                    "",
+                    "",
+                    "var request = {}; request.method=\"registratransferencia\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},{\"name\":\"AJUSTE\",\"value\":decoded});",
+                    "request.params.push({\"name\":\"claveAlmacen\",\"value\":window.claveAlmacen});",
+                    "request.params.push({\"name\":\"claveAlmacenDestino\",\"value\":window.claveAlmacenDestino});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    if(response.filepath){",
+                    "        if(response.filepath.length == 2){",
+                    "            var curentFilepath = response.filepath[0];",
+                    "            var curentFilepath2 = response.filepath[1];",
+                    "            console.log(\"Archivo a descargar: \" + curentFilepath);",
+                    "            if(curentFilepath !== \"\" && curentFilepath2 !== \"\"){",
+                    "                Ext.Msg.alert(\"Mensaje\",\"Impresión correcta, se descargará su archivo.\");",
+                    "                almacen.getApplication().downloadPedido(curentFilepath, 0); // 0 PDF 1 Excel 2 Ambos",
+                    "                setTimeout(function (){",
+                    "                    almacen.getApplication().downloadPedido(curentFilepath2, 0); // 0 PDF 1 Excel 2 Ambos",
+                    "                }, 1000);",
+                    "            }else{",
+                    "                Ext.Msg.alert(\"Mensaje\",\"No se pudo generar su archivo. Reintente\");",
+                    "            }",
+                    "        }",
+                    "    }",
+                    "    //se acualiza toda la interfaz",
+                    "    Ext.ComponentManager.get(\"currentView\").mycontroller.loadExistencias(null,null,null);",
+                    "    window.AjustesRealizados={};",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "name": "registrarAjustes",
+            "designerId": "87c78255-2d24-4e50-bc0e-3a36a61f47ad"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "motivoAjuste"
+                ],
+                "fn": "preguntarNoImpresiones",
+                "implHandler": [
+                    "        ",
+                    "if(almacen.getApplication().currentSession.habilitaNoImprimirAjustes){",
+                    "    this.registrarAjustes(0, motivoAjuste);",
+                    "} else {",
+                    "    var wnd = Ext.create(\"almacen.view.DlgNoImpresionesAjustes\", {id:\"wndPreguntaImpresiones\"});",
+                    "    wnd.parentController=this;",
+                    "    wnd.currentMotivoAjuste=motivoAjuste;",
+                    "    wnd.center();",
+                    "    wnd.show();",
+                    "",
+                    "}",
+                    ""
+                ]
+            },
+            "name": "preguntarNoImpresiones",
+            "designerId": "01cb9b32-e4cd-40d4-93df-ffdd4ab4f5a7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "tipoMotivo"
+                ],
+                "fn": "preguntarMotivos",
+                "implHandler": [
+                    "var wnd = Ext.create(\"almacen.view.DlgMotivosAjustes\", {id:\"wndPreguntaMotivos\"});",
+                    "wnd.parentController=this;",
+                    "wnd.currentMotivoAjuste=tipoMotivo;",
+                    "wnd.center();",
+                    "wnd.show();"
+                ]
+            },
+            "name": "preguntarMotivos",
+            "designerId": "31fc39d5-a3c1-4008-a2a9-86363141ebfb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "realizaAjustes",
+                "implHandler": [
+                    "this.preguntarMotivos(\"TRANSFERENCIA\");"
+                ]
+            },
+            "name": "realizaAjustes",
+            "designerId": "d67829dc-be39-436f-a0b0-b66d85872564"
+        }
+    ]
+}

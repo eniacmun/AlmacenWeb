@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcomprashandheld",
+        "designer|userClassName": "DlgComprasHandheldViewController"
+    },
+    "designerId": "83d45b6e-640a-4f3d-bc0a-947083a3990f"
+}

@@ -1,0 +1,1678 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultapedido1",
+        "designer|userClassName": "DlgConsultaPedido1",
+        "height": 601,
+        "layout": "border",
+        "title": "Datos Pedido",
+        "width": 920
+    },
+    "name": "DlgConsultaPedido1",
+    "designerId": "dc883d71-0dcc-41f0-90a3-56ad212b5941",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "currentRecord",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "d106e976-e901-4f9f-9ba7-7700efdf6494",
+    "viewModelInstanceId": "3d48889c-1125-4233-8dc2-a96d74d62bd0",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "gridProductos2",
+                "layout|region": "center",
+                "store": "StoreDetallePedido",
+                "title": "Productos"
+            },
+            "name": "MyGridPanel10",
+            "designerId": "ab0c4bcf-b57b-4b51-a3c5-1cfeee695976",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveproductoCedi",
+                        "hideable": false,
+                        "lockable": false,
+                        "locked": true,
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn36",
+                    "designerId": "6c438827-dca4-40df-9812-1cb5ae7d8e18"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "NombreProducto",
+                        "hideable": false,
+                        "lockable": false,
+                        "locked": true,
+                        "text": "Producto",
+                        "width": 185
+                    },
+                    "name": "MyColumn39",
+                    "designerId": "1838199e-4471-4356-a740-7b41968455f4"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CantidadSucursal",
+                        "draggable": false,
+                        "hideable": false,
+                        "id": "cantidadSucursal",
+                        "text": "Cantidad<br>Sucursal",
+                        "width": 134
+                    },
+                    "name": "MyColumn40",
+                    "designerId": "5b260f8f-b91a-4a43-b22a-2a4341a83572"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CantidadOriginalSucursal",
+                        "defaultWidth": 120,
+                        "draggable": false,
+                        "id": "cantidadOriginal",
+                        "text": "Cantidad<br>Original",
+                        "width": 146
+                    },
+                    "name": "MyColumn43",
+                    "designerId": "7f6b0e0b-e04b-4e47-917a-d9bf756fe2c8"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CantidadCedi",
+                        "draggable": false,
+                        "format": "0,000.00000",
+                        "formatter": null,
+                        "id": "cantidadCedi",
+                        "text": "Cantidad<br>Cedi",
+                        "width": 118
+                    },
+                    "name": "MyNumberColumn8",
+                    "configAlternates": {
+                        "render": "object"
+                    },
+                    "designerId": "256f9f95-440b-468a-ae9a-f312ecb9522a",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 5,
+                                "id": "editorCantidadCedi",
+                                "minValue": 0
+                            },
+                            "name": "MyNumberField17",
+                            "designerId": "600fb071-fdf4-4784-a90f-62f0f0093b41",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onNumberfieldBeforeRender",
+                                        "implHandler": [
+                                            "var rec = window.currentPedido.pedidos[0];",
+                                            "//nsole.log(\"rec\");console.log(rec);",
+                                            "var estado = parseInt(rec.Claveestado, 10);",
+                                            "//nsole.log(\"estado\");console.log(estado);",
+                                            "",
+                                            "if(estado === 0 || estado == 1){",
+                                            "",
+                                            "}else{",
+                                            "    component.setDisabled(true);",
+                                            "}",
+                                            ""
+                                        ],
+                                        "name": "beforerender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onNumberfieldBeforeRender",
+                                    "designerId": "74b9ae4f-cff7-4373-8afb-cc5cb423784f"
+                                },
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onEditorCantidadCediChange",
+                                        "implHandler": [
+                                            "",
+                                            "var recordPedido = window.currentPedido.pedidos[0];",
+                                            "",
+                                            "var rec = field.up(\"editor\").editingPlugin.context.record;",
+                                            "",
+                                            "rec.beginEdit();",
+                                            "",
+                                            "var CantidadSucursal = 0.0;",
+                                            "",
+                                            "if(newValue === null){",
+                                            "    newValue = 0.0;",
+                                            "}",
+                                            "",
+                                            "if(newValue<0){",
+                                            "    rec.set(\"CantidadCedi\", 0);",
+                                            "",
+                                            "    newValue=0.0;",
+                                            "}",
+                                            "",
+                                            "var cantidadCedi=newValue;",
+                                            "var cantidadOrig=rec.data.originalValue;",
+                                            "",
+                                            "var activar=almacen.getApplication().currentSession.habilitaModificaPedido;",
+                                            "var cedi=almacen.getApplication().currentSession.esCedi;",
+                                            "",
+                                            "if(recordPedido.Estado==\"APROBADO\" && activar && cedi===false){",
+                                            "    if(cantidadCedi>=cantidadOrig){",
+                                            "        Ext.Msg.alert('Mensaje','La cantidad modificada no puede ser mayor a la cantidad de la sucursal.');",
+                                            "        rec.set(\"CantidadCedi\", cantidadOrig);",
+                                            "        newValue=cantidadOrig;",
+                                            "    }",
+                                            "}",
+                                            "",
+                                            "if(!recordPedido.pedidoCedi){ // calculo para proveedores, ya viene con proporcion aplicada",
+                                            "    console.log(\"aqui\");",
+                                            "    CantidadSucursal = newValue;",
+                                            "    rec.set(\"CantidadSucursal\", CantidadSucursal);",
+                                            "    if(rec.data.tasa)",
+                                            "        rec.set(\"Importe\", almacen.getApplication().calculaImportesTotales(parseInt(rec.get(\"Impuesto\")), rec.data.Descuento, rec.data.Costo, rec.data.CantidadSucursal, rec.data.tasa));",
+                                            "    else",
+                                            "        rec.set(\"Importe\", almacen.getApplication().calculaImportesTotales(parseInt(rec.get(\"Impuesto\")), rec.data.Descuento, rec.data.Costo, rec.data.CantidadSucursal, null));",
+                                            "}else{ // calculo para Cedis",
+                                            "    CantidadSucursal = newValue / rec.get(\"Proporcion\");",
+                                            "    rec.set(\"CantidadSucursal\", CantidadSucursal);",
+                                            "    if(rec.data.tasa)",
+                                            "        rec.set(\"Importe\", almacen.getApplication().calculaImportesTotales( 0, 0, rec.data.Costo, rec.data.CantidadSucursal, null));",
+                                            "    else",
+                                            "        rec.set(\"Importe\", almacen.getApplication().calculaImportesTotales( 0, 0, rec.data.Costo, rec.data.CantidadSucursal, null));",
+                                            "",
+                                            "}",
+                                            "rec.endEdit();",
+                                            "//rec.commit(); // agregado",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onEditorCantidadCediChange",
+                                    "designerId": "392c419e-8cca-475f-8925-cc6eafc8ab32"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "valueIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "value = value.toFixed(5);",
+                                    "",
+                                    "if (record.data.CantidadOriginalCedi!=record.data.CantidadCedi) {",
+                                    "    metaData.style = \"background-color:yellow;\";",
+                                    "    var newvalue;",
+                                    "    newvalue = \"<span style='color:red;font-weight:bold;;background-color:yellow;' >\"+value+\"</span>\";",
+                                    "}else {",
+                                    "    newvalue = value;",
+                                    "}",
+                                    "return newvalue;",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "7e2f8599-1148-49d7-84bb-c4815de576e7"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CantidadOriginalCedi",
+                        "draggable": false,
+                        "id": "cantidadOriginalCedi",
+                        "text": "Cantidad Original<br>Cedi",
+                        "width": 118
+                    },
+                    "name": "MyColumn10",
+                    "designerId": "6dc7cc5b-3834-463c-8112-69cb4984f739"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Costo",
+                        "id": "importeUnitario",
+                        "text": "Importe<br>Unitario"
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "da379653-0b00-4b79-b609-b6496ace303e",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return Ext.util.Format.currency(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "de7a59ed-a8b8-4a08-811a-f32b3bbd6087"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "minValue": 0
+                            },
+                            "name": "MyNumberField22",
+                            "designerId": "04051328-ab4d-48d3-b44b-250d28f99286",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onNumberfieldChange",
+                                        "implHandler": [
+                                            "// no se valida si es pedido a cedis antes de editar, pues pedidos al cedis no muestran este campo",
+                                            "rec = field.up(\"editor\").editingPlugin.context.record;",
+                                            "console.log(rec.data);",
+                                            "rec.beginEdit();",
+                                            "rec.set(\"Costo\", newValue);",
+                                            "rec.set(\"Importe\", almacen.getApplication().calculaImportesTotales(  parseInt(rec.get(\"Impuesto\")), rec.data.Descuento, rec.data.Costo, rec.data.CantidadSucursal, rec.data.tasa));;",
+                                            "rec.endEdit();"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onNumberfieldChange",
+                                    "designerId": "baeefbf7-c945-4693-a568-4027dd2566d1"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Descuento",
+                        "id": "porcentajeDescuento",
+                        "text": "Descuento"
+                    },
+                    "name": "MyColumn15",
+                    "designerId": "dc3f21a0-e794-4a8c-9e25-6598f9111784",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return Ext.util.Format.number(value , '0.##%');"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "295009f5-3a76-4b96-8649-89bd8c81d680"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 4,
+                                "maxValue": 100,
+                                "minValue": 0,
+                                "selectOnFocus": true
+                            },
+                            "name": "MyNumberField11",
+                            "designerId": "deeaaf3c-75b4-44e4-b91d-b7fa3323f7c5",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onPorcentajeDescuentoChange",
+                                        "implHandler": [
+                                            "rec = field.up(\"editor\").editingPlugin.context.record;",
+                                            "console.log(rec.data);",
+                                            "rec.beginEdit();",
+                                            "rec.set(\"Descuento\", newValue);",
+                                            "rec.set(\"Importe\", almacen.getApplication().calculaImportesTotales(  parseInt(rec.get(\"Impuesto\")), rec.data.Descuento, rec.data.Costo, rec.data.CantidadSucursal, rec.data.tasa));;",
+                                            "rec.endEdit();",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onPorcentajeDescuentoChange",
+                                    "designerId": "08dcedb2-3e60-44cd-b227-8e0572e7a3c9"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "idTasa",
+                        "id": "tasaIEPS",
+                        "text": "IEPS"
+                    },
+                    "name": "MyColumn64",
+                    "designerId": "e4767f50-5bbb-446b-87b5-0383a753008f",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "Descripcion",
+                                "editable": false,
+                                "id": "cmbIepsPedido2",
+                                "store": "StoreTasasIEPS",
+                                "valueField": "Id"
+                            },
+                            "name": "MyComboBox19",
+                            "designerId": "e9eec89b-e967-4893-9b02-b21c38826c13",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCmbIepsPedido2Select",
+                                        "implHandler": [
+                                            "var controller = Ext.ComponentMgr.get(\"gridCedis\").up().getController();",
+                                            "rec = combo.up(\"editor\").editingPlugin.context.record;",
+                                            "console.log(rec.data);",
+                                            "rec.beginEdit();",
+                                            "rec.set(\"tasa\", records[0].data);",
+                                            "rec.set(\"Importe\", controller.calculaImportesTotales(  parseInt(rec.get(\"Impuesto\")), rec.data.Descuento, rec.data.Costo, rec.data.CantidadSucursal, rec.data.tasa));;",
+                                            "rec.endEdit();"
+                                        ],
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "name": "onCmbIepsPedido2Select",
+                                    "designerId": "66a040b2-323e-44a0-9443-278f6a963130"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "",
+                                    "var editor = this.columns[colIndex].getEditor();",
+                                    "var store = editor.getStore();",
+                                    "var rec = store.findRecord(\"Id\", value);",
+                                    "",
+                                    "if (rec){",
+                                    "    return rec.get(\"Descripcion\");",
+                                    "}else{",
+                                    "    return value;",
+                                    "}"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "b4bc21c8-bf1b-4bb1-a005-ee6d6d190a2d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Impuesto",
+                        "id": "tasaImpuesto",
+                        "text": "Impuesto"
+                    },
+                    "name": "MyColumn20",
+                    "designerId": "a3d883ff-297c-47df-9482-8d4e7fe6434c",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var editor = this.columns[colIndex].getEditor();",
+                                    "var store = editor.getStore();",
+                                    "var rec = store.findRecord(\"value\", value);",
+                                    "",
+                                    "if (rec){",
+                                    "    return rec.get(\"label\");",
+                                    "}else{",
+                                    "    return value;",
+                                    "}"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "40cbc8a3-8bf6-4b72-bf1e-793092ce513a"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "label",
+                                "editable": false,
+                                "store": "StoreComboImpuestos",
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox20",
+                            "designerId": "3b9e4d28-df50-45f1-9039-ef0c5fda396a",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onComboboxSelect",
+                                        "implHandler": [
+                                            "var controller = Ext.ComponentMgr.get(\"gridCedis\").up().getController();",
+                                            "rec = combo.up(\"editor\").editingPlugin.context.record;",
+                                            "rec.beginEdit();",
+                                            "rec.set(\"Impuesto\", records[0].data);",
+                                            "console.log(rec.data);",
+                                            "console.log(rec.get(\"Impuesto\").value);",
+                                            "rec.set(\"Importe\", controller.calculaImportesTotales( parseInt(rec.get(\"Impuesto\").value), rec.data.Descuento, rec.data.Costo, rec.data.CantidadSucursal, rec.data.tasa));;",
+                                            "rec.endEdit();"
+                                        ],
+                                        "name": "select",
+                                        "scope": "me"
+                                    },
+                                    "name": "onComboboxSelect",
+                                    "designerId": "aaf229ad-0a42-49b3-b090-bd77d2a0b2b0"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Importe",
+                        "formatter": "",
+                        "hideable": false,
+                        "id": "importeTotal",
+                        "lockable": false,
+                        "locked": true,
+                        "text": "Importe"
+                    },
+                    "name": "MyColumn42",
+                    "designerId": "5529e10b-0648-4a39-8799-900397292b15",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "value = almacen.getApplication().redondeo(value) ; // se aplica redondeo",
+                                    "return Ext.util.Format.currency(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "0b3c1d0e-e5e3-4acb-8f14-e6432ac5aafb"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "minValue": 0
+                            },
+                            "name": "MyNumberField20",
+                            "designerId": "45c3c809-362d-4741-b101-d3462dba18a0",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onImporteTotalChange",
+                                        "implHandler": [
+                                            "var recordPedido = window.currentPedido.pedidos[0];",
+                                            "",
+                                            "var rec = field.up(\"editor\").editingPlugin.context.record;",
+                                            "",
+                                            "console.log(\"rec onNumberfieldChange\");",
+                                            "console.log(rec);",
+                                            "",
+                                            "var Total = newValue;",
+                                            "var Iva = parseInt(rec.get(\"Impuesto\"));",
+                                            "var Descuento = rec.data.Descuento;",
+                                            "var PrecioU = rec.data.Costo;",
+                                            "var tasa = null;",
+                                            "",
+                                            "",
+                                            "",
+                                            "rec.beginEdit();",
+                                            "",
+                                            "// Modificacion por importe solo afecta a proveedores",
+                                            "if(!recordPedido.pedidoCedi){ // calculo para proveedores, ya viene con proporcion aplicada.",
+                                            "    ",
+                                            "    var factorIeps = 0.0;",
+                                            "    ",
+                                            "    if(rec.data.tasa)",
+                                            "        factorIeps = almacen.getApplication().calculafactorNegativoIEPS(rec.data.tasa, null, PrecioU, Descuento, Iva) * -1;",
+                                            "",
+                                            "    var CantidadSucursal = ( (  ( Total / (1+Iva/100) )  / (factorIeps/100 + 1 - Descuento/100)  )   /  PrecioU  );",
+                                            "",
+                                            "    rec.set(\"CantidadCedi\", Ext.util.Format.number(CantidadSucursal,'0.000'));",
+                                            "    rec.set(\"CantidadSucursal\", Ext.util.Format.number(CantidadSucursal,'0.000'));",
+                                            "}",
+                                            "",
+                                            "rec.endEdit();",
+                                            "//rec.commit(); // agregado",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onImporteTotalChange",
+                                    "designerId": "58b23368-f3e6-41fd-a7c7-90eebc27d257"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView8",
+                    "designerId": "99ba490a-eb2c-47bc-81a6-e440bbfa9cb8"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "delay": null,
+                        "fn": "onGridProductosAfterRender",
+                        "implHandler": [
+                            "var rec = window.currentPedido.pedidos[0];",
+                            "",
+                            "component.getStore().loadData(rec.productos);",
+                            "component.getStore().sort(\"NombreProducto\", \"ASC\");",
+                            "",
+                            "// se ingresa el nuevo valor original",
+                            "component.getStore().each(function(rec){",
+                            "    rec.beginEdit();",
+                            "    rec.set(\"originalValue\", rec.get(\"CantidadCedi\"));",
+                            "    rec.endEdit();",
+                            "    rec.commit();",
+                            "});",
+                            "",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido2\").setDisabled(true);",
+                            "Ext.ComponentMgr.get(\"btnRecibePedido2\").setDisabled(true);",
+                            "Ext.ComponentMgr.get(\"btnFinalizaPedido2\").setDisabled(true);",
+                            "Ext.ComponentMgr.get(\"btnModificarPedido2\").setDisabled(true);",
+                            "Ext.ComponentMgr.get(\"btnEnviaOrden\").setDisabled(true);",
+                            "",
+                            "",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido2\").currentRecord=null;",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido2\").currentRecord=null;",
+                            "Ext.ComponentMgr.get(\"btnFinalizaPedido2\").currentRecord=null;",
+                            "Ext.ComponentMgr.get(\"btnModificarPedido2\").currentRecord=null;",
+                            "Ext.ComponentMgr.get(\"btnEnviaOrden\").currentRecord=null;",
+                            "",
+                            "",
+                            "",
+                            "var estado = parseInt(rec.Claveestado, 10);",
+                            "var claveSucursalOrigen = parseInt(rec.claveSucursal, 10);",
+                            "var claveSucursalDestino = parseInt(rec.claveCedi, 10);",
+                            "",
+                            "if   (estado == 0) {",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido2\").setDisabled(false);//habilitamos el boton para cancelar",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido2\").currentRecord=rec;",
+                            "}",
+                            "if   (estado == 1) {",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido2\").setDisabled(false);//habilitamos el boton para cancelar en caso de estado aprobado",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido2\").currentRecord=rec;",
+                            "}",
+                            "if (almacen.getApplication().currentSession.claveSucursal==claveSucursalOrigen && estado==1){",
+                            "    Ext.ComponentMgr.get(\"btnRecibePedido2\").setDisabled(false);//habilitamos el boton para recibir",
+                            "    Ext.ComponentMgr.get(\"btnRecibePedido2\").currentRecord=rec;",
+                            "}",
+                            "if (almacen.getApplication().currentSession.claveSucursal==claveSucursalDestino && estado==2){",
+                            "    Ext.ComponentMgr.get(\"btnFinalizaPedido2\").setDisabled(false);//habilitamos el boton para finalizar",
+                            "    Ext.ComponentMgr.get(\"btnFinalizaPedido2\").currentRecord=rec;",
+                            "}",
+                            "// habilitamos para pruebas",
+                            "//Ext.ComponentMgr.get(\"btnModificarPedido2\").setDisabled(false);//habilitamos el boton para modificar en pedido proveedor",
+                            "//Ext.ComponentMgr.get(\"btnModificarPedido2\").currentRecord=rec;",
+                            "",
+                            "if (almacen.getApplication().currentSession.claveSucursal==claveSucursalDestino && (estado===0 || estado==1) && rec.pedidoCedi){",
+                            "    if(typeof rec.claveusuarioAparta === 'undefined' || rec.claveusuarioAparta === 0 || rec.claveusuarioAparta == -1 || rec.claveusuarioAparta == almacen.getApplication().ClaveUsuario){",
+                            "        // se habilita la modificacion si el cliente tiene el pedido",
+                            "        Ext.ComponentMgr.get(\"btnModificarPedido2\").setDisabled(false);//habilitamos el boton para modificar",
+                            "        Ext.ComponentMgr.get(\"btnModificarPedido2\").currentRecord=rec;",
+                            "    }",
+                            "",
+                            "}else{",
+                            "    if(!rec.pedidoCedi){",
+                            "        Ext.ComponentMgr.get(\"btnModificarPedido2\").setDisabled(false);//habilitamos el boton para modificar en pedido proveedor",
+                            "        Ext.ComponentMgr.get(\"btnModificarPedido2\").currentRecord=rec;",
+                            "        Ext.ComponentMgr.get(\"btnEnviaOrden\").setDisabled(false);//habilitamos el boton para enviar pedido de proveedor",
+                            "        Ext.ComponentMgr.get(\"btnEnviaOrden\").currentRecord=rec;",
+                            "    }",
+                            "}",
+                            "",
+                            "var activar=almacen.getApplication().currentSession.habilitaModificaPedido;",
+                            "var cedi=almacen.getApplication().currentSession.esCedi;",
+                            "if(cedi===false){",
+                            "    if(activar){",
+                            "        if((rec.Estado==\"APROBADO\")){",
+                            "            Ext.ComponentMgr.get(\"btnModificarPedido2\").setDisabled(false);",
+                            "            Ext.ComponentMgr.get(\"btnModificarPedido2\").currentRecord=rec;",
+                            "        }",
+                            "    }",
+                            "}"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridProductosAfterRender",
+                    "designerId": "647e8ca5-8af5-45b7-a2c9-8be2a01d1e86"
+                },
+                {
+                    "type": "Ext.grid.plugin.CellEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyCellEditingPlugin8",
+                    "designerId": "f18bf3b7-8ee0-421c-ac7a-b2dd75011cf5",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCellEditingEdit",
+                                "implHandler": [
+                                    "// se crea la variable global que guarda los registros",
+                                    "if(typeof window.modificados == 'undefined'){",
+                                    "    window.modificados = {};",
+                                    "}",
+                                    "",
+                                    "console.log(\"window.modificados before\");console.log(window.modificados);",
+                                    "",
+                                    "var record = context.record;",
+                                    "",
+                                    "//var fields = record.getFields();",
+                                    "",
+                                    "console.log(\"record\");console.log(record);",
+                                    "//console.log(\"fields\");console.log(fields);",
+                                    "",
+                                    "//var last_value = context.originalValue;",
+                                    "",
+                                    "//var originalValue = record.get(\"originalValue\");",
+                                    "",
+                                    "",
+                                    "//console.log(\"context\");",
+                                    "//console.log(context);",
+                                    "",
+                                    "//console.log(\"context.field\");",
+                                    "//console.log(context.field);",
+                                    "",
+                                    "",
+                                    "// Se modifica para que en lugar de tomar el indice (context.colIdx == 4), cheque el campo",
+                                    "//if (context.field == \"CantidadCedi\"){ // columna del cedis",
+                                    "//console.log(Object.keys(record.modified).length);",
+                                    "if(record.modified !== null){",
+                                    "    if(Object.keys(record.modified).length > 0){",
+                                    "        console.log(\"claveproducto\");",
+                                    "        console.log(record.get(\"claveproducto\"));",
+                                    "        window.modificados[record.get(\"claveproducto\")] = record;",
+                                    "    }else{",
+                                    "        if (record.get(\"claveproducto\") in window.modificados) {",
+                                    "            delete window.modificados[record.get(\"claveproducto\")];",
+                                    "        }",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    "/*  var valor = context.value;",
+                                    "",
+                                    "    console.log(\"originalValue: \" + originalValue);",
+                                    "    console.log(\"valor: \" + valor);",
+                                    "",
+                                    "    if(valor === null){",
+                                    "        valor = 0;",
+                                    "        console.log(\"Sobreescribienbdo valor: \" + valor);",
+                                    "    }",
+                                    "",
+                                    "    if (originalValue == valor) {",
+                                    "        // se quita de los modificados",
+                                    "        if (record.get(\"claveproducto\") in window.modificados) {",
+                                    "            delete window.modificados[record.get(\"claveproducto\")];",
+                                    "        }",
+                                    "        //valor = item.CantidadCedi;",
+                                    "    } else {",
+                                    "        console.log(\"henos aqui\");",
+                                    "        // el valor se modifica y se guarda el objeto modificado",
+                                    "        window.modificados[record.get(\"claveproducto\")] = record; // valor);",
+                                    "    }",
+                                    "*/",
+                                    "console.log(\"window.modificados after\");console.log(window.modificados);",
+                                    "",
+                                    "/*var ImporteTotalPedido = 0.0; // se calculara al final de la edicion",
+                                    "    var CantidadSucursal = 0.0;",
+                                    "    var ImporteTotal = 0.0;",
+                                    "",
+                                    "    if(!record.get(\"pedidoCedi\")){ // calculo para proveedores, ya viene con proporcion aplicada",
+                                    "        CantidadSucursal = valor;",
+                                    "    }else{ // calculo para Cedis",
+                                    "        CantidadSucursal = valor / record.get(\"Proporcion\");",
+                                    "",
+                                    "    }",
+                                    "",
+                                    "    ImporteTotal = CantidadSucursal * record.get(\"Costo\");",
+                                    "",
+                                    "    ImporteTotal = almacen.getApplication().redondeo(ImporteTotal);",
+                                    "",
+                                    "    // se actualizan los registros en el record",
+                                    "    record.beginEdit();",
+                                    "    record.set(\"Importe\", ImporteTotal);",
+                                    "    record.set(\"CantidadSucursal\", CantidadSucursal);",
+                                    "    record.endEdit();",
+                                    "    record.commit();*/",
+                                    "",
+                                    "//}",
+                                    "",
+                                    "// Calculo del Importe Total del Pedido",
+                                    "var ImporteTotalPedido = 0.0;",
+                                    "",
+                                    "var gridProductos = Ext.ComponentMgr.get(\"gridProductos2\");",
+                                    "",
+                                    "gridProductos.getStore().each(function(rec){",
+                                    "    ImporteTotalPedido += rec.get(\"Importe\");",
+                                    "});",
+                                    "",
+                                    "",
+                                    "console.log(\"ImporteTotalPedido: \" + ImporteTotalPedido);",
+                                    "",
+                                    "var gridDetalles = Ext.ComponentMgr.get(\"gridPedido2\");",
+                                    "",
+                                    "// Se actualiza el grid de datos del pedido con el valor del total de pedido actual",
+                                    "total_record = gridDetalles.getStore().getAt(4); // indice de la fila total",
+                                    "",
+                                    "total_record.beginEdit();",
+                                    "total_record.set(\"value\", Ext.util.Format.currency(ImporteTotalPedido));",
+                                    "total_record.endEdit();",
+                                    "total_record.commit();"
+                                ],
+                                "name": "edit",
+                                "scope": "me"
+                            },
+                            "name": "onCellEditingEdit",
+                            "designerId": "c0dc0a3c-2bdf-4b19-93e2-5a6596e833b7"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCellEditingBeforeEdit",
+                                "implHandler": [
+                                    "var rec = window.currentPedido.pedidos[0];",
+                                    "",
+                                    "var enable = false;",
+                                    "",
+                                    "// se habilita la modificacion si el cliente tiene el pedido",
+                                    "if(typeof rec.claveusuarioAparta === 'undefined' || rec.claveusuarioAparta === 0 || rec.claveusuarioAparta == -1 || rec.claveusuarioAparta == almacen.getApplication().ClaveUsuario){",
+                                    "    // se habilita solo si es el cedis o pedido de proveedor o tiene activa la configuracion de edicion",
+                                    "    var claveSucursalDestino = parseInt(rec.claveCedi, 10);",
+                                    "    var activar=almacen.getApplication().currentSession.habilitaModificaPedido;",
+                                    "    if(almacen.getApplication().currentSession.claveSucursal == claveSucursalDestino || !rec.pedidoCedi || (activar && rec.Estado==\"APROBADO\")){",
+                                    "        enable = true;",
+                                    "    }",
+                                    "}",
+                                    "",
+                                    "return enable;"
+                                ],
+                                "name": "beforeedit",
+                                "scope": "me"
+                            },
+                            "name": "onCellEditingBeforeEdit",
+                            "designerId": "d1843bcb-93f7-453e-9a6d-f441b90e43b2"
+                        }
+                    ]
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridProductos2BeforeRender",
+                        "implHandler": [
+                            "",
+                            "var rec = window.currentPedido.pedidos[0];",
+                            "",
+                            "console.log(\"onGridProductos2BeforeRender/rec\");",
+                            "console.log(rec);",
+                            "",
+                            "var pedidoCedi = rec.pedidoCedi;",
+                            "",
+                            "",
+                            "var columns = component.columns;",
+                            "",
+                            "var grid = Ext.ComponentMgr.get(\"gridProductos2\"),",
+                            "    gridHeader = grid.getView().headerCt,",
+                            "    column_cantidadCedi = gridHeader.child(\"#cantidadCedi\"),",
+                            "    column_cantidadOriginalCedi = gridHeader.child(\"#cantidadOriginalCedi\"),",
+                            "    column_importeUnitario = gridHeader.child(\"#importeUnitario\"),",
+                            "    column_descuento = gridHeader.child(\"#porcentajeDescuento\"),",
+                            "    column_ieps = gridHeader.child(\"#tasaIEPS\"),",
+                            "    column_impuesto = gridHeader.child(\"#tasaImpuesto\"),",
+                            "    column_importeTotal = gridHeader.child(\"#importeTotal\");",
+                            "",
+                            "if(!pedidoCedi){ // es pedido a proveedor",
+                            "    column_cantidadCedi.setText(\"Cantidad<br>a Recibir\");",
+                            "    column_cantidadOriginalCedi.setHidden(true);",
+                            "",
+                            "}else{",
+                            "    column_importeUnitario.setHidden(true);",
+                            "    column_descuento.setHidden(true);",
+                            "    column_ieps.setHidden(true);",
+                            "    column_impuesto.setHidden(true);",
+                            "}"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onGridProductos2BeforeRender",
+                    "designerId": "cdafbbf1-8334-4043-bb3c-8507e032093f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 211,
+                "hideHeaders": true,
+                "id": "gridPedido2",
+                "layout|region": "north",
+                "store": "StoreDatosPedido",
+                "title": ""
+            },
+            "name": "MyGridPanel11",
+            "designerId": "a1d1012f-92d5-4e42-ae62-f18746b7f1c5",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "label",
+                        "text": ".",
+                        "width": 273
+                    },
+                    "name": "MyColumn37",
+                    "designerId": "5a1e26f7-940a-4dd9-b03b-dcc2b113531a"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "value",
+                        "text": ".",
+                        "width": 345
+                    },
+                    "name": "MyColumn38",
+                    "designerId": "3d66c50f-c47a-4b9c-838e-74e6086fd094"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView9",
+                    "designerId": "853396a6-7063-4142-9e88-cec1932d0b66"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "delay": null,
+                        "fn": "onGridPedidoAfterRender",
+                        "implHandler": [
+                            "var rec = window.currentPedido.pedidos[0];",
+                            "//component.getStore().load(rec.productos);",
+                            "var arr = [];",
+                            "",
+                            "arr.push({\"label\":\"Sucursal\", \"value\":rec.SucursalOrigen});",
+                            "if(rec.pedidoCedi)",
+                            "    arr.push({\"label\":\"Cedi\", \"value\":rec.SucursalDestino});",
+                            "else",
+                            "    arr.push({\"label\":\"Proveedor\", \"value\":rec.SucursalDestino});",
+                            "arr.push({\"label\":\"Número\", \"value\":rec.clavePedido});",
+                            "console.log(\"rec\");",
+                            "console.log(rec);",
+                            "if(!rec.pedidoCedi && rec.claveOrdenCompraPadre > 0){",
+                            "    arr.push({\"label\":\"Número de Origen\", \"value\":rec.claveOrdenCompraPadre});",
+                            "}",
+                            "if(!rec.pedidoCedi && rec.motivo !== ''){",
+                            "    arr.push({\"label\":\"Motivo (Compra Incompleta)\", \"value\":rec.motivo});",
+                            "}",
+                            "arr.push({\"label\":\"Estado\", \"value\":rec.Estado});",
+                            "arr.push({\"label\":\"Total\", \"value\": Ext.util.Format.currency(rec.Total)});",
+                            "console.log(rec.fechaRegistro);",
+                            "var dt = new Date(rec.fechaRegistro);",
+                            "console.log(\"dt\");",
+                            "console.log(dt);",
+                            "if(dt instanceof Date && !isNaN(dt)){",
+                            "    arr.push({\"label\":\"Fecha de Registro\", \"value\":Ext.Date.format(dt, 'd/m/Y H:i:s')});    ",
+                            "}else{",
+                            "    arr.push({\"label\":\"Fecha de Registro\", \"value\":rec.fechaRegistro});    ",
+                            "}",
+                            "",
+                            "arr.push({\"label\":\"Fecha de Aprobación\", \"value\":rec.fechaRecepcion});",
+                            "arr.push({\"label\":\"Fecha de Recepción\", \"value\":rec.fechaConfirmacion});",
+                            "arr.push({\"label\":\"Fecha de Finalización\", \"value\":rec.fechaFinalizacion});",
+                            "arr.push({\"label\":\"Fecha de Entrega\", \"value\":rec.fechaEntrega});",
+                            "arr.push({\"label\":\"Fecha de Modificación\", \"value\":rec.fechaModificacion});",
+                            "arr.push({\"label\":\"Registrado Por\", \"value\":rec.quienRegistra});",
+                            "arr.push({\"label\":\"Cancelado Por\", \"value\":rec.quienCancela});",
+                            "arr.push({\"label\":\"Aprobado Por\", \"value\":rec.quienRecibe});",
+                            "arr.push({\"label\":\"Recibido Por\", \"value\":rec.quienConfirma});",
+                            "arr.push({\"label\":\"Finalizado Por\", \"value\":rec.quienFinaliza});",
+                            "arr.push({\"label\":\"Modificado Por\", \"value\":rec.quienModifica});",
+                            "component.getStore().loadData(arr);",
+                            "",
+                            ""
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridPedidoAfterRender",
+                    "designerId": "9f595f80-48ba-4eb6-b9c4-84dc27f40bab"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar13",
+            "designerId": "26f71668-48d1-41b9-b7eb-724377de87e5",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "btnEnviaOrden",
+                        "layout|flex": null,
+                        "text": "Envio de Correo"
+                    },
+                    "name": "MyButton18",
+                    "designerId": "34ba0d16-d5ba-477f-93fb-dee5757225b8",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "EnviaOrden",
+                                "implHandler": [
+                                    "console.log(\"button.currentRecord\");",
+                                    "console.log(button.currentRecord);",
+                                    "",
+                                    "// Se genera la ventana que lee que correos",
+                                    "var wnd=Ext.create(\"almacen.view.DlgCorreo\", {id:\"wndCorreo\",currentRecord:\"response\"});",
+                                    "wnd.parentController=this;",
+                                    "wnd.currentRecord=\"response\";",
+                                    "wnd.center();",
+                                    "wnd.show();"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "EnviaOrden",
+                            "designerId": "fc44bbaf-5142-482c-9b19-e4d9ee9ff9e9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill6",
+                    "designerId": "9b25d36d-ab70-4a13-aad3-45bb4323fbce"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/cancel-icon.png",
+                        "id": "btnCancelaPedido2",
+                        "layout|flex": null,
+                        "text": "Cancelar Pedido"
+                    },
+                    "name": "MyButton41",
+                    "designerId": "5f030a3a-9872-4bae-8006-aaadc0e9ed79",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "CallCancelaPedido",
+                                "implHandler": [
+                                    "var controller =  Ext.WindowMgr.get(\"wndDetallePedidos2\").parentController;",
+                                    "controller.CancelaTraspaso({\"currentRecord\":window.currentPedido.pedidos[0]},null,null);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "CallCancelaPedido",
+                            "designerId": "150487e4-195b-4383-b518-81c1042d6062"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/receive.png",
+                        "id": "btnRecibePedido2",
+                        "layout|flex": null,
+                        "text": "Recibir"
+                    },
+                    "name": "MyButton42",
+                    "designerId": "46551471-2269-4356-b5cf-dcb52098ad16",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "RecibePedido",
+                                "implHandler": [
+                                    "var controllerParent = this;",
+                                    "",
+                                    "if(button.currentRecord.pedidoCedi){",
+                                    "    if(Object.keys(window.modificados).length > 0){",
+                                    "        Ext.Msg.show({",
+                                    "            title: 'Recibir Compra',",
+                                    "            msg: 'Si continúa perdera las modificaciones. ¿Desea continuar?',",
+                                    "            buttonText : {",
+                                    "                cancel : 'Cancelar',",
+                                    "                yes : 'Continuar'",
+                                    "            },",
+                                    "            fn: function(btn) {",
+                                    "                if(btn == 'yes') {",
+                                    "                    var controller =  Ext.WindowMgr.get(\"wndDetallePedidos2\").parentController;",
+                                    "                    controller.RecibeTraspaso({\"currentRecord\":window.currentPedido.pedidos[0]},null,{wnd:Ext.WindowMgr.get(\"wndDetallePedidos\")});",
+                                    "                }",
+                                    "            }",
+                                    "        });",
+                                    "    }else{",
+                                    "        var controller =  Ext.WindowMgr.get(\"wndDetallePedidos2\").parentController;",
+                                    "        controller.RecibeTraspaso({\"currentRecord\":window.currentPedido.pedidos[0]},null,{wnd:Ext.WindowMgr.get(\"wndDetallePedidos\")});",
+                                    "    }",
+                                    "}else{",
+                                    "    msg = '¿Desea recibir el pedido '+ button.currentRecord.clavePedido +' completo o parcial? <br><br>';",
+                                    "    msg += 'Completo: Se recibe el pedido con las cantidades asignadas. <br><br>';",
+                                    "    msg += 'Parcial: Se recibe un pedido con las cantidades asignadas y se genera uno nuevo con las cantidades restantes. En caso de que las cantidades asignadas sobrepasen las restantes, no se generará un nuevo pedido.';",
+                                    "",
+                                    "    Ext.MessageBox.show({",
+                                    "        title: 'Recibir Compra',",
+                                    "        message: msg,",
+                                    "        width: 400,",
+                                    "        buttons: Ext.Msg.YESNOCANCEL,",
+                                    "        buttonText: {",
+                                    "            yes: 'Parcial',",
+                                    "            no: 'Completo',",
+                                    "            cancel: 'Cancelar'",
+                                    "        },",
+                                    "        fn :function(buttonId){",
+                                    "            if(buttonId==\"yes\"){",
+                                    "                button.currentRecord.pedidoParcial = true;",
+                                    "                //var controller =  Ext.WindowMgr.get(\"wndDetallePedidos2\").parentController;",
+                                    "                //controller.RecibeTraspaso({\"currentRecord\":window.currentPedido.pedidos[0]},null,{wnd:Ext.WindowMgr.get(\"wndDetallePedidos\")}); // 1 parcial",
+                                    "                controllerParent.recibePedido(null);",
+                                    "            }",
+                                    "            if(buttonId==\"no\"){",
+                                    "",
+                                    "                button.currentRecord.pedidoParcial = false;",
+                                    "",
+                                    "                var pass = 0;",
+                                    "                for(var i = 0; i< button.currentRecord.productos.length; i++){",
+                                    "                    var producto = button.currentRecord.productos[i];",
+                                    "                    if(producto.CantidadCedi < producto.originalValue){",
+                                    "                        pass++;",
+                                    "                    }",
+                                    "                }",
+                                    "",
+                                    "                if(pass > 0){",
+                                    "                    console.log(\"henos aqui\");",
+                                    "                    var wnd = Ext.create(\"almacen.view.DlgMotivosOrdenCompleta\",{id:'wndPreguntaMotivoIncompleta'});",
+                                    "                    wnd.parentController = controllerParent;",
+                                    "                    wnd.center();",
+                                    "                    wnd.show();",
+                                    "                }else{",
+                                    "                    //var controller =  Ext.WindowMgr.get(\"wndDetallePedidos2\").parentController;",
+                                    "                    //controller.RecibeTraspaso({\"currentRecord\":window.currentPedido.pedidos[0]},null,{wnd:Ext.WindowMgr.get(\"wndDetallePedidos\")}); // Completo",
+                                    "                    controllerParent.recibePedido(null);",
+                                    "                }",
+                                    "            }",
+                                    "        }",
+                                    "    });",
+                                    "}"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "RecibePedido",
+                            "designerId": "3d8df5bf-ec2a-4ad2-8d84-f5314ad959b2"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/tick.png",
+                        "id": "btnFinalizaPedido2",
+                        "layout|flex": null,
+                        "text": "Finalizar"
+                    },
+                    "name": "MyButton43",
+                    "designerId": "1738f5c6-0aee-4bcd-b011-2010f5249ea8",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "FinalizaPedido",
+                                "implHandler": [
+                                    "var controller =  Ext.WindowMgr.get(\"wndDetallePedidos2\").parentController;",
+                                    "controller.FinalizaTraspasos({\"currentRecord\":window.currentPedido.pedidos[0]},null,null);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "FinalizaPedido",
+                            "designerId": "2fe20905-860d-42a5-96eb-62f8fcfe8aa9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/pencil.png",
+                        "id": "btnModificarPedido2",
+                        "layout|flex": null,
+                        "text": "Modificar"
+                    },
+                    "name": "MyButton36",
+                    "designerId": "c1e7bb9f-d5a1-49af-ba67-5477435d7c0c",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "ModificaPedido2",
+                                "implHandler": [
+                                    "var currentController=this;",
+                                    "",
+                                    "// Se valida si existen modificaciones",
+                                    "console.log(window.modificados);",
+                                    "if(typeof window.modificados === 'undefined' || (typeof window.modificados !== 'undefined' && Object.keys(window.modificados).length === 0)){",
+                                    "    Ext.Msg.alert('Mensaje','No existen modificaciones en el pedido.');",
+                                    "    return;",
+                                    "}",
+                                    "",
+                                    "// Se define el mensaje que aparecera de acuerdo a si es pedido a cedis o proveedor",
+                                    "",
+                                    "var msg = '';",
+                                    "var buttons;",
+                                    "var buttonText = {};",
+                                    "var width = 400;",
+                                    "",
+                                    "",
+                                    "//if(button.currentRecord.pedidoCedi){",
+                                    "if(true){",
+                                    "    msg = '¿Desea modificar el pedido ' + button.currentRecord.clavePedido + '?';",
+                                    "    buttons = Ext.Msg.NOCANCEL;",
+                                    "    buttonText = {",
+                                    "        no: 'Modificar',",
+                                    "        cancel: 'Cancelar'",
+                                    "    };",
+                                    "    width = 250;",
+                                    "}/*else{",
+                                    "    msg = '¿Desea recibir el pedido(parcial) o modificar el pedido ' + button.currentRecord.clavePedido + '?';",
+                                    "    buttons = Ext.Msg.YESNOCANCEL;",
+                                    "    buttonText = {",
+                                    "        yes: 'Recibir Parcial',",
+                                    "        no: 'Modificar',",
+                                    "        cancel: 'Cancelar'",
+                                    "    };",
+                                    "}",
+                                    "*/",
+                                    "Ext.MessageBox.show({",
+                                    "    title: 'Modificar',",
+                                    "    message: msg,",
+                                    "    width: width,",
+                                    "    buttons: buttons,",
+                                    "    buttonText: buttonText,",
+                                    "    fn :function(buttonId){",
+                                    "        if(buttonId==\"yes\"){",
+                                    "            //  console.log(\"parametro 0\");",
+                                    "            // controller.validaGuardarPedidos(controller,0);",
+                                    "        }",
+                                    "        if(buttonId==\"no\"){",
+                                    "            var winDelete =  Ext.create('Ext.window.Window', {",
+                                    "                title: 'Seleccione el método de impresión',",
+                                    "                height: 150,",
+                                    "                width: 500,",
+                                    "                layout: 'fit',",
+                                    "                modal:true,",
+                                    "                bodyPadding: 20,",
+                                    "                border: 2,",
+                                    "                buttons: [",
+                                    "                    {",
+                                    "                        text: 'CONFIRMAR',",
+                                    "                        scale: 'medium',",
+                                    "                        cls: 'btn-delete-yes',",
+                                    "                        listeners: {",
+                                    "                            click: function() {",
+                                    "",
+                                    "                                var radio1 = Ext.getCmp('radio1'),",
+                                    "",
+                                    "                                    radio2 = Ext.getCmp('radio2'),",
+                                    "                                    radio3 = Ext.getCmp('radio3');",
+                                    "                                radio4 = Ext.getCmp('radio4');",
+                                    "",
+                                    "                                //if L is selected, change to M",
+                                    "                                if (radio1.getValue()) {",
+                                    "                                    currentController.modificarPedido(0, button);",
+                                    "                                    winDelete.close();",
+                                    "                                    return;",
+                                    "                                }",
+                                    "",
+                                    "                                //if XL is selected, change to L",
+                                    "                                if (radio2.getValue()) {",
+                                    "                                    currentController.modificarPedido(1, button);",
+                                    "                                    winDelete.close();",
+                                    "                                    return;",
+                                    "                                }",
+                                    "",
+                                    "                                //if XL is selected, change to L",
+                                    "                                if (radio3.getValue()) {",
+                                    "                                    currentController.modificarPedido(2, button);",
+                                    "                                    winDelete.close();",
+                                    "                                    return;",
+                                    "                                }",
+                                    "                                //if XL is selected, change to L",
+                                    "                                if (radio4.getValue()) {",
+                                    "                                    currentController.modificarPedido(-1, button);",
+                                    "                                    winDelete.close();",
+                                    "                                    return;",
+                                    "                                }",
+                                    "                            }",
+                                    "                        }",
+                                    "                    }, '->',",
+                                    "                    {",
+                                    "                        text: 'CANCELAR',",
+                                    "                        scale: 'medium',",
+                                    "                        cls: 'btn-delete-no',",
+                                    "                        listeners: {",
+                                    "                            click: function() {",
+                                    "                                winDelete.close();",
+                                    "                            }",
+                                    "                        }",
+                                    "                    }",
+                                    "                ],",
+                                    "                items: [",
+                                    "                    {",
+                                    "                        xtype      : 'fieldcontainer',",
+                                    "                        fieldLabel : '',",
+                                    "                        defaultType: 'radiofield',",
+                                    "                        defaults: {",
+                                    "                            flex: 1",
+                                    "                        },",
+                                    "                        layout: 'hbox',",
+                                    "                        items: [",
+                                    "                            {",
+                                    "                                boxLabel  : 'PDF',",
+                                    "                                checked: true,",
+                                    "                                name      : 'size',",
+                                    "                                inputValue: '0',",
+                                    "                                id        : 'radio1'",
+                                    "                            }, {",
+                                    "                                boxLabel  : 'EXCEL',",
+                                    "                                name      : 'size',",
+                                    "                                inputValue: 'l',",
+                                    "                                id        : 'radio2',",
+                                    "                                listeners : {",
+                                    "                                    afterrender : function(){",
+                                    "                                        if(button.currentRecord.pedidoCedi){",
+                                    "                                            this.setDisabled(false);",
+                                    "                                        }else{",
+                                    "                                            this.setDisabled(true);",
+                                    "                                        }",
+                                    "                                    }",
+                                    "                                }",
+                                    "                            }, {",
+                                    "                                boxLabel  : 'PDF y EXCEL',",
+                                    "                                name      : 'size',",
+                                    "                                inputValue: '2',",
+                                    "                                id        : 'radio3',",
+                                    "                                listeners : {",
+                                    "                                    afterrender : function(){",
+                                    "                                        if(button.currentRecord.pedidoCedi){",
+                                    "                                            this.setDisabled(false);",
+                                    "                                        }else{",
+                                    "                                            this.setDisabled(true);",
+                                    "                                        }",
+                                    "                                    }",
+                                    "                                }",
+                                    "                            }, {",
+                                    "                                boxLabel  : 'Sin Impresión',",
+                                    "                                name      : 'size',",
+                                    "                                inputValue: '2',",
+                                    "                                id        : 'radio4'",
+                                    "                            }",
+                                    "                        ]",
+                                    "                    }",
+                                    "                ]",
+                                    "            }).show();",
+                                    "        }",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "ModificaPedido2",
+                            "designerId": "b579217e-64b3-4b3b-acee-eaf26266d5fe"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

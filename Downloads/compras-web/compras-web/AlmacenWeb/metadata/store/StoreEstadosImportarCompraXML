@@ -1,0 +1,55 @@
+{
+    "type": "arraystore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"value\": \"0\",",
+            "        \"label\": \"PENDIENTE\"",
+            "    },",
+            "    {",
+            "        \"value\": \"1\",",
+            "        \"label\": \"PROCESADO\"",
+            "    },",
+            "    {",
+            "        \"value\": \"-1\",",
+            "        \"label\": \"ERROR\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "StoreEstadosImportarCompraXML",
+        "model": "mdlGeneric",
+        "storeId": "StoreEstadosImportarCompraXML"
+    },
+    "name": "MyArrayStore",
+    "designerId": "cda324a6-cd55-41cc-b080-495f7846a772",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy1",
+            "designerId": "cb5eccf6-1fb2-4c7c-8642-adbaaafc53e7",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Array",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyArrayReader",
+                    "designerId": "da30de2b-4292-4518-afec-ef1af187e4ce"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,220 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "produccionestras",
+        "designer|userClassName": "produccionesTrasViewController"
+    },
+    "designerId": "4c55dcb8-ee89-48f6-b9f5-15e0f0b03119",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "obtieneSeleccion",
+                "implHandler": [
+                    "var grid = Ext.ComponentMgr.get(\"gridProduccionesTras\");",
+                    "if (grid.getSelection().length > 0)",
+                    "    return grid.getSelection()[0];",
+                    "else",
+                    "    return null;"
+                ]
+            },
+            "name": "obtieneSeleccion",
+            "designerId": "1e863f15-33cd-41b6-977d-5044aa246945"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "muestraDialogoContenido",
+                "implHandler": [
+                    "///cargamos los productos a producir",
+                    "var wnd = Ext.create(\"almacen.view.DlgContenidoProduccion\", {",
+                    "    id: \"wndContenidoProduccion\"",
+                    "});",
+                    "wnd.currentRecord=record.data;",
+                    "wnd.blankRecord= JSON.parse(JSON.stringify(record.data));",
+                    "wnd.parentController=this;",
+                    "wnd.center();",
+                    "wnd.show();"
+                ]
+            },
+            "name": "muestraDialogoContenido",
+            "designerId": "6523550a-3529-4f1c-85c8-9fc15ae32790"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "rec"
+                ],
+                "fn": "guardaProduccion",
+                "implHandler": [
+                    "//guardaproduccion",
+                    "var currentController = this;",
+                    "var request = new Object(); request.method=\"guardaproduccion\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "request.params.push({\"name\":\"platillo\",\"value\":rec.claveProducto});",
+                    "request.params.push({\"name\":\"cantidadplatillo\",\"value\":rec.cantidadEsperada});",
+                    "request.params.push({\"name\":\"estadocosto\",\"value\":rec.estadoCosto});",
+                    "request.params.push({\"name\":\"claveempleado\",\"value\":rec.claveEmpleado});",
+                    "request.params.push({\"name\":\"claveproductoventa\",\"value\":rec.claveProductoVenta});",
+                    "request.params.push({\"name\":\"precioventa\",\"value\":rec.precioVenta});",
+                    "request.params.push({\"name\":\"cantidadpago\",\"value\":rec.cantidadPago});",
+                    "request.params.push({\"name\":\"tipopago\",\"value\":rec.tipoPago});",
+                    "",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    if (response){",
+                    "        Ext.Msg.alert('', 'Produccion guardada Exitosamente');",
+                    "        currentController.onGridProduccionesTrasAfterRender(Ext.ComponentMgr.get(\"gridProduccionesTras\"),null);",
+                    "        var wnd = Ext.WindowMgr.get(\"wndContenidoProduccion\");",
+                    "        if (wnd)",
+                    "            wnd.close();",
+                    "    }else{",
+                    "        Ext.Msg.alert('', 'Error al guardar Produccion');",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "name": "guardaProduccion",
+            "designerId": "cd4517e4-c20a-4bd5-b973-ed0ce6aca56f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "rec"
+                ],
+                "fn": "terminaProduccion",
+                "implHandler": [
+                    "//terminaproduccion",
+                    "var currentController = this;",
+                    "var request = new Object(); request.method=\"terminaproduccion\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "request.params.push({\"name\":\"produccion\",\"value\":Ext.encode(rec)});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    if (response){",
+                    "        Ext.Msg.alert('', 'Produccion terminada Exitosamente');",
+                    "        currentController.onGridProduccionesTrasAfterRender(Ext.ComponentMgr.get(\"gridProduccionesTras\"),null);",
+                    "        var wnd = Ext.WindowMgr.get(\"wndContenidoProduccion\");",
+                    "        if (wnd)",
+                    "            wnd.close();",
+                    "        ",
+                    "        if(response.filepath){",
+                    "            if(response.filepath.length == 1){",
+                    "                var curentFilepath = response.filepath[0];",
+                    "                console.log(\"Archivo a descargar: \" + curentFilepath);",
+                    "                if(curentFilepath !== \"\"){",
+                    "                    //Ext.Msg.alert( \"Se descargará su archivo.\";",
+                    "                    almacen.getApplication().downloadPedido(curentFilepath, 0); // 0 PDF 1 Excel 2 Ambos",
+                    "                }else{",
+                    "                    Ext.Msg.alert(\"Error\", \"No se pudo generar su archivo, pero el ticket ha sido impreso.\");",
+                    "                }",
+                    "            }",
+                    "        }",
+                    "",
+                    "",
+                    "    }else{",
+                    "        Ext.Msg.alert('', 'Error al terminar Produccion');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "terminaProduccion",
+            "designerId": "e6fcdf6b-ef71-4c9a-b46b-6c8b39634391"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "rec"
+                ],
+                "fn": "eliminaProduccion",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "name": "eliminaProduccion",
+            "designerId": "352b9da7-f5e1-4aec-a1d3-8a060923a41c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "rec"
+                ],
+                "fn": "imprimeProduccion",
+                "implHandler": [
+                    "var currentController = this;",
+                    "        var request = new Object(); request.method=\"imprimeproduccion\"; request.params=[];",
+                    "        request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "        request.params.push({\"name\":\"claveproduccion\",\"value\":rec.claveproduccion});",
+                    "        almacen.getApplication().loadData(request,function(response){",
+                    "            console.log(response);",
+                    "",
+                    "            var msg = \"\";",
+                    "            ",
+                    "            if(response.filepath){",
+                    "                if(response.filepath.length == 1){",
+                    "                    var curentFilepath = response.filepath[0];",
+                    "                    console.log(\"Archivo a descargar: \" + curentFilepath);",
+                    "                    if(curentFilepath !== \"\"){",
+                    "                        msg += \"Se descargará su archivo.\";",
+                    "                        almacen.getApplication().downloadPedido(curentFilepath, 0); // 0 PDF 1 Excel 2 Ambos",
+                    "                    }else{",
+                    "                        msg += \"No se pudo generar su archivo, pero el ticket ha sido impreso.\";",
+                    "                    }",
+                    "                }",
+                    "            }",
+                    "            ",
+                    "            if (response.status){",
+                    "                Ext.Msg.alert('Impresión', response.msg + \"<br>\" + msg);",
+                    "            }else{",
+                    "                Ext.Msg.alert('Error', response.msg);",
+                    "            }",
+                    "",
+                    "        });"
+                ]
+            },
+            "name": "imprimeProduccion",
+            "designerId": "2c7f2a9b-a4b0-4cd7-a105-dabe77f73ae2"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultapedido",
+        "designer|userClassName": "DlgConsultaPedidoViewModel"
+    },
+    "designerId": "7f889fca-ef61-46f5-8c93-a2c2d23fd7a6"
+}

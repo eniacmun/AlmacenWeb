@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgreporteclasificaciones",
+        "designer|userClassName": "DlgReporteClasificacionesViewModel"
+    },
+    "designerId": "bf621446-73c9-455b-9cc0-c4ffd3eed01a"
+}

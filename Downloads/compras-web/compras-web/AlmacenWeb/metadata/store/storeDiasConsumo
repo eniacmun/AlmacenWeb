@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "storeDiasConsumo",
+        "model": "mdlGeneric",
+        "storeId": "storeDiasConsumo"
+    },
+    "name": "MyJsonStore",
+    "designerId": "3ead46ac-75f7-4970-9d1b-9fd0d7569ebf"
+}

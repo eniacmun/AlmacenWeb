@@ -1,0 +1,53 @@
+.productos-cls .x-form-display-field{
+    word-wrap: break-word;
+    white-space: normal;
+    width:600px;
+}
+
+.editable .x-change-cell {
+    background-color: #D8D8D8;
+}
+
+.no-inventory .x-change-cell  {
+    background-color: #F5F6CE;
+
+}
+
+.no-inventory .editable {
+    background-color: #AEB404;
+
+}
+
+.editable {
+    background-color: #D8D8D8;
+
+}
+
+.no-editable {
+    background-color: #cc6c6c;
+
+}
+
+.x-action-col-cell img.icon-del {
+    background-image: url("../resources/cancel-icon.png");
+}
+
+.x-action-col-cell img.icon-edit {
+    background-image: url("../resources/Tick.png");
+}
+
+/*Estilo para los elementos del coombo cmbProveedorCedis en DlgPedidos*/
+.false{
+  /*color: red;*/
+       
+}
+
+.true {
+    /*color: black;*/
+    background-color: #F0F0F0; 
+    color: #BDB9B9;
+}
+
+.x-container .my-disabled{
+    background-color: #D9D8D8; 
+}

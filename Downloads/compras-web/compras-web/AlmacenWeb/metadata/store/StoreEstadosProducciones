@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreEstadosProducciones",
+        "model": "mdlGeneric",
+        "storeId": "StoreEstadosProducciones"
+    },
+    "name": "MyJsonStore",
+    "designerId": "8d5779e3-77ec-4c0b-ade5-ce2f2ab18732"
+}

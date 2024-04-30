@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcorreoreporte",
+        "designer|userClassName": "DlgCorreoReporteViewController"
+    },
+    "name": "DlgCorreoViewController2",
+    "designerId": "4b8c7d36-180a-4503-9584-4fb668893534"
+}

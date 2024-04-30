@@ -1,0 +1,39 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreComboProductos",
+        "model": "mdlProductosCompra",
+        "storeId": "StoreComboProductos"
+    },
+    "name": "MyJsonStore",
+    "designerId": "a6a249b8-415f-4996-8b72-6cb24b8d0aa5",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy",
+            "designerId": "e220d6db-cf26-4674-bb20-80fe31c82e2f",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader",
+                    "designerId": "99167f46-3080-471b-abec-36b903c82f5f"
+                }
+            ]
+        }
+    ]
+}

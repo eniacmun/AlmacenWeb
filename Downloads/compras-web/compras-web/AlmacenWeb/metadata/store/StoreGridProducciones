@@ -1,0 +1,39 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreGridProducciones",
+        "model": "MyModel",
+        "storeId": "StoreGridProducciones"
+    },
+    "name": "MyJsonStore2",
+    "designerId": "1cafd508-5ebd-48db-ac34-ab679096da6d",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy2",
+            "designerId": "412f82c2-35a7-4d5e-ae67-ccc73d2f3b06",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader2",
+                    "designerId": "82add373-8e53-4c33-b446-57c436ddbc78"
+                }
+            ]
+        }
+    ]
+}

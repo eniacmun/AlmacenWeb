@@ -1,0 +1,112 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgmotivosordencompleta",
+        "designer|userClassName": "DlgNoImpresionesAjustesViewController2"
+    },
+    "name": "DlgNoImpresionesAjustesViewController2",
+    "designerId": "28efe6fe-7998-4046-acb7-c583b926e143",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAceptar2",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "AsignarPreguntaMotivos",
+                "implHandler": [
+                    "var motivo = Ext.ComponentMgr.get(\"cmbNoImpresiones2\").getValue();",
+                    "",
+                    "console.log(\"motivo\");",
+                    "console.log(motivo);",
+                    "console.log(motivo.length);",
+                    "",
+                    "",
+                    "if(motivo.trim().length < 1){",
+                    "    return;",
+                    "}",
+                    "",
+                    "this.AsignaMotivo(motivo);",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "AsignarPreguntaMotivos",
+            "designerId": "f8d0d0e6-9cf2-4494-a690-625c4668e1c4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbNoImpresiones2",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "PreguntaMotivos",
+                "implHandler": [
+                    "var request = {}; request.method=\"obtienemotivosorden\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "",
+                    "",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    console.log(\"response --\");",
+                    "    console.log(response);",
+                    "",
+                    "    component.getStore().removeAll();",
+                    "",
+                    "    if(response.length > 0 ){",
+                    "",
+                    "        for(var i = 0; i < response.length ; i++){",
+                    "            var user = Ext.create('almacen.model.mdlGeneric', {",
+                    "                value   : response[i],",
+                    "                label : response[i]",
+                    "            });",
+                    "            component.getStore().add(user);",
+                    "        }",
+                    "",
+                    "      //  component.setValue(response[0]);",
+                    "        component.getStore().sort(\"label\",\"ASC\");",
+                    "    }",
+                    "});",
+                    ""
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "PreguntaMotivos",
+            "designerId": "b4584b88-d876-4513-b519-3e782bb12ad2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "motivo"
+                ],
+                "fn": "AsignaMotivo",
+                "implHandler": [
+                    "        Ext.WindowMgr.get(\"wndPreguntaMotivoIncompleta\").parentController.recibePedido(motivo);",
+                    "        Ext.WindowMgr.get(\"wndPreguntaMotivoIncompleta\").close();"
+                ]
+            },
+            "name": "AsignaMotivo",
+            "designerId": "f9fc903f-e938-47a2-be63-69678af29379"
+        }
+    ]
+}

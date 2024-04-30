@@ -1,0 +1,644 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultatraspasos2",
+        "designer|userClassName": "DlgConsultaTraspasos2",
+        "floating": true,
+        "height": 581,
+        "layout": "border",
+        "modal": true,
+        "title": "Consulta pedidos",
+        "width": 935
+    },
+    "name": "DlgConsultaTraspasos2",
+    "designerId": "dd3ee517-255c-42d6-9b5e-88f0d5063f0d",
+    "viewControllerInstanceId": "0e93b5ab-e5ee-4ec6-95e7-a7785ababd4b",
+    "viewModelInstanceId": "910fc1bb-1c50-425b-9971-5f8d4780aa25",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowDeselect": true,
+                "id": "gridConsultaTraspasos2",
+                "layout|region": "center",
+                "store": "StorePedidos",
+                "title": ""
+            },
+            "name": "MyGridPanel8",
+            "designerId": "e8e543a7-ced9-4bb4-a808-740ec9ca1172",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView6",
+                    "designerId": "a2acac2c-2b6e-4616-ba50-415ac47d3fbd",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "record",
+                                    "rowIndex",
+                                    "rowParams",
+                                    "store"
+                                ],
+                                "fn": "getRowClass",
+                                "implHandler": [
+                                    "var style = \"\";",
+                                    "",
+                                    "//console.log(\"claveusuarioAparta\");",
+                                    "//console.log(record.get(\"claveusuarioAparta\"));",
+                                    "if(typeof record.get(\"claveusuarioAparta\") !== 'undefined' && record.get(\"claveusuarioAparta\") !== 0 && record.get(\"claveusuarioAparta\") != -1 && record.get(\"claveusuarioAparta\") != almacen.getApplication().ClaveUsuario){",
+                                    "  style = \"no-editable\";",
+                                    "}",
+                                    "//console.log(\"style\");",
+                                    "//console.log(style);",
+                                    "",
+                                    "return style;"
+                                ]
+                            },
+                            "name": "getRowClass",
+                            "designerId": "6f2356a1-8da2-42a7-a532-c7d1a3b3ad94"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "clavePedido",
+                        "text": "Pedido",
+                        "width": 114
+                    },
+                    "name": "MyColumn30",
+                    "designerId": "67d07651-407d-402f-ad5f-4f1c764a4b7f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "SucursalOrigen",
+                        "defaultWidth": 180,
+                        "maxWidth": 180,
+                        "minWidth": 180,
+                        "text": "Origen",
+                        "weight": 180,
+                        "width": 114
+                    },
+                    "name": "MyColumn60",
+                    "designerId": "00a47389-49ca-47cf-a808-83aeee18e367"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "SucursalDestino",
+                        "defaultWidth": 180,
+                        "maxWidth": 180,
+                        "minWidth": 180,
+                        "text": "CEDIS",
+                        "weight": 180,
+                        "width": 124
+                    },
+                    "name": "MyColumn31",
+                    "designerId": "5d7f524c-0e6f-480d-b401-1acc237caf4b"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "fechaRegistro",
+                        "defaultWidth": 180,
+                        "format": "d/m/Y H:i:s",
+                        "maxWidth": 180,
+                        "minWidth": 180,
+                        "text": "Fecha Registro",
+                        "weight": 180,
+                        "width": 160
+                    },
+                    "name": "MyDateColumn1",
+                    "designerId": "1bcab6af-890d-437c-91be-2894e8c243fc"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Estado",
+                        "text": "Estado",
+                        "width": 126
+                    },
+                    "name": "MyColumn32",
+                    "designerId": "f01cf99a-5ac8-4c60-a46b-2e1de26fd7e0"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "Total",
+                        "format": "0,000.000",
+                        "text": "Total",
+                        "width": 118
+                    },
+                    "name": "MyNumberColumn11",
+                    "designerId": "f3b3189b-00ae-4a40-b8b8-8a9c51ddc34e",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Number",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyNumberFilter2",
+                            "designerId": "9d25e1d8-11e1-4492-9aa7-709f814cdb50"
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    " rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "console.log(\"renderizando\");",
+                                    "return Ext.util.Format.currency(value);",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "725a2f12-0048-44bb-8390-7c2b7b96a40d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar10",
+                    "designerId": "94c7b183-6bba-4f99-97e9-0ff5a1a054c3",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill3",
+                            "designerId": "b564ec59-9af1-4427-a653-60507046e934"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "icon": "resources/print.png",
+                                "id": "btnReimprimir2",
+                                "layout|flex": null,
+                                "text": "Reimprimir Pedido"
+                            },
+                            "name": "MyButton58",
+                            "designerId": "5ed19555-a217-4920-a9eb-1333f8b20dcb"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "icon": "resources/cancel-icon.png",
+                                "id": "btnCancela2",
+                                "layout|flex": null,
+                                "text": "Cancelar Pedido"
+                            },
+                            "name": "MyButton32",
+                            "designerId": "cad137f5-51a7-4c9a-be90-8abf8ecec759"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "icon": "resources/save.png",
+                                "id": "btnAprobar2",
+                                "layout|flex": null,
+                                "text": "Aprobar"
+                            },
+                            "name": "MyButton59",
+                            "configAlternates": {
+                                "currentRecord": "object"
+                            },
+                            "designerId": "61e9de6c-2b10-4faf-b81e-738fbda39967",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "currentRecord",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "icon": "resources/detail.png",
+                                "id": "btnDetalle2",
+                                "layout|flex": null,
+                                "text": "Detalle"
+                            },
+                            "name": "MyButton44",
+                            "designerId": "4e38d2dd-9e0f-4e8e-b25b-fcd8d7530824"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "icon": "resources/receive.png",
+                                "id": "btnRecibe2",
+                                "layout|flex": null,
+                                "overflowText": "",
+                                "text": "Recibir"
+                            },
+                            "name": "MyButton33",
+                            "designerId": "b17fe559-0923-4ae7-a477-be06341f2941",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "currentRecord",
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "icon": "resources/tick.png",
+                                "id": "btnFinaliza2",
+                                "layout|flex": null,
+                                "text": "Finalizar"
+                            },
+                            "name": "MyButton34",
+                            "configAlternates": {
+                                "currentRecord": "object"
+                            },
+                            "designerId": "9b90737e-d76e-4a7b-b988-b282ac5e9008",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "currentRecord",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.selection.RowModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowDeselect": true,
+                        "mode": "MULTI"
+                    },
+                    "name": "MyRowSelectionModel1",
+                    "designerId": "f0d76312-4b1b-4c5c-abe3-fc254a0a3eb3",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onRowModelSelectionChange",
+                                "implHandler": [
+                                    "// Se deshabilita todo. Se habilitara en base a los casos en que se encuentre",
+                                    "Ext.ComponentMgr.get(\"btnCancela2\").setDisabled(true);",
+                                    "Ext.ComponentMgr.get(\"btnRecibe2\").setDisabled(true);",
+                                    "Ext.ComponentMgr.get(\"btnFinaliza2\").setDisabled(true);",
+                                    "Ext.ComponentMgr.get(\"btnDetalle2\").setDisabled(true);",
+                                    "Ext.ComponentMgr.get(\"btnReimprimir2\").setDisabled(true);",
+                                    "Ext.ComponentMgr.get(\"btnAprobar2\").setDisabled(true);",
+                                    "",
+                                    "Ext.ComponentMgr.get(\"btnCancela2\").currentRecord=null;",
+                                    "Ext.ComponentMgr.get(\"btnRecibe2\").currentRecord=null;",
+                                    "Ext.ComponentMgr.get(\"btnFinaliza2\").currentRecord=null;",
+                                    "Ext.ComponentMgr.get(\"btnDetalle2\").currentRecord=null;",
+                                    "Ext.ComponentMgr.get(\"btnReimprimir2\").currentRecord=null;",
+                                    "Ext.ComponentMgr.get(\"btnAprobar2\").currentRecord=null;",
+                                    "",
+                                    "",
+                                    "// De no haber seleccion, se deja todo deshabilitado.",
+                                    "if (selected.length <= 0) return;",
+                                    "",
+                                    "// Si se selecciona más de uno, se asumo que quiere finalizar todos, solo para cedis",
+                                    "",
+                                    "console.log();",
+                                    "",
+                                    "if(selected.length > 1 ){",
+                                    "",
+                                    "    // Se verifica que el nuevo este RECIBIDO, junto con el anterior",
+                                    "    var currentRecord = selected[selected.length-1];",
+                                    "    var lastRecord = selected[selected.length-2];",
+                                    "    var claveSucursalDestinoCurrent = parseInt(currentRecord.get(\"claveCedi\"), 10);",
+                                    "    var claveSucursalDestinoLast = parseInt(lastRecord.get(\"claveCedi\"), 10);",
+                                    "",
+                                    "    // Se verifica el estado y también que sea CEDIS",
+                                    "    if( (lastRecord.get(\"Claveestado\") == 2 && currentRecord.get(\"Claveestado\") == 2) && (almacen.getApplication().currentSession.claveSucursal==claveSucursalDestinoCurrent && almacen.getApplication().currentSession.claveSucursal==claveSucursalDestinoLast))",
+                                    "    {",
+                                    "",
+                                    "        Ext.ComponentMgr.get(\"btnFinaliza2\").setDisabled(false);//habilitamos el boton para finalizar",
+                                    "        Ext.ComponentMgr.get(\"btnFinaliza2\").currentRecord = selected; //rec.data;",
+                                    "",
+                                    "    }else{",
+                                    "        // Dado que no se cumple que ambos esten en RECIBIDO y sea CEDIS, se desactiva la ultima seleccion.",
+                                    "        // De esta forma siempre estaran seleccionados solo los de estado 2.",
+                                    "        model.deselect(currentRecord);",
+                                    "        return;",
+                                    "    }",
+                                    "",
+                                    "}else{",
+                                    "",
+                                    "    var rec = selected[0];",
+                                    "    //console.log(\"rec\");console.log(rec);",
+                                    "    //console.log(\"rec.data\");console.log(rec.data);",
+                                    "    Ext.ComponentMgr.get(\"btnDetalle2\").setDisabled(false);",
+                                    "    var estado = parseInt(rec.get(\"Claveestado\"), 10);",
+                                    "    var claveSucursalOrigen = parseInt(rec.get(\"claveSucursal\"), 10);",
+                                    "    var claveSucursalDestino = parseInt(rec.get(\"claveCedi\"), 10);",
+                                    "    Ext.ComponentMgr.get(\"btnDetalle2\").currentRecord=rec.data;",
+                                    "    if   (estado == 0) {",
+                                    "        Ext.ComponentMgr.get(\"btnCancela2\").setDisabled(false);//habilitamos el boton para cancelar",
+                                    "        Ext.ComponentMgr.get(\"btnCancela2\").currentRecord=rec.data;",
+                                    "    }",
+                                    "    if   (estado == 1) {",
+                                    "        Ext.ComponentMgr.get(\"btnCancela2\").setDisabled(false);//habilitamos el boton para cancelar",
+                                    "        Ext.ComponentMgr.get(\"btnCancela2\").currentRecord=rec.data;",
+                                    "    }",
+                                    "    if (almacen.getApplication().currentSession.claveSucursal==claveSucursalDestino && estado===0){",
+                                    "        if(typeof rec.data.claveusuarioAparta === 'undefined' || rec.data.claveusuarioAparta === 0 || rec.data.claveusuarioAparta == -1 || rec.data.claveusuarioAparta == almacen.getApplication().ClaveUsuario){",
+                                    "            // se habilita el aprobar",
+                                    "            Ext.ComponentMgr.get(\"btnAprobar2\").setDisabled(false);//habilitamos el boton para aprobar",
+                                    "            Ext.ComponentMgr.get(\"btnAprobar2\").currentRecord=rec.data;",
+                                    "        }",
+                                    "    }",
+                                    "    if (almacen.getApplication().currentSession.claveSucursal==claveSucursalOrigen && estado==1){",
+                                    "        Ext.ComponentMgr.get(\"btnRecibe2\").setDisabled(false);//habilitamos el boton para recibir",
+                                    "        Ext.ComponentMgr.get(\"btnRecibe2\").currentRecord=rec.data;",
+                                    "    }",
+                                    "    if (almacen.getApplication().currentSession.claveSucursal==claveSucursalDestino && estado==2){",
+                                    "        Ext.ComponentMgr.get(\"btnFinaliza2\").setDisabled(false);//habilitamos el boton para finalizar",
+                                    "        Ext.ComponentMgr.get(\"btnFinaliza2\").currentRecord=rec.data;",
+                                    "    }",
+                                    "    if (almacen.getApplication().currentSession.claveSucursal==claveSucursalDestino || !rec.data.pedidoCedi){ // si es sucursal destino o un pedido a proveedor",
+                                    "        Ext.ComponentMgr.get(\"btnReimprimir2\").setDisabled(false);//habilitamos el boton para finalizar",
+                                    "        Ext.ComponentMgr.get(\"btnReimprimir2\").currentRecord=rec.data;",
+                                    "    }",
+                                    "}",
+                                    ""
+                                ],
+                                "name": "selectionchange",
+                                "scope": "me"
+                            },
+                            "name": "onRowModelSelectionChange",
+                            "designerId": "aa95532a-695a-471e-b2f1-552562272567"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin3",
+                    "designerId": "1e5880fb-23b4-4938-ab20-a1661a9d006a"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridConsultaTraspasos2RowDblClick",
+                        "implHandler": [
+                            "//console.log(\"record\");console.log(record);",
+                            "//console.log(\"record.data\");console.log(record.data);",
+                            "",
+                            "Ext.ComponentMgr.get(\"gridConsultaTraspasos2\").up().getController().mostrarDetalles(record.data);"
+                        ],
+                        "name": "rowdblclick",
+                        "scope": "me"
+                    },
+                    "name": "onGridConsultaTraspasos2RowDblClick",
+                    "designerId": "dcbbbb04-8029-4766-82b5-a8b040da486a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "height": 50,
+                "layout": "column",
+                "layout|region": "north",
+                "title": ""
+            },
+            "name": "MyForm2",
+            "designerId": "2c5e583c-dd15-4e9e-8e3f-b7ee428429bb",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "emptyText": "Fecha Inicial",
+                        "fieldLabel": "",
+                        "format": "d/m/Y",
+                        "id": "dtTInicial2",
+                        "width": 150
+                    },
+                    "name": "MyDateField2",
+                    "designerId": "3756e2f9-e35e-4887-940b-a217d33d993b"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "emptyText": "Fecha Final",
+                        "fieldLabel": "",
+                        "format": "d/m/Y",
+                        "id": "dtTFinal2",
+                        "width": 150
+                    },
+                    "name": "MyDateField3",
+                    "designerId": "f11610d6-68fc-4908-9c4f-84a2f6d8ae05"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "label",
+                        "emptyText": "Estado",
+                        "fieldLabel": "",
+                        "id": "cmbTEstado2",
+                        "multiSelect": true,
+                        "queryMode": "local",
+                        "store": "StoreEstados",
+                        "valueField": "value",
+                        "width": 150
+                    },
+                    "name": "MyComboBox7",
+                    "designerId": "4724842d-0d37-4dfd-948e-cf6f3a01b878"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/filter.gif",
+                        "id": "btnFiltrar2",
+                        "text": "Filtrar"
+                    },
+                    "name": "MyButton30",
+                    "designerId": "2740b0f9-2679-4b48-9bb1-1390215aa942"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/pending.png",
+                        "id": "btnPendientes2",
+                        "text": "Pendientes"
+                    },
+                    "name": "MyButton31",
+                    "designerId": "bd453830-9535-4147-8909-e9e23d3b13f9"
+                }
+            ]
+        }
+    ]
+}

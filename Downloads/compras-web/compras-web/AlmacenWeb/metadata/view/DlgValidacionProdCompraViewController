@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgvalidacionprodcompra",
+        "designer|userClassName": "DlgValidacionProdCompraViewController"
+    },
+    "designerId": "23421fd6-ba81-4959-9c41-af9c3da3604b"
+}

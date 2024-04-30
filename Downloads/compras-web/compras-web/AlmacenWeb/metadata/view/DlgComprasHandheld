@@ -1,0 +1,200 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcomprashandheld",
+        "designer|userClassName": "DlgComprasHandheld",
+        "height": 521,
+        "layout": "border",
+        "title": "Compras proveedor desde hanhedl",
+        "width": 517
+    },
+    "name": "MyWindow",
+    "designerId": "ee405142-bcb3-4441-aba0-65a46a0b3420",
+    "viewControllerInstanceId": "83d45b6e-640a-4f3d-bc0a-947083a3990f",
+    "viewModelInstanceId": "69a389d7-a8b2-4e65-a5a6-1aaf4f6de41e",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "GPComprasHandheld",
+                "dock": "top",
+                "height": 488,
+                "title": "",
+                "width": null
+            },
+            "name": "MyGridPanel",
+            "designerId": "4c45bfde-e9da-4df1-925c-a8bee921de65",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "GVComprasHandheld",
+                        "width": ""
+                    },
+                    "name": "MyGridView",
+                    "designerId": "2cb6d636-deca-4425-9ffe-03944f54f3ed"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "Movimiento",
+                        "width": 172
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "d7d6efd9-1eee-42d7-8b59-2904b48cbaa1"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "date",
+                        "text": "Fecha Registro",
+                        "width": 174
+                    },
+                    "name": "MyDateColumn2",
+                    "designerId": "daaa0781-1587-4011-918f-a89e81c26498"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "string",
+                        "text": "Cantidad productos",
+                        "width": 152
+                    },
+                    "name": "MyColumn",
+                    "designerId": "010e9646-c41c-466a-9747-a61d0c501922"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "TBBotones",
+                        "dock": "bottom",
+                        "style": [
+                            "background-color: #141314;"
+                        ]
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "ecbc0344-79a8-496c-a92f-53c9307e7264",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "FBotones",
+                                "layout|flex": null
+                            },
+                            "name": "MyFill",
+                            "designerId": "ba202fd2-172b-4639-b9f6-4998318f48ca"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "",
+                                "icon": "resources/cancel-icon.png",
+                                "id": "btnCerrar",
+                                "layout|flex": null,
+                                "text": "Cerrar"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "e95844ca-2149-41cb-a00c-f2f531a82381"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "",
+                                "glyph": null,
+                                "icon": "resources/tick.png",
+                                "id": "btnAceptarCompra",
+                                "layout|flex": null,
+                                "text": "Aceptar"
+                            },
+                            "name": "MyButton",
+                            "designerId": "68ee9fb7-525e-4066-8737-ac2f70dbbff8"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.selection.RowModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowDeselect": true,
+                        "designer|displayName": "RSCompraHandheld",
+                        "mode": "SINGLE"
+                    },
+                    "name": "MyRowSelectionModel2",
+                    "designerId": "7b987efb-808f-49e5-a369-32fd088698a0",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onRowModelSelect",
+                                "name": "select",
+                                "scope": "me"
+                            },
+                            "name": "onRowModelSelect",
+                            "designerId": "84cff290-8f5d-4313-a962-5a04c9dbc187"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

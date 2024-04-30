@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreSucursales",
+        "model": "modelProveedores",
+        "storeId": "StoreSucursales"
+    },
+    "name": "StoreProveedores1",
+    "designerId": "89fe168b-e982-4755-9fe0-0848087fb3e7"
+}

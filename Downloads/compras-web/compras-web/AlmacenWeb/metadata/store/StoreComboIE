@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreComboIE",
+        "model": "mdlGeneric",
+        "storeId": "StoreComboIE"
+    },
+    "name": "StoreUsuarios1",
+    "designerId": "ae080cc2-e17c-400c-9f86-46ac399854f8"
+}

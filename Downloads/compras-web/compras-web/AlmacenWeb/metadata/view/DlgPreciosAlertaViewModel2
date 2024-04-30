@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgexistenciaalertaimpuestocambiado",
+        "designer|userClassName": "DlgPreciosAlertaViewModel2"
+    },
+    "name": "DlgPreciosAlertaViewModel2",
+    "designerId": "32b4f5b3-e5b5-4ba7-8257-4e51286b2cb0"
+}

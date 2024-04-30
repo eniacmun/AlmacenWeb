@@ -1,0 +1,85 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgexistenciaalertaimpuestocambiado",
+        "designer|userClassName": "DlgPreciosAlertaViewController2"
+    },
+    "name": "DlgPreciosAlertaViewController2",
+    "designerId": "7176b78d-2ca4-450e-9b68-62fee916a1a4",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#aceptaAlerta2",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "aceptarAlertaClick",
+                "implHandler": [
+                    "       this.validarAceptarAlerta();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "aceptarAlertaClick",
+            "designerId": "39a0ecc9-dd49-482f-90f0-de53d9628a80"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validarAceptarAlerta",
+                "implHandler": [
+                    "",
+                    "var request = new Object(); request.method=\"validaRolCambioTasa\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},{\"name\":\"USERNAME\",\"value\":Ext.ComponentMgr.get(\"passwordAutorizacionProductoPrecio2\").getValue()});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    if(response.status){",
+                    "        var controller=Ext.WindowManager.get(\"wndPreciosAlerta2\").parentController;",
+                    "        controller.validaGuardarCompra();",
+                    "        Ext.WindowManager.get(\"wndPreciosAlerta2\").close();",
+                    "    }else{",
+                    "        Ext.Msg.alert('', 'Usuario o contraseña incorrecto.');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "validarAceptarAlerta",
+            "designerId": "9288151d-4f0b-4fcd-8a0b-196a8cb14901"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#passwordAutorizacionProductoPrecio2",
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "aceptarAlertaText",
+                "implHandler": [
+                    "                if (e.getKey()==Ext.event.Event.ENTER){",
+                    "                        this.validarAceptarAlerta();",
+                    "                    }"
+                ],
+                "name": "keyup",
+                "scope": "me"
+            },
+            "name": "aceptarAlertaText",
+            "designerId": "6f849d8b-ddae-46ea-a777-8207fac21946"
+        }
+    ]
+}

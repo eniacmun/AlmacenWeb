@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcorreo",
+        "designer|userClassName": "DlgCorreoViewModel"
+    },
+    "designerId": "6152ff1b-c049-4c92-8463-665bb6eb132e"
+}

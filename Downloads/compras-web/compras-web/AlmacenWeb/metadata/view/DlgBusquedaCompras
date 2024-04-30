@@ -1,0 +1,192 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "designer|userAlias": "dlgbusquedacompras",
+        "designer|userClassName": "DlgBusquedaCompras",
+        "height": 368,
+        "id": "wndBusquedaCompras",
+        "modal": true,
+        "parentController": [
+            "`null`"
+        ],
+        "title": "Buscar Compras",
+        "width": 646
+    },
+    "name": "MyWindow1",
+    "configAlternates": {
+        "parentController": "object"
+    },
+    "designerId": "e3e20054-5a5a-4777-aa2e-d76385c261b6",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "parentController",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "36f00678-1918-485b-8934-7cf7f51283ab",
+    "viewModelInstanceId": "cf3fe36e-246b-4e64-b9b6-1a85d1176192",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "columnLines": true,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "enableColumnResize": false,
+                "forceFit": true,
+                "id": "gridBusquedaCompras",
+                "overlapHeader": false,
+                "reserveScrollbar": true,
+                "store": "StoreGridCompras",
+                "title": ""
+            },
+            "name": "MyGridPanel3",
+            "designerId": "faabca70-76ce-4b27-940d-68cb4b336215",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveCompra",
+                        "text": "Numero Compra"
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "34e4eb1e-3492-4fb1-8e35-6a34e0e8c031"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "proveedor",
+                        "text": "Proveedor",
+                        "width": 200
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "dc7c3dea-a387-43b7-88c9-e7977b4df6c9"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Total",
+                        "text": "Total"
+                    },
+                    "name": "MyNumberColumn5",
+                    "designerId": "6dc26efb-8d0e-4dfc-a462-103d3b0d3c68"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "estado",
+                        "text": "Estado"
+                    },
+                    "name": "MyColumn13",
+                    "designerId": "ddc53edf-7ea4-40e9-9994-434c5ad84f9f"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView3",
+                    "designerId": "db18e067-6d3c-41f6-b128-b70d8cbb07ff"
+                },
+                {
+                    "type": "Ext.selection.RowModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowSelectionModel",
+                    "designerId": "a0e10e41-eab0-45c9-98e9-ee5faba193fa"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom",
+                "style": "background-color: #141314;"
+            },
+            "name": "MyToolbar5",
+            "configAlternates": {
+                "style": "string"
+            },
+            "designerId": "213e9e11-7a93-4494-88bd-c9cbe4a36d85",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "'http://icons.iconarchive.com/icons/led24.de/led/16/cancel-icon.png'",
+                        "id": "btnCancelarBCompras",
+                        "layout|flex": null,
+                        "text": "Cancelar"
+                    },
+                    "name": "MyButton15",
+                    "designerId": "f575172c-b6cf-4c0a-9e1e-805fb0019d8f"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "'https://glnd.alexanderstreet.com/ui/common/playlist.png'",
+                        "id": "btnAceptarBCompras",
+                        "layout|flex": null,
+                        "text": "Aceptar"
+                    },
+                    "name": "MyButton16",
+                    "designerId": "a2e854ea-14b2-496f-ba88-283b80ad4f20"
+                }
+            ]
+        }
+    ]
+}

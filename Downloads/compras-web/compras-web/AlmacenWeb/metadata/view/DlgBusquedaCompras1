@@ -1,0 +1,382 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoScroll": true,
+        "designer|userAlias": "dlgbusquedacompras1",
+        "designer|userClassName": "DlgBusquedaCompras1",
+        "height": 456,
+        "id": "wndBusquedaCompras1",
+        "modal": true,
+        "parentController": [
+            "`null`"
+        ],
+        "title": "Buscar Compras",
+        "width": 732
+    },
+    "name": "DlgBusquedaCompras1",
+    "configAlternates": {
+        "parentController": "object"
+    },
+    "designerId": "8af61ef0-3ac2-48f9-9c12-80378533e5f1",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "parentController",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "7eabd1c7-8498-488f-87b6-3a7d1a40e9e9",
+    "viewModelInstanceId": "9034a983-2c11-47ab-8bd7-f8d3b8d8ec6d",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom",
+                "style": "background-color: #141314;"
+            },
+            "name": "MyToolbar5",
+            "configAlternates": {
+                "style": "string"
+            },
+            "designerId": "3cf96971-cbd5-4a97-82d6-c31735568f06",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "'http://icons.iconarchive.com/icons/led24.de/led/16/cancel-icon.png'",
+                        "id": "btnCancelarBCompras1",
+                        "layout|flex": null,
+                        "text": "Cerrar"
+                    },
+                    "name": "MyButton15",
+                    "designerId": "80dd72d1-0971-4959-90bf-79cc39e65ba1"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "'https://glnd.alexanderstreet.com/ui/common/playlist.png'",
+                        "id": "btnAceptarBCompras1",
+                        "layout|flex": null,
+                        "text": "Aceptar"
+                    },
+                    "name": "MyButton16",
+                    "designerId": "250bc9f6-3ced-4d12-b9f2-dcbc72d3f842"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "layout": "column",
+                "title": ""
+            },
+            "name": "MyForm1",
+            "designerId": "0bdbe27a-7e15-4f3c-986f-7513f3f3be2e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "emptyText": "Fecha Inicial",
+                        "fieldLabel": "Fecha Inicio",
+                        "format": "d/m/Y",
+                        "hideLabel": true,
+                        "id": "dtInicial"
+                    },
+                    "name": "MyDateField",
+                    "designerId": "54305672-00eb-4272-bb19-2b5d49e342a8"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "emptyText": "Fecha Final",
+                        "fieldLabel": "Fecha Fin",
+                        "format": "d/m/Y",
+                        "hideLabel": true,
+                        "id": "dtFinal"
+                    },
+                    "name": "MyDateField1",
+                    "designerId": "f498516a-3297-4c85-8b36-6d3dd2422dde"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "nombreProveedor",
+                        "emptyText": "Proveedor",
+                        "fieldLabel": "",
+                        "forceSelection": true,
+                        "id": "cmbBProveedor",
+                        "queryMode": "local",
+                        "store": "StoreProveedores",
+                        "valueField": "claveProveedor"
+                    },
+                    "name": "MyComboBox6",
+                    "designerId": "35f49311-2695-4c84-bfca-8c3c90db7064"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/search.png",
+                        "id": "btnBuscar",
+                        "text": "Buscar"
+                    },
+                    "name": "MyButton26",
+                    "designerId": "0f724fae-f0ed-44a0-8af7-ccd7c587f2b2"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "columnLines": true,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "enableColumnResize": false,
+                "forceFit": true,
+                "id": "gridBusquedaCompras1",
+                "overlapHeader": false,
+                "reserveScrollbar": true,
+                "store": "StoreGridCompras",
+                "title": ""
+            },
+            "name": "MyGridPanel3",
+            "designerId": "5d079edc-083a-4aa0-a2e8-5df9515e2896",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveCompra",
+                        "text": "Numero Compra"
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "f0a6f537-3498-4667-af70-6c621ffedc8b",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Number",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyNumberFilter3",
+                            "designerId": "f137cd06-a49f-423e-901c-a4f9c9052f32"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "fechaCompra",
+                        "format": "d/m/Y",
+                        "text": "Fecha"
+                    },
+                    "name": "MyDateColumn",
+                    "designerId": "d42e8c36-cba7-45a9-8e26-355bad01ec33",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Date",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyDateFilter",
+                            "designerId": "b2bf22fa-0476-4ceb-9050-eecaac047709"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "proveedor",
+                        "text": "Proveedor",
+                        "width": 200
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "f647865e-5afe-477f-ad78-09e9b9b3d6e0",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter6",
+                            "designerId": "d0d39bed-1bcb-4e59-bb86-8c6a1f64e9c8"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Total",
+                        "text": "Total"
+                    },
+                    "name": "MyNumberColumn5",
+                    "designerId": "a68ea33d-cb3c-485a-a6b1-69eb301ff613",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Number",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyNumberFilter2",
+                            "designerId": "fe67f676-1b90-46c7-8c5f-05c7a887615e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "numeroFactura",
+                        "text": "Factura"
+                    },
+                    "name": "MyColumn29",
+                    "designerId": "9a114e28-dc25-4208-a836-3de9380c54a7"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "estado",
+                        "text": "Estado"
+                    },
+                    "name": "MyColumn13",
+                    "designerId": "bc22aa1d-766b-458e-b7a0-cf5f9c2ceebd",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter7",
+                            "designerId": "2ab7f2d7-b83e-4322-addd-8b8d46caa247"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView3",
+                    "designerId": "b069797a-60ed-41c3-a69c-f1d3ad1537da"
+                },
+                {
+                    "type": "Ext.selection.RowModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyRowSelectionModel",
+                    "designerId": "36c8a075-bd5b-4355-a983-861e7448aa70"
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin3",
+                    "designerId": "6595aa40-cffd-4e9a-9b1b-00e400c96b62"
+                }
+            ]
+        }
+    ]
+}

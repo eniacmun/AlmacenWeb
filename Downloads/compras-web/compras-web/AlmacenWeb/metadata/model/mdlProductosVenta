@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mdlProductosVenta"
+    },
+    "name": "modelProveedores1",
+    "designerId": "85663d2f-f168-4f4a-8ad3-d17c80659047",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "claveproducto"
+            },
+            "name": "MyField19",
+            "designerId": "a3de8a87-76e4-4935-ac5a-1c8cd01eacac"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nombreproducto"
+            },
+            "name": "MyField53",
+            "designerId": "3ded8a00-0b95-4004-b780-9dc6126ded42"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "precio"
+            },
+            "name": "MyField18",
+            "designerId": "098a6c71-63e1-4b12-8ec4-eac68a40f25e"
+        }
+    ]
+}

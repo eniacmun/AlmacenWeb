@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "storeDiasTendencia",
+        "model": "mdlGeneric",
+        "storeId": "storeDiasTendencia"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "8f1c1054-3345-4945-a5b1-cb93056fc424"
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcomprashandheld",
+        "designer|userClassName": "DlgComprasHandheldViewModel"
+    },
+    "designerId": "69a389d7-a8b2-4e65-a5a6-1aaf4f6de41e"
+}

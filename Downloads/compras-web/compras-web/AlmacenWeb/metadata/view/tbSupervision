@@ -1,0 +1,36 @@
+{
+    "type": "Ext.toolbar.Toolbar",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tbsupervision",
+        "designer|userClassName": "tbSupervision",
+        "height": 50,
+        "width": 400
+    },
+    "name": "tbAjustes2",
+    "designerId": "1c68ef47-d39a-4e4c-a611-41e061da6691",
+    "viewControllerInstanceId": "486269e2-1482-4d53-9f58-6356592dba6f",
+    "viewModelInstanceId": "38df705f-8f6c-4fb5-bdf5-a36baa47bd59",
+    "cn": [
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "icon": "resources/Search.png",
+                "id": "btnAjustes2",
+                "layout|flex": null,
+                "text": "Supervisar"
+            },
+            "name": "MyButton21",
+            "designerId": "5f1362c7-dc23-4ada-afba-b62f78311f41"
+        }
+    ]
+}

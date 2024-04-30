@@ -1,0 +1,28 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"tipoCantidad\": \"Sugerido\"",
+            "    },",
+            "    {",
+            "        \"tipoCantidad\": \"Promedio\"",
+            "    },",
+            "    {",
+            "        \"tipoCantidad\": \"Semana\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "StoreTiposPedido",
+        "model": "mdlCantidadSugerida",
+        "storeId": "StoreTiposPedido"
+    },
+    "name": "MyJsonStore",
+    "designerId": "b9f8b2be-be34-4dc8-b295-bfe4e69d5cd1"
+}

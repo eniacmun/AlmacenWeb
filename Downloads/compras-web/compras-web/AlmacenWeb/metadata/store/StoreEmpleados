@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreEmpleados",
+        "model": "mdlEmpleado",
+        "storeId": "StoreEmpleados"
+    },
+    "name": "StoreClasificaciones1",
+    "designerId": "56e580ca-c845-454a-8a23-6cc4218b092f"
+}

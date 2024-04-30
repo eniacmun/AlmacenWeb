@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreComboImpuestos",
+        "model": "mdlGeneric",
+        "storeId": "StoreComboImpuestos"
+    },
+    "name": "MyStore",
+    "designerId": "76cc5d2c-410b-4bd6-9e66-99802d4411b7"
+}

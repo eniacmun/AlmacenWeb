@@ -1,0 +1,439 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "bodyStyle": [
+            "'background-color: #CECECE;'",
+            ""
+        ],
+        "designer|userAlias": "producciones",
+        "designer|userClassName": "producciones",
+        "height": 700,
+        "layout": "border",
+        "manageHeight": false,
+        "title": "Producciones",
+        "width": 800
+    },
+    "name": "MyPanel2",
+    "designerId": "917b84c1-c0bc-4182-91ea-ce680f52df38",
+    "viewControllerInstanceId": "4ae94bfe-0479-433f-9b79-b5e3e98308e8",
+    "viewModelInstanceId": "dc334b46-5389-48d3-837a-5d9f96cedb97",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "anchorSize": null,
+                "columnLines": true,
+                "designer|uiInterfaceName": "default-framed",
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "forceFit": true,
+                "frame": true,
+                "header": false,
+                "id": "panelProduccion",
+                "layout|flex": 1,
+                "layout|region": "center",
+                "margin": "0 10 0 0",
+                "store": "StoreGridProducciones",
+                "title": "Produccion"
+            },
+            "name": "MyGridPanel",
+            "designerId": "6ad6a413-f3d1-4c52-896b-5e30ebc88806",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveproducto",
+                        "text": "Clave",
+                        "width": 53
+                    },
+                    "name": "MyColumn",
+                    "designerId": "cb9e4b85-c9fb-418d-b986-9d27f08fd63b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreproducto",
+                        "text": "Concepto"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "91a91b8f-3f2a-485d-9276-b3a2583f8f4f"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cantidad",
+                        "text": "Cantidad",
+                        "width": 65
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "e84be8ef-5dc5-47d6-a6ad-9b3464c7994b"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "unidad",
+                        "text": "Unidad",
+                        "width": 80
+                    },
+                    "name": "MyColumn3",
+                    "designerId": "14662b5b-79e9-4936-858c-2f5b227d6912"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "border": "",
+                        "frame": true,
+                        "loadingText": "Cargando..",
+                        "margin": ""
+                    },
+                    "name": "MyGridView",
+                    "designerId": "8c7d4e3c-3282-4cc9-8689-f68c0aa8080f"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "designer|displayName": "toolbarAgregar",
+                        "dock": "top",
+                        "frame": false,
+                        "style": "background-color: #141314;"
+                    },
+                    "name": "MyToolbar1",
+                    "configAlternates": {
+                        "style": "string"
+                    },
+                    "designerId": "cec99b7e-e382-4b97-8015-d0d882498ccd",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "nombreproducto",
+                                "fieldLabel": "'<font color=\"white\">Producto</font>',",
+                                "hideEmptyLabel": false,
+                                "id": "cmbProductosProduccion",
+                                "labelWidth": 55,
+                                "layout|flex": null,
+                                "maxWidth": 250,
+                                "minWidth": 65,
+                                "queryMode": "local",
+                                "store": "StoreCombboProducciones",
+                                "valueField": "claveproducto",
+                                "width": 250
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "d44a6e17-593c-4de6-95b6-03caa650d4c8",
+                            "cn": [
+                                {
+                                    "type": "Ext.view.BoundList",
+                                    "reference": {
+                                        "name": "listConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemSelector": "div"
+                                    },
+                                    "name": "MyBoundList",
+                                    "designerId": "eb06c005-4180-4c88-810c-3dc070fb9900",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.XTemplate",
+                                            "reference": {
+                                                "name": "itemTpl",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|displayName": "itemTpl",
+                                                "implHandler": [
+                                                    "<span style=\"margin:0; background-color: {colorSemaf};\">{nombreproducto} <tpl if=\"cantSemaf != null\"><span style=\"padding-left: 0.1in;\">Cant. <b>{cantSemaf}</b></span></tpl></span>"
+                                                ]
+                                            },
+                                            "name": "itemTpl",
+                                            "designerId": "aa932e65-5ae0-4275-8197-2dcdd901715c"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowExponential": false,
+                                "blankText": "Campo Obligatorio",
+                                "enableKeyEvents": true,
+                                "fieldLabel": "'<font color=\"white\">Cantidad</font>',",
+                                "hideEmptyLabel": false,
+                                "hideTrigger": true,
+                                "id": "txtCantidad",
+                                "labelWidth": 55,
+                                "layout|flex": null,
+                                "width": 130
+                            },
+                            "name": "MyNumberField",
+                            "designerId": "1f865a08-2e10-4cda-a18c-dbbd4bf7dc51"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "frame": false,
+                                "icon": "https://glnd.alexanderstreet.com/ui/common/playlist.png",
+                                "id": "btnAgregarProducto",
+                                "layout|flex": null,
+                                "text": "Agregar"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "a5968e80-9d8d-47f4-93e3-06f8cf47c616"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "designer|displayName": "toolbarGuardar",
+                        "dock": "bottom",
+                        "style": "background-color: #141314;"
+                    },
+                    "name": "MyToolbar2",
+                    "configAlternates": {
+                        "style": "string"
+                    },
+                    "designerId": "02bfb069-5c6e-45a5-8c4a-6d0789edad19",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "frame": false,
+                                "icon": "http://www.hillsmusicacademy.com.au/images/history_sub.png",
+                                "id": "btnHistorial",
+                                "layout|flex": null,
+                                "text": "Historial"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "195ea2db-a4ea-4301-9ede-365c3f149185"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "frame": false,
+                                "icon": "'http://img.informer.com/icons/png/16/5499/5499754.png'",
+                                "id": "btnLimpiar",
+                                "layout|flex": null,
+                                "text": "Limpiar"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "612491b5-6ba4-4737-9b25-7aca37426494"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "frame": false,
+                                "icon": "'http://worksheets.theteacherscorner.net/make-your-own/images/save.png'",
+                                "id": "btnGuardar",
+                                "layout|flex": null,
+                                "text": "Guardar"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "74296f78-e1b5-47f2-825d-4e76dd2d4be3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "columnLines": true,
+                "designer|uiInterfaceName": "default-framed",
+                "forceFit": true,
+                "frame": true,
+                "frameHeader": false,
+                "id": "panelConsumo",
+                "layout|flex": null,
+                "layout|region": "east",
+                "margin": "0 0 0 10",
+                "store": "StoreGridMaterriaConsumida",
+                "title": "Materia Consumida",
+                "titleAlign": "center",
+                "width": 700
+            },
+            "name": "MyGridPanel1",
+            "designerId": "47e6bdfe-c9b5-40f6-b604-a9f146ae3346",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveproducto",
+                        "text": "Clave",
+                        "width": 53
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "bd678e8e-a6fd-4c82-a4c4-775f381f5f59"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreproducto",
+                        "text": "Concepto"
+                    },
+                    "name": "MyColumn1",
+                    "designerId": "091bfd48-2f3c-4592-ae8d-a020fc3e8609"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cantidad",
+                        "text": "Consumida",
+                        "width": 65
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "1fceda6d-ca95-4431-abeb-7b88673defb6"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ProporcionAplicar",
+                        "defaultWidth": 60,
+                        "text": "Producida",
+                        "width": 60
+                    },
+                    "name": "MyNumberColumn3",
+                    "designerId": "548034a5-748f-4275-999d-98089009d1cb"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "unidad",
+                        "text": "Unidad",
+                        "width": 80
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "9ea365a5-796f-4a82-9e4a-98db452a0102"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "loadingText": "Cargando..."
+                    },
+                    "name": "MyGridView1",
+                    "designerId": "4f8a7839-e181-41fe-9e17-07c51b41a2ef"
+                }
+            ]
+        }
+    ]
+}

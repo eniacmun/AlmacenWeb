@@ -1,0 +1,103 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": false,
+        "designer|userAlias": "dlgmotivosajustes",
+        "designer|userClassName": "DlgMotivosAjustes",
+        "height": 121,
+        "modal": true,
+        "title": "Seleccione un Motivo",
+        "width": 177
+    },
+    "name": "DlgNoImpresionesAjustes1",
+    "designerId": "85a22047-edd9-49ab-a8f0-d48bc8cc09d3",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "currentMotivoAjuste",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "37cc4cd7-d0c0-4617-af09-540dd9e13b4d",
+    "viewModelInstanceId": "ba9441b4-2a90-412f-a405-976431b9a47e",
+    "cn": [
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "label",
+                "fieldLabel": "",
+                "id": "cmbNoImpresiones1",
+                "queryMode": "local",
+                "store": "StoreMotivosAjuste",
+                "valueField": "value"
+            },
+            "name": "MyComboBox5",
+            "designerId": "ce1938f5-a8c2-41b2-846e-baada8e976a4"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "id": "tbNoImpresiones1"
+            },
+            "name": "MyToolbar8",
+            "configAlternates": {
+                "parentController": "object"
+            },
+            "designerId": "8f5c46c8-9fe5-4471-8d1e-7493e276e409",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "parentController",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill",
+                    "designerId": "77252e1d-5efe-422f-9366-a03121e3d143"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/tick.png",
+                        "id": "btnAceptar1",
+                        "layout|flex": null,
+                        "text": "Aceptar"
+                    },
+                    "name": "MyButton22",
+                    "designerId": "2dd1ff6f-ce9c-48d2-9fab-dea0c10a191d"
+                }
+            ]
+        }
+    ]
+}

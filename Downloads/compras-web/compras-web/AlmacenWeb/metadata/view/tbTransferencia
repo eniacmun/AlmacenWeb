@@ -1,0 +1,36 @@
+{
+    "type": "Ext.toolbar.Toolbar",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tbTransferencia",
+        "designer|userClassName": "tbTransferencia",
+        "height": 50,
+        "width": 400
+    },
+    "name": "tbSupervision1",
+    "designerId": "0c8effe7-5e3a-4764-bdf0-de92467e70cb",
+    "viewControllerInstanceId": "e65c0ed9-b1b2-497c-ad62-967b4ef44c03",
+    "viewModelInstanceId": "a9aedd72-26c0-4a90-a9f3-d7165e538fba",
+    "cn": [
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "icon": "resources/transfer.png",
+                "id": "btnAjustes3",
+                "layout|flex": null,
+                "text": "Transferir"
+            },
+            "name": "MyButton21",
+            "designerId": "2ac032db-089a-4843-bbb3-d2fac29b08ed"
+        }
+    ]
+}

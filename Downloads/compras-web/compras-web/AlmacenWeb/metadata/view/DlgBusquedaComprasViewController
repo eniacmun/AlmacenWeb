@@ -1,0 +1,69 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgbusquedacompras",
+        "designer|userClassName": "DlgBusquedaComprasViewController"
+    },
+    "designerId": "36f00678-1918-485b-8934-7cf7f51283ab",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAceptarBCompras",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "aceptaCargaCompra",
+                "implHandler": [
+                    "var winBusquedaCompra = Ext.WindowManager.get(\"wndBusquedaCompras\");",
+                    "var controller = winBusquedaCompra.parentController;",
+                    "if (Ext.ComponentMgr.get(\"gridBusquedaCompras\").getSelectionModel().getSelection().length  <=0) return true;",
+                    "var idCompra=Ext.ComponentMgr.get(\"gridBusquedaCompras\").getSelectionModel().getSelection()[0].get(\"claveCompra\");;",
+                    "var request = new Object(); request.method=\"cargacompra\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "request.params.push({\"name\":\"clavecompra\",\"value\":idCompra});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    /*Ext.ComponentMgr.get(\"gridBusquedaCompras\").getStore().loadData(response.compras);",
+                    "                                                                        Ext.ComponentMgr.get(\"gridBusquedaCompras\").getPicker().loadMask.hide();*/",
+                    "    controller.cargarCompra(response);",
+                    "});",
+                    "winBusquedaCompra.close();",
+                    "winBusquedaCompra.destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "aceptaCargaCompra",
+            "designerId": "36efe4c6-b374-4a02-a985-bfe3477cba5b"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnCancelarBCompras",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "cerrarVentana",
+                "implHandler": [
+                    "var winBusquedaCompra = Ext.WindowManager.get(\"wndBusquedaCompras\");",
+                    "winBusquedaCompra.close();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "cerrarVentana",
+            "designerId": "c0684a5c-a426-4a74-b064-379ec170f0d7"
+        }
+    ]
+}

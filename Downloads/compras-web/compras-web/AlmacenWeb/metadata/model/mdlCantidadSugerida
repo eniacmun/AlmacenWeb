@@ -1,0 +1,28 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mdlCantidadSugerida"
+    },
+    "name": "MyModel1",
+    "designerId": "111ec696-5429-4824-8447-a4b82a458832",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "tipoCantidad"
+            },
+            "name": "MyField134",
+            "designerId": "ce769095-576e-4a48-a1d1-1f2cd4da975c"
+        }
+    ]
+}

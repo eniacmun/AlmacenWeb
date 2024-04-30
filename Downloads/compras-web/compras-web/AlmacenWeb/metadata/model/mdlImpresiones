@@ -1,0 +1,28 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mdlImpresiones"
+    },
+    "name": "MyModel1",
+    "designerId": "b35e933a-cc39-4ef3-93dd-8f9a1dd13391",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "numero"
+            },
+            "name": "MyField37",
+            "designerId": "2f0fbbb3-3002-483a-999f-208936c0c213"
+        }
+    ]
+}

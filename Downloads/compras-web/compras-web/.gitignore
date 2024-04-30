@@ -1,0 +1,20 @@
+# Incluir las carpetas y los archivos que no deben versionarse
+
+# OS Cruft
+.DS_Store
+Thumbs.db
+
+# Compiled class file
+# *.class
+
+# Log files
+*.log
+
+# Misc
+*.sso
+
+# Others
+.svn/
+*.bak
+
+AlmacenWeb/build

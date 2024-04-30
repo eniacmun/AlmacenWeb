@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlglogin",
+        "designer|userClassName": "DlgLoginViewModel"
+    },
+    "designerId": "99ec0551-da61-42d4-bbd5-803d559c3ed0"
+}

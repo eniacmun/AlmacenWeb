@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgexistenciaalerta",
+        "designer|userClassName": "DlgPreciosAlertaViewModel1"
+    },
+    "name": "DlgPreciosAlertaViewModel1",
+    "designerId": "6049bd30-038f-44ac-b40e-a0937f4de487"
+}

@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tbmermas",
+        "designer|userClassName": "tbAjustesViewModel1"
+    },
+    "name": "tbAjustesViewModel1",
+    "designerId": "04bdf2df-76c8-4a30-be7a-0e5f6441601e"
+}

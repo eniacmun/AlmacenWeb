@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreGridCompras",
+        "model": "mdlCompras",
+        "storeId": "StoreGridCompras"
+    },
+    "name": "MyJsonStore",
+    "designerId": "94456f7c-fe88-4d1e-b922-5aa9fe95f61b"
+}

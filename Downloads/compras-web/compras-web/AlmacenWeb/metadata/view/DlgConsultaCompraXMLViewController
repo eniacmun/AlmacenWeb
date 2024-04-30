@@ -1,0 +1,245 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultacompraxml",
+        "designer|userClassName": "DlgConsultaCompraXMLViewController"
+    },
+    "name": "DlgConsultaTraspasosViewController3",
+    "designerId": "a3e209b0-3054-4595-8612-d1327606349a",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbTEstado1",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "loadEstados",
+                "implHandler": [
+                    "var request = new Object(); request.method=\"estadospedidos\"; request.params=[];",
+                    "                            request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "                            almacen.getApplication().loadData(request,function(response){",
+                    "                                component.getStore().loadData(response.items);",
+                    "                                component.getStore().sort('label','ASC');",
+                    "                                //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "                            });"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "loadEstados",
+            "designerId": "d7f694ca-8b70-4dc1-b5bf-6df63c865755"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbTEstado1",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "filtraEstados",
+                "implHandler": [
+                    " queryPlan.query = new RegExp(queryPlan.query, 'i');",
+                    " queryPlan.forceAll = true;"
+                ],
+                "name": "beforequery",
+                "scope": "me"
+            },
+            "name": "filtraEstados",
+            "designerId": "d95f4233-d0a0-4a57-817a-4a150c1b15fa"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wndConsultaPedidos",
+                "designer|targetType": "Ext.window.Window",
+                "fn": "initConsulta",
+                "implHandler": [
+                    "var currentController = this;",
+                    "var component = Ext.ComponentMgr.get(\"gridConsultaTraspasos3\");",
+                    "component.getStore().removeAll();",
+                    "window.setTimeout(function(){currentController.loadConsultaTraspasos(null,null,null);}, 2000);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "initConsulta",
+            "designerId": "959cfbdb-a05b-440b-87ca-7b11f9fea65a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "FiltroEstado,FechaInicial,FechaFinal",
+                    "pedido"
+                ],
+                "fn": "loadConsultaTraspasos",
+                "implHandler": [
+                    "",
+                    "var winBusquedaCompra = Ext.WindowManager.get(\"wndConsultaComprasXML\");",
+                    "var el = winBusquedaCompra.getEl();",
+                    "el.mask('Realizando consulta, por favor espere');",
+                    "var request = new Object(); request.method=\"consultafacturasimportar\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "",
+                    "if (FiltroEstado)request.params.push({\"name\":\"filtroEstado\",\"value\":FiltroEstado});",
+                    "if (FechaInicial)request.params.push({\"name\":\"filtroFechaInicial\",\"value\":FechaInicial});",
+                    "if (FechaFinal)request.params.push({\"name\":\"filtroFechaFinal\",\"value\":FechaFinal});",
+                    "var component = Ext.ComponentMgr.get(\"gridConsultaTraspasos3\");",
+                    "component.getStore().removeAll();",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    component.getStore().loadData(response.facturas);",
+                    "    el.unmask();",
+                    "    //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "},function(response){",
+                    "    el.unmask();",
+                    "",
+                    "});"
+                ]
+            },
+            "name": "loadConsultaTraspasos",
+            "designerId": "f0445e41-2fdb-4165-9ab9-eef0a3831428"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnFiltrar1",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "ConsultarTraspasos",
+                "implHandler": [
+                    "var dtInicial = Ext.ComponentMgr.get(\"dtTInicial3\");",
+                    "var dtFinal = Ext.ComponentMgr.get(\"dtTFinal3\");",
+                    "var cmbEstado = Ext.ComponentMgr.get(\"cmbTEstado3\");",
+                    "if (dtInicial.isValid() && dtFinal.isValid()){ //los 2 campos de fechas deben ser válidos",
+                    "    var pFechaInicial = dtInicial.getRawValue();",
+                    "    var pFechaFinal = dtFinal.getRawValue();",
+                    "    var pEstado;",
+                    "    if (cmbEstado.isValid()){",
+                    "        pEstado = cmbEstado.getValue();",
+                    "    }",
+                    "    //var pFiltroFecha = \"TO_DATE('\" + pFechaInicial + \"', 'DD/MM/YYYY')\" + \"|TO_DATE('\" + pFechaFinal + \"', 'DD/MM/YYYY')\";;",
+                    "    this.loadConsultaTraspasos(pEstado, pFechaInicial, pFechaFinal);",
+                    "}else{",
+                    "    Ext.Msg.alert('', 'Por favor especifique un filtro antes de realizar la búsqueda.');",
+                    "}",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "ConsultarTraspasos",
+            "designerId": "b51f469d-b273-40b1-b972-ac5365cbf2b0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnPendientes3",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "consultarPendientes",
+                "implHandler": [
+                    "this.loadConsultaTraspasos(null,null, null);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "consultarPendientes",
+            "designerId": "33b87262-47fe-4250-ae96-d767fb4fcf16"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnCancela3",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "CancelaTraspaso",
+                "implHandler": [
+                    "",
+                    "var currentController=this;",
+                    "Ext.Msg.confirm(\"Cancelar Pedido\", \"¿Desea cancelar la factura seleccionada?\",",
+                    "                function(buttonId){",
+                    "                    if (buttonId == 'yes'){",
+                    "                        var winBusquedaCompra = Ext.WindowManager.get(\"wndConsultaComprasXML\");",
+                    "                        var el = winBusquedaCompra.getEl();",
+                    "                        el.mask('Cancelando pedido, por favor espere');",
+                    "                        var request = new Object(); request.method=\"cancelafacturaimportar\"; request.params=[];",
+                    "                        request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "                        request.params.push({\"name\":\"factura\",\"value\":Ext.encode(button.currentRecord)});",
+                    "                        almacen.getApplication().loadData(request,function(response){",
+                    "                            el.unmask();",
+                    "                            currentController.loadConsultaTraspasos(null,null,null);",
+                    "                            //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "                        });",
+                    "                    }",
+                    "                });"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "CancelaTraspaso",
+            "designerId": "9fdbd381-2dbf-45fe-952a-847cca45b4ac"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnRecibe3",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "RecibeTraspaso",
+                "implHandler": [
+                    "var currentController=this;",
+                    "Ext.Msg.confirm(\"Recibir Pedido\", \"¿Desea importar la factura seleccionada?\",",
+                    "                function(buttonId){",
+                    "                    if (buttonId == 'yes'){",
+                    "                        var winBusquedaCompra = Ext.WindowManager.get(\"wndConsultaComprasXML\");",
+                    "                        winBusquedaCompra.currentController.ProcesaCompraXML(button.currentRecord);",
+                    "                        winBusquedaCompra.close();",
+                    "                    }",
+                    "                });"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "RecibeTraspaso",
+            "designerId": "bf305ea5-da15-4bd0-8c18-ea12abe97569"
+        }
+    ]
+}

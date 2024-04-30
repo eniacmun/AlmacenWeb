@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultatraspasos2",
+        "designer|userClassName": "DlgConsultaTraspasosViewModel2"
+    },
+    "name": "DlgConsultaTraspasosViewModel2",
+    "designerId": "910fc1bb-1c50-425b-9971-5f8d4780aa25"
+}

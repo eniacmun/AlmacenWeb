@@ -1,0 +1,172 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgbusquedacompras1",
+        "designer|userClassName": "DlgBusquedaComprasViewController1"
+    },
+    "name": "DlgBusquedaComprasViewController1",
+    "designerId": "7eabd1c7-8498-488f-87b6-3a7d1a40e9e9",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAceptarBCompras1",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "aceptaCargaCompra",
+                "implHandler": [
+                    "",
+                    "",
+                    "var winBusquedaCompra = Ext.WindowManager.get(\"wndBusquedaCompras1\");",
+                    "var controller = winBusquedaCompra.parentController;",
+                    "        if (Ext.ComponentMgr.get(\"gridBusquedaCompras1\").getSelectionModel().getSelection().length  <=0) return true;",
+                    "                                                                    var idCompra=Ext.ComponentMgr.get(\"gridBusquedaCompras1\").getSelectionModel().getSelection()[0].get(\"claveCompra\");;",
+                    "                                                                    var request = new Object(); request.method=\"cargacompraremota\"; request.params=[];",
+                    "                                                                    request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "                                                                    request.params.push({\"name\":\"clavecompra\",\"value\":idCompra});",
+                    "                                                                    almacen.getApplication().loadData(request,function(response){",
+                    "                                                                        /*Ext.ComponentMgr.get(\"gridBusquedaCompras\").getStore().loadData(response.compras);",
+                    "                                                                        Ext.ComponentMgr.get(\"gridBusquedaCompras\").getPicker().loadMask.hide();*/",
+                    "                                                                        controller.cargarCompra(response);",
+                    "                                                                    });",
+                    "                                                                    winBusquedaCompra.close();",
+                    "                                                                    winBusquedaCompra.destroy();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "aceptaCargaCompra",
+            "designerId": "d381f13a-758c-422e-900b-22f358a58cd4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnCancelarBCompras1",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "cerrarVentana",
+                "implHandler": [
+                    "var winBusquedaCompra = Ext.WindowManager.get(\"wndBusquedaCompras1\");",
+                    "winBusquedaCompra.close();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "cerrarVentana",
+            "designerId": "70a564af-3b1d-47ea-89c5-cf5b3f96bae3"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbBProveedor",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "loadProveedores",
+                "implHandler": [
+                    "var request = new Object(); request.method=\"proveedores\"; request.params=[];",
+                    "                            request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "                            almacen.getApplication().loadData(request,function(response){",
+                    "                                component.getStore().loadData(response.proveedores);",
+                    "                                component.getStore().sort('nombreProveedor','ASC');",
+                    "                                //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "",
+                    "",
+                    "                            });"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "name": "loadProveedores",
+            "designerId": "0844eac0-6bc1-4dc6-bbf2-5531d08cb096"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnBuscar",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "buscarComprasHistorico",
+                "implHandler": [
+                    "",
+                    "var dtInicio = Ext.ComponentMgr.get(\"dtInicial\");",
+                    "var dtFinal = Ext.ComponentMgr.get(\"dtFinal\");",
+                    "var cmbBProveedor = Ext.ComponentMgr.get(\"cmbBProveedor\");",
+                    "var esValidaFecha = (dtInicio.isValid() && dtFinal.isValid());",
+                    "",
+                    "var esValidoProveedor=cmbBProveedor.isValid();",
+                    "var request = {}; request.method=\"busquedahistorico\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\", \"value\": almacen.getApplication().SessionId});",
+                    "if (esValidaFecha){",
+                    "    if (esValidaFecha){",
+                    "        request.params.push({\"name\":\"fechaInicio\", \"value\": dtInicio.getRawValue()});",
+                    "        request.params.push({\"name\":\"fechaFin\", \"value\": dtFinal.getRawValue()});",
+                    "    }",
+                    "    if (esValidoProveedor){",
+                    "        request.params.push({\"name\":\"claveProveedor\", \"value\": cmbBProveedor.getValue()});",
+                    "    }",
+                    "    var winBusquedaCompra = Ext.WindowManager.get(\"wndBusquedaCompras1\");",
+                    "    var el = winBusquedaCompra.getEl();",
+                    "    el.mask('Realizando consulta, por favor espere');",
+                    "    almacen.getApplication().loadData(request,function(response){",
+                    "        Ext.ComponentMgr.get(\"gridBusquedaCompras1\").getStore().loadData(response.compras);",
+                    "        el.unmask();",
+                    "    },function(){",
+                    "        el.unmask();",
+                    "    });",
+                    "",
+                    "}else{",
+                    "    Ext.Msg.alert('', 'Por favor especifique un filtro antes de realizar la búsqueda.');",
+                    "}"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "buscarComprasHistorico",
+            "designerId": "ffac8793-b9b6-44e0-a0d4-bc6e27a9ee5f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbBProveedor",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "filtraProveedores",
+                "implHandler": [
+                    "",
+                    "",
+                    "     queryPlan.query = new RegExp(queryPlan.query, 'i');",
+                    "     queryPlan.forceAll = true;"
+                ],
+                "name": "beforequery",
+                "scope": "me"
+            },
+            "name": "filtraProveedores",
+            "designerId": "211527ec-66fc-4ab8-b03c-5db52b8a3326"
+        }
+    ]
+}

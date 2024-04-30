@@ -1,0 +1,420 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "producciones",
+        "designer|userClassName": "produccionesViewController"
+    },
+    "designerId": "4ae94bfe-0479-433f-9b79-b5e3e98308e8",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbProductosProduccion",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "loadProducciones",
+                "implHandler": [
+                    "this.cargaProducciones(component, \"\");"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "name": "loadProducciones",
+            "designerId": "7cd4aa39-d5fd-4cf4-9928-95a2dccedb98"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbProductosProduccion",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "filtraProducciones",
+                "implHandler": [
+                    "        queryPlan.query = new RegExp(queryPlan.query, 'i');",
+                    "        queryPlan.forceAll = true;"
+                ],
+                "name": "beforequery",
+                "scope": "me"
+            },
+            "name": "filtraProducciones",
+            "designerId": "1db9acfc-c2cc-4b09-bff4-e52c6c9359fa"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbProductosProduccion",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "seleccionProducto",
+                "implHandler": [
+                    "combo.record = records[0];",
+                    "Ext.ComponentManager.get(\"txtCantidad\").focus();",
+                    ""
+                ],
+                "name": "select",
+                "scope": "me"
+            },
+            "name": "seleccionProducto",
+            "designerId": "c14396e3-8dac-4df1-b605-c27e9f736d87"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#txtCantidad",
+                "designer|targetType": "Ext.form.field.Number",
+                "fn": "capturaCantidad",
+                "implHandler": [
+                    "        if (e.getKey() == Ext.event.Event.ENTER){",
+                    "            this.agregaProductoProducir();",
+                    "        }"
+                ],
+                "name": "keyup",
+                "scope": "me"
+            },
+            "name": "capturaCantidad",
+            "designerId": "52d5a3bd-48ba-4546-8590-aedff9d93d6c"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAgregarProducto",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "clickBtnAgregar",
+                "implHandler": [
+                    "                this.agregaProductoProducir();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "clickBtnAgregar",
+            "designerId": "66dfc500-db99-4e53-ae73-33c584003212"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnLimpiar",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "btnLimpiarClick",
+                "implHandler": [
+                    "    this.limpiaProducciones();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "btnLimpiarClick",
+            "designerId": "30b28b02-9122-4e70-810c-3f1d68e7c976"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "agregaProductoProducir",
+                "implHandler": [
+                    "var combo = Ext.ComponentMgr.get(\"cmbProductosProduccion\");",
+                    "var fldCantidad = Ext.ComponentMgr.get(\"txtCantidad\");",
+                    "var gridProducciones = Ext.ComponentMgr.get(\"panelProduccion\");",
+                    "var storeProducciones = gridProducciones.getStore();",
+                    "console.log(\"agregamos el producto a producir\"+combo.record);",
+                    "if (combo.isValid() && fldCantidad.isValid()){",
+                    "    if (fldCantidad.getValue() == 0) return;",
+                    "    combo.clearValue();",
+                    "",
+                    "    var existentRecord = null;",
+                    "    storeProducciones.each(function(record){",
+                    "        console.log(\"comparando \" + record.get(\"claveproducto\") + \" \" + combo.record.get(\"claveproducto\"));",
+                    "        if (record.get(\"claveproducto\") == combo.record.get(\"claveproducto\")){",
+                    "            existentRecord = record;",
+                    "        }",
+                    "    });",
+                    "    if (existentRecord != null){",
+                    "        var currentCantidad = parseFloat(existentRecord.get(\"cantidad\"));",
+                    "        console.log(\"Cantidad Actual \" + currentCantidad);",
+                    "        console.log(\"Cantidad a Agregar \" + fldCantidad.getValue());",
+                    "        currentCantidad += fldCantidad.getValue();",
+                    "        console.log(\"Resultado \" + fldCantidad.getValue());",
+                    "        existentRecord.beginEdit();",
+                    "        existentRecord.set(\"cantidad\", currentCantidad);",
+                    "        existentRecord.endEdit();",
+                    "        existentRecord.commit();",
+                    "        if (existentRecord.get(\"cantidad\") <= 0){",
+                    "",
+                    "            storeProducciones.remove([existentRecord]);",
+                    "        }",
+                    "",
+                    "    }else{",
+                    "        if(fldCantidad.getValue()>0){",
+                    "             combo.record.set(\"cantidad\", fldCantidad.getValue());",
+                    "             storeProducciones.loadData([combo.record], true);",
+                    "        }",
+                    "    }",
+                    "",
+                    "    storeProducciones.sort(\"nombreproducto\", \"ASC\");",
+                    "",
+                    "    fldCantidad.setValue(\"\");",
+                    "    //console.log(combo.record);",
+                    "    this.generaConsumoMateria();",
+                    "",
+                    "    combo.focus();",
+                    "}"
+                ]
+            },
+            "name": "agregaProductoProducir",
+            "designerId": "3773d9f6-7440-4798-a3ed-183bccd29e4a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "generaConsumoMateria",
+                "implHandler": [
+                    "        var gridProducciones = Ext.ComponentMgr.get(\"panelProduccion\");",
+                    "",
+                    "        var storeProducciones = gridProducciones.getStore();",
+                    "",
+                    "        var recsEnviar = [];",
+                    "        var oRequest = {};",
+                    "        storeProducciones.each(function(record){",
+                    "            var tmpProducto = {};",
+                    "                tmpProducto.cantidad = record.get(\"cantidad\");",
+                    "                tmpProducto.claveproducto = record.get(\"claveproducto\");",
+                    "                recsEnviar.push(tmpProducto);",
+                    "        });",
+                    "",
+                    "        oRequest.productos=recsEnviar;",
+                    "        var request = new Object(); request.method=\"consultamateriasconsumidas\"; request.params=[];",
+                    "        request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},{\"name\":\"productos\", \"value\":Ext.encode(oRequest)});",
+                    "        almacen.getApplication().loadData(request,function(response){",
+                    "            /*Ext.ComponentMgr.get(\"gridBusquedaCompras\").getStore().loadData(response.compras);",
+                    "            Ext.ComponentMgr.get(\"gridBusquedaCompras\").getPicker().loadMask.hide();*/",
+                    "            var gridConsumo = Ext.ComponentMgr.get(\"panelConsumo\");",
+                    "            var storeConsumo = gridConsumo.getStore();",
+                    "            storeConsumo.loadData(response.productos,false);",
+                    "            storeConsumo.sort(\"nombreproducto\", \"ASC\");",
+                    "        });",
+                    "        "
+                ]
+            },
+            "name": "generaConsumoMateria",
+            "designerId": "91649cf5-9e3f-437f-b914-c1146303912b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "guardaProducciones",
+                "implHandler": [
+                    "     var gridProducciones = Ext.ComponentMgr.get(\"panelProduccion\");",
+                    "",
+                    "     var storeProducciones = gridProducciones.getStore();",
+                    "",
+                    "     var recsEnviar = [];",
+                    "     var oRequest = {};",
+                    "     storeProducciones.each(function(record){",
+                    "     var tmpProducto = {};",
+                    "     tmpProducto.cantidad = record.get(\"cantidad\");",
+                    "     tmpProducto.claveproducto = record.get(\"claveproducto\");",
+                    "     recsEnviar.push(tmpProducto);",
+                    "     });",
+                    "     if (recsEnviar.length <= 0){",
+                    "         Ext.Msg.alert('Aviso','Por favor capture por lo menos un producto a producir');",
+                    "                return;",
+                    "",
+                    "     }",
+                    "     Ext.getCmp('btnGuardar').disable();",
+                    "     oRequest.productos=recsEnviar;",
+                    "     var currentController = this;",
+                    "     var request = new Object(); request.method=\"guardarProducciones\"; request.params=[];",
+                    "     request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},{\"name\":\"productos\", \"value\":Ext.encode(oRequest)});",
+                    "     almacen.getApplication().loadData(request,function(response){",
+                    "         currentController.limpiaProducciones();",
+                    "         Ext.getCmp('btnGuardar').enable();",
+                    "",
+                    "         console.log(response);",
+                    "",
+                    "         if(response.filepath){",
+                    "             if(response.filepath.length == 1){",
+                    "                 var curentFilepath = response.filepath[0];",
+                    "                 console.log(\"Archivo a descargar: \" + curentFilepath);",
+                    "                 if(curentFilepath !== \"\"){",
+                    "                     Ext.Msg.alert(\"Mensaje\",\"Impresión correcta, se descargará su archivo.\");",
+                    "                     almacen.getApplication().downloadPedido(curentFilepath, 0); // 0 PDF 1 Excel 2 Ambos",
+                    "                 }else{",
+                    "                     Ext.Msg.alert(\"Mensaje\",\"No se pudo generar su archivo. Reintente\");",
+                    "                 }",
+                    "             }/*else{",
+                    "                 Ext.Msg.alert(\"Mensaje\",\"No se pudo generar su archivo.\");",
+                    "             }*/",
+                    "         }",
+                    "",
+                    "",
+                    "       }, function(){",
+                    "           // se habilita en caso de un fallo mayor",
+                    "           Ext.getCmp('btnGuardar').enable();",
+                    "       });",
+                    ""
+                ]
+            },
+            "name": "guardaProducciones",
+            "designerId": "fa691add-2450-4b5a-873f-aeb93b6aad02"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "limpiaProducciones",
+                "implHandler": [
+                    "     var gridProducciones = Ext.ComponentMgr.get(\"panelProduccion\");",
+                    "     var storeProducciones = gridProducciones.getStore();",
+                    "     var gridConsumo = Ext.ComponentMgr.get(\"panelConsumo\");",
+                    "     var storeConsumo = gridConsumo.getStore();",
+                    "         storeProducciones.removeAll();",
+                    "         storeConsumo.removeAll();",
+                    "     var combo = Ext.ComponentMgr.get(\"cmbProductosProduccion\");",
+                    "     var fldCantidad = Ext.ComponentMgr.get(\"txtCantidad\");",
+                    "     fldCantidad.setValue(\"\");",
+                    "     combo.clearValue();"
+                ]
+            },
+            "name": "limpiaProducciones",
+            "designerId": "15393c4a-02aa-4634-b735-27e467227d51"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnGuardar",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "btnGuardarClick",
+                "implHandler": [
+                    "this.guardaProducciones();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "btnGuardarClick",
+            "designerId": "a483f4fe-485f-4ffd-b431-153b484209b5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "wndProducciones",
+                "implHandler": [
+                    "//Ext.ComponentMgr.get(\"toolbar\").collapse(Ext.Component.DIRECTION_TOP, true);",
+                    "this.limpiaProducciones();",
+                    "var wnd = Ext.create(\"almacen.view.dlgHistorico\");",
+                    "wnd.center();",
+                    "wnd.show();"
+                ]
+            },
+            "name": "wndProducciones",
+            "designerId": "e113615c-ca3b-4951-a934-13fa3c55c160"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnHistorial",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "btnHistorialClick",
+                "implHandler": [
+                    "        this.wndProducciones();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "btnHistorialClick",
+            "designerId": "8150f36f-6cf9-4bd7-96a3-4a6715d44d2b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "combo",
+                    "claveClasificacion"
+                ],
+                "fn": "cargaProducciones",
+                "implHandler": [
+                    "var request = new Object(); request.method=\"consultaproductosproducir\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "request.params.push({\"name\":\"claveClasificacion\",\"value\":claveClasificacion});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    /*Ext.ComponentMgr.get(\"gridBusquedaCompras\").getStore().loadData(response.compras);",
+                    "    Ext.ComponentMgr.get(\"gridBusquedaCompras\").getPicker().loadMask.hide();*/",
+                    "    combo.getStore().loadData(response.productos,false);",
+                    "    combo.getStore().sort(\"nombreproducto\", \"ASC\");",
+                    "});",
+                    "",
+                    "this.limpiaProducciones();"
+                ]
+            },
+            "name": "cargaProducciones",
+            "designerId": "206b331f-f4f7-4699-8865-0fbad30b89c7"
+        }
+    ]
+}

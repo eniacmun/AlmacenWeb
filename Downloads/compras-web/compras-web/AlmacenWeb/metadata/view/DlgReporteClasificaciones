@@ -1,0 +1,209 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgreporteclasificaciones",
+        "designer|userClassName": "DlgReporteClasificaciones",
+        "height": 305,
+        "id": "wndReporteClasificaciones",
+        "modal": true,
+        "title": "Listado de Sucursales",
+        "width": 434
+    },
+    "name": "MyWindow",
+    "designerId": "faa2c116-6d43-4174-8ecb-51949595c051",
+    "viewControllerInstanceId": "9a044a7c-e968-4f0c-b0b1-22ba9fbed0e0",
+    "viewModelInstanceId": "bf621446-73c9-455b-9cc0-c4ffd3eed01a",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "autoScroll": true,
+                "height": 218,
+                "id": "gridReporteClasificaciones",
+                "store": "StoreClasificaciones",
+                "title": null
+            },
+            "name": "MyGridPanel",
+            "designerId": "5daa74a4-3843-455c-80ac-1b627ea0d84a",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Check",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "selector",
+                        "text": "Selección"
+                    },
+                    "name": "MyCheck",
+                    "designerId": "cd27a87a-f3dd-4cda-b7db-3bdd72236082"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "clasificacion",
+                        "text": "Clasificación"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "b310f1b4-029c-4ca0-8d52-4b0bde5120f1"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreproducto",
+                        "text": "Descripción",
+                        "width": 210
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "df76cf20-a5e8-4565-98d3-41f15889590a"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridClasificacionesVentaAfterRender",
+                        "implHandler": [
+                            "component.getStore().removeAll();",
+                            "",
+                            "var el = component.getEl();",
+                            "",
+                            "// se da un espacio de tiempo corto para que el render del mask quede al centro.",
+                            "setTimeout(function() {",
+                            "    el.mask(\"Consultando clasificaciones\");",
+                            "    var request = new Object(); request.method=\"clasificacionesventa\"; request.params=[];",
+                            "    request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                            "    almacen.getApplication().loadData(request,function(response){",
+                            "        el.unmask();",
+                            "        console.log(response.productos);",
+                            "        component.getStore().loadData(response.productos);",
+                            "        component.getStore().sort('nombreproducto','ASC');",
+                            "        //Ext.ComponentMgr.get(\"comboClasificacion\").getPicker().loadMask.hide();",
+                            "    }, function(response){",
+                            "        Ext.Msg.alert(\"Error al consultar las clasificaciones\");",
+                            "        console.log(response);",
+                            "        el.unmask();",
+                            "    });",
+                            "},100);"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridClasificacionesVentaAfterRender",
+                    "designerId": "3a49b250-2f71-49e9-b312-51b627c042de"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar",
+            "designerId": "5ca433df-5d78-486b-b538-591c8490bd70",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "text": "Generar Reporte"
+                    },
+                    "name": "MyButton",
+                    "designerId": "a3dd8561-74a2-43b1-8b9b-1e9f742e3b09",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGeneraReporteClick",
+                                "implHandler": [
+                                    "var grid = Ext.ComponentMgr.get(\"gridReporteClasificaciones\");",
+                                    "",
+                                    "var el = grid.getEl();",
+                                    "",
+                                    "var array = {};",
+                                    "array.productos = [];",
+                                    "",
+                                    "grid.getStore().each(function(record){",
+                                    "    console.log(record);",
+                                    "    if (record.get(\"selector\")){",
+                                    "        array.productos.push(record.data);",
+                                    "    }",
+                                    "});",
+                                    "",
+                                    "",
+                                    "console.log(array);",
+                                    "",
+                                    "var request = new Object(); request.method=\"reporteclasificacionesbi\"; request.params=[];",
+                                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                                    "request.params.push({\"name\":\"Clasificaciones\",\"value\":Ext.encode(array)});",
+                                    "",
+                                    "el.mask(\"Generando reporte...\");",
+                                    "",
+                                    "almacen.getApplication().loadData(request,function(response){",
+                                    "    el.unmask();",
+                                    "    console.log(response);",
+                                    "    if(response.status){",
+                                    "        Ext.Msg.alert(\"Generación correcta\", \"Se descargará su reporte en breve\");",
+                                    "        var controller=Ext.WindowManager.get(\"wndReporteClasificaciones\").parentController;",
+                                    "        controller.descargarReporte(4);",
+                                    "        Ext.WindowManager.get(\"wndReporteClasificaciones\").close();",
+                                    "    } else{",
+                                    "        Ext.Msg.alert(\"Error\", response.msg);",
+                                    "    }",
+                                    "}, function(response){",
+                                    "    el.unmask();",
+                                    "    console.log(response);",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onGeneraReporteClick",
+                            "designerId": "ab871c98-baa1-4093-afb0-f245bc44a030"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

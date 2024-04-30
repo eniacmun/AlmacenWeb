@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "panelcompras",
+        "designer|userClassName": "panelcomprasViewModel"
+    },
+    "designerId": "d8d85daf-06be-4cf5-b3cc-60ea7671078a"
+}

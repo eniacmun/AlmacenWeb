@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreConsultaTraspasos",
+        "model": "mdlTraspasos",
+        "storeId": "StoreConsultaTraspasos"
+    },
+    "name": "MyJsonStore",
+    "designerId": "5b05136d-93c6-49db-a12a-92070d67211b"
+}

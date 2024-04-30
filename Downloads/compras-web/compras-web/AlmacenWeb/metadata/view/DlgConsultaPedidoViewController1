@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultatraspaso",
+        "designer|userClassName": "DlgConsultaPedidoViewController1"
+    },
+    "name": "DlgConsultaPedidoViewController1",
+    "designerId": "be6cb0c8-f111-4fed-9b58-ef4a2e9abf96"
+}

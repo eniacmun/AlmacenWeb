@@ -1,0 +1,299 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgHistorico",
+        "designer|userClassName": "dlgHistorico",
+        "height": 458,
+        "layout": "fit",
+        "modal": true,
+        "title": "Historial",
+        "titleAlign": "center",
+        "titleCollapse": true,
+        "width": 669
+    },
+    "name": "MyWindow",
+    "designerId": "c4247349-f6e5-483f-a47a-c1f8607c4e07",
+    "viewControllerInstanceId": "24f62ab1-c2ef-40dc-be3a-53490e95fcfa",
+    "viewModelInstanceId": "ba2711ed-188e-4587-956c-66c9ec6e4e43",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "bodyStyle": [
+                    "'background-color: #D9D8D8;'"
+                ],
+                "container|align": "stretch",
+                "height": 711,
+                "layout": "hbox",
+                "title": "",
+                "titleAlign": "center",
+                "width": 994
+            },
+            "name": "panelProducciones1",
+            "designerId": "952482af-f6d4-40d1-90fa-2ed172678047",
+            "cn": [
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "anchorSize": null,
+                        "columnLines": true,
+                        "designer|uiInterfaceName": "default-framed",
+                        "enableColumnHide": false,
+                        "enableColumnMove": false,
+                        "forceFit": true,
+                        "frame": true,
+                        "id": "panelProducciones",
+                        "layout|flex": 1,
+                        "margin": "0 10 0 0",
+                        "store": "StoreHistoricoProd",
+                        "title": "Producciones",
+                        "titleAlign": "center",
+                        "width": 288
+                    },
+                    "name": "MyGridPanel",
+                    "designerId": "de63bed9-9626-47db-886f-f3fe388d4979",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "claveproducto",
+                                "text": "Clave",
+                                "width": 53
+                            },
+                            "name": "MyColumn",
+                            "designerId": "104c4013-abbb-4e14-8826-90cb0a761e34"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "nombreproducto",
+                                "text": "Concepto"
+                            },
+                            "name": "MyColumn2",
+                            "designerId": "47735903-4b5a-4b55-ab4a-6805ae419158"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "cantidad",
+                                "text": "Cantidad",
+                                "width": 65
+                            },
+                            "name": "MyNumberColumn",
+                            "designerId": "ebd37421-2d6e-4dcf-a332-a36c2a32821a"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "unidad",
+                                "text": "Unidad",
+                                "width": 80
+                            },
+                            "name": "MyColumn3",
+                            "designerId": "c4f05b02-68e9-4d12-8524-41744ef20c05"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "border": "",
+                                "frame": true,
+                                "loadingText": "Cargando..",
+                                "margin": ""
+                            },
+                            "name": "MyGridView",
+                            "designerId": "0e3638c0-671c-44e2-b8f4-7ff087debd79"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "columnLines": true,
+                        "designer|uiInterfaceName": "default-framed",
+                        "forceFit": true,
+                        "frame": true,
+                        "frameHeader": false,
+                        "id": "panelConsumos",
+                        "layout|flex": 1,
+                        "margin": "0 0 0 10",
+                        "store": "StoreHistoricoCons",
+                        "title": "Materia Consumida",
+                        "titleAlign": "center"
+                    },
+                    "name": "MyGridPanel1",
+                    "designerId": "6d2b008f-cf37-4e27-8379-c5f6e0c36237",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "claveproducto",
+                                "text": "Clave",
+                                "width": 53
+                            },
+                            "name": "MyColumn4",
+                            "designerId": "28f74d3d-886c-4e0c-893a-9ef9412f1bcb"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "nombreproducto",
+                                "text": "Concepto"
+                            },
+                            "name": "MyColumn1",
+                            "designerId": "ff781424-9203-4977-ade7-f196c8256982"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "cantidad",
+                                "text": "Consumido",
+                                "width": 65
+                            },
+                            "name": "MyNumberColumn1",
+                            "designerId": "474c863c-b7cf-4c3a-af79-920c58dff5e1"
+                        },
+                        {
+                            "type": "Ext.grid.column.Number",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "ProporcionAplicar",
+                                "text": "Producido"
+                            },
+                            "name": "MyNumberColumn4",
+                            "designerId": "6239b06c-7bf2-4d1e-8df3-b2cde40aca79"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "unidad",
+                                "text": "Unidad",
+                                "width": 80
+                            },
+                            "name": "MyColumn6",
+                            "designerId": "7d8e62a8-a2f9-43a9-9e6d-856ed999ad64"
+                        },
+                        {
+                            "type": "Ext.grid.View",
+                            "reference": {
+                                "name": "viewConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "loadingText": "Cargando..."
+                            },
+                            "name": "MyGridView1",
+                            "designerId": "fc217c54-2c47-4c49-ac0e-67a20ce4aba0"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowAfterRender",
+                "implHandler": [
+                    "var gridProducciones = Ext.ComponentMgr.get(\"panelProducciones\");",
+                    "var gridConsumo = Ext.ComponentMgr.get(\"panelConsumos\");",
+                    "var storeProducciones = gridProducciones.getStore();",
+                    "var storeConsumo = gridConsumo.getStore();",
+                    "storeProducciones.removeAll();",
+                    "storeConsumo.removeAll();",
+                    "//var request = new Object(); request.method=\"consultaproducciones\"; request.params=[];",
+                    "var request = new Object(); request.method=\"consultaproduccionessimples\"; request.params=[];",
+                    "",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    console.log(\"response\");",
+                    "    console.log(response);",
+                    "    storeProducciones.loadData(response.producidos);",
+                    "    storeConsumo.loadData(response.consumidos);",
+                    "});",
+                    "",
+                    ""
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onWindowAfterRender",
+            "designerId": "ef6340fb-c582-4eea-b0c5-39e5d6036caa"
+        }
+    ]
+}

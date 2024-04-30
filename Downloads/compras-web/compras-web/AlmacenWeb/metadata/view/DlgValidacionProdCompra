@@ -1,0 +1,190 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "closable": false,
+        "designer|userAlias": "DlgValidacionProdCompra",
+        "designer|userClassName": "DlgValidacionProdCompra",
+        "height": 371,
+        "id": "DlgValidacionProdCompra",
+        "layout": "fit",
+        "modal": true,
+        "title": "Verifique los siguientes productos",
+        "width": 845
+    },
+    "name": "MyWindow",
+    "designerId": "341def17-69ce-4c0b-916b-014b52de04ef",
+    "viewControllerInstanceId": "23421fd6-ba81-4959-9c41-af9c3da3604b",
+    "viewModelInstanceId": "c35b8fe9-86c4-4d3e-b9a0-80b6abb26ad1",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "gridValidacionProdCompra",
+                "store": "StoreValidacionTraspaso",
+                "title": ""
+            },
+            "name": "MyGridPanel",
+            "designerId": "98729dcd-7f5e-4bc8-90d3-bf58e45fc3a6",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView",
+                    "designerId": "c97d8759-d8e8-4542-a874-b7d3cc87d424"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar",
+                    "designerId": "417c9e9f-f437-4701-b6a5-d0fd9540f994",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill",
+                            "designerId": "624a8a9e-3f3b-451f-852c-33ebd9d37a9d"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/cancel-icon.png",
+                                "id": "btnCloseWnd",
+                                "layout|flex": null,
+                                "text": "Cerrar Ventana"
+                            },
+                            "name": "MyButton",
+                            "designerId": "bbd8e012-ad1f-4268-98f9-0b2fc9670ac3",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnCloseWndClick",
+                                        "implHandler": [
+                                            "Ext.WindowMgr.get(\"DlgValidacionProdCompra\").close();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnCloseWndClick",
+                                    "designerId": "a46f80f2-dacc-46ba-804c-014b439c0a6b"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "SucursalDestino",
+                        "text": "Sucursal Dest.",
+                        "width": 133
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "a824a2c8-19f4-4db9-831d-d38de6d52763"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveOrigen",
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn4",
+                    "designerId": "747d1a39-a895-41c5-b40e-d00acf119b1c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreOrigen",
+                        "text": "Concepto",
+                        "width": 230
+                    },
+                    "name": "MyColumn11",
+                    "designerId": "d3a9f24b-aa8f-4906-b352-fdd3ac89f0f8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveDestino",
+                        "text": "Clave Dest.",
+                        "width": 130
+                    },
+                    "name": "MyColumn12",
+                    "designerId": "9eabc983-ca7a-4ee2-bed5-9673aa7c7228"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreDestino",
+                        "text": "Concepto Dest.",
+                        "width": 230
+                    },
+                    "name": "MyColumn13",
+                    "designerId": "b6546565-c692-4da2-9f3e-ca6c713541c1"
+                }
+            ]
+        }
+    ]
+}

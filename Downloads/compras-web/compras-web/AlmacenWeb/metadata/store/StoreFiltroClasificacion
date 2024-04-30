@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreFiltroClasificacion",
+        "model": "mdlGeneric",
+        "storeId": "StoreFiltroClasificacion"
+    },
+    "name": "MyStore",
+    "designerId": "130696b4-2999-4b52-9db6-767bb0ff2d05"
+}

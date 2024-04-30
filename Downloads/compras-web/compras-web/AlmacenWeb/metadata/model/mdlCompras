@@ -1,0 +1,94 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mdlCompras"
+    },
+    "name": "MyModel1",
+    "designerId": "d7d017ba-adbe-4ffc-b8be-0076fb84f6da",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "proveedor"
+            },
+            "name": "MyField24",
+            "designerId": "9470ebe2-1302-434c-84b9-94979a61d878"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "claveCompra"
+            },
+            "name": "MyField25",
+            "designerId": "9f99f833-c086-4ada-9880-0d888a5ef52f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Total"
+            },
+            "name": "MyField26",
+            "designerId": "e3741249-6a1d-421e-aa90-5b8a5bb0857b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "estado"
+            },
+            "name": "MyField27",
+            "designerId": "d14f7ff9-bb14-4cdf-bc9a-97a27655b9c7"
+        },
+        {
+            "type": "Ext.data.field.Date",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dateFormat": "d/m/Y H:i",
+                "name": "fechaCompra"
+            },
+            "name": "MyDate",
+            "designerId": "3e0b5190-60d5-488f-9427-37f39ffd6de8"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "numeroFactura"
+            },
+            "name": "MyField38",
+            "designerId": "762f07a5-fc0d-4a8b-9e46-ba892485665c"
+        }
+    ]
+}

@@ -1,0 +1,281 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mainviewport",
+        "designer|userClassName": "mainViewPortViewController"
+    },
+    "designerId": "eebf5043-4b1a-47be-93e1-8ae29ab15bb1",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnCompra",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadCompras",
+                "implHandler": [
+                    "        this.loadPanel(\"panelcompras\");"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadCompras",
+            "designerId": "9a0d4f8a-3a57-4e7d-a4d2-eaa590d78999"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnCedis",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadCedis",
+                "implHandler": [
+                    "",
+                    "        this.loadPanel(\"panelCedis\");",
+                    "",
+                    "",
+                    "       /* var tb = Ext.create('almacen.view.tbReportes');",
+                    "        Ext.ComponentMgr.get(\"tbDynInventarios\").add(tb);",
+                    "        Ext.ComponentMgr.get(\"tbDynInventarios\").updateLayout();*/"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadCedis",
+            "designerId": "1a172f82-04de-4197-90b5-8ed7d2d789a8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnInventarios",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadConsultaInventario",
+                "implHandler": [
+                    "         window.tipoInvenario = 0; ",
+                    "",
+                    "        this.loadPanel(\"panelInventarios\");"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadConsultaInventario",
+            "designerId": "bcaaa6e2-1f7f-4b39-ae7a-ad03ffc716c4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnProduccion",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadProducciones",
+                "implHandler": [
+                    "//window.alert(\"cargar producciones\");",
+                    "if (almacen.getApplication().currentSession.habilitaProduccionesTrazabilidad){",
+                    "    //habilita la carga de los usuarios",
+                    "    this.loadPanel(\"produccionesTras\");",
+                    "}",
+                    "else",
+                    "    this.loadPanel(\"producciones\");",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadProducciones",
+            "designerId": "ec0cbb49-45b9-4602-a95e-ed4a112f6a29"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAjuste",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadAjustes",
+                "implHandler": [
+                    "window.tipoInvenario = 1;",
+                    "this.loadPanel(\"panelInventarios\");",
+                    "var tb = Ext.create('almacen.view.tbAjustes');",
+                    "Ext.ComponentMgr.get(\"tbDynInventarios\").add(tb);",
+                    "Ext.ComponentMgr.get(\"tbDynInventarios\").updateLayout();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadAjustes",
+            "designerId": "308ba2c4-3ed0-4be1-8c1b-1542e79a27a6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnMerma",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadMermas",
+                "implHandler": [
+                    "window.tipoInvenario = 2;",
+                    "this.loadPanel(\"panelInventarios\");",
+                    "        var tb = Ext.create('almacen.view.tbMermas');",
+                    "        Ext.ComponentMgr.get(\"tbDynInventarios\").add(tb);",
+                    "        Ext.ComponentMgr.get(\"tbDynInventarios\").updateLayout();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadMermas",
+            "designerId": "e46d98ec-0d02-4b0a-9f3e-306082186746"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnSupervision",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadSupervision",
+                "implHandler": [
+                    "window.tipoInvenario = 3;",
+                    "this.loadPanel(\"panelInventarios\");",
+                    "var tb = Ext.create('almacen.view.tbSupervision');",
+                    "Ext.ComponentMgr.get(\"tbDynInventarios\").add(tb);",
+                    "Ext.ComponentMgr.get(\"tbDynInventarios\").updateLayout();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadSupervision",
+            "designerId": "ff7c5d85-97f4-4010-bbb1-105c9c9298a2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnTransferencia",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadTransferencia",
+                "implHandler": [
+                    "window.tipoInvenario = 4;",
+                    "this.loadPanel(\"panelInventarios\");",
+                    "var tb = Ext.create('almacen.view.tbTransferencia');",
+                    "Ext.ComponentMgr.get(\"tbDynInventarios\").add(tb);",
+                    "Ext.ComponentMgr.get(\"tbDynInventarios\").updateLayout();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadTransferencia",
+            "designerId": "c0bcd0f2-b719-4581-a9b2-772812c87424"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnLogout",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "Logout",
+                "implHandler": [
+                    "        window.location.reload();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "Logout",
+            "designerId": "6ef5e4fb-adf0-4a01-bf0c-1af21a857cbb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "className"
+                ],
+                "fn": "loadPanel",
+                "implHandler": [
+                    "//window.alert('almacen.view.'+className);",
+                    "var viewport = Ext.ComponentQuery.query(\"viewport\")[0];",
+                    "",
+                    "//window.alert(centerPanel);",
+                    "var centerPanel = viewport.down(\"[region=center]\");",
+                    "centerPanel.removeAll();",
+                    "var panel = Ext.create('almacen.view.'+className, {id:\"currentView\"});",
+                    "centerPanel.add(panel);",
+                    "centerPanel.updateLayout();",
+                    "viewport.updateLayout();",
+                    "return panel;"
+                ]
+            },
+            "name": "loadPanel",
+            "designerId": "faa153ca-db3e-4b4c-979e-303c77411bbc"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnPedidos",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadPedidos",
+                "implHandler": [
+                    "console.log('loadPedidos');",
+                    "this.loadPanel(\"DlgPedidos\");",
+                    "//var wnd=Ext.create(\"almacen.view.DlgPedidos\", {id:\"wndRegistroPedidos\"});",
+                    "//wnd.parentController=this;",
+                    "//wnd.center();",
+                    "//wnd.show();",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadPedidos",
+            "designerId": "4466327c-5732-4de2-8ce2-3f73dfa77b78"
+        }
+    ]
+}

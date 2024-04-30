@@ -1,0 +1,39 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreGridProductos",
+        "model": "mdlProductosCompra",
+        "storeId": "StoreGridProductos"
+    },
+    "name": "MyJsonStore",
+    "designerId": "8c709852-50db-48b7-b4f5-57dc898a88a6",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyAjaxProxy3",
+            "designerId": "959b560a-113f-48fc-865f-79a55644b90f",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader3",
+                    "designerId": "4a27feb7-5168-4f18-a138-8bfe9e51122a"
+                }
+            ]
+        }
+    ]
+}

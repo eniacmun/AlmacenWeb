@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgmotivosajustes",
+        "designer|userClassName": "DlgNoImpresionesAjustesViewModel1"
+    },
+    "name": "DlgNoImpresionesAjustesViewModel1",
+    "designerId": "ba9441b4-2a90-412f-a405-976431b9a47e"
+}

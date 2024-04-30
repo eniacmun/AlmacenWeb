@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreMateriaPrimaRecetaProduccion",
+        "model": "mdlMateriaPrimaRecetaProduccion",
+        "storeId": "StoreMateriaPrimaRecetaProduccion"
+    },
+    "name": "MyJsonStore",
+    "designerId": "208cf0d1-897f-4adf-aa5a-6be804856d81"
+}

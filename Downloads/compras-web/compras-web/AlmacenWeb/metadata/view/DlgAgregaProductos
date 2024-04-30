@@ -1,0 +1,118 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyStyle": [
+            "background-color: #D9D8D8;"
+        ],
+        "border": false,
+        "designer|userAlias": "dlgagregaproductos",
+        "designer|userClassName": "DlgAgregaProductos",
+        "height": null,
+        "title": null,
+        "width": null
+    },
+    "designerId": "82797646-e4cb-45c1-9618-868650090764",
+    "viewControllerInstanceId": "57da21d9-efc5-4856-89b5-b15fea7e5960",
+    "viewModelInstanceId": "76e1a429-caf2-4789-aa22-cba2497a9409",
+    "cn": [
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "displayField": "nombreproducto",
+                "fieldLabel": "Clasificación",
+                "forceSelection": true,
+                "id": "comboClasificacion",
+                "labelWidth": 76,
+                "layout|anchor": "100%",
+                "minChars": 2,
+                "queryMode": "local",
+                "store": "StoreClasificaciones",
+                "valueField": "clasificacion"
+            },
+            "name": "MyComboBox21",
+            "designerId": "72825763-078e-4448-96ca-007320053ccb",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onComboboxBeforeRender",
+                        "implHandler": [
+                            "component.getStore().removeAll();",
+                            "",
+                            "var request = new Object(); request.method=\"clasificaciones\"; request.params=[];",
+                            "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                            "almacen.getApplication().loadData(request,function(response){",
+                            "    component.getStore().loadData(response.productos);",
+                            "    component.getStore().sort('nombreproducto','ASC');",
+                            "});"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onComboboxBeforeRender",
+                    "designerId": "0b09d9d0-a687-4327-8f29-832e9edf93b3"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onComboboxSelect",
+                        "implHandler": [
+                            "var request = new Object(); request.method=\"productoscompra\"; request.params=[];",
+                            "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},",
+                            "                    {\"name\":\"clasificacion\",\"value\":combo.getValue()});",
+                            "almacen.getApplication().loadData(request,function(response){",
+                            "    Ext.ComponentMgr.get(\"comboProductos\").getStore().loadData(response.productos);",
+                            "    Ext.ComponentMgr.get(\"comboProductos\").getStore().sort('nombreproducto','ASC');",
+                            "});"
+                        ],
+                        "name": "select",
+                        "scope": "me"
+                    },
+                    "name": "onComboboxSelect",
+                    "designerId": "96b014a3-7cbe-4fb0-90e0-63ec321fd372"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Tag",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "nombreproducto",
+                "fieldLabel": "Producto",
+                "id": "comboProductos",
+                "labelWidth": 76,
+                "layout|anchor": "100%",
+                "minChars": 2,
+                "queryMode": "local",
+                "store": "StoreComboProductos"
+            },
+            "name": "MyTagField1",
+            "designerId": "5634d618-7e84-4a7b-8b3a-e028d2d09153"
+        }
+    ]
+}

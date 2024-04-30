@@ -1,0 +1,340 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultatraspasos",
+        "designer|userClassName": "DlgConsultaTraspasosViewController"
+    },
+    "designerId": "c7dcd0ec-7a98-46c1-984b-8e808a6199f2",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbTEstado",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "loadEstados",
+                "implHandler": [
+                    "var request = new Object(); request.method=\"estadostraspasos\"; request.params=[];",
+                    "                            request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "                            almacen.getApplication().loadData(request,function(response){",
+                    "                                component.getStore().loadData(response.items);",
+                    "                                component.getStore().sort('label','ASC');",
+                    "                                //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "                            });"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "loadEstados",
+            "designerId": "dbc66a13-4026-4445-be51-f6e16786b56f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbTEstado",
+                "designer|targetType": "Ext.form.field.ComboBox",
+                "fn": "filtraEstados",
+                "implHandler": [
+                    " queryPlan.query = new RegExp(queryPlan.query, 'i');",
+                    " queryPlan.forceAll = true;"
+                ],
+                "name": "beforequery",
+                "scope": "me"
+            },
+            "name": "filtraEstados",
+            "designerId": "e28608ee-6e3c-49fc-b61e-702460107a81"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#wndConsultaTraspasos",
+                "designer|targetType": "Ext.window.Window",
+                "fn": "initConsulta",
+                "implHandler": [
+                    "var currentController = this;",
+                    "var component = Ext.ComponentMgr.get(\"gridConsultaTraspasos\");",
+                    "component.getStore().removeAll();",
+                    "window.setTimeout(function(){currentController.loadConsultaTraspasos(null,null);}, 2000);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "initConsulta",
+            "designerId": "033ffc20-e25f-4561-8ed9-89ab94a343a7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "FiltroEstado,FiltroFechas"
+                ],
+                "fn": "loadConsultaTraspasos",
+                "implHandler": [
+                    "",
+                    "var winBusquedaCompra = Ext.WindowManager.get(\"wndConsultaTraspasos\");",
+                    "var el = winBusquedaCompra.getEl();",
+                    "el.mask('Realizando consulta, por favor espere');",
+                    "var request = new Object(); request.method=\"consultatraspasos\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "if (FiltroEstado)request.params.push({\"name\":\"filtroEstado\",\"value\":FiltroEstado});",
+                    "if (FiltroFechas)request.params.push({\"name\":\"filtroFecha\",\"value\":FiltroFechas});",
+                    "var component = Ext.ComponentMgr.get(\"gridConsultaTraspasos\");",
+                    "component.getStore().removeAll();",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    component.getStore().loadData(response.traspasos);",
+                    "    el.unmask();",
+                    "    //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "},function(response){",
+                    "    el.unmask();",
+                    "",
+                    "});"
+                ]
+            },
+            "name": "loadConsultaTraspasos",
+            "designerId": "8a9d88b1-36ea-468d-bded-f60e512ee08e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnFiltrar",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "ConsultarTraspasos",
+                "implHandler": [
+                    "var dtInicial = Ext.ComponentMgr.get(\"dtTInicial\");",
+                    "var dtFinal = Ext.ComponentMgr.get(\"dtTFinal\");",
+                    "var cmbEstado = Ext.ComponentMgr.get(\"cmbTEstado\");",
+                    "if (dtInicial.isValid() && dtFinal.isValid()){ //los 2 campos de fechas deben ser válidos",
+                    "   var pFechaInicial = dtInicial.getRawValue();",
+                    "   var pFechaFinal = dtFinal.getRawValue();",
+                    "   var pEstado;",
+                    "   if (cmbEstado.isValid()){",
+                    "       pEstado = cmbEstado.getValue();",
+                    "   }",
+                    "   var pFiltroFecha = \"TO_DATE('\" + pFechaInicial + \"', 'DD/MM/YYYY')\" + \"|TO_DATE('\" + pFechaFinal + \"', 'DD/MM/YYYY')\";;",
+                    "   this.loadConsultaTraspasos(pEstado, pFiltroFecha);",
+                    "}else{",
+                    "    Ext.Msg.alert('', 'Por favor especifique un filtro antes de realizar la búsqueda.');",
+                    "}",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "ConsultarTraspasos",
+            "designerId": "5300bd3a-4594-400b-b08f-eabf2a16c06a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnPendientes",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "consultarPendientes",
+                "implHandler": [
+                    "this.loadConsultaTraspasos(null,null);"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "consultarPendientes",
+            "designerId": "96ebf530-d345-4e84-8708-b989f5ade3bd"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnCancela",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "CancelaTraspaso",
+                "implHandler": [
+                    "",
+                    "var currentController=this;",
+                    "Ext.Msg.confirm(\"Cancelar Traspaso\", \"¿Desea cancelar el traspaso \" + button.currentRecord.ClaveTraspaso,",
+                    "function(buttonId){",
+                    "    if (buttonId == 'yes'){",
+                    "        var winBusquedaCompra = Ext.WindowManager.get(\"wndConsultaTraspasos\");",
+                    "        var el = winBusquedaCompra.getEl();",
+                    "        el.mask('Cancelando traspaso, por favor espere');",
+                    "        var request = new Object(); request.method=\"cancelatraspasos\"; request.params=[];",
+                    "        request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "        request.params.push({\"name\":\"traspaso\",\"value\":Ext.encode(button.currentRecord)});",
+                    "        almacen.getApplication().loadData(request,function(response){",
+                    "            el.unmask();",
+                    "            currentController.loadConsultaTraspasos(null,null);",
+                    "            if (Ext.WindowManager.get(\"wndDetallePedidos\"))",
+                    "                    Ext.WindowManager.get(\"wndDetallePedidos\").close();",
+                    "            //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "        });",
+                    "    }",
+                    "});"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "CancelaTraspaso",
+            "designerId": "e3444f53-2d75-40ca-ad9f-2bb6bf8ca184"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnRecibe",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "RecibeTraspaso",
+                "implHandler": [
+                    "var currentController=this;",
+                    "",
+                    "console.log(button.currentRecord);",
+                    "",
+                    "",
+                    "var msg = \"¿Desea recibir el traspaso \" + button.currentRecord.ClaveTraspaso + \"?\";",
+                    "",
+                    "if(button.currentRecord.tipoPago === 15){",
+                    "    msg = \"El traspaso viene con pago en EFECTIVO. <br> ¿Desea recibir el traspaso \" + button.currentRecord.ClaveTraspaso + \" en EFECTIVO?\";",
+                    "}",
+                    "",
+                    "Ext.Msg.confirm(\"Recibir Traspaso\", msg,",
+                    "                function(buttonId){",
+                    "                    if (buttonId == 'yes'){",
+                    "                        var winBusquedaCompra = Ext.WindowManager.get(\"wndConsultaTraspasos\");",
+                    "                        var el = winBusquedaCompra.getEl();",
+                    "                        el.mask('Recibiendo traspaso, por favor espere');",
+                    "                        var request = new Object(); request.method=\"recibetraspasos\"; request.params=[];",
+                    "                        request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "                        request.params.push({\"name\":\"traspaso\",\"value\":Ext.encode(button.currentRecord)});",
+                    "                        almacen.getApplication().loadData(request,function(response){",
+                    "                            el.unmask();",
+                    "                            currentController.loadConsultaTraspasos(null,null);",
+                    "                            if (Ext.WindowManager.get(\"wndDetallePedidos\"))",
+                    "                                Ext.WindowManager.get(\"wndDetallePedidos\").close();",
+                    "",
+                    "                            //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "                        });",
+                    "                    }",
+                    "                });"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "RecibeTraspaso",
+            "designerId": "16899b20-4fd1-4bab-91c7-c0b6f5fc8313"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnFinaliza",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "FinalizaTraspasos",
+                "implHandler": [
+                    "var currentController=this;",
+                    "        Ext.Msg.confirm(\"Finalizar Traspaso\", \"¿Desea finalizar el traspaso \" + button.currentRecord.ClaveTraspaso,",
+                    "        function(buttonId){",
+                    "            if (buttonId == 'yes'){",
+                    "                var winBusquedaCompra = Ext.WindowManager.get(\"wndConsultaTraspasos\");",
+                    "                var el = winBusquedaCompra.getEl();",
+                    "                el.mask('Finalizando traspaso, por favor espere');",
+                    "                var request = new Object(); request.method=\"finalizatraspasos\"; request.params=[];",
+                    "                request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "                request.params.push({\"name\":\"traspaso\",\"value\":Ext.encode(button.currentRecord)});",
+                    "                almacen.getApplication().loadData(request,function(response){",
+                    "                    el.unmask();",
+                    "                    currentController.loadConsultaTraspasos(null,null);",
+                    "                    //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "                });",
+                    "            }",
+                    "        });"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "FinalizaTraspasos",
+            "designerId": "d8f778de-02d6-4a3a-af22-5c59eabf93e4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnDetalle1",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "showDetail",
+                "implHandler": [
+                    "var request = new Object(); request.method=\"consultadetalletraspasos\"; request.params=[];",
+                    "        request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "        request.params.push({\"name\":\"clavetraspaso\",\"value\":button.currentRecord.ClaveTraspaso});",
+                    "        window.currentPedido = null;",
+                    "        var component = Ext.ComponentMgr.get(\"gridConsultaTraspasos1\");",
+                    "         var currentController=this;",
+                    "        //component.getStore().removeAll();",
+                    "        almacen.getApplication().loadData(request,function(response){",
+                    "            window.currentPedido = response;",
+                    "            var wnd=Ext.create(\"almacen.view.DlgConsultaTraspaso\", {id:\"wndDetallePedidos\",currentRecord:response});",
+                    "                wnd.parentController=currentController;",
+                    "                wnd.currentRecord=response;",
+                    "                wnd.center();",
+                    "                wnd.show();",
+                    "            //el.unmask();",
+                    "            //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                    "        },function(response){",
+                    "            el.unmask();",
+                    "",
+                    "        });",
+                    ""
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "showDetail",
+            "designerId": "cc6c1846-e81d-45a2-8586-098804fcc03d"
+        }
+    ]
+}

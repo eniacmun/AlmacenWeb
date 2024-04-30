@@ -1,0 +1,117 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "gridproductoscedis",
+        "designer|userClassName": "GridProductosCedis",
+        "height": "",
+        "title": "",
+        "width": ""
+    },
+    "name": "MyGridPanel14",
+    "designerId": "b0286597-06ae-49c8-8486-4d17b9bd91e2",
+    "viewControllerInstanceId": "f590d246-14a0-4f82-b698-2efe073bc16d",
+    "viewModelInstanceId": "14e0e216-16f7-4787-8e23-1704ab3d9163",
+    "cn": [
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "string",
+                "text": "String"
+            },
+            "name": "MyColumn62",
+            "designerId": "a3efed1f-a510-4fba-b0c9-27fab5199e3c"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "importe",
+                "designer|displayName": "Importe",
+                "text": "Importe Total"
+            },
+            "name": "MyNumberColumn29",
+            "designerId": "52d9d06e-e9b4-44c5-a571-7f1964cb1ed5"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "date",
+                "text": "Date"
+            },
+            "name": "MyDateColumn4",
+            "designerId": "3c84c5bc-f5a1-4a0c-b204-4517e79aabb2"
+        },
+        {
+            "type": "Ext.grid.column.Boolean",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "bool",
+                "text": "Boolean"
+            },
+            "name": "MyBooleanColumn3",
+            "designerId": "d2e1076d-bc16-462e-ad23-7ab29a13869d"
+        },
+        {
+            "type": "Ext.grid.View",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView12",
+            "designerId": "b1cefa1c-30b5-4a37-8bf5-be4615fe6882"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onGridpanelAfterRender",
+                "implHandler": [
+                    "console.log(\"renderizado\");",
+                    "console.log(\"component.columns.lenght\"); console.log(component.columns.length);",
+                    "",
+                    "var columna_importe = component.columns[component.columns.length-1];",
+                    "console.log(\"columna_importe \"); console.log(columna_importe);",
+                    "",
+                    "",
+                    "columna_importe.summaryRenderer = function(value, summaryData, dataIndex) {console.log(\"yes\");return 10;};",
+                    "",
+                    "console.log(\"columna_importe \"); console.log(columna_importe);",
+                    "",
+                    ""
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onGridpanelAfterRender",
+            "designerId": "2984aa93-e678-4bee-a5f2-3b4769248871"
+        }
+    ]
+}

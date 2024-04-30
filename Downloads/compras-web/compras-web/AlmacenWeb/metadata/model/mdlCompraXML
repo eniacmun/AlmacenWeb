@@ -1,0 +1,249 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mdlCompraXML"
+    },
+    "name": "MyModel1",
+    "designerId": "11509546-4dca-48bc-a77a-553eb48d8779",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CLAVESUCURSAL"
+            },
+            "name": "MyField144",
+            "designerId": "92b9698b-ad5e-45fb-ad6b-15279378f85b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CLAVEPROVEEDOR"
+            },
+            "name": "MyField145",
+            "designerId": "5ae799a3-c673-4662-9f07-26d60a4cfee0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CLAVECONTROL"
+            },
+            "name": "MyField146",
+            "designerId": "66fc0921-4005-42df-8719-89f6095c6a9d"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "UUID_CFDI"
+            },
+            "name": "MyField147",
+            "designerId": "bb4a53b7-3e84-49d5-a02f-3b13cb24e18b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "RFC_EMISOR"
+            },
+            "name": "MyField148",
+            "designerId": "c15b36cc-7fa9-4f7d-a81a-c58bcf892aeb"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "RFC_RECEPTOR"
+            },
+            "name": "MyField150",
+            "designerId": "5cc87573-1efd-4da1-8a96-7ad8a084c30a"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "FECHA_GENERACION"
+            },
+            "name": "MyField151",
+            "designerId": "a38d418c-ec44-482d-9839-a8cbd471b0a9"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "FECHA_IMPORTACION"
+            },
+            "name": "MyField152",
+            "designerId": "936c4c8c-6dd8-4baf-a5e2-a7b3bfd81e85"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CLAVEUSUARIO_IMPORTACION"
+            },
+            "name": "MyField153",
+            "designerId": "904150b1-bafc-4cfb-8f81-3ff337715a81"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CLAVECOMPRA"
+            },
+            "name": "MyField154",
+            "designerId": "887c48a8-0927-4472-8768-4f9d5231e19e"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CLAVECONTROL_COMPRA"
+            },
+            "name": "MyField155",
+            "designerId": "e4ccab36-87dd-4ae4-9560-486af3a6c67c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "FECHA_EMISION_CFDI"
+            },
+            "name": "MyField156",
+            "designerId": "0ccab0eb-ff6f-4568-8b62-60fef906bd88"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DOCUMENTO_CFDI"
+            },
+            "name": "MyField157",
+            "designerId": "d2c8c605-d689-4645-9ea8-2ef0b8296c5e"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "IMPORTE_CFDI"
+            },
+            "name": "MyField158",
+            "designerId": "5860fdf3-a409-438f-ae85-4cf5e29d2b42"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ESTADO"
+            },
+            "name": "MyField159",
+            "designerId": "3d676244-fc05-4785-b2c2-fd1d6d6b2217"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "OBSERVACIONES_ESTADO"
+            },
+            "name": "MyField160",
+            "designerId": "8beab7b6-2cda-4cc6-8d88-0c50625767b7"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "NOMBRE_PROVEEDOR"
+            },
+            "name": "MyField161",
+            "designerId": "fae739aa-6b6a-4a04-a89a-613a939d12cb"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CFDI"
+            },
+            "name": "MyField162",
+            "designerId": "575578f1-699d-4847-b6f7-0c397ab8fbdf"
+        }
+    ]
+}

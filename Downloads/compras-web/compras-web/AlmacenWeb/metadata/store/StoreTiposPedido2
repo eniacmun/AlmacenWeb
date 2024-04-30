@@ -1,0 +1,28 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "{",
+            "\"tipoPedido\": \"Todos\"",
+            "},",
+            "{",
+            "\"tipoPedido\": \"Diario\"",
+            "},",
+            "{",
+            "\"tipoPedido\": \"Bodega\"",
+            "}",
+            "]"
+        ],
+        "designer|userClassName": "StoreTiposPedido2",
+        "model": "mdlTipoPedido",
+        "storeId": "StoreTiposPedido2"
+    },
+    "name": "StoreTiposPedido1",
+    "designerId": "bcc8d709-3ab0-42b2-86e8-2b7fe93eb788"
+}

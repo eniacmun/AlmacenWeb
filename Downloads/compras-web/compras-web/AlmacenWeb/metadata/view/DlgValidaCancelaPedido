@@ -1,0 +1,93 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgvalidacancelapedido",
+        "designer|userClassName": "DlgValidaCancelaPedido",
+        "height": 100,
+        "id": "wndPreciosAlerta3",
+        "layout": "fit",
+        "modal": true,
+        "parentController": [
+            "`null`"
+        ],
+        "title": "Valide la Cancelacion",
+        "width": 300
+    },
+    "name": "DlgExistenciaAlertaImpuestoCambiado1",
+    "configAlternates": {
+        "parentController": "object"
+    },
+    "designerId": "e915f16c-9762-4bc6-89fd-c5cde7103903",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "parentController",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "b5cd693e-73c5-4023-9620-92d0e76c9265",
+    "viewModelInstanceId": "4b51a3b2-42fd-47f2-94f2-981d6e770f7f",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom",
+                "style": "background-color: #141314;"
+            },
+            "name": "MyToolbar6",
+            "configAlternates": {
+                "style": "string"
+            },
+            "designerId": "7d27d4fd-1416-46dc-9435-0c5c10af0ffa",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "blankText": "Password",
+                        "emptyText": "Password",
+                        "fieldLabel": "",
+                        "id": "passwordAutorizacionProductoPrecio3",
+                        "inputType": "password",
+                        "layout|flex": null
+                    },
+                    "name": "MyTextField",
+                    "designerId": "4dac9a4d-20a3-472b-b05d-b14adfb74d6b"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/padlock_s.png",
+                        "id": "aceptaAlerta3",
+                        "layout|flex": null,
+                        "text": "Autorizar"
+                    },
+                    "name": "MyButton18",
+                    "designerId": "56725ed2-7eab-4724-b763-d22e02e038b2"
+                }
+            ]
+        }
+    ]
+}

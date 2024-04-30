@@ -1,0 +1,991 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "panelInventarios",
+        "designer|userClassName": "panelInventarios",
+        "height": 600,
+        "layout": "border",
+        "manageHeight": false,
+        "title": "Inventarios",
+        "width": 1286
+    },
+    "name": "MyPanel2",
+    "designerId": "2c9128c4-f9be-46a2-9315-e3ab7e46cf6a",
+    "viewControllerInstanceId": "3866583d-03b8-4bfe-bf70-062ea55905fe",
+    "viewModelInstanceId": "8dc9c699-f8f6-422c-a4e1-87c7aad4f648",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaults": null,
+                "forceFit": true,
+                "frameHeader": false,
+                "header": false,
+                "id": "gridConsultaClasificaciones",
+                "layout|flex": 0,
+                "layout|region": "center",
+                "store": "StoreInventarios",
+                "title": "My Grid Panel"
+            },
+            "name": "MyGridPanel5",
+            "designerId": "6bdbbf62-ad87-4c77-888c-d734f63dee4d",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Sin información",
+                        "frame": false
+                    },
+                    "name": "MyGridView5",
+                    "designerId": "f45a5fc7-e86e-452c-a70c-4034d45b5ac3",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "record",
+                                    "rowIndex",
+                                    "rowParams",
+                                    "store"
+                                ],
+                                "fn": "getRowClass",
+                                "implHandler": [
+                                    "",
+                                    "var style = \"\";",
+                                    "if(almacen.getApplication().currentSession.subAlmacenes && window.tipoInvenario == 4){",
+                                    "    if(!record.get(\"editable\")){",
+                                    "        style = \"no-editable\";",
+                                    "    }    ",
+                                    "}",
+                                    "return style;"
+                                ]
+                            },
+                            "name": "getRowClass",
+                            "designerId": "9cb723a5-9e46-48be-a6b9-c542ff11bd3a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Clasificacion",
+                        "hidden": true,
+                        "lockable": false,
+                        "locked": true,
+                        "text": "Clasificación",
+                        "width": 81
+                    },
+                    "name": "MyColumn25",
+                    "designerId": "65bef667-d532-404a-986b-515c36741720",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter3",
+                            "designerId": "1764f0cb-b575-4abc-ab5b-0acd3b375666"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "proveedorMateria",
+                        "hidden": true,
+                        "lockable": false,
+                        "locked": true,
+                        "text": "Proveedor",
+                        "width": 81
+                    },
+                    "name": "MyColumn6",
+                    "designerId": "df88ab7d-312c-41d5-8f1a-7bf0f0d671a2",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter3",
+                            "designerId": "2a7e4f7d-b92f-4aee-9c65-f581f4424e00"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Clave",
+                        "defaultWidth": 120,
+                        "locked": true,
+                        "maxWidth": 120,
+                        "minWidth": 120,
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn17",
+                    "designerId": "4e6b2cf2-9251-4186-bfc8-3fe8e18162c8",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "Filtrar Clave"
+                            },
+                            "name": "MyStringFilter",
+                            "designerId": "621ec798-0052-46cd-a448-7bc4148be733"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Concepto",
+                        "defaultWidth": null,
+                        "locked": true,
+                        "minWidth": 250,
+                        "text": "Concepto",
+                        "width": 250
+                    },
+                    "name": "MyColumn18",
+                    "designerId": "09bbb209-8984-4ea8-80ba-af57cd99d780",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter2",
+                            "designerId": "7671030e-77ff-48d1-ad1e-79df23aaab30"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Unidad",
+                        "defaultWidth": 140,
+                        "maxWidth": 140,
+                        "minWidth": 120,
+                        "text": "Unidad"
+                    },
+                    "name": "MyColumn16",
+                    "designerId": "0d808640-ac50-47c6-9db2-25108a97eadb",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter",
+                            "designerId": "91569bf9-1113-46d6-adba-39bab300a5de"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "Existencia",
+                        "defaultWidth": 110,
+                        "maxWidth": 180,
+                        "minWidth": 110,
+                        "text": "Existencia"
+                    },
+                    "name": "MyNumberColumn25",
+                    "designerId": "a1edbf04-0c70-4926-99e1-c20cbfa7c213",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 4,
+                                "itemId": "mynumberfield7",
+                                "minValue": null,
+                                "selectOnFocus": true
+                            },
+                            "name": "MyNumberField7",
+                            "designerId": "b99dc86f-a449-46aa-b3ea-343e6f19761f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Unidad1",
+                        "defaultWidth": 140,
+                        "maxWidth": 140,
+                        "minWidth": 120,
+                        "text": "Unidad 1"
+                    },
+                    "name": "MyColumn",
+                    "designerId": "ee33ea30-2c08-479f-adae-584fd77ad6b9",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "unidad1"
+                            },
+                            "name": "MyListFilter",
+                            "designerId": "2bd7020d-556d-4f59-8ec3-0d3fa9407bdd"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "Equivalencia1",
+                        "defaultWidth": 180,
+                        "hidden": true,
+                        "id": "Equivalencia1",
+                        "maxWidth": 180,
+                        "minWidth": 180,
+                        "text": "Equivalencia 1"
+                    },
+                    "name": "MyNumberColumn7",
+                    "designerId": "ec9702ba-5e3e-4ca1-83ef-c22a5b4b369b",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 4,
+                                "designer|displayName": "equivalencia1",
+                                "minValue": null,
+                                "selectOnFocus": true
+                            },
+                            "name": "MyNumberField7",
+                            "designerId": "835bd2ff-aa57-489e-980b-3184a06ab9b1"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "Existencia1",
+                        "defaultWidth": 110,
+                        "designer|displayName": "",
+                        "id": "Existencia1",
+                        "maxWidth": 180,
+                        "minWidth": 110,
+                        "text": "Existencia 1"
+                    },
+                    "name": "MyNumberColumn",
+                    "designerId": "065f86a3-bd54-4ccb-9f5f-aaa21b30caf9",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 4,
+                                "designer|displayName": "existencia1",
+                                "minValue": null,
+                                "nanText": "0",
+                                "selectOnFocus": true
+                            },
+                            "name": "MyNumberField7",
+                            "designerId": "24448047-14ea-4ff9-88b2-d89322c1c1e7"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Unidad2",
+                        "defaultWidth": 140,
+                        "maxWidth": 140,
+                        "minWidth": 120,
+                        "text": "Unidad 2"
+                    },
+                    "name": "MyColumn2",
+                    "designerId": "5e811ebf-0eb5-45e0-97ca-887b3de51e91",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "unidad2"
+                            },
+                            "name": "MyListFilter",
+                            "designerId": "a54ad4dc-f235-4095-8857-d0bda7988e05"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "Equivalencia2",
+                        "defaultWidth": 180,
+                        "hidden": true,
+                        "id": "Equivalencia2",
+                        "maxWidth": 180,
+                        "minWidth": 180,
+                        "text": "Equivalencia 2"
+                    },
+                    "name": "MyNumberColumn26",
+                    "designerId": "b7dc1212-3f5a-4169-a7db-c7f2f1336d85",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 4,
+                                "designer|displayName": "equivalencia2",
+                                "minValue": null,
+                                "selectOnFocus": true
+                            },
+                            "name": "MyNumberField7",
+                            "designerId": "2d1ee7e2-cfb1-4f6f-a397-59d90fc4ed09"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "Existencia2",
+                        "defaultWidth": 110,
+                        "designer|displayName": "",
+                        "maxWidth": 180,
+                        "minWidth": 110,
+                        "text": "Existencia 2"
+                    },
+                    "name": "MyNumberColumn1",
+                    "designerId": "646b6825-a9b4-4aeb-acb4-9057cc7e16e2",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 4,
+                                "designer|displayName": "existencia2",
+                                "itemId": "mynumberfield7",
+                                "minValue": null,
+                                "nanText": "0",
+                                "selectOnFocus": true
+                            },
+                            "name": "MyNumberField7",
+                            "designerId": "89836890-9827-4daf-b3d0-e6c08494f627"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "Total",
+                        "defaultWidth": 150,
+                        "designer|displayName": "",
+                        "maxWidth": 180,
+                        "minWidth": 150,
+                        "text": "Total"
+                    },
+                    "name": "MyColumn59",
+                    "designerId": "9e5e9063-7ee7-4fe6-8910-e055f67a74e6"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "Costo",
+                        "defaultWidth": 130,
+                        "maxWidth": 180,
+                        "minWidth": 130,
+                        "text": "Costo"
+                    },
+                    "name": "MyNumberColumn2",
+                    "designerId": "8d6f07f6-8dee-4ea4-9a2a-3e563dbf002c",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Number",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "Filtrar Costo"
+                            },
+                            "name": "MyNumberFilter1",
+                            "designerId": "7821f7e7-7767-4e1d-a0c3-646766668516"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "menuFilterText": "Filtrar"
+                    },
+                    "name": "MyGridFiltersPlugin",
+                    "designerId": "fb73793b-4cd3-4b00-bb1e-4668b91a8da9"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "InventarioDiario",
+                        "falseText": "No",
+                        "text": "Inventario Diario",
+                        "trueText": "Si"
+                    },
+                    "name": "MyBooleanColumn",
+                    "designerId": "7947875e-a07a-4a2a-885f-f2a764335888",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Boolean",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "yesText": "Si"
+                            },
+                            "name": "MyBooleanFilter",
+                            "designerId": "57fdd226-a059-45be-8dbf-5824a00f4732"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.plugin.CellEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "clicksToEdit": 1
+                    },
+                    "name": "MyCellEditingPlugin1",
+                    "designerId": "ebc2815d-d7d5-43d4-888f-a4c3751ac890",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "BeforeEdit",
+                                "implHandler": [
+                                    "return window.InventariosBeforeEdit(editor, context, eOpts);"
+                                ],
+                                "name": "beforeedit",
+                                "scope": "me"
+                            },
+                            "name": "BeforeEdit",
+                            "designerId": "609a2366-e5c2-4d12-adbb-d0f6b5e9b234"
+                        },
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "AfterEdit",
+                                "implHandler": [
+                                    "return window.InventariosAfterEdit(editor, context, eOpts);"
+                                ],
+                                "name": "edit",
+                                "scope": "me"
+                            },
+                            "name": "AfterEdit",
+                            "designerId": "84126650-9da2-47ae-a4e9-667eaf377716"
+                        }
+                    ]
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridConsultaClasificacionesBeforeRender",
+                        "implHandler": [
+                            "console.log(window.InventariosBeforeEdit);",
+                            "// Se definen variables para contralar si se puede editar un registro",
+                            "// y que tipo de edicion se realiza.",
+                            "// Ver configuacion de tbAjustes, tbMermas y tbSupervision.",
+                            "window.InventariosBeforeEdit = function(editor, context, Opts){",
+                            "    return false;",
+                            "};",
+                            "",
+                            "window.InventariosAfterEdit = function(editor, context, Opts){",
+                            "    return false;",
+                            "};",
+                            "console.log(window.InventariosBeforeEdit);"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onGridConsultaClasificacionesBeforeRender",
+                    "designerId": "f76cbe05-1dd9-42b3-8b07-4e823b2f3637"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|regionWeights": [
+                    "{\"north\":20,\"south\":10,\"center\":0,\"west\":-5,\"east\":-20}"
+                ],
+                "height": 50,
+                "layout": "border",
+                "layout|region": "south",
+                "title": "",
+                "titleCollapse": false
+            },
+            "name": "MyPanel2",
+            "designerId": "6e3b62dc-365a-4e1f-8f75-3cce7f122da5",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "id": "tbInventarios",
+                        "layout|region": "west",
+                        "width": 850
+                    },
+                    "name": "MyToolbar7",
+                    "designerId": "211b6686-612e-48fd-a34d-a08cb5fea108",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "label",
+                                "editable": false,
+                                "emptyText": "Seleccione clasificación",
+                                "fieldLabel": "",
+                                "hideLabel": true,
+                                "id": "cmbClasificaciones",
+                                "layout|flex": null,
+                                "queryMode": "local",
+                                "store": "StoreGeneric",
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox4",
+                            "designerId": "f63c46af-4054-4945-94cd-3ab4b47a326c"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "label",
+                                "editable": false,
+                                "emptyText": "Seleccione proveedor",
+                                "fieldLabel": "",
+                                "hidden": true,
+                                "hideLabel": true,
+                                "id": "cmbProveedoresMateria",
+                                "layout|flex": null,
+                                "queryMode": "local",
+                                "store": "StoreProveedorMateria",
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox25",
+                            "designerId": "7304d904-b6d7-4650-a3b5-4366a0fb29d6",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCmbProveedoresMateriaBeforeRender",
+                                        "implHandler": [
+                                            "if(almacen.getApplication().currentSession.manejaproveedormateria){",
+                                            "    component.hidden = false;",
+                                            "}"
+                                        ],
+                                        "name": "beforerender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onCmbProveedoresMateriaBeforeRender",
+                                    "designerId": "f6be32e3-d48d-41d1-b55e-c5aa2455bb57"
+                                },
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCmbProveedoresMateriaChange",
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onCmbProveedoresMateriaChange",
+                                    "designerId": "94631d28-102c-495f-8a27-fd41ece480c6"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "label",
+                                "editable": false,
+                                "emptyText": "Seleccione almacén",
+                                "fieldLabel": "",
+                                "hidden": true,
+                                "hideLabel": true,
+                                "id": "cmbSubAlmacenes",
+                                "layout|flex": null,
+                                "queryMode": "local",
+                                "store": "StoreSubAlmacen",
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox14",
+                            "designerId": "971a712f-fba4-494b-a404-ac88c427d3f6",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCmbSubAlmacenBeforeRender",
+                                        "implHandler": [
+                                            "if(almacen.getApplication().currentSession.subAlmacenes){",
+                                            "    component.hidden = false;",
+                                            "}"
+                                        ],
+                                        "name": "beforerender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onCmbSubAlmacenBeforeRender",
+                                    "designerId": "b103fc86-dcb7-4d0f-b4f7-c1a2bd0fc133"
+                                },
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCmbSubAlmacenesChange",
+                                        "implHandler": [
+                                            "if(oldValue !== null && newValue != oldValue){",
+                                            "    this.LimpiaGrid(Ext.ComponentMgr.get(\"gridConsultaClasificaciones\"), null);",
+                                            "}",
+                                            "",
+                                            "window.claveAlmacen = newValue;"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onCmbSubAlmacenesChange",
+                                    "designerId": "79847e29-70d1-484a-a3e0-78da2e9261aa"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "label",
+                                "editable": false,
+                                "emptyText": "Seleccione almacén",
+                                "fieldLabel": "",
+                                "hidden": true,
+                                "hideLabel": true,
+                                "id": "cmbSubAlmacenes1",
+                                "layout|flex": null,
+                                "queryMode": "local",
+                                "store": "StoreSubAlmacen",
+                                "valueField": "value"
+                            },
+                            "name": "MyComboBox15",
+                            "designerId": "5363799b-7a5f-458e-9858-1aeb029b1ee4",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCmbSubAlmacenBeforeRender1",
+                                        "implHandler": [
+                                            "if(almacen.getApplication().currentSession.subAlmacenes && window.tipoInvenario == 4){",
+                                            "    component.hidden = false;",
+                                            "}"
+                                        ],
+                                        "name": "beforerender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onCmbSubAlmacenBeforeRender1",
+                                    "designerId": "38769833-d995-4b2d-b00f-fa0acb199838"
+                                },
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCmbSubAlmacenesChange1",
+                                        "implHandler": [
+                                            "window.claveAlmacenDestino = newValue;",
+                                            "this.actualizarGrid(newValue);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "name": "onCmbSubAlmacenesChange1",
+                                    "designerId": "122581f3-7f79-47a9-85ed-a73b982a6b5d"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Inventario Diario",
+                                "fieldLabel": "",
+                                "id": "chkIdiario",
+                                "layout|flex": null
+                            },
+                            "name": "MyCheckbox",
+                            "designerId": "54975e06-b135-4889-8374-385a44246159"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/filter.gif",
+                                "id": "btnConsultar",
+                                "layout|flex": null,
+                                "text": "Consultar"
+                            },
+                            "name": "MyButton17",
+                            "designerId": "afde018c-baad-493c-8596-06561e62db57"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/print.png",
+                                "id": "btnPrint",
+                                "layout|flex": null,
+                                "text": "Imprimir"
+                            },
+                            "name": "MyButton20",
+                            "designerId": "8238fc4e-9816-4515-b1af-ac6de153cddd"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frameHeader": false,
+                        "header": false,
+                        "id": "tbDynInventarios",
+                        "layout|region": "center",
+                        "title": "My Panel"
+                    },
+                    "name": "MyPanel3",
+                    "designerId": "87d120f0-81ab-46cc-9202-0d2dbf282c04"
+                }
+            ]
+        }
+    ]
+}

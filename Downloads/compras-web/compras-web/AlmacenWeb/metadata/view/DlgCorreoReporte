@@ -1,0 +1,445 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcorreoreporte",
+        "designer|userClassName": "DlgCorreoReporte",
+        "height": 240,
+        "modal": true,
+        "title": "Enviar reporte a correo electronico",
+        "width": 300
+    },
+    "name": "DlgCorreo1",
+    "configAlternates": {
+        "scrollable": "boolean"
+    },
+    "designerId": "d8650b4f-b984-4965-ab4e-4fd3f05da12b",
+    "viewControllerInstanceId": "4b8c7d36-180a-4503-9584-4fb668893534",
+    "viewModelInstanceId": "f71c4fec-1673-4408-8b27-d3b697814655",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 200,
+                "id": "gridCorreoReporte",
+                "store": "StoreGeneric",
+                "title": null,
+                "width": 320
+            },
+            "name": "MyGridPanel3",
+            "configAlternates": {
+                "scrollable": "boolean"
+            },
+            "designerId": "4f9ab38f-fcd2-4d0d-bfab-95846b7f65d0",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top"
+                    },
+                    "name": "MyToolbar5",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "aede2e8b-1611-426e-992c-33f6493ec4a1",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Agregar"
+                            },
+                            "name": "MyButton15",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "fecd5288-73a2-46f2-ba22-fdafd1f0ed71",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "var r = Ext.create('almacen.model.mdlGeneric', {",
+                                            "    value: false,",
+                                            "    label: ''",
+                                            "});",
+                                            "",
+                                            "var grid = Ext.ComponentMgr.get(\"gridCorreoReporte\");",
+                                            "",
+                                            "console.log(\"grid buscado\");",
+                                            "console.log(grid);",
+                                            "",
+                                            "grid.getStore().insert(0, r);",
+                                            "",
+                                            "grid.editingPlugin.startEditByPosition({row: 0, column: 0});"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "427731b6-93fe-4a75-af2a-f3262eb43de9"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "label",
+                        "defaultWidth": null,
+                        "draggable": false,
+                        "hideable": false,
+                        "text": "Email",
+                        "width": 270
+                    },
+                    "name": "MyColumn13",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "eba0d59a-50ca-4c3a-afdf-a6f0fbc4b47f",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "vtype": "email"
+                            },
+                            "name": "MyTextField1",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "25b2c19b-cba3-4ad8-bb73-3126a852baaa"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar6",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "c519e2a5-4823-40c4-b275-b7284bea8fbf",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "arrowAlign": null,
+                                "iconAlign": null,
+                                "layout|flex": null,
+                                "text": "Guardar pedido y enviar correos.",
+                                "width": 280
+                            },
+                            "name": "MyButton16",
+                            "configAlternates": {
+                                "scrollable": "boolean"
+                            },
+                            "designerId": "a6d27aba-269a-423d-adb3-3fe1e452783b",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonGuardarReporteCorreoClick",
+                                        "implHandler": [
+                                            "var grid = Ext.ComponentMgr.get(\"gridCorreoReporte\");",
+                                            "var store = grid.getStore();",
+                                            "",
+                                            "store.each(function(record){",
+                                            "    console.log(record);",
+                                            "});",
+                                            "",
+                                            "",
+                                            "var allRecords = (store.getData().getSource() || store.getData()).getRange();",
+                                            "var correctRecords = [];",
+                                            "",
+                                            "console.log(allRecords);",
+                                            "",
+                                            "for(var i = 0; i < allRecords.length; i++){",
+                                            "",
+                                            "    console.log(allRecords[i].get(\"label\"));",
+                                            "",
+                                            "    if(allRecords[i].get(\"label\") !== ''){",
+                                            "        correctRecords.push(allRecords[i]);",
+                                            "    }",
+                                            "}",
+                                            "",
+                                            "console.log(correctRecords);",
+                                            "",
+                                            "if(correctRecords.length === 0){",
+                                            "    Ext.Msg.show({",
+                                            "        title: 'Reporte',",
+                                            "        message: \"¿Esta seguro de no enviar ningun correo?\",",
+                                            "        width: 600,",
+                                            "        cls:'productos-cls',",
+                                            "        buttons: Ext.Msg.OKCANCEL,",
+                                            "        fn: function(buttonId){",
+                                            "            if (buttonId==\"ok\"){",
+                                            "                var controller =  Ext.WindowMgr.get(\"wndCorreoReporte\").parentController;",
+                                            "                controller.gestionaCorreosReporte(controller, correctRecords);",
+                                            "                //controller.guardaPedido(controller, correctRecords);",
+                                            "                var window = Ext.ComponentMgr.get(\"wndCorreoReporte\");",
+                                            "                window.close();",
+                                            "            }",
+                                            "        },",
+                                            "        animateTarget: 'btnSavePedido',",
+                                            "        icon: Ext.window.MessageBox.INFO",
+                                            "    });",
+                                            "}else{",
+                                            "    var controller =  Ext.WindowMgr.get(\"wndCorreoReporte\").parentController;",
+                                            "    //controller.guardaPedido(controller, correctRecords);",
+                                            "    controller.gestionaCorreosReporte(controller, correctRecords);",
+                                            "    var window = Ext.ComponentMgr.get(\"wndCorreoReporte\");",
+                                            "    window.close();",
+                                            "}",
+                                            "",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonGuardarReporteCorreoClick",
+                                    "designerId": "2006551d-c3c4-4d39-8fa0-81f10b22fc46"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Check",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "value",
+                        "draggable": false,
+                        "hidden": true,
+                        "hideable": false,
+                        "items": null,
+                        "tdCls": null,
+                        "text": "",
+                        "width": 30
+                    },
+                    "name": "MyCheck2",
+                    "configAlternates": {
+                        "items": "object",
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "9e3466d6-dbd8-4461-8980-f8af964393d7",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "items",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "draggable": false,
+                        "hideable": false,
+                        "tdCls": null,
+                        "width": 30
+                    },
+                    "name": "MyActionColumn",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "6b18744d-fbb7-44fc-bf64-52f47ded046c",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": null,
+                                "tooltip": "edit"
+                            },
+                            "name": "MyActionColumnItem",
+                            "designerId": "48045289-3a76-4a1b-bb12-b37cb813536e",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "//Ext.ComponentMgr.get(\"gridCorreo\").getStore().removeAt(rowIndex);",
+                                            "record.beginEdit();",
+                                            "record.set(\"value\", (record.get(\"value\") === 'true' ? 'false' : 'true'));",
+                                            "record.endEdit();",
+                                            "//record.commit();"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "fcde1009-0435-4e43-b776-d72eb0283216"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "v",
+                                            "metadata",
+                                            "r",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store"
+                                        ],
+                                        "fn": "getClass",
+                                        "implHandler": [
+                                            "console.log(r);",
+                                            "if (r.get('value') === \"true\") {",
+                                            "    this.items[0].tooltip = 'Quitar';",
+                                            "    return 'icon-edit';",
+                                            "} else {",
+                                            "    this.items[0].tooltip = 'Agregar';",
+                                            "    return 'icon-del';",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "getClass",
+                                    "designerId": "acfd0b96-873e-461b-9d5d-e7b795b8f3a5"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.view.Table",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView3",
+                    "configAlternates": {
+                        "scrollable": "boolean"
+                    },
+                    "designerId": "bd4dac75-1434-49c5-a5f0-8434514cf7ea"
+                },
+                {
+                    "type": "Ext.grid.plugin.CellEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyCellEditingPlugin4",
+                    "designerId": "d024f3e3-8acc-430c-87df-c4c1a641adb4"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridCorreoReporteAfterRender",
+                        "implHandler": [
+                            "var request = new Object();request.method=\"leercorreos\";request.params=[];",
+                            "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                            "",
+                            "console.log(\"henosaqui\");",
+                            "",
+                            "var store = Ext.ComponentMgr.get(\"gridCorreoReporte\").getStore();",
+                            "almacen.getApplication().loadData(request,",
+                            "                                  function(response){",
+                            "                                      store.removeAll();",
+                            "                                      console.log(response);",
+                            "                                      store.loadData(response);",
+                            "",
+                            "                                  }",
+                            "                                 );"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridCorreoReporteAfterRender",
+                    "designerId": "8e576f0d-b21f-41ab-81ce-158743737ec5"
+                }
+            ]
+        }
+    ]
+}

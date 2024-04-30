@@ -1,0 +1,86 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgvalidacancelapedido",
+        "designer|userClassName": "DlgPreciosAlertaViewController3"
+    },
+    "name": "DlgPreciosAlertaViewController3",
+    "designerId": "b5cd693e-73c5-4023-9620-92d0e76c9265",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#aceptaAlerta3",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "aceptarAlertaClick",
+                "implHandler": [
+                    "       this.validarAceptarAlerta();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "aceptarAlertaClick",
+            "designerId": "7f5d52f4-b598-432b-8b99-119143420c67"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validarAceptarAlerta",
+                "implHandler": [
+                    "console.log(\"vas a validar\");",
+                    "var request = new Object(); request.method=\"validaRolCancelaPedido\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},{\"name\":\"USERNAME\",\"value\":Ext.ComponentMgr.get(\"passwordAutorizacionProductoPrecio3\").getValue()});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    if(response.status){",
+                    "        var controller=Ext.WindowManager.get(\"wndValidaCancelaPedido\").parentController;",
+                    "        var button=Ext.WindowManager.get(\"wndValidaCancelaPedido\").button;",
+                    "        controller.cancelarTraspaso(button);",
+                    "        Ext.WindowManager.get(\"wndValidaCancelaPedido\").close();",
+                    "    }else{",
+                    "        Ext.Msg.alert('', 'Usuario o contraseña incorrecto.');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "validarAceptarAlerta",
+            "designerId": "1be5af46-7689-498d-a87a-30babd77741f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#passwordAutorizacionProductoPrecio3",
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "aceptarAlertaText",
+                "implHandler": [
+                    "                if (e.getKey()==Ext.event.Event.ENTER){",
+                    "                        this.validarAceptarAlerta();",
+                    "                    }"
+                ],
+                "name": "keyup",
+                "scope": "me"
+            },
+            "name": "aceptarAlertaText",
+            "designerId": "08fc0124-2f84-4d4e-ad74-9763aea1e816"
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mdlTasasIEPS"
+    },
+    "name": "MyModel1",
+    "designerId": "1665fe1f-4f19-4978-9ca1-7533acb493fd",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Id"
+            },
+            "name": "MyField",
+            "designerId": "d5d7a758-19b9-4cee-a51d-d04398147b1b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Descripcion"
+            },
+            "name": "MyField2",
+            "designerId": "ecd5e7d5-5b17-4f4d-a64d-13d7c1cba348"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "TipoTasa"
+            },
+            "name": "MyField3",
+            "designerId": "cefee107-bbeb-4c06-a44d-325cebda8cdb"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ImportePctje"
+            },
+            "name": "MyField24",
+            "designerId": "3e11625d-c981-4690-8d85-d0568e5ac23d"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CadenaConfig"
+            },
+            "name": "MyField25",
+            "designerId": "f7ee1225-e246-44d5-b821-e25057042eb2"
+        }
+    ]
+}

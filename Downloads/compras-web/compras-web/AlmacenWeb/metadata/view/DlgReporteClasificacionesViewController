@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgreporteclasificaciones",
+        "designer|userClassName": "DlgReporteClasificacionesViewController"
+    },
+    "designerId": "9a044a7c-e968-4f0c-b0b1-22ba9fbed0e0"
+}

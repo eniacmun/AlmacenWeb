@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreTasasIEPS",
+        "model": "mdlTasasIEPS",
+        "storeId": "StoreTasasIEPS"
+    },
+    "name": "MyJsonStore",
+    "designerId": "6659fba2-7123-4575-aac2-750d39e4db76"
+}

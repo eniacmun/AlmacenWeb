@@ -1,0 +1,36 @@
+{
+    "type": "Ext.toolbar.Toolbar",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tbajustes",
+        "designer|userClassName": "tbAjustes",
+        "height": 50,
+        "width": 400
+    },
+    "name": "MyToolbar8",
+    "designerId": "f503951d-851d-41f3-a536-0b53be7d2ef2",
+    "viewControllerInstanceId": "1fad2d7f-bb4b-439e-b05e-3c0cd70c6390",
+    "viewModelInstanceId": "ff1e2f73-91d5-41d1-ae9a-d5c6a8254270",
+    "cn": [
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "icon": "resources/table-edit.png",
+                "id": "btnAjustes",
+                "layout|flex": null,
+                "text": "Registrar conteo"
+            },
+            "name": "MyButton21",
+            "designerId": "9425bb7d-b860-4a0d-a0cb-cb432da95dae"
+        }
+    ]
+}

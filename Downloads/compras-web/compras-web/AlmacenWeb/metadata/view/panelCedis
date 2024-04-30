@@ -1,0 +1,1053 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "panelCedis",
+        "designer|userClassName": "panelCedis",
+        "height": 600,
+        "layout": "border",
+        "manageHeight": false,
+        "title": "Pedidos por surtir",
+        "width": 1000
+    },
+    "name": "panelInventarios1",
+    "designerId": "920a307c-f769-4cb1-b6a8-e4ca9e9cd95b",
+    "viewControllerInstanceId": "23ae0dbf-fd6d-4f37-80d6-4d9ad567a92d",
+    "viewModelInstanceId": "8548f517-e0c7-495c-b178-b10ce27b0d06",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "gridContainer",
+                "layout": "fit",
+                "layout|region": "center"
+            },
+            "name": "MyContainer",
+            "designerId": "fdf7e298-35b2-48c6-ae32-bbd0d309f290",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridContainerAfterRender",
+                        "implHandler": [
+                            " this.actualizarGrid();"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridContainerAfterRender",
+                    "designerId": "f70d718b-d686-4c9f-aeb7-7d5d24e9295b"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "id": "tbFecha"
+            },
+            "name": "MyToolbar20",
+            "designerId": "6c7f848f-51a7-4fea-9415-b8aff4a52846",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 10,
+                        "id": "FormularioFiltro",
+                        "layout": "column",
+                        "layout|flex": null,
+                        "manageHeight": false,
+                        "title": null
+                    },
+                    "name": "MyForm5",
+                    "designerId": "c5833d88-f7d2-4cb4-88a2-1abd065a0230",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "emptyText": "Fecha de Busqueda",
+                                "fieldLabel": "Fecha de Busqueda",
+                                "format": "d/m/Y",
+                                "id": "fechaBusqueda",
+                                "itemId": "fechaBusqueda",
+                                "labelWidth": 120,
+                                "width": 300
+                            },
+                            "name": "MyDateField5",
+                            "designerId": "ab464e83-e8ff-42f6-8aa9-0f8d8511e2be"
+                        },
+                        {
+                            "type": "Ext.form.RadioGroup",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "",
+                                "id": "radioFechaBusqueda",
+                                "itemId": "radioFecha",
+                                "width": 160
+                            },
+                            "name": "MyRadioGroup1",
+                            "designerId": "8ee7e8f0-0746-445e-a513-0e01a3fe9828",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "Registro",
+                                        "fieldLabel": null,
+                                        "inputValue": "0",
+                                        "labelWidth": null,
+                                        "name": "radioFecha",
+                                        "width": ""
+                                    },
+                                    "name": "MyRadio2",
+                                    "designerId": "4f4224ae-ee68-4f4c-b131-4221679bcadf"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "Entrega",
+                                        "fieldLabel": null,
+                                        "inputValue": "1",
+                                        "name": "radioFecha",
+                                        "width": ""
+                                    },
+                                    "name": "MyRadio3",
+                                    "designerId": "05fb5db8-c1fc-4d51-b8bb-90ee695c9abf"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "displayField": "label",
+                                "emptyText": "Estado",
+                                "fieldLabel": "",
+                                "id": "comboFechaBusqueda",
+                                "itemId": "comboFecha",
+                                "queryMode": "local",
+                                "store": "StoreEstados",
+                                "valueField": "value",
+                                "width": 150
+                            },
+                            "name": "MyComboBox18",
+                            "designerId": "9f379dc7-ff6c-4f16-a132-68d38794ced6",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "cargarEstado",
+                                        "implHandler": [
+                                            "var request = new Object(); request.method=\"estadospedidos\"; request.params=[];",
+                                            "                            request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                                            "                            almacen.getApplication().loadData(request,function(response){",
+                                            "                                component.getStore().loadData(response.items);",
+                                            "                                component.getStore().sort('label','ASC');",
+                                            "                                //Ext.ComponentMgr.get(\"comboProveedor\").getPicker().loadMask.hide();",
+                                            "                            });"
+                                        ],
+                                        "name": "beforerender",
+                                        "scope": "me"
+                                    },
+                                    "name": "cargarEstado",
+                                    "designerId": "cb3f3a33-13fb-4f3a-81d2-425d073f17d8"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/filter.gif",
+                                "id": "btnFiltrarBusqueda",
+                                "text": "Filtrar"
+                            },
+                            "name": "MyButton61",
+                            "designerId": "699cf649-de18-4d06-848b-ba2fdf75c628",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnFiltrarBusquedaClick",
+                                        "implHandler": [
+                                            "var form = button.up(\"form\").getForm();",
+                                            "console.log(\"form\");",
+                                            "",
+                                            "var values = form.getValues();",
+                                            "console.log(values);",
+                                            "",
+                                            "// los campos no se tomaran de getValues, pues este agrega la cadena \"-inputEl\" al nombre.",
+                                            "if (form.isValid()){",
+                                            "",
+                                            "    var fechaBusqueda = values[\"fechaBusqueda-inputEl\"];",
+                                            "    var estado = values[\"comboFechaBusqueda-inputEl\"];",
+                                            "    var tipoFecha = values.radioFecha;",
+                                            "",
+                                            "    console.log(\"fechaBusqueda\" + fechaBusqueda);",
+                                            "    console.log(\"estado\" + estado);",
+                                            "    console.log(\"tipoFecha\" + tipoFecha); // 0 registro 1 entrega",
+                                            "",
+                                            "    //",
+                                            "    //  var pFiltroFecha = \"TO_DATE('\" + fechaBusqueda + \"', 'DD/MM/YYYY')\" + \"|TO_DATE('\" + fechaBusqueda + \"', 'DD/MM/YYYY')\";",
+                                            "",
+                                            "    this.loadConsultaTraspasos(estado, fechaBusqueda, tipoFecha);",
+                                            "",
+                                            "}else{",
+                                            "    Ext.Msg.alert(\"Mensaje\", \"Revise los campos faltantes.\");",
+                                            "}"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnFiltrarBusquedaClick",
+                                    "designerId": "7aeffea7-aa4b-40d3-9b4f-7f145da56647"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "clock",
+                        "layout|flex": null,
+                        "text": ""
+                    },
+                    "name": "MyLabel3",
+                    "designerId": "2cdff218-35f7-45ce-b3d5-b93a3c093cad",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onClockAfterRender",
+                                "implHandler": [
+                                    "// Leer sucursales",
+                                    "//console.log(almacen.getApplication().currentSession);",
+                                    "this.clock();"
+                                ],
+                                "name": "afterrender",
+                                "scope": "me"
+                            },
+                            "name": "onClockAfterRender",
+                            "designerId": "f899974e-6a3b-4f50-a419-9c595667a74c"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "id": "tbFecha1"
+            },
+            "name": "MyToolbar21",
+            "designerId": "78c0512f-2965-46d3-87ba-799beee8a90d",
+            "cn": [
+                {
+                    "type": "Ext.form.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyPadding": 10,
+                        "hidden": true,
+                        "id": "FormularioFiltro1",
+                        "layout": "column",
+                        "layout|flex": null,
+                        "manageHeight": false,
+                        "title": null
+                    },
+                    "name": "MyForm5",
+                    "designerId": "ba15e9fc-d3f0-431c-8fd5-ccd95dee60fd",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "editable": false,
+                                "fieldLabel": "Fecha de Busqueda:",
+                                "id": "idFecha1",
+                                "labelWidth": 125
+                            },
+                            "name": "MyTextField4",
+                            "designerId": "883adefd-b656-4b41-82d8-bd4b55e958fe"
+                        },
+                        {
+                            "type": "Ext.form.RadioGroup",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "",
+                                "id": "radioFechaBusqueda1",
+                                "itemId": null,
+                                "width": 160
+                            },
+                            "name": "MyRadioGroup1",
+                            "designerId": "f32a2a3f-1386-4cbd-afbe-75ba63fc8f2d",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "Registro",
+                                        "fieldLabel": null,
+                                        "inputValue": "0",
+                                        "labelWidth": null,
+                                        "name": "radioFecha1",
+                                        "readOnly": true,
+                                        "width": ""
+                                    },
+                                    "name": "MyRadio2",
+                                    "designerId": "d209d9f7-043d-4281-8c3f-d2d74bd33cb1"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "Entrega",
+                                        "fieldLabel": null,
+                                        "inputValue": "1",
+                                        "name": "radioFecha1",
+                                        "readOnly": true,
+                                        "width": ""
+                                    },
+                                    "name": "MyRadio3",
+                                    "designerId": "2b3e0de2-490d-4d39-afb4-1df39848d7ca"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "editable": false,
+                                "fieldLabel": "",
+                                "id": "comboFechaBusqueda1",
+                                "labelWidth": null,
+                                "width": 150
+                            },
+                            "name": "MyTextField3",
+                            "designerId": "3a921e8c-9506-46be-88c7-f96008c69edc"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true,
+                        "layout|flex": null,
+                        "text": "(Filtro Aplicado)"
+                    },
+                    "name": "MyLabel2",
+                    "designerId": "e2c3bf8f-a566-42bd-9431-5df2570aaa71"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|regionWeights": [
+                    "{\"north\":20,\"south\":10,\"center\":0,\"west\":-5,\"east\":-20}"
+                ],
+                "height": 80,
+                "layout": "border",
+                "layout|region": "south",
+                "suspendLayout": true,
+                "title": "",
+                "titleCollapse": false
+            },
+            "name": "MyPanel2",
+            "designerId": "aab5e913-7331-49e7-be74-1a683f7ac892",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top",
+                        "id": "tbInventarios2",
+                        "layout|region": null
+                    },
+                    "name": "MyToolbar19",
+                    "designerId": "02900505-358d-4a9c-b5cd-edf48421da08",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "editable": false,
+                                "fieldLabel": "Total",
+                                "id": "totalField",
+                                "labelWidth": 50,
+                                "layout|flex": null,
+                                "width": 200
+                            },
+                            "name": "MyTextField2",
+                            "designerId": "36939101-0da6-45e0-94c9-401c82d187dd"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "id": "tbInventarios1",
+                        "layout|region": "center"
+                    },
+                    "name": "MyToolbar7",
+                    "designerId": "bdc9cd3e-cf52-48ea-a8db-61300c4f6aa5",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/transfer.png",
+                                "layout|flex": null,
+                                "text": "Actualizar"
+                            },
+                            "name": "MyButton57",
+                            "designerId": "eb861fca-0ecf-4733-8a60-d737f671b3e0",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "this.actualizarGrid();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "49735dee-7491-4cce-a664-8ed249e6ced1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/save.png",
+                                "id": "btnGuardarPedidos",
+                                "layout|flex": null,
+                                "text": "Guardar"
+                            },
+                            "name": "MyButton7",
+                            "designerId": "0bca7920-8776-40d6-aa5e-c90ad5a918e0",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnGuardarPedidosClick",
+                                        "implHandler": [
+                                            "",
+                                            "//var option = this.validaGuardarPedidos(this); // se envia el controlador",
+                                            "var controller = this;",
+                                            "",
+                                            "var estado = Ext.ComponentMgr.get(\"comboFechaBusqueda1\").getValue(); // se obtiene el estado en el que estan consultados",
+                                            "",
+                                            "if (estado == 'APROBADO'){",
+                                            "        Ext.MessageBox.show({",
+                                            "            title: 'Guardar Cambios',",
+                                            "            message: '¿Desea modificar los pedidos?',",
+                                            "            width: 300,",
+                                            "            buttons: Ext.Msg.YESCANCEL,",
+                                            "            buttonText: {",
+                                            "                yes: 'Modificar'",
+                                            "            },",
+                                            "            fn :function(buttonId){",
+                                            "                if(buttonId==\"yes\"){",
+                                            "                   controller.validaGuardarPedidos(controller,1);",
+                                            "                }",
+                                            "            }",
+                                            "        });",
+                                            "",
+                                            "}",
+                                            "",
+                                            "",
+                                            "if (estado == 'REGISTRADO'){",
+                                            "        Ext.MessageBox.show({",
+                                            "            title: 'Guardar Cambios',",
+                                            "            message: '¿Desea aprobar o modificar los pedidos?',",
+                                            "            width: 300,",
+                                            "            buttons: Ext.Msg.YESNOCANCEL,",
+                                            "            buttonText: {",
+                                            "                yes: 'Aprobar',",
+                                            "                no: 'Modificar'",
+                                            "            },",
+                                            "            fn :function(buttonId){",
+                                            "                if(buttonId==\"yes\"){",
+                                            "                  //  console.log(\"parametro 0\");",
+                                            "                   controller.validaGuardarPedidos(controller,0);",
+                                            "                }",
+                                            "                if(buttonId==\"no\"){",
+                                            "                    //console.log(\"parametro 1\");",
+                                            "                   controller.validaGuardarPedidos(controller,1);",
+                                            "                }",
+                                            "            }",
+                                            "        });",
+                                            "",
+                                            "}",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnGuardarPedidosClick",
+                                    "designerId": "cb5fcbc3-f7b1-41d4-8299-c423d3a6f7e5"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/filter.gif",
+                                "id": "btnConsultar1",
+                                "layout|flex": null,
+                                "text": "Consultar Pedidos"
+                            },
+                            "name": "MyButton17",
+                            "designerId": "0f8ae384-02ef-4655-9d37-0202b849ddff",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnConsultar1Click",
+                                        "implHandler": [
+                                            " var wnd=Ext.create(\"almacen.view.DlgConsultaTraspasos2\", {id:\"wndConsultaPedidos2\"});",
+                                            " wnd.parentController=this;",
+                                            " wnd.center();",
+                                            " wnd.show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnConsultar1Click",
+                                    "designerId": "effdf4fd-05ad-4e1d-96da-1b42d0fc7443"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/table-edit.png",
+                                "id": "btnReportes",
+                                "layout|flex": null,
+                                "text": "Reportes"
+                            },
+                            "name": "MyButton60",
+                            "designerId": "6e1b2b86-f326-4d45-8d85-ff9835180bbc",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnConsultar1Click1",
+                                        "implHandler": [
+                                            "var winDelete =  Ext.create('Ext.window.Window', {",
+                                            "    title: 'Seleccione el Reporte',",
+                                            "    height: 150,",
+                                            "    width: 950,",
+                                            "    layout: 'fit',",
+                                            "    modal:true,",
+                                            "    bodyPadding: 20,",
+                                            "    border: 2,",
+                                            "    buttons: [",
+                                            "        {",
+                                            "            text: 'CONFIRMAR',",
+                                            "            scale: 'medium',",
+                                            "            cls: 'btn-delete-yes',",
+                                            "            listeners: {",
+                                            "                click: function() {",
+                                            "",
+                                            "                    var radio1 = Ext.getCmp('radio1'),",
+                                            "",
+                                            "                        radio2 = Ext.getCmp('radio2'),",
+                                            "                        radio3 = Ext.getCmp('radio3');",
+                                            "                    radio4 = Ext.getCmp('radio4');",
+                                            "                    radio5 = Ext.getCmp('radio5');",
+                                            "",
+                                            "",
+                                            "                    //if L is selected, change to M",
+                                            "                    if (radio1.getValue()) {",
+                                            "                        controller.descargarReporte(1);",
+                                            "                        winDelete.close();",
+                                            "                        return;",
+                                            "                    }",
+                                            "",
+                                            "                    //if XL is selected, change to L",
+                                            "                    if (radio2.getValue()) {",
+                                            "                        controller.descargarReporte(2);",
+                                            "                        winDelete.close();",
+                                            "                        return;",
+                                            "                    }",
+                                            "",
+                                            "                    //if XL is selected, change to L",
+                                            "                    if (radio3.getValue()) {",
+                                            "                        controller.descargarReporte(3);",
+                                            "                        winDelete.close();",
+                                            "                        return;",
+                                            "                    }",
+                                            "                    // Abre la ventana para descargar reporte por clasificacion",
+                                            "                    if (radio4.getValue()) {",
+                                            "                        winDelete.close();",
+                                            "                        //controller.descargarReporte(3);",
+                                            "                        var wnd = Ext.create(\"almacen.view.DlgReporteClasificaciones\");",
+                                            "                        wnd.parentController = controller;",
+                                            "                        wnd.center();",
+                                            "                        wnd.show();",
+                                            "                        return;",
+                                            "                    }",
+                                            "                    if (radio5.getValue()) {",
+                                            "                        winDelete.close();",
+                                            "                        //controller.descargarReporte(3);",
+                                            "                        var wnd = Ext.create(\"almacen.view.DlgReporteUbicacion\");",
+                                            "                        wnd.parentController = controller;",
+                                            "                        wnd.center();",
+                                            "                        wnd.show();",
+                                            "                        return;",
+                                            "                    }",
+                                            "",
+                                            "                }",
+                                            "            }",
+                                            "        }, '->',",
+                                            "        {",
+                                            "            text: 'CANCELAR',",
+                                            "            scale: 'medium',",
+                                            "            cls: 'btn-delete-no',",
+                                            "            listeners: {",
+                                            "                click: function() {",
+                                            "                    winDelete.close();",
+                                            "                }",
+                                            "            }",
+                                            "        }",
+                                            "    ],",
+                                            "    items: [",
+                                            "        {",
+                                            "            xtype      : 'fieldcontainer',",
+                                            "            fieldLabel : '',",
+                                            "            defaultType: 'radiofield',",
+                                            "            defaults: {",
+                                            "                flex: 1",
+                                            "            },",
+                                            "            layout: 'hbox',",
+                                            "            items: [",
+                                            "                {",
+                                            "                    boxLabel  : 'Autorizados/Sin Autorizar',",
+                                            "                    checked: true,",
+                                            "                    name      : 'size',",
+                                            "                    inputValue: '0',",
+                                            "                    id        : 'radio1'",
+                                            "                }, {",
+                                            "                    boxLabel  : 'Pedidos/Almacen',",
+                                            "                    name      : 'size',",
+                                            "                    inputValue: 'l',",
+                                            "                    id        : 'radio2'",
+                                            "                }, {",
+                                            "                    boxLabel  : 'Pedidos Solicitados',",
+                                            "                    name      : 'size',",
+                                            "                    inputValue: '2',",
+                                            "                    id        : 'radio3'",
+                                            "                }, {",
+                                            "                    boxLabel  : 'Pedidos por Clasificacion',",
+                                            "                    name      : 'size',",
+                                            "                    inputValue: '4',",
+                                            "                    id        : 'radio4'",
+                                            "                }, {",
+                                            "                    boxLabel  : 'Pedido por Ubicación',",
+                                            "                    name      : 'size',",
+                                            "                    inputValue: '5',",
+                                            "                    id        : 'radio5'",
+                                            "                }",
+                                            "            ]",
+                                            "        }",
+                                            "    ]",
+                                            "}).show();"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnConsultar1Click1",
+                                    "designerId": "5323f822-a0ff-4ad2-8dc3-67288fb4fc5a"
+                                },
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnReportes2BeforeRender",
+                                        "implHandler": [
+                                            "if(window.habilitabtnReportes == \"visible\"){",
+                                            "    component.setVisible(true);",
+                                            "}"
+                                        ],
+                                        "name": "beforerender",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnReportes2BeforeRender",
+                                    "designerId": "a3f0324a-220b-426b-96ec-bdfc9f0f3065"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/print.png",
+                                "id": "btnImprimirPedidos",
+                                "layout|flex": null,
+                                "text": "Imprimir Pedidos"
+                            },
+                            "name": "MyButton20",
+                            "designerId": "c7ac62ff-5139-41b3-b8d3-34876b5f2b0c",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnImprimirPedidosClick",
+                                        "implHandler": [
+                                            "if(Ext.getCmp('generarExcel').getValue()){",
+                                            "    console.log(\"solo imprimira el excel\");",
+                                            "",
+                                            "    // se obtiene cuantas sucursales son con pedidos",
+                                            "    var number_columns = window.sucursales_con_pedidos.length;",
+                                            "    var columns_start = 5;",
+                                            "",
+                                            "    // se ensambla el dato que llevara el request",
+                                            "    var Productos = [];",
+                                            "",
+                                            "    var grid = Ext.ComponentMgr.get(\"GridProductosCedis\");",
+                                            "",
+                                            "    //var obtenerSucursalControllerFunction = this.obtenerSucursal;",
+                                            "",
+                                            "    grid.getStore().each(function(rec){",
+                                            "        var Sucursales = [];",
+                                            "        var fields = rec.getFields();",
+                                            "        var total = 0;",
+                                            "        for(var cliente = columns_start; cliente < (columns_start + number_columns); cliente++){",
+                                            "            var column_name = fields[cliente].name;",
+                                            "            var sucursal_data = almacen.getApplication().obtenerSucursal(column_name);",
+                                            "            var a = {sucursal: sucursal_data.sucursal, clavesucursal: sucursal_data.clavesucursal, cantidad: rec.get(column_name)};",
+                                            "            Sucursales.push(a);",
+                                            "            total += rec.get(column_name);",
+                                            "        }",
+                                            "        Productos.push({",
+                                            "            claveproducto:  rec.get('claveproducto'),",
+                                            "            concepto:  rec.get('concepto'),",
+                                            "            sucursales: Sucursales,",
+                                            "            unidad: rec.get('unidad'),",
+                                            "            existencia: rec.get('existencia'),",
+                                            "            total: total",
+                                            "        });",
+                                            "    });",
+                                            "",
+                                            "",
+                                            "    var request = new Object(); request.method=\"generarexcel\"; request.params=[];",
+                                            "",
+                                            "    var currentProductos = {};",
+                                            "    currentProductos.productos = Productos;",
+                                            "",
+                                            "",
+                                            "    request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                                            "    request.params.push({\"name\":\"productos\",\"value\":Ext.encode(currentProductos)});",
+                                            "",
+                                            "    console.log(\"request\");console.log(request);",
+                                            "",
+                                            "    var myMask = new Ext.LoadMask({",
+                                            "        msg    : 'Imprimiendo, espere por favor...',",
+                                            "        target : grid",
+                                            "    });",
+                                            "",
+                                            "    //myMask.show();",
+                                            "",
+                                            "    var actualizar_function = this.actualizarGrid;",
+                                            "    almacen.getApplication().loadData(request,function(response){",
+                                            "        console.log(\"response\");console.log(response);",
+                                            "        console.log(\"response.filepath.length\");console.log(response.filepath.length);",
+                                            "        if(response.filepath.length === 1){",
+                                            "            var currentImpresion = response.filepath[0];",
+                                            "            Ext.Msg.alert('','Se realizará la descarga del pedido.');",
+                                            "            almacen.getApplication().downloadPedido(currentImpresion, 1);",
+                                            "        }else{",
+                                            "            Ext.Msg.alert('','No se puede obtener el archivo.');",
+                                            "        }",
+                                            "        //myMask.hide();",
+                                            "    },function(){",
+                                            "        myMask.hide();",
+                                            "        almacen.getApplication().Reconectar(almacen.getApplication().currentSession,",
+                                            "                                            function(obj,res){",
+                                            "                                                // myMask.hide();",
+                                            "                                                Ext.Msg.alert('',\"Error.</br></br>El excel no se pudo generar. Asegure que tenga cerrado el excel anterior.</br></br> Verifique la conexión con la caja.</br></br>Presione el botón guardar nuevamente.\");",
+                                            "                                            });",
+                                            "",
+                                            "    });",
+                                            "",
+                                            "}else{",
+                                            "    console.log(\"Abriendo ventana de impresion\");",
+                                            "    var wnd=Ext.create(\"almacen.view.DlgDetalleImpresion\", {id:\"wndDetalleImpresion\"});",
+                                            "    wnd.parentController=this;",
+                                            "    wnd.center();",
+                                            "    wnd.show();",
+                                            "}",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnImprimirPedidosClick",
+                                    "designerId": "d4be886b-e471-4048-82ba-3f5f6b558e86"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Generar Excel",
+                                "fieldLabel": "",
+                                "id": "generarExcel",
+                                "layout|flex": null,
+                                "width": 120
+                            },
+                            "name": "MyCheckbox3",
+                            "designerId": "f32cc68b-d8c6-45b6-9e79-8f4890592c74"
+                        },
+                        {
+                            "type": "Ext.form.field.Checkbox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "Vista Detalles",
+                                "fieldLabel": "",
+                                "id": "checkDetalles",
+                                "layout|flex": null,
+                                "width": 150
+                            },
+                            "name": "MyCheckbox4",
+                            "designerId": "7fa2463b-d280-4465-a64d-2b860d4825ca",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "checkbox",
+                                            "checked"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "var column_unidad = Ext.ComponentMgr.get(\"GridProductosCedis\").down('headercontainer').getGridColumns()[2];",
+                                            "",
+                                            "var column_precio = Ext.ComponentMgr.get(\"GridProductosCedis\").down('headercontainer').getGridColumns()[3];",
+                                            "",
+                                            "var column_existencia = Ext.ComponentMgr.get(\"GridProductosCedis\").down('headercontainer').getGridColumns()[4];",
+                                            "",
+                                            "console.log(checked);",
+                                            "",
+                                            "if(checked){",
+                                            "    column_unidad.show();",
+                                            "    column_precio.show();",
+                                            "    column_existencia.show();",
+                                            "}else{",
+                                            "    if(!almacen.getApplication().currentSession.habilitaMostrarUnidad)",
+                                            "        column_unidad.hide();",
+                                            "    column_precio.hide();",
+                                            "    column_existencia.hide();",
+                                            "}"
+                                        ]
+                                    },
+                                    "name": "handler",
+                                    "designerId": "5449aa3b-b719-432c-83eb-be9b7895f160"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

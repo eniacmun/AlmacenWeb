@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreProveedorMateria",
+        "model": "mdlGeneric",
+        "storeId": "StoreProveedorMateria"
+    },
+    "name": "StoreGeneric1",
+    "designerId": "bb651082-45d0-446c-8cb5-bd97bf1cf8aa"
+}

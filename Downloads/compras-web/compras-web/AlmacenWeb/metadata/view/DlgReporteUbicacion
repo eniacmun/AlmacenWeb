@@ -1,0 +1,214 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgreporteubicacion",
+        "designer|userClassName": "DlgReporteUbicacion",
+        "height": 150,
+        "id": "wndReporteUbicacion",
+        "modal": true,
+        "title": "Listado de Clasificaciones",
+        "width": 300
+    },
+    "name": "DlgReporteClasificaciones1",
+    "designerId": "12b0e1f7-8eb7-4a99-a34c-1aa0a723ef5f",
+    "viewControllerInstanceId": "5759a4f3-30f2-4e26-ab7f-ef84aa4ae7cd",
+    "viewModelInstanceId": "86af83b9-3dcb-4dd6-a33f-e70ef413708b",
+    "cn": [
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "SucursalOrigen",
+                "fieldLabel": null,
+                "forceSelection": true,
+                "id": "cmbSucursalPedido",
+                "margin": "10 0 0 50",
+                "store": "StoreSucursalPedido",
+                "valueField": "claveSucursal",
+                "width": 200
+            },
+            "name": "MyComboBox16",
+            "designerId": "470c2566-6de0-4559-9f40-25df1ad90bf5",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onCmbSucursalPedidoBeforeRender",
+                        "implHandler": [
+                            "var request = new Object(); request.method=\"consultasucursalpedido\"; request.params=[];",
+                            "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                            "",
+                            "almacen.getApplication().loadData(request,function(response){",
+                            "    console.log(response);",
+                            "    component.getStore().loadData(response.pedidos);",
+                            "    if(response.pedidos.length < 2){",
+                            "        Ext.Msg.alert(\"Error\", \"No hay más sucursales\");",
+                            "    } else{",
+                            "        component.setValue(0.0);",
+                            "    }",
+                            "});"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onCmbSucursalPedidoBeforeRender",
+                    "designerId": "0edcb08f-ba92-46aa-b0c7-0b5c49582be2"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "label",
+                "fieldLabel": null,
+                "forceSelection": true,
+                "id": "cmbTipoReporteUbicacion",
+                "margin": "10 0 0 50",
+                "store": "StoreGeneric",
+                "valueField": "value",
+                "width": 200
+            },
+            "name": "MyComboBox26",
+            "designerId": "2fe249aa-bd05-4bbe-9c5e-f0999cb12347",
+            "cn": [
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onCmbTipoReporteUbicacionBeforeRender",
+                        "implHandler": [
+                            "var request = new Object(); request.method=\"tiporeporteubicacion\"; request.params=[];",
+                            "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                            "",
+                            "console.log(almacen.getApplication().currentSession);",
+                            "",
+                            "almacen.getApplication().loadData(request,function(response){",
+                            "    console.log(response);",
+                            "    component.getStore().loadData(response.items);",
+                            "    tipoReporte = almacen.getApplication().currentSession.tipoReporte ? \"1\" : \"0\";",
+                            "    component.setValue(tipoReporte);",
+                            "});"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onCmbTipoReporteUbicacionBeforeRender",
+                    "designerId": "27878fcd-5d24-4798-8a6b-c3fe21d3cf7f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar",
+            "designerId": "26c86e13-b1c4-49bd-a184-f73ec4f0ac55",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "margin": "0 0 10 85",
+                        "text": "Generar Reporte"
+                    },
+                    "name": "MyButton",
+                    "designerId": "4b39bedc-5ae0-4ad0-868b-901b6c17a444",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGeneraReporteClick",
+                                "implHandler": [
+                                    "var combo = Ext.getCmp('cmbSucursalPedido');",
+                                    "var comboTipoReporte = Ext.getCmp('cmbTipoReporteUbicacion');",
+                                    "",
+                                    "var nombresucursal = combo.getRawValue();",
+                                    "var clavesucursal = combo.getValue();",
+                                    "",
+                                    "var tipoReporte = comboTipoReporte.getValue();",
+                                    "",
+                                    "console.log(tipoReporte);",
+                                    "",
+                                    "",
+                                    "var request = new Object(); request.method=\"reporteubicacion\"; request.params=[];",
+                                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                                    "request.params.push({\"name\":\"clavesucursal\",\"value\":clavesucursal});",
+                                    "request.params.push({\"name\":\"nombreSucursal\",\"value\":nombresucursal});",
+                                    "request.params.push({\"name\":\"tipoReporte\",\"value\":tipoReporte});",
+                                    "",
+                                    "console.log(clavesucursal);",
+                                    "console.log(nombresucursal);",
+                                    "",
+                                    "var wnd = Ext.getCmp(\"wndReporteUbicacion\");",
+                                    "",
+                                    "var el = wnd.getEl();",
+                                    "",
+                                    "el.mask(\"Generando reporte...\");",
+                                    "",
+                                    "almacen.getApplication().loadData(request,function(response){",
+                                    "    el.unmask();",
+                                    "    console.log(response);",
+                                    "    if(response.status){",
+                                    "        Ext.Msg.alert(\"Generación correcta\", \"Se descargará su reporte en breve\");",
+                                    "        var controller=Ext.WindowManager.get(\"wndReporteUbicacion\").parentController;",
+                                    "        controller.descargarReporte(5);",
+                                    "        Ext.WindowManager.get(\"wndReporteUbicacion\").close();",
+                                    "    } else{",
+                                    "        Ext.Msg.alert(\"Error\", response.msg);",
+                                    "    }",
+                                    "}, function(response){",
+                                    "    el.unmask();",
+                                    "    console.log(response);",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onGeneraReporteClick",
+                            "designerId": "9af98ad4-b175-43ea-9901-9fa6ca2c2c30"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

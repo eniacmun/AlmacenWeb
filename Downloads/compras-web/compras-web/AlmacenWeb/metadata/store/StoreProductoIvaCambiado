@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreProductoIvaCambiado",
+        "model": "mdlProductosCompra",
+        "storeId": "StoreProductoIvaCambiado"
+    },
+    "name": "StoreExistenciasAlerta1",
+    "designerId": "37b13ca9-2431-4968-b80d-c18026fea486"
+}

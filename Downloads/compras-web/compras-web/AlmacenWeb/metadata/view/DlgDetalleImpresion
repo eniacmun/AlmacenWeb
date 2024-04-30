@@ -1,0 +1,684 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "currency": "£",
+        "designer|userAlias": "dlgdetalleimpresion",
+        "designer|userClassName": "DlgDetalleImpresion",
+        "height": 503,
+        "layout": "border",
+        "title": "Detalle Impresión",
+        "width": 847
+    },
+    "designerId": "32fc3492-a93f-404e-b3cf-cd2337ea9c21",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "currency",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "394a0e90-4463-4fa0-a581-5838b5ec929c",
+    "viewModelInstanceId": "0ae91d6e-9b5d-418b-ab7d-e45b346a273d",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "forceFit": true,
+                "id": "gridCedis1",
+                "layout|region": "center",
+                "store": "StoreSucursales",
+                "title": "",
+                "titleCollapse": false
+            },
+            "name": "MyGridPanel9",
+            "designerId": "44a85f0a-7f1f-4d7a-8e59-c64523c4e1eb",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreProveedor",
+                        "defaultWidth": null,
+                        "maxWidth": null,
+                        "minWidth": null,
+                        "tdCls": "x-change-cell",
+                        "text": "Sucursal",
+                        "width": ""
+                    },
+                    "name": "MyColumn34",
+                    "designerId": "8e841797-8972-4676-a5eb-0f34bc857199",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter6",
+                            "designerId": "acf98df9-1e08-4639-8917-b98c4cfeb780"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoScroll": true,
+                        "dock": "right",
+                        "height": "",
+                        "id": "ticketImpresion",
+                        "margin": 5,
+                        "title": "Detalles",
+                        "width": 400
+                    },
+                    "name": "MyPanel4",
+                    "designerId": "1975ad1f-c707-4283-aafe-b2a6b05d995f",
+                    "cn": [
+                        {
+                            "type": "Ext.panel.Tool",
+                            "reference": {
+                                "name": "tools",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "handler": null,
+                                "type": "print"
+                            },
+                            "name": "MyTool",
+                            "configAlternates": {
+                                "handler": "object"
+                            },
+                            "designerId": "751d3359-9edf-4b3d-8a93-187008a8281f",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "handler",
+                                    "type": "string"
+                                }
+                            ],
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "owner",
+                                            "tool",
+                                            "event"
+                                        ],
+                                        "fn": "callback",
+                                        "implHandler": [
+                                            "            Ext.define(\"plugin.Printer\", {",
+                                            "                statics: {",
+                                            "                    print: function(htmlElement,printAutomatically) {",
+                                            "                        var win = window.open('', 'Print Panel');",
+                                            "",
+                                            "                        win.document.open();",
+                                            "                        win.document.write(htmlElement.outerHTML);",
+                                            "                        win.document.close();",
+                                            "",
+                                            "                        if (printAutomatically){",
+                                            "                            win.print();",
+                                            "                        }",
+                                            "",
+                                            "                        if (this.closeAutomaticallyAfterPrint){",
+                                            "                            if(Ext.isIE){",
+                                            "                                window.close();",
+                                            "                            } else {",
+                                            "                                win.close();",
+                                            "                            }",
+                                            "                        }",
+                                            "                    }",
+                                            "                }",
+                                            "            });",
+                                            "",
+                                            "            //var html = Ext.dom.Query.selectNode('#ticketImpresion-body');",
+                                            "            var html = Ext.dom.Query.selectNode('#ticketImpresion-innerCt');",
+                                            "            var result = html.innerHTML.trim();",
+                                            "            if(result !== \"\" ){",
+                                            "                    plugin.Printer.print(html,true);",
+                                            "            }",
+                                            ""
+                                        ]
+                                    },
+                                    "name": "callback",
+                                    "designerId": "aad23409-5d4a-428a-bfcd-e7bba37cfa8d"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar12",
+                    "designerId": "73ec34fe-7eb5-49fe-be29-fdb15952b10f",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill5",
+                            "designerId": "c2b8cc2e-320b-40a5-b6e4-bb13b5501a7b"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/cancel-icon.png",
+                                "id": "btnWndPedidosCerrar1",
+                                "layout|flex": null,
+                                "text": "Cerrar Ventana"
+                            },
+                            "name": "MyButton39",
+                            "designerId": "2d7ac278-615e-4311-98ec-daa95ca320ad"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/Search.png",
+                                "id": "btnImpresionProducto",
+                                "layout|flex": null,
+                                "text": "Impresión por Producto"
+                            },
+                            "name": "MyButton38",
+                            "designerId": "b54f3a53-38db-4cac-8f39-d86683e52e75",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnImpresionProductoClick",
+                                        "implHandler": [
+                                            "// se verifica que esta seleccionado",
+                                            "//var selecciones = Ext.getCmp('gridCedis1').getSelectionModel();",
+                                            "var selection_model = Ext.getCmp('gridCedis1').getSelection();",
+                                            "",
+                                            "var selecciones = {};",
+                                            "",
+                                            "if(selection_model.length){",
+                                            "    var name='';",
+                                            "    selection_model.map(item=>{",
+                                            "        console.log(item);",
+                                            "        console.log(item.data.nombreProveedor);",
+                                            "        selecciones[item.data.nombreProveedor] = item.data.claveProveedor; // se agrega un registro",
+                                            "    });",
+                                            "}else{",
+                                            "    Ext.Msg.alert('', 'Eliga una sucursal primero.');",
+                                            "    return;",
+                                            "}",
+                                            "",
+                                            "console.log(\"selecciones\");console.log(selecciones);",
+                                            "",
+                                            "// se obtiene cuantas sucursales son con pedidos",
+                                            "var number_columns = window.sucursales_con_pedidos.length;",
+                                            "var columns_start = 5;",
+                                            "",
+                                            "// se ensambla ell dato que llevara el request",
+                                            "var Productos = [];",
+                                            "",
+                                            "var grid = Ext.ComponentMgr.get(\"GridProductosCedis\");",
+                                            "",
+                                            "var obtenerSucursalControllerFunction = this.obtenerSucursal;",
+                                            "",
+                                            "grid.getStore().each(function(rec){",
+                                            "        var Sucursales = [];",
+                                            "        var fields = rec.getFields();",
+                                            "        for(var cliente = columns_start; cliente < (columns_start + number_columns); cliente++){",
+                                            "            var column_name = fields[cliente].name;",
+                                            "            var sucursal_data = almacen.getApplication().obtenerSucursal(column_name);",
+                                            "            if (sucursal_data.sucursal in selecciones && rec.get(column_name) > 0){ // solo se agregara la sucursal si existe en las selecciones y tiene cantidad mayor a cero",
+                                            "                var a = {sucursal: sucursal_data.sucursal, clavesucursal: sucursal_data.clavesucursal, cantidad: rec.get(column_name)};",
+                                            "                Sucursales.push(a);",
+                                            "            }",
+                                            "        }",
+                                            "        Productos.push({",
+                                            "            claveproducto:  rec.get('claveproducto'),",
+                                            "            concepto:  rec.get('concepto'),",
+                                            "            sucursales: Sucursales",
+                                            "        });",
+                                            "    });",
+                                            "",
+                                            "console.log(Productos);",
+                                            "",
+                                            "// se ensambla el html",
+                                            "",
+                                            "//var html = \"<div id='myId' style = 'margin: 20px; border: 20px;'><p>Hola</p></div>\";",
+                                            "var html = \"<font size='1'>\";",
+                                            "var sangria = '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';",
+                                            "var tab = '&nbsp&nbsp&nbsp&nbsp';",
+                                            "var tabmin = '&nbsp&nbsp';",
+                                            "",
+                                            "html += tab + 'IMPRESIÓN DE PEDIDOS POR INSUMO' + '<br>';",
+                                            "",
+                                            "// se agrega la fecha",
+                                            "",
+                                            "var date  = new Date();",
+                                            "/*var day = date.getDate();",
+                                            "var monthIndex = date.getMonth();",
+                                            "var year = date.getFullYear();",
+                                            "",
+                                            "var seconds = date.getSeconds();",
+                                            "var minutes = date.getMinutes();",
+                                            "var hour = date.getHours();",
+                                            "",
+                                            "if(seconds === 0){",
+                                            "    seconds = '00';",
+                                            "}",
+                                            "",
+                                            "var fecha = day + '/' + monthIndex + '/' + year + tab + hour + ':' + minutes + ':' + seconds;",
+                                            "",
+                                            "*/",
+                                            "",
+                                            "var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };",
+                                            "",
+                                            "var fecha =  date.toLocaleDateString(\"es-ES\", options); // masrtes, 1 de enero de 2019",
+                                            "",
+                                            "var datetext = date.toTimeString();",
+                                            "",
+                                            "datetext = datetext.split(' ')[0];",
+                                            "",
+                                            "",
+                                            "html += tabmin + 'IMPRESIÓN:'+ tabmin + (fecha.toUpperCase() + '&nbsp' + datetext ) + '<br>';",
+                                            "",
+                                            "",
+                                            "for(var i = 0; i< Productos.length; i++){",
+                                            "    var producto = Productos[i];",
+                                            "    if(producto.sucursales.length > 0){ // Producto con pedidos en sucursales",
+                                            "        html += producto.claveproducto + \"-\" + producto.concepto;",
+                                            "        html += '<br>';",
+                                            "        var cantidad_acumulada = 0.0;",
+                                            "        for(var j = 0; j < producto.sucursales.length; j++){",
+                                            "            var currentSucursal = producto.sucursales[j];",
+                                            "            if(currentSucursal.cantidad > 0){",
+                                            "                html += sangria + currentSucursal.sucursal + tab + ':' + tab + currentSucursal.cantidad;",
+                                            "                html += '<br>';",
+                                            "                cantidad_acumulada += currentSucursal.cantidad;",
+                                            "            }",
+                                            "        }",
+                                            "        html += sangria + '&nbsp&nbsp Total ' + tab + ':' + tab + cantidad_acumulada;",
+                                            "        html += '<br>';",
+                                            "        html += '<br>';",
+                                            "    }",
+                                            "",
+                                            "}",
+                                            "",
+                                            "html += '</font>';",
+                                            "",
+                                            "//console.log(html);",
+                                            "",
+                                            "Ext.getCmp('ticketImpresion').update(html);",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnImpresionProductoClick",
+                                    "designerId": "9cbe78b0-2919-4770-bec8-6d2702a1f213"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/save.png",
+                                "id": "btnImpresionSucursal",
+                                "layout|flex": null,
+                                "text": "Impresión por Sucursal"
+                            },
+                            "name": "MyButton37",
+                            "designerId": "2f15ebde-a136-4e25-8849-efd958ff25ba",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onBtnImpresionSucursalClick",
+                                        "implHandler": [
+                                            "// se verifica que esta seleccionado",
+                                            "//var selecciones = Ext.getCmp('gridCedis1').getSelectionModel();",
+                                            "var selection_model = Ext.getCmp('gridCedis1').getSelection();",
+                                            "",
+                                            "var selecciones = {};",
+                                            "",
+                                            "if(selection_model.length){",
+                                            "    var name='';",
+                                            "    selection_model.map(item=>{",
+                                            "        //console.log(item);",
+                                            "        //console.log(item.data.nombreProveedor);",
+                                            "        selecciones[item.data.nombreProveedor] = item.data.claveProveedor; // se agrega un registro",
+                                            "    });",
+                                            "}else{",
+                                            "    Ext.Msg.alert('', 'Eliga una sucursal primero.');",
+                                            "    return;",
+                                            "}",
+                                            "",
+                                            "console.log(\"selecciones\");console.log(selecciones);",
+                                            "",
+                                            "//",
+                                            "",
+                                            "// guardara n numero de pedidos por columna equivalente al numero de sucursales que hayan realizado pedidos",
+                                            "var Pedidos = [];",
+                                            "",
+                                            "// se obtiene el grid por ID, este grid es el que contiene los productos.",
+                                            "var grid=Ext.ComponentMgr.get(\"GridProductosCedis\");",
+                                            "",
+                                            "",
+                                            "// se crea el vector de sucursales, un registro por cada sucursal.",
+                                            "var sucursales = [];",
+                                            "",
+                                            "// Se obtienen el numero de sucursales con pedidos por medido de una variable global,",
+                                            "// debido a que los metodos del grid no devolveran las columnas dinamicamente.",
+                                            "var number_columns = window.sucursales_con_pedidos.length;",
+                                            "//console.log(\"window.sucursales_con_pedidos: \"); console.log(window.sucursales_con_pedidos);",
+                                            "",
+                                            "//console.log(\"Numero de sucursales(columnas): \"  +number_columns);",
+                                            "",
+                                            "// Indice en donde empiezan las sucursales en el grid",
+                                            "var sucursales_start = 5;",
+                                            "",
+                                            "// se guardan los pedidos por columnas",
+                                            "for(var pedido = 0; pedido < number_columns; pedido ++){",
+                                            "",
+                                            "    // se definen el vector de los productos",
+                                            "    var productos = [];",
+                                            "",
+                                            "    // la siguiente es una muestra de como tiene que estructurarse",
+                                            "    /*productos.push({",
+                                            "               \t\t\t\t\"claveproducto\":\"TEQ.026\",",
+                                            "               \t\t\t\t\"cantidad\":3.25,",
+                                            "               \t\t\t\t\"Importe\":1353.9825,",
+                                            "               \t\t\t\t\"costo\":416.61,",
+                                            "               \t\t\t\t\"Concepto\":\"SIETE LEGUAS BLANCO 1 LT\",",
+                                            "               \t\t\t\t\"Unidad\":\"BOTELLA\"",
+                                            "",
+                                            "    });*/",
+                                            "",
+                                            "    var sucursal_name = \"\";",
+                                            "",
+                                            "    // se itera el grid para rellenar los productos",
+                                            "    grid.getStore().each(function(rec){",
+                                            "",
+                                            "        // se obtiene el nombre de la sucursal",
+                                            "        var fields = rec.getFields();",
+                                            "        sucursal_name = fields[sucursales_start].name;",
+                                            "        var sucursal_data = almacen.getApplication().obtenerSucursal(sucursal_name);",
+                                            "        if(sucursal_data.sucursal in selecciones){ // solo se toma en cuenta la sucursal si existe en las selcciones",
+                                            "            ",
+                                            "            // Se verifica que la cantidad en esa sucursal sea mayor que cero (verificar, puede que si se tengan que registrar los ceros)",
+                                            "            if (rec.get(sucursal_name) > 0 /* && rec.get(\"Agregar\")*/){",
+                                            "",
+                                            "                // se calcula el importe nuevamente, dado que sencha no guarda el importe en rec.get(\"importe\")",
+                                            "                // se aplica tambien redondeo",
+                                            "                var importe = rec.get(sucursal_name) * rec.get(\"precio\");",
+                                            "                //console.log(\"importe: \" + importe);",
+                                            "                importe = (Math.round(importe * 100) / 100); // redondeo a dos digitos",
+                                            "                // se ensambla el producto",
+                                            "                var current_record = {",
+                                            "                    \"claveproducto\": rec.get(\"claveproducto\"),",
+                                            "                    \"cantidad\":rec.get(sucursal_name),",
+                                            "                    \"Importe\": importe,",
+                                            "                    \"costo\":rec.get(\"precio\"),",
+                                            "                    \"Concepto\":rec.get(\"concepto\"),",
+                                            "                    \"Unidad\":rec.get(\"unidad\")",
+                                            "                };",
+                                            "",
+                                            "                // se agrega el producto al vector",
+                                            "                productos.push(current_record);",
+                                            "            }",
+                                            "        }",
+                                            "    });",
+                                            "",
+                                            "    if(productos.length > 0){ // Se leyeron los productos de la sucursal.",
+                                            "        var sucursal_data = almacen.getApplication().obtenerSucursal(sucursal_name);",
+                                            "        var pedidos = sucursal_data.extra_data;",
+                                            "        var pedidos_clean = \"\";",
+                                            "        pedidos.split(\",\").forEach(function(pedido){pedidos_clean += pedido.split(\" \")[0].substring(1) + \",\";});",
+                                            "        pedidos_clean = pedidos_clean.substring(0, pedidos_clean.length-1);",
+                                            "        // se ensambla la sucursal pasando los parametros necesarios.",
+                                            "        // el vector window.sucursales_con_pedidos se ensambla al cargar los productos del Cedis en onGridpanelBeforeRender",
+                                            "        sucursales.push({",
+                                            "            \"claveSucursal\": window.sucursales_con_pedidos[pedido].clavesucursal, // se toma la clave sucursal del vector global de pedidos de sucursales",
+                                            "            \"productos\" : productos,",
+                                            "            \"nombreSucursal\": window.sucursales_con_pedidos[pedido].sucursal.toUpperCase(), //sucursal_name.toUpperCase(),",
+                                            "            \"claveNota\":0,",
+                                            "            \"claveDocumentoSucursal\":0,",
+                                            "            \"pedidos\": pedidos_clean",
+                                            "        });",
+                                            "    }",
+                                            "",
+                                            "    // se agrega al vector de pedidos",
+                                            "    //Pedidos.push(sucursales);",
+                                            "",
+                                            "    // se pasa a la siguiente columna",
+                                            "    sucursales_start += 1;",
+                                            "}",
+                                            "",
+                                            "//console.log(\"Pedidos\");console.log(Pedidos);",
+                                            "console.log(\"sucursales\");console.log(sucursales);",
+                                            "",
+                                            "",
+                                            "// Se crea request",
+                                            "var gridProductos = Ext.ComponentMgr.get(\"wndDetalleImpresion\");",
+                                            "var el = gridProductos.getEl();",
+                                            "el.mask('Realizando impresión, espere por favor.');",
+                                            "",
+                                            "var pedidosImprimir = {};",
+                                            "",
+                                            "pedidosImprimir.sucursales = sucursales;",
+                                            "",
+                                            "var request = new Object(); request.method=\"impresionpedidossucursal\"; request.params=[];",
+                                            "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                                            "request.params.push({\"name\":\"pedido\",\"value\": Ext.encode(pedidosImprimir)});",
+                                            "",
+                                            "console.log(\"request\");",
+                                            "console.log(request);",
+                                            "",
+                                            "var currentController = this;",
+                                            "",
+                                            "almacen.getApplication().loadData(request,function(response){",
+                                            "",
+                                            "    if(response.status){",
+                                            "",
+                                            "        console.log(\"Impresión\");",
+                                            "        console.log(response.clave);",
+                                            "",
+                                            "        // se ensambla el html",
+                                            "        //var html = \"<div id='myId' style = 'margin: 20px; border: 20px;'><p>Hola</p></div>\";",
+                                            "        var html = \"<font size='3'>\";",
+                                            "        var sangria = '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';",
+                                            "        var tab = '&nbsp&nbsp&nbsp&nbsp';",
+                                            "        var tabmin = '&nbsp&nbsp';",
+                                            "        var tabexmin = '&nbsp';",
+                                            "",
+                                            "        html += \"<p style='font-family:monospace'>\";",
+                                            "",
+                                            "        response.clave = response.clave.replace(/(?:\\r\\n|\\r|\\n)/g, '<br>');",
+                                            "        response.clave = response.clave.replace(/ /g, tabexmin);",
+                                            "",
+                                            "        html += response.clave;",
+                                            "",
+                                            "        html += '</p>';",
+                                            "        html += '</font>';",
+                                            "",
+                                            "        Ext.getCmp('ticketImpresion').update(html);",
+                                            "",
+                                            "    }else{",
+                                            "        Ext.Msg.alert(\"Error en Imresión\", response.msg);",
+                                            "    }",
+                                            "",
+                                            "    el.unmask();",
+                                            "",
+                                            "},function(response){",
+                                            "    el.unmask();",
+                                            "});",
+                                            ""
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onBtnImpresionSucursalClick",
+                                    "designerId": "8cc48b22-8110-4c7f-a6d0-f879bf732cef"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.plugin.CellEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "clicksToEdit": 1,
+                        "pluginId": "onEditProductos"
+                    },
+                    "name": "MyCellEditingPlugin2",
+                    "designerId": "d1c85f80-d4d5-4495-9c48-c0ed093e3e1a"
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin4",
+                    "designerId": "9136327a-feef-4770-af6d-481d17683457"
+                },
+                {
+                    "type": "Ext.grid.feature.Summary",
+                    "reference": {
+                        "name": "features",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MySummaryFeature1",
+                    "designerId": "d016d895-432f-4123-822f-2e9a0b50c80d"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridCedis1BeforeRender",
+                        "implHandler": [
+                            "var back_grid = Ext.ComponentMgr.get(\"GridProductosCedis\");",
+                            "",
+                            "var number_columns = window.sucursales_con_pedidos.length;",
+                            "var start_column = 5;",
+                            "",
+                            "var data = [];",
+                            "",
+                            "var record = back_grid.getStore().getData().items[0];",
+                            "var fields = record.getFields();",
+                            "",
+                            "//console.log(\"record\");console.log(record);",
+                            "",
+                            "for (var cliente = start_column; cliente < (start_column + number_columns ); cliente ++){",
+                            "    var sucursal_data = almacen.getApplication().obtenerSucursal(fields[cliente].name);",
+                            "    data.push({",
+                            "    nombreProveedor: sucursal_data.sucursal,",
+                            "    claveProveedor: sucursal_data.clavesucursal,",
+                            "    esCedi: true",
+                            "    });",
+                            "}",
+                            "",
+                            "console.log(\"data\");console.log(data);",
+                            "",
+                            "component.getStore().loadData(data);",
+                            "component.getStore().sort('nombreProveedor', 'ASC');",
+                            "component.view.refresh();"
+                        ],
+                        "name": "beforerender",
+                        "scope": "me"
+                    },
+                    "name": "onGridCedis1BeforeRender",
+                    "designerId": "791f3c7d-a1d1-4422-aa87-1a2ec474148b"
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "checkOnly": true,
+                        "mode": "SIMPLE"
+                    },
+                    "name": "MyCheckboxSelectionModel",
+                    "designerId": "7a0c01ff-b921-4178-abf5-e1a0630c9414"
+                }
+            ]
+        }
+    ]
+}

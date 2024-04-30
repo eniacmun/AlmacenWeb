@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgagregaproductos",
+        "designer|userClassName": "DlgCorreoViewModel1"
+    },
+    "name": "DlgCorreoViewModel1",
+    "designerId": "76e1a429-caf2-4789-aa22-cba2497a9409"
+}

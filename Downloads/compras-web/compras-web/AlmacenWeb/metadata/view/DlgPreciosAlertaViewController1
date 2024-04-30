@@ -1,0 +1,85 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgexistenciaalerta",
+        "designer|userClassName": "DlgPreciosAlertaViewController1"
+    },
+    "name": "DlgPreciosAlertaViewController1",
+    "designerId": "0477e845-67cb-4071-87aa-683f478101b7",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#aceptaAlerta1",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "aceptarAlertaClick",
+                "implHandler": [
+                    "       this.validarAceptarAlerta();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "aceptarAlertaClick",
+            "designerId": "ad7c82e5-c374-4db7-abd0-3b8a1ae17d66"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validarAceptarAlerta",
+                "implHandler": [
+                    "var request = new Object(); request.method=\"validaSupervisor\"; request.params=[];",
+                    "       request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},{\"name\":\"USERNAME\",\"value\":Ext.ComponentMgr.get(\"passwordAutorizacionProductoPrecio1\").getValue()});",
+                    "       almacen.getApplication().loadData(request,function(response){",
+                    "      if(response.status){",
+                    "           var controller=Ext.WindowManager.get(\"wndPreciosAlerta\").parentController;",
+                    "           //controller.preguntarNoImpresiones();",
+                    "          controller.realizaAjustes();",
+                    "          Ext.WindowManager.get(\"wndPreciosAlerta\").close();",
+                    "      }else{",
+                    "          Ext.Msg.alert('', 'Usuario o contraseña incorrecto.');",
+                    "      }",
+                    "       });"
+                ]
+            },
+            "name": "validarAceptarAlerta",
+            "designerId": "7fcadbb1-ecd5-45eb-9b40-58770bc59d33"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#passwordAutorizacionProductoPrecio1",
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "aceptarAlertaText",
+                "implHandler": [
+                    "                if (e.getKey()==Ext.event.Event.ENTER){",
+                    "                        this.validarAceptarAlerta();",
+                    "                    }"
+                ],
+                "name": "keyup",
+                "scope": "me"
+            },
+            "name": "aceptarAlertaText",
+            "designerId": "dd5b1f24-73da-4bd6-ad60-9b782ded9957"
+        }
+    ]
+}

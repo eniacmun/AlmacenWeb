@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcontenidoproduccion",
+        "designer|userClassName": "DlgContenidoProduccionViewModel"
+    },
+    "designerId": "b31d6512-9f55-4b6a-86ff-95b799950d71"
+}

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlguploadcompra",
+        "designer|userClassName": "DlgUploadCompraViewModel"
+    },
+    "designerId": "18c720af-9c6e-48ce-ad9a-1423064d2660"
+}

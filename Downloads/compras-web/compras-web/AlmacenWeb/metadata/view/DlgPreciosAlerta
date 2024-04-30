@@ -1,0 +1,288 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "DlgPreciosAlerta",
+        "designer|userClassName": "DlgPreciosAlerta",
+        "height": 400,
+        "id": "wndPreciosAlerta",
+        "layout": "fit",
+        "modal": true,
+        "parentController": [
+            "`null`"
+        ],
+        "title": "",
+        "width": 909
+    },
+    "name": "MyWindow1",
+    "configAlternates": {
+        "parentController": "object"
+    },
+    "designerId": "14052e49-7e8d-48b7-8b34-8a95a98cad30",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "parentController",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "75fcdaa5-e47c-489b-b637-0be4ea3ae9ee",
+    "viewModelInstanceId": "fbe7a719-1c9c-44df-8eb1-88391f9937bc",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "columnLines": true,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "enableColumnResize": false,
+                "forceFit": true,
+                "id": "gridProductosPrecios",
+                "store": "StoreGridProductosPrecios",
+                "title": "Los siguientes productos tienen un precio <br> mayor o menor al permitido",
+                "titleAlign": "center"
+            },
+            "name": "MyGridPanel4",
+            "designerId": "14930a14-e4e3-4703-9941-ef30d998dfd9",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveproducto",
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "8f21b7e7-8273-4b28-a5f1-036776ccca54"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreproducto",
+                        "text": "Descripcion"
+                    },
+                    "name": "MyColumn15",
+                    "designerId": "8336d625-92eb-4cf1-9822-a66f48df632f"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "costoUnitario",
+                        "text": "Precio Unitario"
+                    },
+                    "name": "MyNumberColumn6",
+                    "designerId": "8cbdaca1-4df1-4a1a-a7e1-7a8a9a73d2a2"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "precioAnterior",
+                        "text": "Precio Anterior"
+                    },
+                    "name": "MyNumberColumn8",
+                    "designerId": "f9486047-6e53-4eb7-bd9b-3ceb4d43fc32"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "costominimo",
+                        "text": "Precio Min Permitido"
+                    },
+                    "name": "MyNumberColumn27",
+                    "designerId": "8af1947b-e871-48b4-a322-bef4c491fbb4"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "costomaximo",
+                        "text": "Precio Max Permitido"
+                    },
+                    "name": "MyNumberColumn28",
+                    "designerId": "7a03ffa7-8416-4088-aa6a-b3bbee3c423c"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 304
+                    },
+                    "name": "MyGridView4",
+                    "designerId": "d09b66ea-50d3-43f5-8354-eaa19343febe"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "dock": "bottom",
+                        "hidden": true,
+                        "id": "MyToolbar2",
+                        "style": "background-color: #141314;"
+                    },
+                    "name": "MyToolbar2",
+                    "configAlternates": {
+                        "style": "string"
+                    },
+                    "designerId": "9acdfb97-ad95-422e-bee5-2415addd65c0",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "",
+                                "id": "Aceptar",
+                                "layout|flex": null,
+                                "text": "Aceptar"
+                            },
+                            "name": "MyButton18",
+                            "designerId": "7af4f26d-406a-449c-963f-0e717113c3bd"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "",
+                                "id": "Cancelar",
+                                "layout|flex": null,
+                                "text": "Cancelar"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "9d94fe51-42d0-444c-bc02-a48b84157b28"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "dock": "bottom",
+                        "hidden": true,
+                        "id": "MyToolbar6",
+                        "style": "background-color: #141314;"
+                    },
+                    "name": "MyToolbar6",
+                    "configAlternates": {
+                        "style": "string"
+                    },
+                    "designerId": "aebcbee4-4856-4b45-beca-77c94015dd7e",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "blankText": "Password Supervisor",
+                                "emptyText": "Password Supervisor",
+                                "fieldLabel": "",
+                                "id": "passwordAutorizacionProductoPrecio",
+                                "inputType": "password",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField",
+                            "designerId": "ecdcfeae-0f08-4664-9cdd-086ba4a444c4"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/padlock_s.png",
+                                "id": "aceptaAlerta",
+                                "layout|flex": null,
+                                "text": "Autorizar"
+                            },
+                            "name": "MyButton18",
+                            "designerId": "2f22d0dc-a584-4c50-924b-8051e4c6109c"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWndPreciosAlertaBeforeRender",
+                "implHandler": [
+                    "this.requiereAutorizacion();"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "name": "onWndPreciosAlertaBeforeRender",
+            "designerId": "4689c0aa-d63d-40b7-8ad6-7135a9eaee9c"
+        }
+    ]
+}

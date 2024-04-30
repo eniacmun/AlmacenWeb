@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgdetalleimpresion",
+        "designer|userClassName": "DlgPedidosViewController1"
+    },
+    "name": "DlgPedidosViewController1",
+    "designerId": "394a0e90-4463-4fa0-a581-5838b5ec929c"
+}

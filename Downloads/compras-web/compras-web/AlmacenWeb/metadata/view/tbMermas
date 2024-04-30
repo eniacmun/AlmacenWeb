@@ -1,0 +1,36 @@
+{
+    "type": "Ext.toolbar.Toolbar",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tbmermas",
+        "designer|userClassName": "tbMermas",
+        "height": 50,
+        "width": 400
+    },
+    "name": "tbAjustes1",
+    "designerId": "b700b372-ac66-4aae-9f84-5e688c36ba4d",
+    "viewControllerInstanceId": "c215e9f2-4362-46a7-a172-4572c29fe1b1",
+    "viewModelInstanceId": "04bdf2df-76c8-4a30-be7a-0e5f6441601e",
+    "cn": [
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "icon": "resources/chocolate-bite-icon.png",
+                "id": "btnAjustes1",
+                "layout|flex": null,
+                "text": "Registrar Baja"
+            },
+            "name": "MyButton21",
+            "designerId": "56bb20fa-e22c-4511-aa98-f3a9ba1c6ff9"
+        }
+    ]
+}

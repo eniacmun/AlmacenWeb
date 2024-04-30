@@ -1,0 +1,332 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "panelinventarios",
+        "designer|userClassName": "panelInventariosViewController"
+    },
+    "designerId": "3866583d-03b8-4bfe-bf70-062ea55905fe",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbClasificaciones",
+                "designer|targetType": "Ext.form.field.Tag",
+                "fn": "loadClasificaciones",
+                "implHandler": [
+                    "var request = new Object(); request.method=\"clasificacionesinventario\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    component.getStore().loadData(response.items);",
+                    "    component.getStore().sort('label','ASC');",
+                    "});"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "name": "loadClasificaciones",
+            "designerId": "6acdb76b-3946-4093-b36e-09f938bd8708"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbProveedoresMateria",
+                "designer|targetType": "Ext.form.field.Tag",
+                "fn": "loadProveedoresMaterias",
+                "implHandler": [
+                    "var request = new Object(); request.method=\"proveedormateria\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    console.log(\"loadProveedoresMaterias response\",response);",
+                    "    component.getStore().loadData(response.items);",
+                    "    component.getStore().sort('label','ASC');",
+                    "});"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "name": "loadProveedoresMaterias",
+            "designerId": "51af8e35-1ac7-4c87-98aa-845711c4186d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#cmbSubAlmacenes",
+                "designer|targetType": "Ext.form.field.Tag",
+                "fn": "loadSubAlmacenes",
+                "implHandler": [
+                    "//var controller = this;",
+                    "",
+                    "console.log(\"loading subalmacenes\");",
+                    "var request = new Object(); request.method=\"obtienesubalmacenes\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    component.getStore().loadData(response.items);",
+                    "    component.getStore().sort('label','ASC');",
+                    "    Ext.ComponentQuery.query('#cmbSubAlmacenes')[0].setValue(almacen.getApplication().currentSession.claveAlmacenGeneral);",
+                    "    if(Ext.ComponentMgr.get(\"cmbSubAlmacenes1\")){",
+                    "        Ext.ComponentQuery.query('#cmbSubAlmacenes1')[0].setValue(almacen.getApplication().currentSession.claveAlmacenGeneral);",
+                    "    }",
+                    "});"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "name": "loadSubAlmacenes",
+            "designerId": "b9f57f70-02fc-499a-8a15-84fa71d2ab6f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnConsultar",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "loadExistencias",
+                "implHandler": [
+                    "console.log(\"loadExistencias\");",
+                    "",
+                    "if(almacen.getApplication().currentSession.subAlmacenes){",
+                    "    var cmbSubAlmacenes = Ext.ComponentMgr.get(\"cmbSubAlmacenes\");",
+                    "    if(cmbSubAlmacenes){",
+                    "        var selectedSubAlmacen = Ext.ComponentMgr.get(\"cmbSubAlmacenes\").getValue();",
+                    "        if(selectedSubAlmacen){",
+                    "            this.loadExistenciaAlmacen(button,e,eOpts,selectedSubAlmacen);",
+                    "        } else{",
+                    "            this.loadExistenciaAlmacen(button,e,eOpts,almacen.getApplication().currentSession.claveAlmacenGeneral);",
+                    "        }",
+                    "    }else{",
+                    "        this.loadExistenciaAlmacen(button,e,eOpts,almacen.getApplication().currentSession.claveAlmacenGeneral);",
+                    "    }",
+                    "} else {",
+                    "    this.loadExistenciaAlmacen(button,e,eOpts,null);",
+                    "}"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "loadExistencias",
+            "designerId": "57d76ac4-a55c-4ded-a43f-119f044c213f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#gridConsultaClasificaciones",
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "LimpiaGrid",
+                "implHandler": [
+                    "component.getStore().removeAll();",
+                    "console.log(\"Limpiando grid\");",
+                    "",
+                    "this.loadExistencias(null,null,null);",
+                    "Ext.ComponentManager.get(\"currentView\").mycontroller=this;"
+                ],
+                "name": "beforerender",
+                "scope": "me"
+            },
+            "name": "LimpiaGrid",
+            "configAlternates": {
+                "myController": "object"
+            },
+            "designerId": "818eb854-3a69-4443-a850-4d9a2ff0dd0a",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "myController",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnPrint",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "ImprimeInventario",
+                "implHandler": [
+                    "var request = {}; request.method=\"imprimeinventario\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "combo = Ext.ComponentMgr.get(\"cmbClasificaciones\");",
+                    "chk = Ext.ComponentMgr.get(\"chkIdiario\");",
+                    "request.params.push({\"name\":\"clasificacion\",\"value\":combo.getValue()});",
+                    "request.params.push({\"name\":\"inventariodiario\",\"value\":chk.getValue() ? 1 : 0});",
+                    "request.params.push({\"name\":\"claveAlmacen\",\"value\":window.claveAlmacen});",
+                    "console.log(\"\tImprime inventareio/\" + combo.getValue());",
+                    "almacen.getApplication().loadData(request,function(response){});"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "ImprimeInventario",
+            "designerId": "cf500070-edd4-4088-9ef7-0283ff8aa057"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts",
+                    "claveAlmacen"
+                ],
+                "fn": "loadExistenciaAlmacen",
+                "implHandler": [
+                    "console.log(\"Carga de inventarios\");",
+                    "var request = new Object(); request.method=\"consultainventario\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});;",
+                    "combo = Ext.ComponentMgr.get(\"cmbClasificaciones\");",
+                    "chk = Ext.ComponentMgr.get(\"chkIdiario\");",
+                    "request.params.push({\"name\":\"clasificacion\",\"value\":combo.getValue()});",
+                    "request.params.push({\"name\":\"inventariodiario\",\"value\":chk.getValue() ? 1 : 0});",
+                    "request.params.push({\"name\":\"tipoinventario\",\"value\":window.tipoInvenario});",
+                    "request.params.push({\"name\":\"claveAlmacen\",\"value\":claveAlmacen});",
+                    "request.params.push({\"name\":\"proveedormateria\",\"value\":Ext.ComponentMgr.get(\"cmbProveedoresMateria\").getValue()});",
+                    "",
+                    "var controller = this;",
+                    "",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    component = Ext.ComponentMgr.get(\"gridConsultaClasificaciones\");",
+                    "    component.getStore().loadData(response.items);",
+                    "    //component.getStore().sort('label','ASC');",
+                    "    request.method=\"consultafaltantes\";",
+                    "    almacen.getApplication().loadData(request,function(response){",
+                    "        if (response.faltantecompras.length > 0 || response.faltanteproducciones.length > 0){",
+                    "            //mostrar la ventana de diferencias de inventario",
+                    "            var wnd = Ext.create(\"almacen.view.DlgFaltantesCompras\", {id:\"wndFaltantesCompras\"});",
+                    "            //wnd.parentController=currentController;",
+                    "            wnd.center();",
+                    "            wnd.show();",
+                    "            gridCompras = Ext.ComponentMgr.get(\"gridFaltantesCompras\");",
+                    "            gridProducciones = Ext.ComponentMgr.get(\"gridFaltantesProducciones\");",
+                    "            gridCompras.getStore().loadData(response.faltantecompras);",
+                    "            gridCompras.getStore().sort(\"Concepto\", \"ASC\");",
+                    "            gridProducciones.getStore().loadData(response.faltanteproducciones);",
+                    "            gridProducciones.getStore().sort(\"Concepto\", \"ASC\");",
+                    "        }",
+                    "    });",
+                    "    //console.log(component.getStore().getAt(1));",
+                    "    if (component.getStore().getAt(1).get(\"Unidad1\")==\"OCULTA\"){",
+                    "        /*component.columns[5].hide();",
+                    "        component.columns[7].hide();",
+                    "        component.columns[8].hide();",
+                    "        component.columns[10].hide();",
+                    "        component.columns[11].hide();",
+                    "        component.columns[12].hide();*/",
+                    "        component.columns[6].hide();",
+                    "        component.columns[8].hide();",
+                    "        component.columns[9].hide();",
+                    "        component.columns[11].hide();",
+                    "        component.columns[12].hide();",
+                    "        component.columns[13].hide();",
+                    "",
+                    "    }",
+                    "",
+                    "    if(window.tipoInvenario == 4 && window.claveAlmacenDestino){",
+                    "        controller.actualizarGrid(window.claveAlmacenDestino);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "loadExistenciaAlmacen",
+            "designerId": "6588f3aa-efaf-4204-be5e-fe42366dd4e6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "claveAlmacenDestino"
+                ],
+                "fn": "actualizarGrid",
+                "implHandler": [
+                    "if(window.tipoInvenario == 4 && claveAlmacenDestino){",
+                    "} else{",
+                    "    return;",
+                    "}",
+                    "var request = new Object(); request.method=\"generainventario\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});;",
+                    "request.params.push({\"name\":\"claveAlmacen\",\"value\":claveAlmacenDestino});",
+                    "",
+                    "combo = Ext.ComponentMgr.get(\"cmbClasificaciones\");",
+                    "chk = Ext.ComponentMgr.get(\"chkIdiario\");",
+                    "",
+                    "var component = Ext.ComponentMgr.get(\"gridConsultaClasificaciones\");",
+                    "",
+                    "component.getStore().each(function(record){",
+                    "    record.beginEdit();",
+                    "    record.set(\"editable\", false);",
+                    "    record.set(\"Existencia\", \"\");",
+                    "    record.endEdit();",
+                    "    record.commit();",
+                    "    window.AjustesRealizados = {};",
+                    "});",
+                    "",
+                    "if(window.claveAlmacen == claveAlmacenDestino){",
+                    "    component.getView().refresh();",
+                    "    return;",
+                    "}",
+                    "",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    console.log(response);",
+                    "    for(var index in response.items){",
+                    "        var record = response.items[index];",
+                    "        var editable = record.editable;",
+                    "        var clave = record.Clave;",
+                    "        var record1 = component.getStore().findRecord(\"Clave\", clave);",
+                    "        if(record1){",
+                    "            record1.beginEdit();",
+                    "            record1.set(\"editable\", true);",
+                    "            record1.endEdit();",
+                    "            record1.commit();",
+                    "        }",
+                    "    }",
+                    "    component.getView().refresh();",
+                    "});"
+                ]
+            },
+            "name": "actualizarGrid",
+            "designerId": "2d7151da-0018-410f-9181-9c8317522f07"
+        }
+    ]
+}

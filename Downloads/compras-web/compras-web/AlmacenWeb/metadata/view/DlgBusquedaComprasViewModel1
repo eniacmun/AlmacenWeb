@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgbusquedacompras1",
+        "designer|userClassName": "DlgBusquedaComprasViewModel1"
+    },
+    "name": "DlgBusquedaComprasViewModel1",
+    "designerId": "9034a983-2c11-47ab-8bd7-f8d3b8d8ec6d"
+}

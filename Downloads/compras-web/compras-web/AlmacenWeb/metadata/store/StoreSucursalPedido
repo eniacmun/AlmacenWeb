@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreSucursalPedido",
+        "model": "mdlPedidos",
+        "storeId": "StoreSucursalPedido"
+    },
+    "name": "StorePedidos1",
+    "designerId": "39336d1c-12ac-4335-b3d5-501535b9c1e6"
+}

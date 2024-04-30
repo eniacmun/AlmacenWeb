@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreExistenciasAlerta",
+        "model": "mdlInventarios",
+        "storeId": "StoreExistenciasAlerta"
+    },
+    "name": "MyJsonStore",
+    "designerId": "68ee8f45-50b1-4ac9-968d-c954141aefad"
+}

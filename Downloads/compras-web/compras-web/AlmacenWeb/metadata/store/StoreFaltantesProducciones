@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreFaltantesProducciones",
+        "model": "mdlInventarios",
+        "storeId": "StoreFaltantesProducciones"
+    },
+    "name": "MyJsonStore",
+    "designerId": "f8d83f83-b0ea-4731-81ca-31e4ddc4f829"
+}

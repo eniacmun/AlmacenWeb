@@ -1,0 +1,210 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgexistenciaalertaimpuestocambiado",
+        "designer|userClassName": "DlgExistenciaAlertaImpuestoCambiado",
+        "height": 400,
+        "id": "wndPreciosAlerta2",
+        "layout": "fit",
+        "modal": true,
+        "parentController": [
+            "`null`"
+        ],
+        "title": "",
+        "width": 502
+    },
+    "name": "DlgExistenciaAlerta1",
+    "configAlternates": {
+        "parentController": "object"
+    },
+    "designerId": "4b1ec103-86df-4186-bd48-95842a234266",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "parentController",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "7176b78d-2ca4-450e-9b68-62fee916a1a4",
+    "viewModelInstanceId": "32b4f5b3-e5b5-4ba7-8257-4e51286b2cb0",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "columnLines": true,
+                "enableColumnHide": false,
+                "enableColumnMove": false,
+                "enableColumnResize": false,
+                "forceFit": true,
+                "id": "gridProductosTasas",
+                "store": "StoreProductoIvaCambiado",
+                "title": "Los siguientes productos tuvieron un cambio de impuesto, verifique.",
+                "titleAlign": "center"
+            },
+            "name": "MyGridPanel4",
+            "designerId": "7b0adb01-b64e-4bcb-80e9-792449adbb78",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Clave",
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn14",
+                    "designerId": "2d8e2966-8adf-4da5-a212-5100f81a7fd3"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Concepto",
+                        "text": "Descripcion"
+                    },
+                    "name": "MyColumn15",
+                    "designerId": "94b33949-053c-4e4c-9a3c-d134e245bcaa"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Unidad",
+                        "text": "Unidad"
+                    },
+                    "name": "MyColumn28",
+                    "designerId": "c0cf5548-ad3b-440d-8a96-288fce693c5c"
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "unidadmateria",
+                        "text": "Impuesto"
+                    },
+                    "name": "MyNumberColumn6",
+                    "designerId": "c0c456c7-0c74-445b-88e1-6d12a8b69a76",
+                    "cn": [
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "",
+                                    "",
+                                    "        var store_combo = Ext.getStore('StoreComboImpuestos').findRecord(\"value\", value);",
+                                    "return store_combo.get(\"label\");",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "d9389986-1550-4f2d-95e6-bbdc4c32bffa"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "width": 304
+                    },
+                    "name": "MyGridView4",
+                    "designerId": "5cf0013a-0fc3-4326-9a80-cd36fa4d01fe"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "dock": "bottom",
+                        "style": "background-color: #141314;"
+                    },
+                    "name": "MyToolbar6",
+                    "configAlternates": {
+                        "style": "string"
+                    },
+                    "designerId": "7fe3ff62-de8a-4098-9c73-e11b92349be4",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "blankText": "Password",
+                                "emptyText": "Password",
+                                "fieldLabel": "",
+                                "id": "passwordAutorizacionProductoPrecio2",
+                                "inputType": "password",
+                                "layout|flex": null
+                            },
+                            "name": "MyTextField",
+                            "designerId": "e470e16f-e91f-468f-962e-559ceab9f3cf"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/padlock_s.png",
+                                "id": "aceptaAlerta2",
+                                "layout|flex": null,
+                                "text": "Autorizar"
+                            },
+                            "name": "MyButton18",
+                            "designerId": "64be2981-1c6a-49c9-a2a5-e12a92056cf2"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

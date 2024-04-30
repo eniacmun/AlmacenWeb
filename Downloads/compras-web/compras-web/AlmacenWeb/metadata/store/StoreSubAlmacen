@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreSubAlmacen",
+        "model": "mdlGeneric",
+        "storeId": "StoreSubAlmacen"
+    },
+    "name": "StoreGeneric1",
+    "designerId": "6672f84e-66e6-4dd5-b522-4f84aced868f"
+}

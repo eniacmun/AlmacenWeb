@@ -1,0 +1,636 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcontenidoproduccion",
+        "designer|userClassName": "DlgContenidoProduccionViewController"
+    },
+    "designerId": "8ab65aa3-10c7-4c10-a983-72109eee8308",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "win"
+                ],
+                "fn": "inicializaVentana",
+                "implHandler": [
+                    "var combo = Ext.ComponentMgr.get(\"cmbProducto\");",
+                    "this.cargaProducciones(combo, \"\");"
+                ]
+            },
+            "name": "inicializaVentana",
+            "designerId": "b9b829f5-c2f2-4653-a063-a225910f4cbf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "rec",
+                    "inicial"
+                ],
+                "fn": "AsignaValores",
+                "implHandler": [
+                    "var txtProduccion = Ext.ComponentMgr.get(\"txtProduccion\");",
+                    "var txtCantEsperada = Ext.ComponentMgr.get(\"txtCantEsperada\");",
+                    "var txtCantidadProducir = Ext.ComponentMgr.get(\"txtCantidadProducir\");",
+                    "var combo = Ext.ComponentMgr.get(\"cmbProducto\");",
+                    "var comboEmpleado = Ext.ComponentMgr.get(\"cmbEmpleado\");",
+                    "var comboProductoVenta = Ext.ComponentMgr.get(\"cmbProductoVenta\");",
+                    "var txtPrecio = Ext.ComponentMgr.get(\"txtPrecio\");",
+                    "var txtTipoPago = Ext.ComponentMgr.get(\"txtTipoPago\");",
+                    "var txtImporte = Ext.ComponentMgr.get(\"txtImporte\");",
+                    "var controller = this;",
+                    "var cmbCostosAdicionales = Ext.ComponentMgr.get(\"cmbCostosAdicionales\");",
+                    "",
+                    "if (rec.claveProducto > \" \"){",
+                    "    combo.setValue(rec.claveProducto);",
+                    "    if (rec.claveProductoVenta){",
+                    "        combo.getStore().each(function(record){",
+                    "            if(record.get(\"claveproducto\") == rec.claveProducto){",
+                    "                controller.cargaProductosVenta(record.get(\"productos\"));",
+                    "            }",
+                    "        });",
+                    "    }",
+                    "    comboProductoVenta.setValue(rec.claveProductoVenta);",
+                    "    comboEmpleado.setValue(rec.claveEmpleado);",
+                    "    txtPrecio.setValue(rec.precioVenta);",
+                    "    var text = rec.tipoPago == 1 ? rec.cantidadPago + \"%\" : Ext.util.Format.currency(rec.cantidadPago);",
+                    "    txtTipoPago.setValue(text);",
+                    "    txtImporte.setValue(rec.importe);",
+                    "    if(rec.estado !== 0.0){ // Se carga el valor que trae por defecto cuando no es una produccion nueva y se nceesita conservar el valor.",
+                    "        var data = [];",
+                    "        console.log(rec.cantidadPago);",
+                    "        data.push({\"label\": rec.tipoPago == 1 ? rec.cantidadPago + \"%\" : Ext.util.Format.currency(rec.cantidadPago), \"value\": rec.cantidadPago});",
+                    "        cmbCostosAdicionales.getStore().loadData(data);",
+                    "        cmbCostosAdicionales.select(cmbCostosAdicionales.getStore().getAt(0));",
+                    "    }",
+                    "}",
+                    "",
+                    "txtProduccion.setValue(rec.claveproduccion);",
+                    "txtProduccion.setDisabled(true);",
+                    "",
+                    "txtCantEsperada.setValue(rec.cantidadEsperada);",
+                    "txtCantEsperada.setDisabled(true);",
+                    "",
+                    "txtCantidadProducir.setValue(rec.cantidadProducida);",
+                    "",
+                    "txtCantidadProducir.setDisabled(true);",
+                    "combo.setDisabled(true);",
+                    "",
+                    "Ext.ComponentMgr.get(\"btnGuardarProduccion\").setDisabled(true);",
+                    "Ext.ComponentMgr.get(\"btnTerminaProduccion\").setDisabled(true);",
+                    "",
+                    "var gridProductos=Ext.ComponentMgr.get(\"gridProductoProducir\");",
+                    "var gridReceta=Ext.ComponentMgr.get(\"gridRecetaProduccion\");",
+                    "gridProductos.getStore().removeAll();",
+                    "gridReceta.getStore().removeAll();",
+                    "gridProductos.getStore().loadData(rec.productos,false);",
+                    "gridReceta.getStore().loadData(rec.receta,false);",
+                    "",
+                    "if (rec.estado === 0.0){//estado NUEVO",
+                    "    txtCantEsperada.setDisabled(false);",
+                    "    combo.setDisabled(false);",
+                    "    Ext.ComponentMgr.get(\"btnGuardarProduccion\").setDisabled(false);",
+                    "}",
+                    "",
+                    "if (rec.estado == 1.0){//estado REGISTRADO",
+                    "    txtCantEsperada.setDisabled(true);",
+                    "    combo.setDisabled(true);",
+                    "    txtCantidadProducir.setDisabled(false);",
+                    "    Ext.ComponentMgr.get(\"btnTerminaProduccion\").setDisabled(false);",
+                    "    if (inicial){",
+                    "        txtCantidadProducir.setValue(rec.cantidadEsperada);",
+                    "        this.actualizaCantProducida();",
+                    "    }",
+                    "    //hay que cargar los productos",
+                    "}",
+                    "",
+                    "if (rec.estado == -1.0){//estado CANCELADO",
+                    "    txtCantEsperada.setDisabled(true);",
+                    "    combo.setDisabled(true);",
+                    "    txtCantidadProducir.setDisabled(true);",
+                    "}",
+                    "",
+                    "this.calculaCostoReal();"
+                ]
+            },
+            "name": "AsignaValores",
+            "designerId": "e1085594-f18a-4d1a-93d1-1e6147c16b21"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "win"
+                ],
+                "fn": "obtieneRegistro",
+                "implHandler": [
+                    "var wnd = win ? win : Ext.WindowMgr.get(\"wndContenidoProduccion\");",
+                    "if (!wnd)  {",
+                    "    wnd = win;",
+                    "}",
+                    "",
+                    "if (!wnd)  {",
+                    "    return false;",
+                    "}",
+                    "",
+                    "var rec = wnd.currentRecord;",
+                    "if (!rec)  {",
+                    "    return false;",
+                    "}",
+                    "",
+                    "console.log(\"obtieneRegistro\");",
+                    "console.log(rec.claveProductoVenta);",
+                    "",
+                    "return rec;"
+                ]
+            },
+            "name": "obtieneRegistro",
+            "designerId": "5560a2a1-11ae-4791-86a4-2a6033560eaf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "guardaValores",
+                "implHandler": [
+                    "var txtProduccion = Ext.ComponentMgr.get(\"txtProduccion\");",
+                    "var txtCantEsperada = Ext.ComponentMgr.get(\"txtCantEsperada\");",
+                    "var txtCantidadProducir = Ext.ComponentMgr.get(\"txtCantidadProducir\");",
+                    "var combo = Ext.ComponentMgr.get(\"cmbProducto\");",
+                    "var comboEmpleado = Ext.ComponentMgr.get(\"cmbEmpleado\");",
+                    "var comboPrecioProduccion = Ext.ComponentMgr.get(\"cmbProductoVenta\");",
+                    "",
+                    "var rec=this.obtieneRegistro();",
+                    "rec.claveProducto=combo.getValue();",
+                    "rec.claveproduccion=txtProduccion.getValue();",
+                    "rec.cantidadEsperada=txtCantEsperada.getValue();",
+                    "rec.cantidadProducida=txtCantidadProducir.getValue();",
+                    "",
+                    "// campos para producciones con costo",
+                    "var claveEmpleado = Ext.ComponentMgr.get(\"cmbEmpleado\").getValue();",
+                    "var claveProductoVenta = Ext.ComponentMgr.get(\"cmbProductoVenta\").getValue();",
+                    "var precioVenta = Ext.ComponentMgr.get(\"txtPrecio\").getValue();",
+                    "rec.claveEmpleado = claveEmpleado;",
+                    "rec.claveProductoVenta = claveProductoVenta !== null ? claveProductoVenta : rec.claveProductoVenta;",
+                    "rec.precioVenta = precioVenta;",
+                    "",
+                    "var productos = [];",
+                    "var receta = [];",
+                    "var gridProductos=Ext.ComponentMgr.get(\"gridProductoProducir\");",
+                    "var gridReceta=Ext.ComponentMgr.get(\"gridRecetaProduccion\");",
+                    "gridProductos.getStore().each(function(record){",
+                    "    productos.push(record.data);",
+                    "});",
+                    "gridReceta.getStore().each(function(record){",
+                    "    receta.push(record.data);",
+                    "});",
+                    "var wnd = Ext.WindowMgr.get(\"wndContenidoProduccion\");",
+                    "if (wnd)",
+                    "    wnd.currentRecord=rec;",
+                    "console.log(\"guardavalores\");",
+                    "this.AsignaValores(rec);"
+                ]
+            },
+            "name": "guardaValores",
+            "designerId": "626a18f1-ee8f-43ee-a25a-d9250c297433"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "claveProducto,cantidad"
+                ],
+                "fn": "cargaReceta",
+                "implHandler": [
+                    "var request = new Object();",
+                    "request.method = \"cargareceta\";",
+                    "request.params = [];",
+                    "request.params.push({",
+                    "    \"name\": \"imei\",",
+                    "    \"value\": almacen.getApplication().SessionId",
+                    "});",
+                    "",
+                    "var clavePlatillo=claveProducto;",
+                    "var cantidadPlatillo=cantidad;",
+                    "request.params.push({",
+                    "    \"name\": \"platillo\",",
+                    "    \"value\": claveProducto",
+                    "});",
+                    "request.params.push({",
+                    "    \"name\": \"cantidadplatillo\",",
+                    "    \"value\": cantidad",
+                    "});",
+                    "var currentController = this;",
+                    "var rec=this.obtieneRegistro();",
+                    "",
+                    "console.log(\"carga receta\");",
+                    "",
+                    "almacen.getApplication().loadData(request, function(response) {",
+                    "    rec.productos=response.producto;",
+                    "    rec.receta=response.materia;",
+                    "    currentController.AsignaValores(rec);",
+                    "    currentController.guardaValores();",
+                    "});"
+                ]
+            },
+            "name": "cargaReceta",
+            "designerId": "67d30ea5-0e3a-49fc-bb11-36380d6e7598"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "actualizaCantEsperada",
+                "implHandler": [
+                    "var txtCantEsperada = Ext.ComponentMgr.get(\"txtCantEsperada\");",
+                    "var cantidadEsperada = txtCantEsperada.getValue();",
+                    "var rec = this.obtieneRegistro();",
+                    "if(cantidadEsperada<0){",
+                    "            cantidadEsperada=0;",
+                    "}",
+                    "var gridProductos=Ext.ComponentMgr.get(\"gridProductoProducir\");",
+                    "var gridReceta=Ext.ComponentMgr.get(\"gridRecetaProduccion\");",
+                    "gridProductos.getStore().each(function(record){",
+                    "    proporcion = record.get(\"porcion\");",
+                    "    cantidadEsperadaDetalle=Math.abs(cantidadEsperada*proporcion);",
+                    "    CostoUnitario=record.get(\"costoUnitario\");",
+                    "    record.beginEdit();",
+                    "    record.set(\"cantidadEsperada\", cantidadEsperadaDetalle);",
+                    "    record.set(\"costoEsperado\", CostoUnitario*cantidadEsperadaDetalle);",
+                    "    record.commit();",
+                    "});",
+                    "gridReceta.getStore().each(function(record){",
+                    "    proporcion = record.get(\"porcion\");",
+                    "    cantidadEsperadaDetalle=Math.abs(cantidadEsperada*proporcion);",
+                    "    CostoUnitario=record.get(\"costoUnitario\");",
+                    "    record.beginEdit();",
+                    "    record.set(\"cantidadEsperada\", cantidadEsperadaDetalle);",
+                    "    record.set(\"costoEsperado\", CostoUnitario*cantidadEsperadaDetalle);",
+                    "    record.commit();",
+                    "});",
+                    "this.guardaValores();"
+                ]
+            },
+            "name": "actualizaCantEsperada",
+            "designerId": "dcdc85ba-5a99-42e7-ba42-35f14781b7c7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "txtCantidad"
+                ],
+                "fn": "calculaImporteCostoManoObra",
+                "implHandler": [
+                    "var txtCantEsperada = Ext.ComponentMgr.get(txtCantidad);",
+                    "var cantidadEsperada = txtCantEsperada.getValue();",
+                    "if(cantidadEsperada<0){",
+                    "    cantidadEsperada=0;",
+                    "}",
+                    "var txtImporte = Ext.ComponentMgr.get(\"txtImporte\");",
+                    "var txtPrecio = Ext.ComponentMgr.get(\"txtPrecio\");",
+                    "var precio = txtPrecio.getValue();",
+                    "var rec = this.obtieneRegistro();",
+                    "console.log(rec);",
+                    "if(rec.estadoCosto == 1){",
+                    "    if(rec.tipoPago == 1){ // por %",
+                    "        rec.importe = (cantidadEsperada * precio) * (rec.cantidadPago / 100);",
+                    "    } else{",
+                    "        rec.importe = cantidadEsperada * rec.cantidadPago;",
+                    "    }",
+                    "    rec.importe = (Math.round(rec.importe*100)/100);// redondeo a dos digitos",
+                    "    txtImporte.setValue(rec.importe);",
+                    "}",
+                    "this.calculaCostoReal();"
+                ]
+            },
+            "name": "calculaImporteCostoManoObra",
+            "designerId": "f46a4111-56e1-4bec-a792-1bb026ab3a73"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "actualizaCantProducida",
+                "implHandler": [
+                    "var txtProduccion = Ext.ComponentMgr.get(\"txtCantidadProducir\");",
+                    "var cantidadProducida = txtProduccion.getValue();",
+                    "var rec = this.obtieneRegistro();",
+                    "if(cantidadProducida<0){",
+                    "            cantidadProducida=0;",
+                    "}",
+                    "var gridProductos=Ext.ComponentMgr.get(\"gridProductoProducir\");",
+                    "var gridReceta=Ext.ComponentMgr.get(\"gridRecetaProduccion\");",
+                    "gridProductos.getStore().each(function(record){",
+                    "    proporcion = record.get(\"porcion\");",
+                    "    cantidadProducidaDetalle=Math.abs(cantidadProducida*proporcion);",
+                    "    CostoUnitario=record.get(\"costoUnitario\");",
+                    "    record.beginEdit();",
+                    "    record.set(\"cantidadProducida\", cantidadProducidaDetalle);",
+                    "    record.set(\"costoReal\", CostoUnitario*cantidadProducidaDetalle);",
+                    "    record.commit();",
+                    "});",
+                    "gridReceta.getStore().each(function(record){",
+                    "    proporcion = record.get(\"porcion\");",
+                    "    cantidadProducidaDetalle=Math.abs(cantidadProducida*proporcion);",
+                    "    CostoUnitario=record.get(\"costoUnitario\");",
+                    "    record.beginEdit();",
+                    "    record.set(\"cantidadProducida\", cantidadProducidaDetalle);",
+                    "    record.set(\"costoReal\", CostoUnitario*cantidadProducidaDetalle);",
+                    "    record.commit();",
+                    "});",
+                    "this.guardaValores();"
+                ]
+            },
+            "name": "actualizaCantProducida",
+            "designerId": "b1ca7d45-84bc-4a75-9270-a15e802b1bcc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "rec",
+                    "funcEjecuta"
+                ],
+                "fn": "validaGuardarProduccion",
+                "implHandler": [
+                    "",
+                    "//validamateriaprimalimites",
+                    "var txtProduccion = Ext.ComponentMgr.get(\"txtProduccion\");",
+                    "var txtCantEsperada = Ext.ComponentMgr.get(\"txtCantEsperada\");",
+                    "var txtCantidadProducir = Ext.ComponentMgr.get(\"txtCantidadProducir\");",
+                    "var combo = Ext.ComponentMgr.get(\"cmbProducto\");",
+                    "var comboEmpleado = Ext.ComponentMgr.get(\"cmbEmpleado\");",
+                    "var comboProductoVenta = Ext.ComponentMgr.get(\"cmbProductoVenta\");",
+                    "",
+                    "if (!txtCantEsperada.isValid()){",
+                    "    Ext.Msg.alert('Aviso','Capture la cantidad esperada');",
+                    "    return false;",
+                    "}",
+                    "if (!txtCantidadProducir.isValid()){",
+                    "    Ext.Msg.alert('Aviso','Capture la cantidad producida');",
+                    "    return false;",
+                    "}",
+                    "if (!combo.isValid()){",
+                    "    Ext.Msg.alert('Aviso','Seleccione el producto');",
+                    "    return false;",
+                    "}",
+                    "console.log(rec);",
+                    "if(rec.estadoCosto == 1){ // validaciones con costo de produccion",
+                    "    if (!comboEmpleado.isValid()){",
+                    "        Ext.Msg.alert('Aviso','Seleccione el empleado al que asociar la producción.');",
+                    "        return false;",
+                    "    }",
+                    "    if (!comboProductoVenta.isValid()){",
+                    "        Ext.Msg.alert('Aviso','Seleccione el producto venta para obtener el precio.');",
+                    "        return false;",
+                    "    }",
+                    "}",
+                    "//debemos validar si la materia prima esta entre los limites",
+                    "var request = new Object();",
+                    "request.method = \"validamateriaprimalimites\";",
+                    "request.params = [];",
+                    "request.params.push({",
+                    "    \"name\": \"imei\",",
+                    "    \"value\": almacen.getApplication().SessionId",
+                    "});",
+                    "var cantidad = 0;",
+                    "if (rec.estado == 1.0)",
+                    "    cantidad=txtCantidadProducir.getValue();",
+                    "if (rec.estado == 0.0)",
+                    "    cantidad=txtCantEsperada.getValue();",
+                    "",
+                    "var cantidadPlatillo=cantidad;",
+                    "request.params.push({",
+                    "    \"name\": \"clavemateria\",",
+                    "    \"value\": combo.getValue()",
+                    "});",
+                    "request.params.push({",
+                    "    \"name\": \"cantidad\",",
+                    "    \"value\": cantidad",
+                    "});",
+                    "var currentController = this;",
+                    "var rec1 = rec;",
+                    "console.log(rec1);",
+                    "almacen.getApplication().loadData(request, function(response) {",
+                    "    if (!response.isInfo){//la cantidad sobrepasa los limites, se procede a preguntar por la validacion",
+                    "        Ext.Msg.show({",
+                    "            title: 'Confirmar',",
+                    "            message: 'La cantidad ingresada (' + cantidad + ') para el producto ' + rec1.concepto + ' con unidad ' + rec1.unidad + ' es correcta?',",
+                    "            buttons: Ext.Msg.YESNO,",
+                    "            icon: Ext.Msg.QUESTION,",
+                    "            fn: function(btn) {",
+                    "                if (btn === 'yes') {",
+                    "                    funcEjecuta.call(this, rec);",
+                    "                } else if (btn === 'no') {",
+                    "",
+                    "                }",
+                    "            }",
+                    "        });",
+                    "    }else{//la cantidad es correcta",
+                    "        funcEjecuta.call(this, rec);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "validaGuardarProduccion",
+            "designerId": "de44e71d-a518-4127-9dc6-2c56930164a8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "obtieneParentController",
+                "implHandler": [
+                    "var wnd =Ext.WindowMgr.get(\"wndContenidoProduccion\");",
+                    "return wnd.parentController;",
+                    ""
+                ]
+            },
+            "name": "obtieneParentController",
+            "designerId": "8ad9e9dd-a7d8-4060-bd1e-163af2864af3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "combo",
+                    "claveClasificacion"
+                ],
+                "fn": "cargaProducciones",
+                "implHandler": [
+                    "var win = Ext.ComponentMgr.get(\"wndContenidoProduccion\");",
+                    "",
+                    "var rec = this.obtieneRegistro(win);",
+                    "",
+                    "if (!rec)",
+                    "    return false;",
+                    "",
+                    "console.log(\"carga producciones\");",
+                    "console.log(rec);",
+                    "",
+                    "var currentController=this;",
+                    "var request = new Object();request.method = \"consultaproductosproducir\";request.params = [];",
+                    "request.params.push({\"name\": \"imei\", \"value\": almacen.getApplication().SessionId});",
+                    "request.params.push({\"name\": \"claveclasificacion\", \"value\": claveClasificacion});",
+                    "almacen.getApplication().loadData(request, function(response) {",
+                    "    console.log(response);",
+                    "    combo.getStore().loadData(response.productos, false);",
+                    "    combo.getStore().sort(\"nombreproducto\", \"ASC\");",
+                    "    currentController.AsignaValores(rec,true);",
+                    "});"
+                ]
+            },
+            "name": "cargaProducciones",
+            "designerId": "951e5c24-3515-40fa-b471-f69edd5e2720"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "list"
+                ],
+                "fn": "cargaProductosVenta",
+                "implHandler": [
+                    "console.log(\"cargaProductosVenta\");",
+                    "var combo = Ext.ComponentMgr.get(\"cmbProductoVenta\");",
+                    "combo.getStore().loadData(list);",
+                    "combo.getStore().sort(\"nombreproducto\", \"ASC\");"
+                ]
+            },
+            "name": "cargaProductosVenta",
+            "designerId": "2798df7c-7103-45d1-b337-4ce18a4ed058"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "record"
+                ],
+                "fn": "cargaCostosAdicionales",
+                "implHandler": [
+                    "var cantidadpagoCostoProduccion  = record.get(\"cantidadpagoCostoProduccion\");",
+                    "var cantidadpagoCostoProduccion2 = record.get(\"cantidadpagoCostoProduccion2\");",
+                    "var cantidadpagoCostoProduccion3 = record.get(\"cantidadpagoCostoProduccion3\");",
+                    "var cantidadpagoCostoProduccion4 = record.get(\"cantidadpagoCostoProduccion4\");",
+                    "var cantidadpagoCostoProduccion5 = record.get(\"cantidadpagoCostoProduccion5\");",
+                    "var data = [];",
+                    "",
+                    "var simbolo = record.get(\"tipopagoCostoProduccion\") == 1 ? \"%\" : \"$\";",
+                    "if(cantidadpagoCostoProduccion > -1)",
+                    "    data.push({\"label\": cantidadpagoCostoProduccion + simbolo, \"value\": cantidadpagoCostoProduccion });",
+                    "if(cantidadpagoCostoProduccion2 > -1)",
+                    "    data.push({\"label\": cantidadpagoCostoProduccion2 + simbolo, \"value\": cantidadpagoCostoProduccion2 });",
+                    "if(cantidadpagoCostoProduccion3 > -1)",
+                    "    data.push({\"label\": cantidadpagoCostoProduccion3 + simbolo, \"value\": cantidadpagoCostoProduccion3 });",
+                    "if(cantidadpagoCostoProduccion4 > -1)",
+                    "    data.push({\"label\": cantidadpagoCostoProduccion4 + simbolo, \"value\": cantidadpagoCostoProduccion4 });",
+                    "if(cantidadpagoCostoProduccion5 > -1)",
+                    "    data.push({\"label\": cantidadpagoCostoProduccion5 + simbolo, \"value\": cantidadpagoCostoProduccion5 });",
+                    "",
+                    "console.log(data);",
+                    "",
+                    "var combo = Ext.ComponentMgr.get(\"cmbCostosAdicionales\");",
+                    "combo.getStore().loadData(data);",
+                    "combo.select(combo.getStore().getAt(0));",
+                    "//combo.getStore().sort(\"nombreproducto\", \"ASC\");"
+                ]
+            },
+            "name": "cargaCostosAdicionales",
+            "designerId": "589bde39-341a-4618-b757-e2a5cec018ab"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "calculaCostoReal",
+                "implHandler": [
+                    "var recetas = Ext.ComponentMgr.get(\"gridRecetaProduccion\");",
+                    "var cReal=0.0;",
+                    "",
+                    "recetas.getStore().each(function(rec){",
+                    "    cReal += rec.get(\"costoReal\");",
+                    "});",
+                    "",
+                    "cReal=Number(cReal.toFixed(2));",
+                    "",
+                    "Ext.ComponentMgr.get(\"txtCostoReal\").setValue('$' + cReal);",
+                    ""
+                ]
+            },
+            "name": "calculaCostoReal",
+            "designerId": "d021bb19-028a-4a64-9367-b78a98718270"
+        }
+    ]
+}

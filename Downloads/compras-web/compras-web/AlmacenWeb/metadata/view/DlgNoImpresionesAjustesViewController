@@ -1,0 +1,38 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgnoimpresionesajustes",
+        "designer|userClassName": "DlgNoImpresionesAjustesViewController"
+    },
+    "designerId": "1fe5f2c2-f261-4561-a470-e58540432dd2",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAceptar",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "AsignarPreguntaImpresiones",
+                "implHandler": [
+                    "        var noImpresiones = Ext.ComponentMgr.get(\"cmbNoImpresiones\").getValue();",
+                    "        var motivo = Ext.WindowMgr.get(\"wndPreguntaImpresiones\").currentMotivoAjuste;",
+                    "        Ext.WindowMgr.get(\"wndPreguntaImpresiones\").parentController.registrarAjustes(noImpresiones, motivo);",
+                    "        Ext.WindowMgr.get(\"wndPreguntaImpresiones\").close();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "AsignarPreguntaImpresiones",
+            "designerId": "3fe2a35a-4f83-43ef-bfa0-660a088d4349"
+        }
+    ]
+}

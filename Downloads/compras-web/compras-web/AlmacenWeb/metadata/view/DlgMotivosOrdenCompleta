@@ -1,0 +1,135 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgmotivosordencompleta",
+        "designer|userClassName": "DlgMotivosOrdenCompleta",
+        "height": 150,
+        "modal": true,
+        "title": "Compra Incompleta<br><br>Seleccione un motivo por el cual  recibe <br>la compra incompleta.",
+        "width": 300
+    },
+    "name": "DlgMotivosAjustes1",
+    "designerId": "42998f7c-1ca3-452b-af58-d39a852aea43",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "currentMotivoAjuste",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "28efe6fe-7998-4046-acb7-c583b926e143",
+    "viewModelInstanceId": "b3d458ac-6255-4df1-888b-070692591975",
+    "cn": [
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "blankText": null,
+                "displayField": "label",
+                "fieldLabel": "",
+                "id": "cmbNoImpresiones2",
+                "maxLength": 50,
+                "maxLengthText": "Longitud máxima {0}",
+                "queryMode": "local",
+                "store": "StoreGeneric",
+                "valueField": "value",
+                "width": 295
+            },
+            "name": "MyComboBox5",
+            "designerId": "df992fcb-cbef-4190-abfa-f4d1a471155d",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value"
+                        ],
+                        "fn": "validator",
+                        "implHandler": [
+                            "console.log(\"value\");",
+                            "console.log(value);",
+                            "Ext.ComponentMgr.get(\"cmbNoImpresiones2\").setValue(value);",
+                            "",
+                            "if(value.trim() !== '' && value.trim().length > 0)",
+                            "    return true;",
+                            "else",
+                            "    return \"El campo no puede quedar vacio.\";"
+                        ]
+                    },
+                    "name": "validator",
+                    "designerId": "bc369e88-99e2-47db-8973-399f2867718f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "id": "tbNoImpresiones2"
+            },
+            "name": "MyToolbar8",
+            "configAlternates": {
+                "parentController": "object"
+            },
+            "designerId": "cccb0ac1-a83c-4c84-a9f1-d6cb86b3d4eb",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "parentController",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill",
+                    "designerId": "dee349d2-bfd9-4fd0-bf48-ddb793c55833"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/tick.png",
+                        "id": "btnAceptar2",
+                        "layout|flex": null,
+                        "text": "Aceptar"
+                    },
+                    "name": "MyButton22",
+                    "designerId": "35cfdf6f-f0c1-445b-88a8-2b04ebbcd1d1"
+                }
+            ]
+        }
+    ]
+}

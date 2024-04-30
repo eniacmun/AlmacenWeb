@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgvalidacionprodcompra",
+        "designer|userClassName": "DlgValidacionProdCompraViewModel"
+    },
+    "designerId": "c35b8fe9-86c4-4d3e-b9a0-80b6abb26ad1"
+}

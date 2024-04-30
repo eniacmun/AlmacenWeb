@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgdetalleimpresion",
+        "designer|userClassName": "DlgPedidosViewModel1"
+    },
+    "name": "DlgPedidosViewModel1",
+    "designerId": "0ae91d6e-9b5d-418b-ab7d-e45b346a273d"
+}

@@ -1,0 +1,353 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "tbajustes",
+        "designer|userClassName": "tbAjustesViewController"
+    },
+    "designerId": "1fad2d7f-bb4b-439e-b05e-3c0cd70c6390",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAjustes",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "InitializeEnvironment",
+                "implHandler": [
+                    "window.tipoInvenario = 1;",
+                    "window.InventariosBeforeEdit = this.BeforeEdit;",
+                    "window.InventariosAfterEdit = this.AfterEdit;",
+                    "window.AjustesRealizados = {};"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "InitializeEnvironment",
+            "designerId": "9c49788f-26b2-49b0-88eb-52a41efd4082"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "editor, context, eOpts"
+                ],
+                "fn": "BeforeEdit",
+                "implHandler": [
+                    "        return true;"
+                ]
+            },
+            "name": "BeforeEdit",
+            "designerId": "6dace159-1a1c-42cd-a5f4-2534d0be4554"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "editor, context, Opts"
+                ],
+                "fn": "AfterEdit",
+                "implHandler": [
+                    "var equ1 = 0;",
+                    "if (!context.record.get(\"Equivalencia1\")==\"\"){",
+                    "    equ1 = parseFloat(context.record.get(\"Equivalencia1\")); }",
+                    "var equ2 = 0;",
+                    "",
+                    "if (!context.record.get(\"Equivalencia2\")==\"\"){",
+                    "    equ2 = parseFloat(context.record.get(\"Equivalencia2\")); }",
+                    "",
+                    "",
+                    "//var Total = parseFloat(context.record.get(\"Existencia\")) + (parseFloat(context.record.get(\"Existencia1\"))) + (parseFloat(context.record.get(\"Existencia2\")));",
+                    "var Total = parseFloat(context.record.get(\"Existencia\")) +",
+                    "    (parseFloat(equ1)*parseFloat(context.record.get(\"Existencia1\"))) +",
+                    "    (parseFloat(equ2)*parseFloat(context.record.get(\"Existencia2\")));",
+                    "",
+                    "var Existencia = Total;",
+                    "var ClaveProducto = context.record.get(\"Clave\");",
+                    "var Concepto = context.record.get(\"Concepto\");",
+                    "var Unidad = context.record.get(\"Unidad\");",
+                    "var InventarioDiario = context.record.get(\"InventarioDiario\");",
+                    "var Clasificacion = context.record.get(\"Clasificacion\");",
+                    "var CantExistencia = parseFloat(Existencia);",
+                    "var currentExistencia =context.record.get(\"CurrentExistencia\");",
+                    "var maximoPermitido =context.record.get(\"maximoPermitido\");",
+                    "console.log(\"Existencia Actual AfterEdit:\" + CantExistencia);",
+                    "console.log(CantExistencia > -0.00001);",
+                    "",
+                    "if (CantExistencia >= 0){",
+                    "    console.log(\"Cantidad existente si es mayor o igual  a 0\");",
+                    "    //se guarda en el objeto de AjustesRealizados",
+                    "    console.log(\"context.value: \"+ context.value);",
+                    "    console.log(\"context.originalValue: \"+ context.originalValue);",
+                    "    // Condiciones:",
+                    "    // Izquierda: Verifica que la existencia que se pone actualmente es diferente a la anterior",
+                    "    // Derecha: Debido a la carga inicial, originalValue es \"\", esto lleva a javascript a tratarlo como 0",
+                    "    // por lo que, aunque el usuario la primera vez ingrese cero, los datos no se rellenaran. Para ello,",
+                    "    // es necesario evaluar el originalValue, este es true la primera vez, posteriormente ya sera false pues",
+                    "    // originalValue se sobreescribira con un valor numerico.",
+                    "    if (context.value != context.originalValue || context.originalValue ===\"\"){",
+                    "        console.log(\"existencia no es la misma a la dada\");",
+                    "        console.log(\"Existencia \" + Existencia);",
+                    "        window.AjustesRealizados[ClaveProducto] = {",
+                    "            \"Clave\":ClaveProducto,",
+                    "            \"Existencia\":Existencia,",
+                    "            \"Concepto\":Concepto,",
+                    "            \"Unidad\":Unidad,",
+                    "            \"InventarioDiario\":InventarioDiario,",
+                    "            \"Clasificacion\":Clasificacion,",
+                    "            \"CurrentExistencia\":currentExistencia,",
+                    "            \"maximoPermitido\":maximoPermitido",
+                    "        };",
+                    "    }",
+                    "    context.record.beginEdit();",
+                    "    context.record.set(\"Total\", Existencia);",
+                    "    context.record.commit();",
+                    "    editor.completeEdit();",
+                    "    editor.startEditByPosition({",
+                    "        row: context.rowIdx+1,",
+                    "        column: context.colIdx",
+                    "    });",
+                    "",
+                    "",
+                    "}else{",
+                    "    console.log(\"Cantidad existenti no es mayor o igual  a 0\");",
+                    "    context.record.beginEdit();",
+                    "    context.record.set(\"Existencia\", context.originalValue);",
+                    "    context.record.commit();",
+                    "    editor.cancelEdit();",
+                    "    return false;",
+                    "}"
+                ]
+            },
+            "name": "AfterEdit",
+            "designerId": "85b32051-21ad-4cee-99ea-0186561dd506"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnAjustes",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "Ajustar",
+                "implHandler": [
+                    "var option = this.validarAjustes();",
+                    "if (option){",
+                    "    this.realizaAjustes();",
+                    "}"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "Ajustar",
+            "designerId": "d3213cc9-091b-4529-9377-4ebd0a2f766d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validarAjustes",
+                "implHandler": [
+                    "var retVal = true;",
+                    "var ajustesExcedidos = [];",
+                    "for(var claveprod in window.AjustesRealizados){",
+                    "    var prod = window.AjustesRealizados[claveprod];",
+                    "    var cantidad = parseFloat(prod.Existencia);",
+                    "    var existencia = parseFloat(Ext.util.Base64.decode(prod.CurrentExistencia));",
+                    "    var cantidadMaximaPermitida = prod.maximoPermitido;",
+                    "",
+                    "    if (existencia <= cantidadMaximaPermitida){ //la existencia actual es menor a la permitida se tiene que aplicar la validacion",
+                    "        if (cantidad > cantidadMaximaPermitida){",
+                    "            //se debe mostrar la ventana de contraseña del supervisor",
+                    "            prod.cantidadMaximaValidacion = cantidadMaximaPermitida;",
+                    "            ajustesExcedidos.push(prod);",
+                    "        }",
+                    "    }else if (existencia > cantidadMaximaPermitida){",
+                    "        if (cantidad > existencia){",
+                    "            prod.cantidadMaximaValidacion = existencia;",
+                    "            ajustesExcedidos.push(prod);",
+                    "        }",
+                    "    }",
+                    "",
+                    "}",
+                    "",
+                    "if (ajustesExcedidos.length > 0){",
+                    "",
+                    "    //return true",
+                    "    var wnd = Ext.create(\"almacen.view.DlgExistenciaAlerta\", {id:\"wndPreciosAlerta\"});",
+                    "    wnd.parentController=this;",
+                    "    wnd.center();",
+                    "    wnd.show();",
+                    "    Ext.ComponentMgr.get(\"gridProductosPrecios1\").getStore().loadData(ajustesExcedidos);",
+                    "    return false;",
+                    "}else {",
+                    "    return true;",
+                    "}"
+                ]
+            },
+            "name": "validarAjustes",
+            "designerId": "d6de174d-d025-4c67-82b3-9988ef08e299"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "noImpresiones",
+                    "motivoAjuste"
+                ],
+                "fn": "registrarAjustes",
+                "implHandler": [
+                    "",
+                    "var ajustesx = [];",
+                    "for (var claveprod in window.AjustesRealizados){",
+                    "    prod = window.AjustesRealizados[claveprod];",
+                    "    prod.CurrentExistencia = escape(prod.CurrentExistencia);",
+                    "    ajustesx.push(window.AjustesRealizados[claveprod]);",
+                    "}",
+                    "",
+                    "var objAjustes = {",
+                    "    tipoAjuste:motivoAjuste,",
+                    "    noImpresiones:noImpresiones,",
+                    "    ajustes:ajustesx",
+                    "};",
+                    "var decoded = Ext.encode(objAjustes);",
+                    "",
+                    "",
+                    "var request = {}; request.method=\"registraajustes\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},{\"name\":\"AJUSTE\",\"value\":decoded});",
+                    "request.params.push({\"name\":\"claveAlmacen\",\"value\":window.claveAlmacen});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "",
+                    "    console.log(response);",
+                    "",
+                    "    if(response.filepath){",
+                    "        if(response.filepath.length == 1){",
+                    "            var curentFilepath = response.filepath[0];",
+                    "            console.log(\"Archivo a descargar: \" + curentFilepath);",
+                    "            if(curentFilepath !== \"\"){",
+                    "                Ext.Msg.alert(\"Mensaje\",\"Impresión correcta, se descargará su archivo.\");",
+                    "                almacen.getApplication().downloadPedido(curentFilepath, 0); // 0 PDF 1 Excel 2 Ambos",
+                    "            }else{",
+                    "                Ext.Msg.alert(\"Mensaje\",\"No se pudo generar su archivo. Reintente\");",
+                    "            }",
+                    "        }/*else{",
+                    "            Ext.Msg.alert(\"Mensaje\",\"No se pudo generar su archivo.\");",
+                    "        }*/",
+                    "    }",
+                    "",
+                    "    //se acualiza toda la interfaz",
+                    "    Ext.ComponentManager.get(\"currentView\").mycontroller.loadExistencias(null,null,null);",
+                    "",
+                    "    window.AjustesRealizados={};",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "name": "registrarAjustes",
+            "designerId": "ba4edb58-b57b-4058-aae0-d3321aa20f6c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "motivoAjuste"
+                ],
+                "fn": "preguntarNoImpresiones",
+                "implHandler": [
+                    "console.log(almacen.getApplication().currentSession);",
+                    "",
+                    "if(almacen.getApplication().currentSession.habilitaNoImprimirAjustes){",
+                    "    this.registrarAjustes(0, motivoAjuste);",
+                    "} else {",
+                    "    var wnd = Ext.create(\"almacen.view.DlgNoImpresionesAjustes\", {id:\"wndPreguntaImpresiones\"});",
+                    "    wnd.parentController=this;",
+                    "    wnd.currentMotivoAjuste=motivoAjuste;",
+                    "    wnd.center();",
+                    "    wnd.show();",
+                    "}"
+                ]
+            },
+            "name": "preguntarNoImpresiones",
+            "designerId": "b867ae2d-1610-402b-9ba0-c0b9206509ff"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "tipoMotivo"
+                ],
+                "fn": "preguntarMotivos",
+                "implHandler": [
+                    "var wnd = Ext.create(\"almacen.view.DlgMotivosAjustes\", {id:\"wndPreguntaMotivos\"});",
+                    "        wnd.parentController=this;",
+                    "        wnd.currentMotivoAjuste=tipoMotivo;",
+                    "        wnd.center();",
+                    "        wnd.show();",
+                    ""
+                ]
+            },
+            "name": "preguntarMotivos",
+            "designerId": "1d307123-0622-43c9-8c76-6536fc429364"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "realizaAjustes",
+                "implHandler": [
+                    "this.preguntarMotivos(\"AJUSTE\");"
+                ]
+            },
+            "name": "realizaAjustes",
+            "designerId": "8c4a4fd2-9e24-404c-a312-fa5468f5649e"
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "data": [
+            "[",
+            "    {",
+            "        \"numero\": 0",
+            "    },{",
+            "        \"numero\": 1",
+            "    },",
+            "    {",
+            "        \"numero\": 2",
+            "    },",
+            "    {",
+            "        \"numero\": 3",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "StoreNoImpresiones",
+        "model": "mdlImpresiones",
+        "storeId": "StoreNoImpresiones"
+    },
+    "name": "MyJsonStore",
+    "designerId": "16715919-b2be-4666-9695-1ffa166a59e5",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Memory",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyMemoryProxy",
+            "designerId": "8f54bd2f-d410-40b6-8650-91c48173bb14",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader4",
+                    "designerId": "74d19b27-9437-4248-adf5-1f2745055b4f"
+                }
+            ]
+        }
+    ]
+}

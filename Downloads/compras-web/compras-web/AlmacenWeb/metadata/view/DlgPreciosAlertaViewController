@@ -1,0 +1,190 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgpreciosalerta",
+        "designer|userClassName": "DlgPreciosAlertaViewController"
+    },
+    "designerId": "75fcdaa5-e47c-489b-b637-0be4ea3ae9ee",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#aceptaAlerta",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "aceptarAlertaClick",
+                "implHandler": [
+                    "       this.validarAceptarAlerta();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "aceptarAlertaClick",
+            "designerId": "5299b01d-dd33-432e-93df-2961b40649dc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "validarAceptarAlerta",
+                "implHandler": [
+                    "var ventana=Ext.WindowManager.get(\"wndPreciosAlerta\");",
+                    "var controller=ventana.parentController;",
+                    "var request = new Object(); request.method=\"validaSupervisor\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId},{\"name\":\"USERNAME\",\"value\":Ext.ComponentMgr.get(\"passwordAutorizacionProductoPrecio\").getValue()});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "    if(response.status){",
+                    "       controller.guardaCompra();",
+                    "       ventana.close();",
+                    "      ",
+                    "    }else{",
+                    "        Ext.Msg.alert('', 'Usuario o contraseña incorrecto.');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "validarAceptarAlerta",
+            "designerId": "7783d127-f700-4d0d-b899-5b600b63f8f7"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#passwordAutorizacionProductoPrecio",
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "aceptarAlertaText",
+                "implHandler": [
+                    "                if (e.getKey()==Ext.event.Event.ENTER){",
+                    "                        this.validarAceptarAlerta();",
+                    "                    }"
+                ],
+                "name": "keyup",
+                "scope": "me"
+            },
+            "name": "aceptarAlertaText",
+            "designerId": "0c26bb5e-be86-4c63-aee5-5b01083eb1f6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "aceptarClick",
+                "implHandler": [
+                    "//////debugger;",
+                    "var controller=Ext.WindowManager.get(\"wndPreciosAlerta\").parentController;",
+                    "            controller.guardaCompra();",
+                    "            Ext.WindowManager.get(\"wndPreciosAlerta\").close();"
+                ]
+            },
+            "name": "aceptarClick",
+            "designerId": "d60ebf52-9478-4925-adda-0a4da111a45d"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#Aceptar",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "AceptarClickA",
+                "implHandler": [
+                    "this.aceptarClick();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "AceptarClickA",
+            "designerId": "7ca8a5cd-fe0a-416d-a64f-ef6b5cd84ca1"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "CancelarClickA",
+                "implHandler": [
+                    "this.cancelarClick();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "CancelarClickA",
+            "designerId": "858bfaae-10e7-4ae6-93b5-5d2cc2c3047f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "cancelarClick",
+                "implHandler": [
+                    "Ext.WindowManager.get(\"wndPreciosAlerta\").close();"
+                ]
+            },
+            "name": "cancelarClick",
+            "designerId": "41aee550-502a-4ee8-b869-7cb32eba6a79"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "requiereAutorizacion",
+                "implHandler": [
+                    "",
+                    "var request = new Object(); request.method=\"requiereautorizacion\"; request.params=[];",
+                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                    "almacen.getApplication().loadData(request,function(response){",
+                    "   ",
+                    "    if(response.status){",
+                    "      ",
+                    "        var cp = Ext.getCmp('MyToolbar6');",
+                    "        cp.show();",
+                    "",
+                    "    }else{",
+                    "        var cp = Ext.getCmp('MyToolbar2');",
+                    "        cp.show();",
+                    "    }",
+                    "});"
+                ]
+            },
+            "name": "requiereAutorizacion",
+            "designerId": "7f838fa0-47be-44e4-8526-335a2e4b58eb"
+        }
+    ]
+}

@@ -1,0 +1,133 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|commentHeader": [
+            "@charset UTF-8"
+        ],
+        "designer|userAlias": "dlglogin",
+        "designer|userClassName": "DlgLoginViewController"
+    },
+    "designerId": "8874f302-df7d-4868-909b-b1348210746e",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "button#btnLogin",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "iniciaSesion",
+                "implHandler": [
+                    "        this.login();"
+                ],
+                "name": "click",
+                "scope": "me"
+            },
+            "name": "iniciaSesion",
+            "designerId": "2f0bd67e-551c-463c-bae3-c29d175f82cc"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#passwordTextFieldLogeo",
+                "designer|targetType": "Ext.form.field.Text",
+                "fn": "iniciaSesionTxt",
+                "implHandler": [
+                    "if (e.getKey() == Ext.event.Event.ENTER){",
+                    "    this.login();",
+                    "}",
+                    "",
+                    ""
+                ],
+                "name": "keyup",
+                "scope": "me"
+            },
+            "name": "iniciaSesionTxt",
+            "designerId": "e8808151-70a1-435c-a315-6f8638f1f4c8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "login",
+                "implHandler": [
+                    "var version=almacen.getApplication().Version;",
+                    "var passwordInput = Ext.ComponentMgr.get(\"passwordTextFieldLogeo\").getValue();",
+                    "var request = new Object();",
+                    "request.method=\"login\";",
+                    "request.params=[];",
+                    "request.params.push({\"name\":\"username\",\"value\":passwordInput},{\"name\":\"imei\",\"value\":\"\"} );",
+                    "Ext.WindowManager.get(\"WndLogin\").mask('Iniciando sesión, espere un momento....');",
+                    "",
+                    "almacen.getApplication().loadData(request,",
+                    "                                  function(response){",
+                    "                                      almacen.getApplication().SessionId=response.IMEI;",
+                    "                                      almacen.getApplication().ClaveUsuario= response.ClaveUsuario;",
+                    "                                      almacen.getApplication().currentSession=response;",
+                    "                                      Ext.WindowManager.get(\"WndLogin\").unmask();",
+                    "                                      Ext.WindowManager.get(\"WndLogin\").close();",
+                    "                                      Ext.ComponentMgr.get(\"lblWelcome\").update('<font color=\"white\">Sistema Almacen v ' +  version + ' Bienvenid@:' + response.NombreEmpleado + '</font>');",
+                    "",
+                    "                                      console.log(\"almacen.getApplication().currentSession\");",
+                    "                                      console.log(almacen.getApplication().currentSession);",
+                    "                                      //win.hide();",
+                    "                                      // nota, se pueden quitar los if usando el vector globar almacen.getApplication().currentSession",
+                    "                                      // para ello, se tienen que cambiar todas las referencias de los 3 if de abajo.",
+                    "                                      for (var b in response){",
+                    "                                          //console.log(\" b \" + b + \" response[b]: \" + response[b]);",
+                    "                                          if(b === \"habilitaValidacionTotal\"){",
+                    "                                              //console.log(\"guardando la habilitacion del total\");",
+                    "                                              window.habilitaValidacionTotal = response[b];",
+                    "                                          }",
+                    "                                          if(b === \"habilitabtnReportes\"){",
+                    "                                              //console.log(\"guardando si tiene reportres\");",
+                    "                                              window.habilitabtnReportes = response[b];",
+                    "                                          }",
+                    "                                          if(b === \"minutosSurtirPedidos\"){",
+                    "                                              //console.log(\"guardando si tiene minutos para surtirpedidos\");",
+                    "                                              window.minutosSurtirPedidos = response[b];",
+                    "                                          }",
+                    "                                          if (Ext.ComponentMgr.get(b)){",
+                    "                                              if (response[b] == 'visible'){",
+                    "                                                  Ext.ComponentMgr.get(b).show();",
+                    "                                              }else{",
+                    "                                                  Ext.ComponentMgr.get(b).hide();",
+                    "                                              }",
+                    "                                          }",
+                    "                                      }",
+                    "                                      if(!almacen.getApplication().currentSession.subAlmacenes){",
+                    "                                          almacen.getApplication().currentSession.subAlmacenes = false;",
+                    "                                      }",
+                    "                                      //console.log(\"claveusuario\");console.log(almacen.getApplication().ClaveUsuario);",
+                    "                                      //console.log(\"SessionId\");console.log(almacen.getApplication().SessionId);",
+                    "                                      //console.log(\"currentSession\");console.log(almacen.getApplication().currentSession);",
+                    "",
+                    "                                      Ext.ComponentMgr.get(\"toolbar\").expand(true);",
+                    "                                  }, function(){",
+                    "                                      Ext.WindowManager.get(\"WndLogin\").unmask();",
+                    "                                      Ext.Msg.alert('',\"No hay conexión con la caja.</br></br>intente nuevamente.\");",
+                    "                                  });"
+                ]
+            },
+            "name": "login",
+            "designerId": "27001c56-4dd6-4f76-bb4c-92b66a2adb3a"
+        }
+    ]
+}

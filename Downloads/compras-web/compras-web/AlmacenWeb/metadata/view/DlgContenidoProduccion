@@ -1,0 +1,1622 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgcontenidoproduccion",
+        "designer|userClassName": "DlgContenidoProduccion",
+        "height": 597,
+        "modal": true,
+        "title": "Contenido Producción",
+        "width": 1024
+    },
+    "name": "MyWindow",
+    "configAlternates": {
+        "parentController": "object"
+    },
+    "designerId": "0a99b6e1-dbb8-42a3-b3d5-a0b1fb5e57d4",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "parentController",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "8ab65aa3-10c7-4c10-a983-72109eee8308",
+    "viewModelInstanceId": "b31d6512-9f55-4b6a-86ff-95b799950d71",
+    "cn": [
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "height": 150,
+                "layout": "column",
+                "title": "Producto a Producir"
+            },
+            "name": "MyForm1",
+            "designerId": "5caea873-2d94-4b26-b2d0-c9c202a1ac4c",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Producción",
+                        "id": "txtProduccion",
+                        "labelWidth": 65,
+                        "width": 129
+                    },
+                    "name": "MyTextField1",
+                    "designerId": "0d5f779e-374c-4b4c-8b9c-ef6039bd6b7c"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "nombreproducto",
+                        "fieldLabel": "Clasificación:",
+                        "forceSelection": true,
+                        "itemId": "cmbClasificacionProduccion",
+                        "labelWidth": 80,
+                        "margin": "0 0 0 10",
+                        "minChars": 2,
+                        "queryMode": "local",
+                        "store": "StoreClasificaciones",
+                        "value": null,
+                        "valueField": "clasificacion",
+                        "width": "40%"
+                    },
+                    "name": "MyComboBox22",
+                    "designerId": "d8c261d8-c436-4d41-a78a-e35241021f12",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxBeforeRender",
+                                "implHandler": [
+                                    "var request = new Object(); request.method=\"clasificacionesplatillo\"; request.params=[];",
+                                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                                    "almacen.getApplication().loadData(request,function(response){",
+                                    "    component.getStore().loadData(response.productos);",
+                                    "    component.getStore().sort('nombreproducto','ASC');",
+                                    "}, function(response){",
+                                    "    Ext.Msg.alert(\"Error al consultar las clasificaciones\");",
+                                    "    console.log(response);",
+                                    "});",
+                                    "",
+                                    "var wnd = Ext.ComponentMgr.get(\"wndContenidoProduccion\");",
+                                    "",
+                                    "if(wnd.currentRecord.estado !== 0){",
+                                    "    component.setDisabled(true);",
+                                    "} else{",
+                                    "    component.setDisabled(false);",
+                                    "}"
+                                ],
+                                "name": "beforerender",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxBeforeRender",
+                            "designerId": "23dee8af-bcca-40eb-b677-4aec68183245"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onComboboxSelect",
+                                "implHandler": [
+                                    "var wnd = Ext.WindowMgr.get(\"wndContenidoProduccion\");",
+                                    "wnd.currentRecord = JSON.parse(JSON.stringify(wnd.blankRecord)); // Se clona registro en blanco",
+                                    "",
+                                    "var comboProducto = Ext.ComponentMgr.get(\"cmbProducto\");",
+                                    "comboProducto.setValue(\"\");",
+                                    "",
+                                    "this.cargaProducciones(comboProducto, combo.getValue());"
+                                ],
+                                "name": "select",
+                                "scope": "me"
+                            },
+                            "name": "onComboboxSelect",
+                            "designerId": "7ce7b878-3a42-4a47-a6ea-ae8213e22646"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "displayField": "nombreproducto",
+                        "fieldLabel": "Producto",
+                        "forceSelection": true,
+                        "id": "cmbProducto",
+                        "labelWidth": 60,
+                        "margin": "0 0 0 10",
+                        "queryMode": "local",
+                        "store": "StoreCombboProducciones",
+                        "valueField": "claveproducto",
+                        "width": "45%"
+                    },
+                    "name": "MyComboBox17",
+                    "configAlternates": {
+                        "currentRecord": "object"
+                    },
+                    "designerId": "f0285c9c-b55f-4394-ab50-2444730e854e",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "currentRecord",
+                            "type": "string"
+                        }
+                    ],
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbProductoBeforeQuery",
+                                "implHandler": [
+                                    "queryPlan.query = new RegExp(queryPlan.query, 'i');",
+                                    "queryPlan.forceAll = true;"
+                                ],
+                                "name": "beforequery",
+                                "scope": "me"
+                            },
+                            "name": "onCmbProductoBeforeQuery",
+                            "designerId": "91f1a70b-910d-4357-b81b-d0af3c3bff57"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbProductoSelect",
+                                "implHandler": [
+                                    "var txtCantEsperada = Ext.ComponentMgr.get(\"txtCantEsperada\");",
+                                    "var cantidad=txtCantEsperada.getValue();",
+                                    "var claveProducto = records[0].get(\"claveproducto\");",
+                                    "var nombreProducto = records[0].get(\"nombreproducto\");",
+                                    "var unidad = records[0].get(\"unidad\");",
+                                    "",
+                                    "var rec=this.obtieneRegistro();",
+                                    "rec.claveProducto = claveProducto; // agregado 04 03 2021",
+                                    "rec.concepto=nombreProducto;",
+                                    "rec.unidad=unidad;",
+                                    "",
+                                    "// campos para producciones con costo",
+                                    "var cantidadpagoCostoProduccion = records[0].get(\"cantidadpagoCostoProduccion\");",
+                                    "var tipopagoCostoProduccion = records[0].get(\"tipopagoCostoProduccion\");",
+                                    "var estadoCostoProduccion = records[0].get(\"estadoCostoProduccion\");",
+                                    "var claveProductoVentaCostoProduccion = records[0].get(\"claveProductoVentaCostoProduccion\");",
+                                    "rec.cantidadPago =cantidadpagoCostoProduccion;",
+                                    "rec.tipoPago = tipopagoCostoProduccion;",
+                                    "rec.estadoCosto = estadoCostoProduccion;",
+                                    "//rec.claveProductoVenta = claveProductoVentaCostoProduccion;",
+                                    "console.log(\"cmbProductoSelect\");",
+                                    "console.log(rec);",
+                                    "console.log(records[0]);",
+                                    "//return;",
+                                    "",
+                                    "var comboEmpleado = Ext.ComponentMgr.get(\"cmbEmpleado\");",
+                                    "var cmbProductoVenta = Ext.ComponentMgr.get(\"cmbProductoVenta\");",
+                                    "var txtPrecio = Ext.ComponentMgr.get(\"txtPrecio\");",
+                                    "var txtTipoPago = Ext.ComponentMgr.get(\"txtTipoPago\");",
+                                    "var txtImporte = Ext.ComponentMgr.get(\"txtImporte\");",
+                                    "var cmbCostosAdicionales = Ext.ComponentMgr.get(\"cmbCostosAdicionales\");",
+                                    "",
+                                    "if(records[0].get(\"estadoCostoProduccion\") == 1 ){ // agregado 04 03 2021",
+                                    "    comboEmpleado.setDisabled(false);",
+                                    "    cmbProductoVenta.setDisabled(false);",
+                                    "    txtPrecio.setDisabled(false);",
+                                    "    txtTipoPago.setDisabled(false);",
+                                    "    var text = rec.tipoPago == 1 ? rec.cantidadPago + \"%\" : Ext.util.Format.currency(rec.cantidadPago);",
+                                    "    txtTipoPago.setValue(text);",
+                                    "    txtImporte.setDisabled(false);",
+                                    "    // Se lee el producto configurado asi como su precio y se registra solo si existe en el store actual",
+                                    "    cmbProductoVenta.store.each(function(record, id){",
+                                    "        if(record.get(\"claveproducto\") == claveProductoVentaCostoProduccion){",
+                                    "            console.log(record);",
+                                    "            rec.claveProductoVenta = claveProductoVentaCostoProduccion;",
+                                    "            rec.precioVenta = record.get(\"precio\");",
+                                    "        }",
+                                    "    });",
+                                    "    cmbCostosAdicionales.setDisabled(false);",
+                                    "} else{",
+                                    "    comboEmpleado.setDisabled(true);",
+                                    "    cmbProductoVenta.setDisabled(true);",
+                                    "    txtPrecio.setDisabled(true);",
+                                    "    txtTipoPago.setDisabled(true);",
+                                    "    txtImporte.setDisabled(true);",
+                                    "    cmbCostosAdicionales.setDisabled(true);",
+                                    "}",
+                                    "this.AsignaValores(rec);",
+                                    "this.cargaReceta(claveProducto,cantidad);",
+                                    "this.calculaImporteCostoManoObra(\"txtCantEsperada\");"
+                                ],
+                                "name": "select",
+                                "scope": "me"
+                            },
+                            "name": "onCmbProductoSelect",
+                            "designerId": "d0a4b4aa-6082-4271-afff-3166c8c357a1"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbProductoBeforeSelect",
+                                "implHandler": [
+                                    "console.log(\"---------------\");",
+                                    "console.log(record);",
+                                    "if(record.get(\"estadoCostoProduccion\") == 1 ){ // agregado 10 03 2021",
+                                    "    if(record.get(\"productos\").length === 0){",
+                                    "        Ext.Msg.alert(\"Error\", \"La producción no contiene productos venta asociados y no puede ser utilizada. Eliga una diferente.\");",
+                                    "        return false;",
+                                    "    } else{",
+                                    "        this.cargaProductosVenta(record.get(\"productos\"));",
+                                    "        this.cargaCostosAdicionales(record);",
+                                    "        return true;",
+                                    "    }",
+                                    "}"
+                                ],
+                                "name": "beforeselect",
+                                "scope": "me"
+                            },
+                            "name": "onCmbProductoBeforeSelect",
+                            "designerId": "b8cd0247-f4c8-419d-80ba-03a0758e478d"
+                        },
+                        {
+                            "type": "Ext.view.BoundList",
+                            "reference": {
+                                "name": "listConfig",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemSelector": "div"
+                            },
+                            "name": "MyBoundList1",
+                            "designerId": "83eb0ae5-f4f3-422d-81cd-1c43543af9b0",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|displayName": "itemTpl",
+                                        "implHandler": [
+                                            "<span style=\"margin:0; background-color: {colorSemaf};\">{nombreproducto} <tpl if=\"cantSemaf != null\"><span style=\"padding-left: 0.1in;\">Cant. <b>{cantSemaf}</b></span></tpl></span>"
+                                        ]
+                                    },
+                                    "name": "itemTpl",
+                                    "designerId": "41dad3ef-c258-42be-8b34-1383424bebba"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "enableKeyEvents": true,
+                        "fieldLabel": "Cantidad",
+                        "id": "txtCantEsperada",
+                        "labelWidth": 62,
+                        "margin": "10 0 0 0",
+                        "width": 129
+                    },
+                    "name": "MyNumberField7",
+                    "designerId": "52d8671f-4a7d-40cc-9737-30489237f4a2",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtCantEsperadaKeyup",
+                                "implHandler": [
+                                    "var currentController=this;",
+                                    "if (window.currentTimeout){",
+                                    "    window.clearTimeout(window.currentTimeout);",
+                                    "}",
+                                    "window.currentTimeout = window.setTimeout(function(){",
+                                    "    currentController.actualizaCantEsperada();",
+                                    "    currentController.calculaImporteCostoManoObra(\"txtCantEsperada\");",
+                                    "    window.currentTimeout=null;",
+                                    "}, 500);"
+                                ],
+                                "name": "keyup",
+                                "scope": "me"
+                            },
+                            "name": "onTxtCantEsperadaKeyup",
+                            "designerId": "0e894db3-08be-4f46-8bde-155154c21f82"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtCantEsperadaSpin",
+                                "implHandler": [
+                                    " var currentController=this;",
+                                    "        if (window.currentTimeout){",
+                                    "            window.clearTimeout(window.currentTimeout);",
+                                    "        }",
+                                    "        window.currentTimeout = window.setTimeout(function(){",
+                                    "            currentController.actualizaCantEsperada();",
+                                    "            currentController.calculaImporteCostoManoObra(\"txtCantEsperada\");",
+                                    "            window.currentTimeout=null;",
+                                    "        }, 500);"
+                                ],
+                                "name": "spin",
+                                "scope": "me"
+                            },
+                            "name": "onTxtCantEsperadaSpin",
+                            "designerId": "e47ce314-ffbb-4405-8ab8-a2e7aadfef0e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "allowOnlyWhitespace": false,
+                        "enableKeyEvents": true,
+                        "fieldLabel": "Cant. Prod.",
+                        "id": "txtCantidadProducir",
+                        "labelWidth": 80,
+                        "margin": "10 0 0 10",
+                        "width": 148
+                    },
+                    "name": "MyNumberField13",
+                    "designerId": "1ed6505e-0c4f-41d6-8fe6-9a2633e45dd9",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtCantidadProducirKeyup",
+                                "implHandler": [
+                                    "var currentController=this;",
+                                    "        if (window.currentTimeout1){",
+                                    "            window.clearTimeout(window.currentTimeout1);",
+                                    "        }",
+                                    "        window.currentTimeout1 = window.setTimeout(function(){",
+                                    "            currentController.actualizaCantProducida();",
+                                    "            currentController.calculaImporteCostoManoObra(\"txtCantidadProducir\");",
+                                    "            window.currentTimeout=null;",
+                                    "        }, 500);"
+                                ],
+                                "name": "keyup",
+                                "scope": "me"
+                            },
+                            "name": "onTxtCantidadProducirKeyup",
+                            "designerId": "df0330d3-968e-46a6-94cd-3a65077b61e9"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtCantidadProducirSpin",
+                                "implHandler": [
+                                    "        var currentController=this;",
+                                    "        if (window.currentTimeout1){",
+                                    "            window.clearTimeout(window.currentTimeout1);",
+                                    "        }",
+                                    "        window.currentTimeout1 = window.setTimeout(function(){",
+                                    "            currentController.actualizaCantProducida();",
+                                    "            currentController.calculaImporteCostoManoObra(\"txtCantidadProducir\");",
+                                    "            window.currentTimeout=null;",
+                                    "        }, 500);"
+                                ],
+                                "name": "spin",
+                                "scope": "me"
+                            },
+                            "name": "onTxtCantidadProducirSpin",
+                            "designerId": "f55e07ff-042f-4302-9118-4c86986f85a8"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "disabled": true,
+                        "displayField": "nombreCompleto",
+                        "fieldLabel": "Empleado",
+                        "forceSelection": true,
+                        "id": "cmbEmpleado",
+                        "itemId": null,
+                        "labelAlign": null,
+                        "labelWidth": 60,
+                        "margin": "10 0 0 10",
+                        "minChars": 2,
+                        "store": "StoreEmpleados",
+                        "valueField": "claveEmpleado",
+                        "width": "24.2%"
+                    },
+                    "name": "MyComboBox24",
+                    "designerId": "53618a25-290a-4043-813f-0e795aca04dc",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbEmpleadoBeforeRender",
+                                "implHandler": [
+                                    "var request = new Object(); request.method=\"obtieneempleados\"; request.params=[];",
+                                    "request.params.push({\"name\":\"imei\",\"value\":almacen.getApplication().SessionId});",
+                                    "almacen.getApplication().loadData(request,function(response){",
+                                    "    component.getStore().loadData(response.empleados);",
+                                    "    component.getStore().sort('nombreproducto','ASC');",
+                                    "}, function(response){",
+                                    "    Ext.Msg.alert(\"Error al consultar los empleados\");",
+                                    "    console.log(response);",
+                                    "});",
+                                    ""
+                                ],
+                                "name": "beforerender",
+                                "scope": "me"
+                            },
+                            "name": "onCmbEmpleadoBeforeRender",
+                            "designerId": "77ba02fc-1ac8-4f65-b14f-fbe5f835db53"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "disabled": true,
+                        "displayField": "nombreproducto",
+                        "fieldLabel": "Producto Venta",
+                        "forceSelection": true,
+                        "id": "cmbProductoVenta",
+                        "itemId": null,
+                        "labelAlign": null,
+                        "margin": "10 0 0 10",
+                        "minChars": 2,
+                        "store": "StoreProductos",
+                        "valueField": "claveproducto",
+                        "width": "29%"
+                    },
+                    "name": "MyComboBox23",
+                    "designerId": "6e8f6c6b-bbd2-4f8b-aaf7-02149821b0a7",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbProductoVentaSelect",
+                                "implHandler": [
+                                    "var precio = records[0].get(\"precio\");",
+                                    "var txtPrecio = Ext.ComponentMgr.get(\"txtPrecio\");",
+                                    "txtPrecio.setValue(precio);",
+                                    "this.calculaImporteCostoManoObra(\"txtCantEsperada\");"
+                                ],
+                                "name": "select",
+                                "scope": "me"
+                            },
+                            "name": "onCmbProductoVentaSelect",
+                            "designerId": "9bea1e81-20f3-4fb4-86db-7ca44fd99a04"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "editable": false,
+                        "fieldLabel": "Precio",
+                        "hideTrigger": true,
+                        "id": "txtPrecio",
+                        "labelWidth": 40,
+                        "margin": "10 0 0 10",
+                        "width": 150
+                    },
+                    "name": "MyNumberField23",
+                    "designerId": "7d2489fb-4887-4f3b-b19f-205eff718334"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "displayField": "label",
+                        "editable": false,
+                        "fieldLabel": "Tipo:",
+                        "id": "cmbCostosAdicionales",
+                        "labelWidth": 35,
+                        "margin": "10 0 0 0",
+                        "store": "StoreGeneric",
+                        "valueField": "value",
+                        "width": 130
+                    },
+                    "name": "MyComboBox27",
+                    "designerId": "546ac8e3-70a3-4b80-83e4-8d0af4503cbd",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCmbCostosAdicionalesSelect",
+                                "implHandler": [
+                                    "console.log(records);",
+                                    "",
+                                    "var cantidadPago = records[0].get(\"value\");",
+                                    "",
+                                    "console.log(cantidadPago);",
+                                    "",
+                                    "var rec = this.obtieneRegistro();",
+                                    "",
+                                    "rec.cantidadPago = cantidadPago;",
+                                    "",
+                                    "this.calculaImporteCostoManoObra(\"txtCantEsperada\"); // solo se podra modificar al momento de crear una nueva"
+                                ],
+                                "name": "select",
+                                "scope": "me"
+                            },
+                            "name": "onCmbCostosAdicionalesSelect",
+                            "designerId": "7c578849-ac82-4f41-b2c7-8f04ce36b687"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "editable": false,
+                        "fieldLabel": "Tipo Pago:",
+                        "hidden": true,
+                        "hideTrigger": true,
+                        "id": "txtTipoPago",
+                        "labelWidth": 65,
+                        "margin": "10 0 0 0",
+                        "width": 130
+                    },
+                    "name": "MyTextField5",
+                    "designerId": "fb1db227-077a-4a74-a5c0-fbcd23fab163"
+                },
+                {
+                    "type": "Ext.form.field.Number",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "editable": false,
+                        "fieldLabel": "Importe",
+                        "hideTrigger": true,
+                        "id": "txtImporte",
+                        "labelWidth": 50,
+                        "margin": "10 0 0 10",
+                        "width": 148
+                    },
+                    "name": "MyNumberField25",
+                    "designerId": "ba25f769-b607-45e7-a951-7e62587e1147"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Costo Real",
+                        "id": "txtCostoReal",
+                        "labelWidth": 70,
+                        "margin": "10 0 0 30",
+                        "readOnly": true,
+                        "width": 180
+                    },
+                    "name": "MyTextField6",
+                    "designerId": "491f546c-066a-4c15-a032-4ca942913807"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 160,
+                "id": "gridProductoProducir",
+                "store": "StoreProductoProduccion",
+                "title": "Materias Producidas"
+            },
+            "name": "MyGridPanel4",
+            "designerId": "b962ec88-7288-4f67-bc51-8cd2034475a1",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveproducto",
+                        "text": "Cve. Materia"
+                    },
+                    "name": "MyColumn23",
+                    "designerId": "1a3bb7a7-2727-49a6-bd85-06cf8f0dd355"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Descripcion",
+                        "text": "Descripción",
+                        "width": 253
+                    },
+                    "name": "MyColumn24",
+                    "designerId": "bff065a2-aaaa-492f-908f-b5c76c70ba3c"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Unidad",
+                        "text": "Unidad"
+                    },
+                    "name": "MyColumn26",
+                    "designerId": "67771ea4-1b36-4136-bb47-866a8b9d4b79"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "porcion",
+                        "text": "Porción/Uni"
+                    },
+                    "name": "MyColumn28",
+                    "designerId": "83c83419-c4f7-4d63-b5d7-f2f96d4b1a1a",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    " return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "50b875a2-07e7-4b17-84eb-4383b8131841"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cantidadEsperada",
+                        "text": "Cnt Esperada"
+                    },
+                    "name": "MyColumn51",
+                    "designerId": "5a7ca0cc-2ced-42d0-b744-c6ea29e14659",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "60dd76cd-95ef-4eba-b227-df78f2987d04"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cantidadProducida",
+                        "text": "Cnt Producida",
+                        "width": 110
+                    },
+                    "name": "MyColumn54",
+                    "designerId": "84b14b02-86f3-4684-b88c-a4f0e15d2bae",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "                        var wnd = Ext.WindowMgr.get(\"wndContenidoProduccion\");",
+                                    "                        if (!wnd)",
+                                    "                            return false;",
+                                    "                        var rec = wnd.currentRecord;",
+                                    "                        if (!rec)",
+                                    "                            return false;",
+                                    "                        if (rec.estado == 1.0)",
+                                    "                            metaData.tdCls=\"editable\";",
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "19982c7d-c0a4-4bfb-b6e3-b10878fb54e0"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 5
+                            },
+                            "name": "MyNumberField14",
+                            "designerId": "6bcac8a2-f3de-494e-85e8-0e0739f30f9c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "costoEsperado",
+                        "text": "Costo Esperado",
+                        "width": 129
+                    },
+                    "name": "MyColumn55",
+                    "designerId": "998a26da-05a2-4c53-a7ef-25fa5a46a5a3",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "f542e874-8e71-4ec5-806b-eaa91f127ba6"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "costoReal",
+                        "text": "Costo Real",
+                        "width": 115
+                    },
+                    "name": "MyColumn57",
+                    "designerId": "e7f7482e-ac68-4d24-b4db-b350c7a37ba7",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "6adcf443-c2f7-4f9e-ab03-23a73648223a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView4",
+                    "designerId": "c6a6ae73-e1c8-4256-8dce-fcd35c74ef5c"
+                },
+                {
+                    "type": "Ext.grid.plugin.CellEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "clicksToEdit": 1,
+                        "designer|displayName": "editingProductos",
+                        "pluginId": "editingProductos"
+                    },
+                    "name": "MyCellEditingPlugin5",
+                    "designerId": "54d8d5fd-a055-48ff-8e8c-02a1cc119b90",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCellEditingProductosBeforeEdit",
+                                "implHandler": [
+                                    "var rec = this.obtieneRegistro();",
+                                    "if (context.colIdx == 5 && rec.estado == 1.0)",
+                                    "    return true;",
+                                    "else ",
+                                    "    return false;"
+                                ],
+                                "name": "beforeedit",
+                                "scope": "me"
+                            },
+                            "name": "onCellEditingProductosBeforeEdit",
+                            "designerId": "02e6d7ad-4ff2-435e-abd0-aeb52267a118"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCellEditingProductosEdit",
+                                "implHandler": [
+                                    "CostoUnitario=context.record.get(\"costoUnitario\");",
+                                    "cantidadProducidaDetalle=context.record.get(\"cantidadProducida\");",
+                                    "context.record.beginEdit();",
+                                    "context.record.set(\"costoReal\", CostoUnitario*cantidadProducidaDetalle);",
+                                    "context.record.commit();"
+                                ],
+                                "name": "edit",
+                                "scope": "me"
+                            },
+                            "name": "onCellEditingProductosEdit",
+                            "designerId": "b4592e6a-dbf7-4232-a465-4dfbfc71d379"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 279,
+                "id": "gridRecetaProduccion",
+                "store": "StoreMateriaPrimaRecetaProduccion",
+                "title": "Receta",
+                "width": 1022
+            },
+            "name": "MyGridPanel3",
+            "designerId": "d1a08585-5a07-4fb6-8cc8-8e8eabfbe275",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "clavemateria",
+                        "text": "Cve. Materia"
+                    },
+                    "name": "MyColumn22",
+                    "designerId": "56d90cb0-b919-4e5c-a0e2-b4e4643dbb72"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Descripcion",
+                        "text": "Descripción",
+                        "width": 236
+                    },
+                    "name": "MyColumn25",
+                    "designerId": "b536bf4b-c7c9-4b11-887c-8a299d203efe"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Unidad",
+                        "text": "Unidad"
+                    },
+                    "name": "MyColumn27",
+                    "designerId": "7f49353a-570c-484f-9617-a61c6cd1403f"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "porcion",
+                        "text": "Porción/Uni"
+                    },
+                    "name": "MyColumn29",
+                    "designerId": "fb43e031-5cc8-4a30-913d-1bb0a600f0cb",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "4fec2ad8-2dbb-41c2-bdb0-4528ae09fe2f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cantidadEsperada",
+                        "text": "Cnt Esperada"
+                    },
+                    "name": "MyColumn52",
+                    "designerId": "cc372da8-a690-4053-9826-8e71d558a653",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "94cb2e91-4fde-4541-ba8a-ed410eb00d1d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cantidadProducida",
+                        "text": "Cnt Producida",
+                        "width": 106
+                    },
+                    "name": "MyColumn53",
+                    "designerId": "7b24bd1b-127f-4fc1-b26a-45ccd9bf5be4",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "var wnd = Ext.WindowMgr.get(\"wndContenidoProduccion\");",
+                                    "if (!wnd)",
+                                    "    return false;",
+                                    "var rec = wnd.currentRecord;",
+                                    "if (!rec)",
+                                    "    return false;",
+                                    "if (rec.estado == 1.0)",
+                                    "    metaData.tdCls=\"editable\";",
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "2dd957d1-474e-457e-992b-16f4c018875f"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "editor",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "decimalPrecision": 5
+                            },
+                            "name": "MyNumberField15",
+                            "designerId": "1029c8c9-1753-4589-b327-23da5932a78b"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "costoEsperado",
+                        "text": "Costo Esperado",
+                        "width": 129
+                    },
+                    "name": "MyColumn56",
+                    "designerId": "ed50849e-56c6-4cc9-b3bd-97b27e37a4a6",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "d683ac81-18dd-47af-b12c-6ef9fb6cc311"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "costoReal",
+                        "text": "Costo Real",
+                        "width": 108
+                    },
+                    "name": "MyColumn58",
+                    "designerId": "b971354f-e3cf-4072-acb9-3ccac922630c",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "return almacen.getApplication().ObtieneFormatoDecimalesInventario(value);"
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "62623212-0dbd-42ae-8f57-1572e2341128"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView3",
+                    "designerId": "6267d396-5846-4218-9c8c-87c06fefa447"
+                },
+                {
+                    "type": "Ext.grid.plugin.CellEditing",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "clicksToEdit": 1,
+                        "designer|createAlias": "",
+                        "designer|displayName": "editingReceta",
+                        "pluginId": "editingReceta"
+                    },
+                    "name": "MyCellEditingPlugin6",
+                    "designerId": "dccdcb0a-e0a3-418f-93ee-af4a8f92f018",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCellEditingRecetaBeforeEdit",
+                                "implHandler": [
+                                    "var rec = this.obtieneRegistro();",
+                                    "if (context.colIdx == 5 && rec.estado == 1.0)",
+                                    "    return true;",
+                                    "else ",
+                                    "    return false;"
+                                ],
+                                "name": "beforeedit",
+                                "scope": "me"
+                            },
+                            "name": "onCellEditingRecetaBeforeEdit",
+                            "designerId": "40c12d15-7a05-4520-9368-d36eb87d54b3"
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onCellEditingRecetaEdit",
+                                "implHandler": [
+                                    "CostoUnitario=context.record.get(\"costoUnitario\");",
+                                    "cantidadProducidaDetalle=context.record.get(\"cantidadProducida\");",
+                                    "context.record.beginEdit();",
+                                    "context.record.set(\"costoReal\", CostoUnitario*cantidadProducidaDetalle);",
+                                    "context.record.commit();",
+                                    "",
+                                    "if(context.colIdx == 5){",
+                                    "    editor.completeEdit();",
+                                    "    editor.startEditByPosition({",
+                                    "        row: context.rowIdx+1,",
+                                    "        column: context.colIdx",
+                                    "    });",
+                                    "}",
+                                    "",
+                                    "this.calculaCostoReal();"
+                                ],
+                                "name": "edit",
+                                "scope": "me"
+                            },
+                            "name": "onCellEditingRecetaEdit",
+                            "designerId": "14c0cdda-f0a7-48ba-86cb-0340ba34d7c9"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowAfterRender",
+                "implHandler": [
+                    "this.inicializaVentana(component);"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onWindowAfterRender",
+            "designerId": "4ee50632-be7c-493f-bf89-dbdb6df05703"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar18",
+            "designerId": "3ac4a6fe-c022-4931-8fba-f0862648bfed",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill11",
+                    "designerId": "aa711cad-2dee-4512-99a6-58cbaf68f4e7"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/save.png",
+                        "id": "btnGuardarProduccion",
+                        "layout|flex": null,
+                        "text": "Guardar"
+                    },
+                    "name": "MyButton54",
+                    "designerId": "88556c7d-ae1b-4672-83fb-5ff8da27b985",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnGuardarProduccionClick",
+                                "implHandler": [
+                                    "this.guardaValores();",
+                                    "parentController=this.obtieneParentController();",
+                                    "this.validaGuardarProduccion(this.obtieneRegistro(), function(rec){",
+                                    "   parentController.guardaProduccion(rec);",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onBtnGuardarProduccionClick",
+                            "designerId": "c91a2b07-a45c-4b3f-bc01-35b18c7f7faa"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/Tick.png",
+                        "id": "btnTerminaProduccion",
+                        "layout|flex": null,
+                        "text": "Terminar"
+                    },
+                    "name": "MyButton55",
+                    "designerId": "8c2fe311-3b54-44c0-a189-d29257b3e646",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnTerminaProduccionClick",
+                                "implHandler": [
+                                    "this.guardaValores();",
+                                    "parentController=this.obtieneParentController();",
+                                    "this.validaGuardarProduccion(this.obtieneRegistro(), function(rec){",
+                                    "   parentController.terminaProduccion(rec);",
+                                    "});"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onBtnTerminaProduccionClick",
+                            "designerId": "21032bff-0d71-4770-a8d6-b82cb714e9c5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/print.png",
+                        "id": "btnImprimirProduccion",
+                        "layout|flex": null,
+                        "text": "Imprimir"
+                    },
+                    "name": "MyButton56",
+                    "designerId": "f231c87a-c740-40e5-afd8-792c74826804",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnImprimirProduccionClick",
+                                "implHandler": [
+                                    "parentController=this.obtieneParentController();",
+                                    "parentController.imprimeProduccion(this.obtieneRegistro());"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onBtnImprimirProduccionClick",
+                            "designerId": "cf991aa2-f7b8-4621-97f6-6805669384fb"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,355 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "designer|userAlias": "mainviewport",
+        "designer|userClassName": "mainViewPort",
+        "id": "appViewPort",
+        "layout": "border"
+    },
+    "name": "MyViewport",
+    "designerId": "c8bb7c8e-c99a-43e5-8c7c-fc855323ae07",
+    "viewControllerInstanceId": "eebf5043-4b1a-47be-93e1-8ae29ab15bb1",
+    "viewModelInstanceId": "066ca295-58dd-4ff3-9f66-333717b78e72",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "animCollapse": true,
+                "collapsed": true,
+                "collapsible": true,
+                "designer|uiInterfaceName": "default",
+                "forceLayout": true,
+                "header": false,
+                "headerPosition": "right",
+                "height": 40,
+                "hideCollapseTool": true,
+                "id": "toolbar",
+                "layout|collapseMode": "header",
+                "layout|region": "north",
+                "layout|split": false,
+                "layout|splitterResize": false,
+                "overlapHeader": false,
+                "placeholderCollapseHideMode": 3,
+                "title": "",
+                "titleCollapse": true,
+                "type": "border"
+            },
+            "name": "MyPanel1",
+            "configAlternates": {
+                "forceLayout": "boolean"
+            },
+            "designerId": "b679e816-f60f-4142-a770-70e61cc864de",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "type",
+                    "type": "string"
+                },
+                {
+                    "group": "(Custom Properties)",
+                    "name": "forceLayout",
+                    "type": "string"
+                }
+            ],
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "container|pack": "center",
+                        "dock": "top",
+                        "height": 40,
+                        "style": "background-color: #141314;"
+                    },
+                    "name": "MyToolbar",
+                    "configAlternates": {
+                        "style": "string"
+                    },
+                    "designerId": "7077fce9-6a65-4de6-93e8-f6fe9bffcc2c",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/almacen.png",
+                                "id": "btnCedis",
+                                "layout|flex": null,
+                                "text": "Cedis"
+                            },
+                            "name": "MyButton3",
+                            "designerId": "52f7c5b4-1366-413c-9d2a-1a3e30844bdf"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/icon_purchase.png",
+                                "id": "btnCompra",
+                                "layout|flex": null,
+                                "text": "Compras"
+                            },
+                            "name": "MyButton",
+                            "designerId": "2f0d0c58-da23-47df-9c3a-b827ca35ec3c"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/cart.png",
+                                "id": "btnPedidos",
+                                "layout|flex": null,
+                                "text": "Pedidos"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "3f6fb88e-ecff-4f9d-9dde-0b2fd817d6f2"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/almacen.png",
+                                "id": "btnInventarios",
+                                "layout|flex": null,
+                                "text": "Consulta Inventarios"
+                            },
+                            "name": "MyButton19",
+                            "designerId": "9a08836a-3338-472d-8f6a-8d7f6b4cd0f4"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/table-edit.png",
+                                "id": "btnAjuste",
+                                "layout|flex": null,
+                                "text": "Conteo de Inventario"
+                            },
+                            "name": "MyButton1",
+                            "designerId": "745e89b5-95b8-4217-b218-2f685c930aae"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/chocolate-bite-icon.png",
+                                "id": "btnMerma",
+                                "layout|flex": null,
+                                "text": "Baja de Inventario"
+                            },
+                            "name": "MyButton2",
+                            "designerId": "975a5e99-ebb4-47d6-a993-018e85d92006"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/Search.png",
+                                "id": "btnSupervision",
+                                "layout|flex": null,
+                                "text": "Supervisión"
+                            },
+                            "name": "MyButton4",
+                            "designerId": "6cd85199-ebcb-4436-a549-77da09d640db"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/transfer.png",
+                                "id": "btnTransferencia",
+                                "layout|flex": null,
+                                "text": "Transferencia"
+                            },
+                            "name": "MyButton8",
+                            "designerId": "fd034d95-1665-43fd-a7b9-9600b57c8f1d"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "hidden": true,
+                                "icon": "resources/factory-icon.png",
+                                "id": "btnProduccion",
+                                "layout|flex": null,
+                                "text": "Producción"
+                            },
+                            "name": "MyButton5",
+                            "designerId": "7a70f50b-eccd-497f-833a-bab51ef0f126"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/logout.png",
+                                "id": "btnLogout",
+                                "layout|flex": null,
+                                "text": "Salir"
+                            },
+                            "name": "MyButton25",
+                            "designerId": "392bdff4-79f3-4e71-927c-ea65c267147c"
+                        },
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill2",
+                            "designerId": "35607a13-f730-4033-a149-46970369e7f2"
+                        },
+                        {
+                            "type": "Ext.Img",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": null,
+                                "hidden": true,
+                                "id": "aLoader",
+                                "layout|flex": null,
+                                "src": "resources/ajax-loader.gif",
+                                "width": 16
+                            },
+                            "name": "MyImg",
+                            "designerId": "3434aa78-50fc-439b-a5b5-933a305a1dd3"
+                        },
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "id": "lblWelcome",
+                                "layout|flex": null,
+                                "text": ""
+                            },
+                            "name": "MyLabel1",
+                            "designerId": "9df84577-2aa5-4035-a4b5-30258992c0b8"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyStyle": [
+                    "background-color: #CECECE;"
+                ],
+                "header": false,
+                "html": "'<style type=\"text/css\"> html, body, #wrapper {    height:100%;    width: 100%;    margin: 0;    padding: 0;    border: 0; } #wrapper td {    vertical-align: middle;    text-align: center; } </style>  <body> <table id=\"wrapper\">       <tr>          <td><img src=\"http://www.grupotelnet.net:8082/grupotelnet.net/images/Logo-Telnet.png\" alt=\"\" /></td>       </tr>    </table> </body>''",
+                "icon": "resources/main.ico",
+                "id": "centerPanel",
+                "layout": "fit",
+                "layout|region": "center",
+                "style": "background-color: #CECECE;",
+                "title": null
+            },
+            "name": "MyPanel",
+            "configAlternates": {
+                "style": "string",
+                "html": "string"
+            },
+            "designerId": "0571d302-32af-4b8f-9d54-4b34b261c4f5"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onViewportAfterRender",
+                "implHandler": [
+                    "            //Ext.ComponentMgr.get(\"toolbar\").collapse(Ext.Component.DIRECTION_TOP, true);",
+                    "",
+                    "            var wnd = Ext.create(\"almacen.view.DlgLogin\");",
+                    "            wnd.center();",
+                    "            wnd.show();"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "name": "onViewportAfterRender",
+            "designerId": "8ad49110-9862-4e51-b94d-32aa699c9478"
+        }
+    ]
+}

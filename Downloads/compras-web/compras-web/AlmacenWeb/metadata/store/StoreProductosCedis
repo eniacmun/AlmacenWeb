@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreProductosCedis",
+        "model": "mdlProductosCedis",
+        "storeId": "StoreProductosCedis"
+    },
+    "name": "StoreCombboProducciones1",
+    "designerId": "9d538dba-4fd9-43a5-9b30-db6df6855345"
+}

@@ -1,0 +1,409 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultatraspaso",
+        "designer|userClassName": "DlgConsultaTraspaso",
+        "height": 601,
+        "layout": "border",
+        "title": "Datos Traspaso",
+        "width": 850
+    },
+    "name": "DlgConsultaPedido1",
+    "designerId": "aa556ae3-dce7-4cd1-a921-4290254ef636",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "currentRecord",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "be6cb0c8-f111-4fed-9b58-ef4a2e9abf96",
+    "viewModelInstanceId": "24966315-cd54-4eea-a19d-9476e56b4de0",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "gridProductos1",
+                "layout|region": "center",
+                "store": "StoreGridProductos",
+                "title": "Productos"
+            },
+            "name": "MyGridPanel10",
+            "designerId": "4ef59fc6-1b2d-4faa-a1dd-32acfd64216a",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveproducto",
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn36",
+                    "designerId": "dd9055f1-4f4f-40f0-8632-a927b3dcea15"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreproducto",
+                        "text": "Producto",
+                        "width": 250
+                    },
+                    "name": "MyColumn39",
+                    "designerId": "6c5a4bfa-0407-47be-8436-2b38332ee800"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "cantidad",
+                        "defaultWidth": 120,
+                        "text": "Cantidad",
+                        "width": 125
+                    },
+                    "name": "MyColumn43",
+                    "designerId": "975beb3d-8281-4736-bc68-ac3574cf4da5"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "importe",
+                        "formatter": "",
+                        "text": "Importe"
+                    },
+                    "name": "MyColumn61",
+                    "designerId": "71655c99-4813-429f-b447-fcf1c4433594"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView8",
+                    "designerId": "7ec204eb-6014-44f4-be9d-9167d6363764"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "delay": null,
+                        "fn": "onGridProductosAfterRender",
+                        "implHandler": [
+                            "var rec = window.currentPedido.traspasos[0];",
+                            "component.getStore().loadData(rec.productos);",
+                            "",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido1\").setDisabled(true);",
+                            "Ext.ComponentMgr.get(\"btnRecibePedido1\").setDisabled(true);",
+                            "Ext.ComponentMgr.get(\"btnFinalizaPedido1\").setDisabled(true);",
+                            "",
+                            "",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido1\").currentRecord=null;",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido1\").currentRecord=null;",
+                            "Ext.ComponentMgr.get(\"btnFinalizaPedido1\").currentRecord=null;",
+                            "",
+                            "",
+                            "",
+                            "var estado = parseInt(rec.claveEstado, 10);",
+                            "var claveSucursalOrigen = parseInt(rec.ClaveSucursalOrigen, 10);",
+                            "var claveSucursalDestino = parseInt(rec.ClaveSucursalDestino, 10);",
+                            "",
+                            "if   (estado == 0) {",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido1\").setDisabled(false);//habilitamos el boton para cancelar",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido1\").currentRecord=rec;",
+                            "}",
+                            "if (almacen.getApplication().currentSession.claveSucursal==claveSucursalDestino && estado==0){",
+                            "    Ext.ComponentMgr.get(\"btnRecibePedido1\").setDisabled(false);//habilitamos el boton para recibir",
+                            "    Ext.ComponentMgr.get(\"btnRecibePedido1\").currentRecord=rec;",
+                            "}",
+                            "if (almacen.getApplication().currentSession.claveSucursal==claveSucursalOrigen && estado==2){",
+                            "    Ext.ComponentMgr.get(\"btnFinalizaPedido1\").setDisabled(false);//habilitamos el boton para finalizar",
+                            "    Ext.ComponentMgr.get(\"btnFinalizaPedido1\").currentRecord=rec;",
+                            "}"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridProductosAfterRender",
+                    "designerId": "5415f009-8943-46c2-98a7-328c7cabb8d0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 211,
+                "hideHeaders": true,
+                "id": "gridPedido1",
+                "layout|region": "north",
+                "store": "StoreDatosPedido",
+                "title": ""
+            },
+            "name": "MyGridPanel11",
+            "designerId": "9be79871-01dd-4f49-99ba-1c22737b4eee",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "label",
+                        "text": ".",
+                        "width": 273
+                    },
+                    "name": "MyColumn37",
+                    "designerId": "c363215e-0462-45f1-8a46-2cc6ec8882d9"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "value",
+                        "text": ".",
+                        "width": 345
+                    },
+                    "name": "MyColumn38",
+                    "designerId": "e846d12d-cff3-48ea-9632-e74cf8945850"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView9",
+                    "designerId": "ae428c0b-004f-43da-86fe-da8fce305878"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "delay": null,
+                        "fn": "onGridPedidoAfterRender",
+                        "implHandler": [
+                            "var rec = window.currentPedido.traspasos[0];",
+                            "",
+                            "//component.getStore().load(rec.productos);",
+                            "var arr = [];",
+                            "arr.push({\"label\":\"Origen\", \"value\":rec.SucursalOrigen});",
+                            "arr.push({\"label\":\"Destino\", \"value\":rec.SucursalDestino});",
+                            "arr.push({\"label\":\"Numero\", \"value\":rec.ClaveTraspaso});",
+                            "arr.push({\"label\":\"Estado\", \"value\":rec.estado});",
+                            "if(rec.tipoPago == 15){",
+                            "    arr.push({\"label\":\"Tipo Pago\", \"value\":\"EFECTIVO\"});",
+                            "} else{",
+                            "    arr.push({\"label\":\"Tipo Pago\", \"value\":\"CREDITO\"});",
+                            "}",
+                            "arr.push({\"label\":\"Total\", \"value\":rec.Total});",
+                            "arr.push({\"label\":\"Fecha de Registro\", \"value\":rec.fechaRegistro});",
+                            "arr.push({\"label\":\"Fecha de Recepción\", \"value\":rec.fechaRecepcion});",
+                            "arr.push({\"label\":\"Fecha de Finalización\", \"value\":rec.fechaFinalizacion});",
+                            "arr.push({\"label\":\"Registrado Por\", \"value\":rec.quienRegistra});",
+                            "arr.push({\"label\":\"Cancelado Por\", \"value\":rec.quienCancela});",
+                            "arr.push({\"label\":\"Recibido Por\", \"value\":rec.quienRecibe});",
+                            "arr.push({\"label\":\"Finalizado Por\", \"value\":rec.quienFinaliza});",
+                            "component.getStore().loadData(arr);",
+                            "",
+                            ""
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridPedidoAfterRender",
+                    "designerId": "f2f3fbf0-9f49-4197-bde5-dfa04103db53"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar13",
+            "designerId": "e4ccca30-956c-4c54-976a-efa396e52e9c",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill6",
+                    "designerId": "ae73965a-bd1e-4060-8297-2842d04d78b4"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/cancel-icon.png",
+                        "id": "btnCancelaPedido1",
+                        "layout|flex": null,
+                        "text": "Cancelar Traspaso"
+                    },
+                    "name": "MyButton41",
+                    "designerId": "b37c6882-4290-4e4e-ac6e-d52f703d2a1e",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "CallCancelaPedido",
+                                "implHandler": [
+                                    "var controller =  Ext.WindowMgr.get(\"wndDetallePedidos\").parentController;",
+                                    "controller.CancelaTraspaso({\"currentRecord\":window.currentPedido.traspasos[0]},null,null);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "CallCancelaPedido",
+                            "designerId": "8dcf9919-33ce-41b8-a459-9f845a601089"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/receive.png",
+                        "id": "btnRecibePedido1",
+                        "layout|flex": null,
+                        "text": "Recibir"
+                    },
+                    "name": "MyButton42",
+                    "designerId": "27483c64-5bf3-4503-afbf-7240a41b229b",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "RecibePedido",
+                                "implHandler": [
+                                    "var controller =  Ext.WindowMgr.get(\"wndDetallePedidos\").parentController;",
+                                    "controller.RecibeTraspaso({\"currentRecord\":window.currentPedido.traspasos[0]},null,null);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "RecibePedido",
+                            "designerId": "d391ee90-0177-4724-b902-467f5a4e890e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/tick.png",
+                        "id": "btnFinalizaPedido1",
+                        "layout|flex": null,
+                        "text": "Finalizar"
+                    },
+                    "name": "MyButton43",
+                    "designerId": "15ec0d83-c280-4c27-af57-5334e4691b99",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "FinalizaPedido",
+                                "implHandler": [
+                                    "var controller =  Ext.WindowMgr.get(\"wndDetallePedidos\").parentController;",
+                                    "controller.FinalizaTraspasos({\"currentRecord\":window.currentPedido.traspasos[0]},null,null);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "FinalizaPedido",
+                            "designerId": "535e4ab6-c2aa-43b3-9a4c-95ec8bbbc27e"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

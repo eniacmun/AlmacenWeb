@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgfaltantescompras",
+        "designer|userClassName": "DlgFaltantesComprasViewController"
+    },
+    "designerId": "92a7d12b-c025-4072-9482-f51f3774fe22"
+}

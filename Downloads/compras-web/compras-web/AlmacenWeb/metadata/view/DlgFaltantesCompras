@@ -1,0 +1,381 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgfaltantescompras",
+        "designer|userClassName": "DlgFaltantesCompras",
+        "height": 523,
+        "layout": "border",
+        "modal": true,
+        "title": "Faltantes en Compras",
+        "width": 753
+    },
+    "name": "MyWindow",
+    "designerId": "8221182b-3bb5-44b7-ac8a-a2b8663f0ac7",
+    "viewControllerInstanceId": "92a7d12b-c025-4072-9482-f51f3774fe22",
+    "viewModelInstanceId": "f99682bb-76d7-49d0-a0b7-c8e68683ee28",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "forceFit": true,
+                "height": 250,
+                "id": "gridFaltantesProducciones",
+                "layout|region": "south",
+                "store": "StoreFaltantesProducciones",
+                "title": "Faltantes en Producciones"
+            },
+            "name": "MyGridPanel6",
+            "designerId": "2046f079-5087-463d-881c-8e0c6378329a",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Clave",
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn19",
+                    "designerId": "e1746b9b-4147-4b9d-aad7-e797412244a4",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter1",
+                            "designerId": "c1aeafaf-a557-4207-9d1e-5b9ddf8a4fc7"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Clasificacion",
+                        "text": "Clasificación"
+                    },
+                    "name": "MyColumn26",
+                    "designerId": "dcb5fe75-fd50-4eef-b4ba-2912f1a87f29",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter5",
+                            "designerId": "f3d3a151-e570-44e0-a6b1-f70edf0ec637"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Concepto",
+                        "text": "Concepto"
+                    },
+                    "name": "MyColumn21",
+                    "designerId": "70662166-5c86-42f8-9fb1-24daff43ea4f",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter3",
+                            "designerId": "4ecb6b59-573e-4a7a-9a4a-ffdc3e0eba92"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Equivalencia2",
+                        "text": "Existencia"
+                    },
+                    "name": "MyNumberColumn9",
+                    "designerId": "bb18e064-1fc2-4c2e-a883-7ee8fbcb8917"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Unidad",
+                        "text": "Unidad"
+                    },
+                    "name": "MyColumn22",
+                    "designerId": "0653ffae-5320-4ea9-b7fd-68b57f515e55",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter1",
+                            "designerId": "820f89dc-20b0-47df-93c3-359f6437b104"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin1",
+                    "designerId": "22485fe9-f298-46d3-b931-b9e936dcd2c0"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "falseText": "No",
+                        "text": "Inv. Diario",
+                        "trueText": "Si"
+                    },
+                    "name": "MyBooleanColumn1",
+                    "designerId": "2762b7e8-a52c-4148-a91e-eea8818cf554",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Boolean",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "yesText": "Si"
+                            },
+                            "name": "MyBooleanFilter1",
+                            "designerId": "8367916d-0551-431a-9677-9ae213e5d497"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "forceFit": true,
+                "frameHeader": false,
+                "header": false,
+                "id": "gridFaltantesCompras",
+                "layout|region": "center",
+                "store": "StoreFaltantesCompras",
+                "title": ""
+            },
+            "name": "MyGridPanel7",
+            "designerId": "b8a741ab-1537-467f-a5db-6f7f7775489d",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Clave",
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn20",
+                    "designerId": "7384be4d-e2b3-4f0f-83e1-d4b126760d86",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Number",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyNumberFilter",
+                            "designerId": "f325c0a2-c323-42ff-beb1-d31c5887afa9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Clasificacion",
+                        "text": "Clasificación"
+                    },
+                    "name": "MyColumn27",
+                    "designerId": "018babbc-da08-4dc5-9a32-66a8130a58ca",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter4",
+                            "designerId": "3dd82621-bdd7-4737-9414-e39898ce1638"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Concepto",
+                        "text": "Concepto"
+                    },
+                    "name": "MyColumn23",
+                    "designerId": "fa2e1c27-e97d-4923-a879-45d9e488f27f",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter4",
+                            "designerId": "ea269b94-6661-4876-87b2-b6b59a8abfe5"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Equivalencia2",
+                        "text": "Existencia"
+                    },
+                    "name": "MyNumberColumn10",
+                    "designerId": "950e9496-1428-43a0-aa82-51c9aa6aa1a3"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Unidad",
+                        "text": "Unidad"
+                    },
+                    "name": "MyColumn24",
+                    "designerId": "8f58177c-ff3b-4ee0-a759-a94f1c55710e",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.List",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyListFilter2",
+                            "designerId": "72da53db-e624-4a78-8865-3fc3856f628d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin2",
+                    "designerId": "b439e923-de3c-43cc-8d52-e4ad4caf471e"
+                },
+                {
+                    "type": "Ext.grid.column.Boolean",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "InventarioDiario",
+                        "falseText": "No",
+                        "text": "Inv. Diario",
+                        "trueText": "Si"
+                    },
+                    "name": "MyBooleanColumn2",
+                    "designerId": "695cb336-2c34-4183-8766-3671bb936f8a",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Boolean",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "yesText": "Si"
+                            },
+                            "name": "MyBooleanFilter2",
+                            "designerId": "d8070aee-41c4-4371-998e-7c0ee515fdba"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,441 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultapedido",
+        "designer|userClassName": "DlgConsultaPedido",
+        "height": 601,
+        "layout": "border",
+        "title": "Datos Pedido",
+        "width": 850
+    },
+    "name": "MyWindow",
+    "designerId": "4c732204-3a59-46ad-9372-ea2680c4d2bb",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "currentRecord",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "62310879-ebeb-428a-bd2f-a83566a4117f",
+    "viewModelInstanceId": "7f889fca-ef61-46f5-8c93-a2c2d23fd7a6",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "gridProductos",
+                "layout|region": "center",
+                "store": "StoreDetallePedido",
+                "title": "Productos"
+            },
+            "name": "MyGridPanel10",
+            "designerId": "2b863510-3ae1-45d7-afc1-a92748c4dbd1",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveproductoCedi",
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn36",
+                    "designerId": "16e151cc-c9e4-4ae1-bd96-60a2f4ed7c09"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "NombreProducto",
+                        "text": "Producto",
+                        "width": 185
+                    },
+                    "name": "MyColumn39",
+                    "designerId": "44710213-0927-4976-bac7-4c31ac497c69"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CantidadOriginalSucursal",
+                        "defaultWidth": 120,
+                        "text": "Cantidad Original",
+                        "width": 125
+                    },
+                    "name": "MyColumn43",
+                    "designerId": "8e3f1055-0f65-4984-880d-370a79c6964e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CantidadSucursal",
+                        "text": "Cantidad Sucursal",
+                        "width": 134
+                    },
+                    "name": "MyColumn40",
+                    "designerId": "3cb86c2a-b0b2-49ae-830a-35939791b41e"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "CantidadCedi",
+                        "text": "Cantidad Cedi",
+                        "width": 118
+                    },
+                    "name": "MyColumn41",
+                    "designerId": "6ff74bea-7b44-4446-9a25-08035e1054e7"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Importe",
+                        "formatter": "",
+                        "text": "Importe"
+                    },
+                    "name": "MyColumn42",
+                    "designerId": "349284b8-39cb-43bb-abbf-474ffc94b1fe"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView8",
+                    "designerId": "eea0df2d-0d8b-4bc1-8aa2-e81ce2865e3f"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "delay": null,
+                        "fn": "onGridProductosAfterRender",
+                        "implHandler": [
+                            "var rec = window.currentPedido.pedidos[0];",
+                            "component.getStore().loadData(rec.productos);",
+                            "",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido\").setDisabled(true);",
+                            "Ext.ComponentMgr.get(\"btnRecibePedido\").setDisabled(true);",
+                            "Ext.ComponentMgr.get(\"btnFinalizaPedido\").setDisabled(true);",
+                            "",
+                            "",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido\").currentRecord=null;",
+                            "Ext.ComponentMgr.get(\"btnCancelaPedido\").currentRecord=null;",
+                            "Ext.ComponentMgr.get(\"btnFinalizaPedido\").currentRecord=null;",
+                            "",
+                            "",
+                            "",
+                            "var estado = parseInt(rec.Claveestado, 10);",
+                            "var claveSucursalOrigen = parseInt(rec.claveSucursal, 10);",
+                            "var claveSucursalDestino = parseInt(rec.claveCedi, 10);",
+                            "",
+                            "if   (estado == 0) {",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido\").setDisabled(false);//habilitamos el boton para cancelar",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido\").currentRecord=rec;",
+                            "}",
+                            "if   (estado == 1) {",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido\").setDisabled(false);//habilitamos el boton para cancelar en caso de estado aprobado",
+                            "    Ext.ComponentMgr.get(\"btnCancelaPedido\").currentRecord=rec;",
+                            "}",
+                            "if (almacen.getApplication().currentSession.claveSucursal==claveSucursalOrigen && estado==1){",
+                            "    Ext.ComponentMgr.get(\"btnRecibePedido\").setDisabled(false);//habilitamos el boton para recibir",
+                            "    Ext.ComponentMgr.get(\"btnRecibePedido\").currentRecord=rec;",
+                            "}",
+                            "if (almacen.getApplication().currentSession.claveSucursal==claveSucursalDestino && estado==2){",
+                            "    Ext.ComponentMgr.get(\"btnFinalizaPedido\").setDisabled(false);//habilitamos el boton para finalizar",
+                            "    Ext.ComponentMgr.get(\"btnFinalizaPedido\").currentRecord=rec;",
+                            "}"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridProductosAfterRender",
+                    "designerId": "de906435-5075-444d-b7ba-02d34494674d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 211,
+                "hideHeaders": true,
+                "id": "gridPedido",
+                "layout|region": "north",
+                "store": "StoreDatosPedido",
+                "title": ""
+            },
+            "name": "MyGridPanel11",
+            "designerId": "ceb98419-383d-4cd0-af2f-16d8b1074149",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "label",
+                        "text": ".",
+                        "width": 273
+                    },
+                    "name": "MyColumn37",
+                    "designerId": "fe7367ee-099c-43f9-b93a-2a495b159bf8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "value",
+                        "text": ".",
+                        "width": 345
+                    },
+                    "name": "MyColumn38",
+                    "designerId": "81e81c10-c7c7-4960-b2d9-80e9cb32e9fb"
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView9",
+                    "designerId": "46862448-6787-4f7a-933c-cdbaf5fa7074"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "delay": null,
+                        "fn": "onGridPedidoAfterRender",
+                        "implHandler": [
+                            "var rec = window.currentPedido.pedidos[0];",
+                            "",
+                            "//component.getStore().load(rec.productos);",
+                            "var arr = [];",
+                            "arr.push({\"label\":\"Sucursal\", \"value\":rec.SucursalOrigen});",
+                            "arr.push({\"label\":\"Cedi\", \"value\":rec.SucursalDestino});",
+                            "arr.push({\"label\":\"Numero\", \"value\":rec.clavePedido});",
+                            "arr.push({\"label\":\"Estado\", \"value\":rec.Estado});",
+                            "arr.push({\"label\":\"Total\", \"value\":rec.Total});",
+                            "arr.push({\"label\":\"Fecha de Registro\", \"value\":rec.fechaRegistro});",
+                            "arr.push({\"label\":\"Fecha de Aprobación\", \"value\":rec.fechaRecepcion});",
+                            "arr.push({\"label\":\"Fecha de Recepción\", \"value\":rec.fechaConfirmacion});",
+                            "arr.push({\"label\":\"Fecha de Finalización\", \"value\":rec.fechaFinalizacion});",
+                            "arr.push({\"label\":\"Registrado Por\", \"value\":rec.quienRegistra});",
+                            "arr.push({\"label\":\"Cancelado Por\", \"value\":rec.quienCancela});",
+                            "arr.push({\"label\":\"Aprobado Por\", \"value\":rec.quienRecibe});",
+                            "arr.push({\"label\":\"Recibido Por\", \"value\":rec.quienConfirma});",
+                            "arr.push({\"label\":\"Finalizado Por\", \"value\":rec.quienFinaliza});",
+                            "component.getStore().loadData(arr);",
+                            "",
+                            ""
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridPedidoAfterRender",
+                    "designerId": "acadc9f2-f369-4e80-8194-42224878e107"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "name": "MyToolbar13",
+            "designerId": "df82e293-e991-4bdd-960e-d330e75aa3da",
+            "cn": [
+                {
+                    "type": "Ext.toolbar.Fill",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MyFill6",
+                    "designerId": "3c2e2001-bd56-4836-900e-9778b7019e4c"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/cancel-icon.png",
+                        "id": "btnCancelaPedido",
+                        "layout|flex": null,
+                        "text": "Cancelar Pedido"
+                    },
+                    "name": "MyButton41",
+                    "designerId": "ffe1bc25-cdd1-4f9c-be3d-598f4bd520fd",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "CallCancelaPedido",
+                                "implHandler": [
+                                    "var controller =  Ext.WindowMgr.get(\"wndDetallePedidos\").parentController;",
+                                    "controller.CancelaTraspaso({\"currentRecord\":window.currentPedido.pedidos[0]},null,null);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "CallCancelaPedido",
+                            "designerId": "92853c6c-5ac1-4f90-9bc1-584adbb1e29f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/receive.png",
+                        "id": "btnRecibePedido",
+                        "layout|flex": null,
+                        "text": "Recibir"
+                    },
+                    "name": "MyButton42",
+                    "designerId": "c2ad3c1e-fcf0-481a-b8f7-bb5512f59e25",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "RecibePedido",
+                                "implHandler": [
+                                    "var controller =  Ext.WindowMgr.get(\"wndDetallePedidos\").parentController;",
+                                    "controller.RecibeTraspaso({\"currentRecord\":window.currentPedido.pedidos[0]},null,{wnd:Ext.WindowMgr.get(\"wndDetallePedidos\")});",
+                                    ""
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "RecibePedido",
+                            "designerId": "3cc53da2-9ce5-44b7-825c-c6505e698793"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "disabled": true,
+                        "icon": "resources/tick.png",
+                        "id": "btnFinalizaPedido",
+                        "layout|flex": null,
+                        "text": "Finalizar"
+                    },
+                    "name": "MyButton43",
+                    "designerId": "44775122-cd18-4a13-a82e-9692d3b4bf88",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "FinalizaPedido",
+                                "implHandler": [
+                                    "var controller =  Ext.WindowMgr.get(\"wndDetallePedidos\").parentController;",
+                                    "controller.FinalizaTraspasos({\"currentRecord\":window.currentPedido.pedidos[0]},null,null);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "FinalizaPedido",
+                            "designerId": "1044e9fb-2b89-46ff-8e39-7ac5575405d4"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

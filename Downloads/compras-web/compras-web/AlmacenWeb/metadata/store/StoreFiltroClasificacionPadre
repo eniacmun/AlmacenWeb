@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreFiltroClasificacionPadre",
+        "model": "mdlGeneric",
+        "storeId": "StoreFiltroClasificacionPadre"
+    },
+    "name": "StoreClasificaciones1",
+    "designerId": "ea5f05b0-c7f9-4b8b-8f39-e43d598b360b"
+}

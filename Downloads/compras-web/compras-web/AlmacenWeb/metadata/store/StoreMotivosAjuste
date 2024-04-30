@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreMotivosAjuste",
+        "model": "mdlGeneric",
+        "storeId": "StoreMotivosAjuste"
+    },
+    "name": "MyJsonStore",
+    "designerId": "db5e4419-1d54-412a-a2ad-6c76591bb010"
+}

@@ -1,0 +1,15 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreImportarCompraXML",
+        "model": "mdlCompraXML",
+        "storeId": "StoreImportarCompraXML"
+    },
+    "name": "MyStore",
+    "designerId": "44868c91-9adf-4977-89c0-7939664cec1c"
+}

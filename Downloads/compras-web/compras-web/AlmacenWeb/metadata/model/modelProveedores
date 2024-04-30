@@ -1,0 +1,54 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "modelProveedores"
+    },
+    "name": "MyModel1",
+    "designerId": "64df9707-a9a7-4bb9-a8c2-23faa23e258e",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "nombreProveedor"
+            },
+            "name": "MyField19",
+            "designerId": "6380cf27-f84f-42fc-a05f-9d5f071f0b93"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "claveProveedor"
+            },
+            "name": "MyField18",
+            "designerId": "c45dc0b0-2e61-4770-bdb1-f25e11cc5ab8"
+        },
+        {
+            "type": "Ext.data.field.Boolean",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "esCedi"
+            },
+            "name": "MyBoolean1",
+            "designerId": "a309b8ef-3274-44e7-8578-1467a94db02f"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgvalidacancelapedido",
+        "designer|userClassName": "DlgPreciosAlertaViewModel3"
+    },
+    "name": "DlgPreciosAlertaViewModel3",
+    "designerId": "4b51a3b2-42fd-47f2-94f2-981d6e770f7f"
+}

@@ -1,0 +1,132 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "mdlMateriaPrimaRecetaProduccion"
+    },
+    "name": "MyModel1",
+    "designerId": "9d57c2d1-8c85-4d59-a2ed-e8107db4d158",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "clavemateria"
+            },
+            "name": "MyField161",
+            "designerId": "876ce9f2-1845-42ca-aba3-a3b25626c0f0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Descripcion"
+            },
+            "name": "MyField162",
+            "designerId": "3d4d5186-d342-47d9-93c5-9309c29bbb39"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Unidad"
+            },
+            "name": "MyField163",
+            "designerId": "04c6c58d-e050-4f8b-8044-e5e0a9603547"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cantidadEsperada"
+            },
+            "name": "MyField164",
+            "designerId": "cb66fcd2-6e75-4fe4-a9a4-82451b30922d"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "cantidadProducida"
+            },
+            "name": "MyField165",
+            "designerId": "2df3a38e-36f1-4376-bef2-39d405b1e590"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "costoEsperado"
+            },
+            "name": "MyField166",
+            "designerId": "829634a4-795e-49f6-a941-236dd37763df"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "costoReal"
+            },
+            "name": "MyField167",
+            "designerId": "9477666b-3325-4147-ad42-3b3655c51dfd"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "porcion"
+            },
+            "name": "MyField168",
+            "designerId": "0301d3f6-fae7-47ed-b53c-4fa61e9dc350"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "costoUnitario"
+            },
+            "name": "MyField169",
+            "designerId": "b20f54fa-9d05-4698-8126-29b2ab5822a9"
+        }
+    ]
+}

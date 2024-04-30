@@ -1,0 +1,15 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "StoreCompraXML",
+        "model": "mdlProductosCompra",
+        "storeId": "StoreCompraXML"
+    },
+    "name": "MyJsonStore",
+    "designerId": "060c36c0-5b4b-452f-b9a4-dfdb0a5dae7e"
+}

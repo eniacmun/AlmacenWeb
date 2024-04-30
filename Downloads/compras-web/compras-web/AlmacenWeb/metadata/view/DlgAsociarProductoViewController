@@ -1,0 +1,49 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgasociarproducto",
+        "designer|userClassName": "DlgAsociarProductoViewController"
+    },
+    "designerId": "cf2c2cd2-30f6-4a95-b90e-b1406b8441af",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "recBase,recSelected"
+                ],
+                "fn": "AsociaProducto",
+                "implHandler": [
+                    "if ((!Ext.ComponentMgr.get(\"fldProporcion\").isValid()) || (Ext.ComponentMgr.get(\"fldProporcion\").getValue()<=0)) return false;",
+                    "Proporcion=Ext.ComponentMgr.get(\"fldProporcion\").getValue();",
+                    "ClaveProducto = recSelected.get(\"claveproducto\");",
+                    "NombreProducto=recSelected.get(\"nombreproducto\");",
+                    "recBase.set(\"xmlProporcionExterna\", Proporcion);",
+                    "recBase.set(\"claveproducto\", ClaveProducto);",
+                    "recBase.set(\"nombreproducto\", NombreProducto);",
+                    "recBase.set(\"cantidad\", recBase.get(\"xmlCantidad\") * Proporcion);",
+                    "recBase.set(\"claveProductoAnterior\", ClaveProducto);",
+                    "if (recBase.modified.claveproducto!==undefined){",
+                    "    recBase.set(\"claveProductoAnterior\", recBase.modified.claveproducto);",
+                    "}",
+                    "Ext.ComponentMgr.get(\"gridAsociar\").getStore().clearFilter();",
+                    "Ext.WindowMgr.get(\"wndAsociaProducto\").currentController.actualizaIVA();",
+                    "Ext.WindowMgr.get(\"wndAsociaProducto\").close();",
+                    ""
+                ]
+            },
+            "name": "AsociaProducto",
+            "designerId": "8fed3e4f-2075-4faa-b190-3bcb1af29140"
+        }
+    ]
+}

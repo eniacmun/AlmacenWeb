@@ -1,0 +1,484 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgconsultaCompraXML",
+        "designer|userClassName": "DlgConsultaCompraXML",
+        "height": 581,
+        "layout": "border",
+        "modal": true,
+        "title": "Consulta pedidos",
+        "width": 935
+    },
+    "name": "DlgConsultaTraspasos3",
+    "designerId": "2e50c16c-abbf-4848-ae62-0c2fc21de43c",
+    "viewControllerInstanceId": "a3e209b0-3054-4595-8612-d1327606349a",
+    "viewModelInstanceId": "1e9f7b4e-dd60-413c-984c-c342d0b04547",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowDeselect": true,
+                "id": "gridConsultaTraspasos3",
+                "layout|region": "center",
+                "store": "StoreImportarCompraXML",
+                "title": ""
+            },
+            "name": "MyGridPanel8",
+            "designerId": "bf9710be-0e13-4f71-9082-507760b1fd61",
+            "cn": [
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView6",
+                    "designerId": "0c8953df-d108-4fab-b904-6198b7900278"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "UUID_CFDI",
+                        "text": "UUID",
+                        "width": 114
+                    },
+                    "name": "MyColumn30",
+                    "designerId": "27376e08-7c5e-4563-8e6d-2408df6a1fe8"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "NOMBRE_PROVEEDOR",
+                        "defaultWidth": 180,
+                        "flex": 1,
+                        "maxWidth": 180,
+                        "minWidth": 180,
+                        "text": "Proveedor",
+                        "weight": 180,
+                        "width": 258
+                    },
+                    "name": "MyColumn60",
+                    "designerId": "6402d9f3-56ae-4197-b266-9acce2165c8a"
+                },
+                {
+                    "type": "Ext.grid.column.Date",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "FECHA_GENERACION",
+                        "defaultWidth": 180,
+                        "format": "d/m/Y H:i:s",
+                        "maxWidth": 180,
+                        "minWidth": 180,
+                        "text": "Fecha Registro",
+                        "weight": 180,
+                        "width": 160
+                    },
+                    "name": "MyDateColumn1",
+                    "designerId": "02e5fd0d-cb7c-4942-8aeb-3d3c045e0296"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "ESTADO",
+                        "text": "Estado",
+                        "width": 126
+                    },
+                    "name": "MyColumn32",
+                    "designerId": "fad7098c-692c-466e-b94b-b33eed6535e3",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "                    var ds = {\"1\":\"PROCESADO\",\"0\":\"PENDIENTE\",\"-1\":\"ERROR\"};",
+                                    "                    var theValue = ds[\"\"+value];",
+                                    "                    return theValue;",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "36316054-f52d-45b5-9fa8-b7ffb33c07dc"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Number",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "dataIndex": "IMPORTE_CFDI",
+                        "format": "0,000.000",
+                        "text": "Total",
+                        "width": 118
+                    },
+                    "name": "MyNumberColumn11",
+                    "designerId": "77457d30-c961-46dc-b2cf-f25583a07b24",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.Number",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyNumberFilter2",
+                            "designerId": "2ea333e4-6c2e-460c-9a51-aba9038ecdef"
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value",
+                                    "metaData",
+                                    "record",
+                                    " rowIndex",
+                                    "colIndex",
+                                    "store",
+                                    "view"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    "",
+                                    "return Ext.util.Format.currency(value);",
+                                    ""
+                                ]
+                            },
+                            "name": "renderer",
+                            "designerId": "22fbe433-ef5c-45a1-a218-c42d1a6a4bf1"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar10",
+                    "designerId": "fed9710c-63d8-4c03-b64f-242958f3eaec",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill3",
+                            "designerId": "99ddeeb7-a774-451f-b292-7cef1f06d3d7"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "icon": "resources/cancel-icon.png",
+                                "id": "btnCancela3",
+                                "layout|flex": null,
+                                "text": "Cancelar Factura"
+                            },
+                            "name": "MyButton32",
+                            "designerId": "2af48e02-8479-4210-9f04-3e8feeac4642"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "disabled": true,
+                                "icon": "resources/receive.png",
+                                "id": "btnRecibe3",
+                                "layout|flex": null,
+                                "overflowText": "",
+                                "text": "Importar Factura"
+                            },
+                            "name": "MyButton33",
+                            "designerId": "05e6f170-5133-41be-8f2c-27879fe2fa6c",
+                            "customConfigs": [
+                                {
+                                    "group": "(Custom Properties)",
+                                    "name": "currentRecord",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.selection.RowModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowDeselect": true,
+                        "mode": "SINGLE"
+                    },
+                    "name": "MyRowSelectionModel1",
+                    "designerId": "37bb44d4-0deb-4cc3-85ed-9296ea5ee611",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onRowModelSelectionChange",
+                                "implHandler": [
+                                    "Ext.ComponentMgr.get(\"btnCancela3\").setDisabled(true);",
+                                    "Ext.ComponentMgr.get(\"btnRecibe3\").setDisabled(true);",
+                                    "",
+                                    "Ext.ComponentMgr.get(\"btnCancela3\").currentRecord=null;",
+                                    "Ext.ComponentMgr.get(\"btnRecibe3\").currentRecord=null;",
+                                    "",
+                                    "",
+                                    "if (selected.length <= 0) return;",
+                                    "var rec = selected[0];",
+                                    "var estado = parseInt(rec.get(\"ESTADO\"), 10);",
+                                    "if   (estado == 0) {",
+                                    "    Ext.ComponentMgr.get(\"btnCancela3\").setDisabled(false);//habilitamos el boton para cancelar",
+                                    "    Ext.ComponentMgr.get(\"btnCancela3\").currentRecord=rec.data;",
+                                    "    Ext.ComponentMgr.get(\"btnRecibe3\").setDisabled(false);//habilitamos el boton para cancelar",
+                                    "    Ext.ComponentMgr.get(\"btnRecibe3\").currentRecord=rec.data;",
+                                    "}"
+                                ],
+                                "name": "selectionchange",
+                                "scope": "me"
+                            },
+                            "name": "onRowModelSelectionChange",
+                            "designerId": "ff5ae924-0a8e-49a8-b465-930748983555"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin3",
+                    "designerId": "cf187740-0f22-450f-8fb8-e7742ad990cb"
+                },
+                {
+                    "type": "viewcontrollereventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onGridConsultaTraspasos3AfterRender",
+                        "implHandler": [
+                            "var currentController = this;",
+                            "var component = Ext.ComponentMgr.get(\"gridConsultaTraspasos3\");",
+                            "component.getStore().removeAll();",
+                            "window.setTimeout(function(){currentController.loadConsultaTraspasos(null,null,null);}, 2000);"
+                        ],
+                        "name": "afterrender",
+                        "scope": "me"
+                    },
+                    "name": "onGridConsultaTraspasos3AfterRender",
+                    "designerId": "a929f451-2a33-47f9-88e3-9c177567adbd"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "height": 50,
+                "layout": "column",
+                "layout|region": "north",
+                "title": ""
+            },
+            "name": "MyForm2",
+            "designerId": "0acd21d0-e2a1-47e5-aabb-c2212a53b744",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "emptyText": "Fecha Inicial",
+                        "fieldLabel": "",
+                        "format": "d/m/Y",
+                        "id": "dtTInicial3",
+                        "width": 150
+                    },
+                    "name": "MyDateField2",
+                    "designerId": "d5754555-9940-4b88-b232-6a02eb0748f7"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "emptyText": "Fecha Final",
+                        "fieldLabel": "",
+                        "format": "d/m/Y",
+                        "id": "dtTFinal3",
+                        "width": 150
+                    },
+                    "name": "MyDateField3",
+                    "designerId": "954628d4-9fd1-46bc-8020-7463bf953316"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "allowBlank": false,
+                        "displayField": "label",
+                        "emptyText": "Estado",
+                        "fieldLabel": "",
+                        "id": "cmbTEstado3",
+                        "queryMode": "local",
+                        "store": "StoreEstadosImportarCompraXML",
+                        "valueField": "value",
+                        "width": 150
+                    },
+                    "name": "MyComboBox7",
+                    "designerId": "f7a7b9e1-1a4a-4fc1-8a0d-a40d52356625"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/filter.gif",
+                        "id": "btnFiltrar3",
+                        "text": "Filtrar"
+                    },
+                    "name": "MyButton30",
+                    "designerId": "094674e7-606d-4b8d-ad08-72eb128114bf",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onBtnFiltrar3Click",
+                                "implHandler": [
+                                    "        this.ConsultarTraspasos(button,e,eOpts);"
+                                ],
+                                "name": "click",
+                                "scope": "me"
+                            },
+                            "name": "onBtnFiltrar3Click",
+                            "designerId": "c63a8113-fba9-4bd6-b3a7-9c5fc9554ed9"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "resources/pending.png",
+                        "id": "btnPendientes3",
+                        "text": "Pendientes"
+                    },
+                    "name": "MyButton31",
+                    "designerId": "3ded9d06-42ca-4965-9095-7e10efe8dcd7"
+                }
+            ]
+        }
+    ]
+}

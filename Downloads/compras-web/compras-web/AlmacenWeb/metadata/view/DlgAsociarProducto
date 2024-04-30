@@ -1,0 +1,232 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dlgasociarproducto",
+        "designer|userClassName": "DlgAsociarProducto",
+        "height": 346,
+        "icon": "resources/merge.png",
+        "id": "DlgAsociarProducto",
+        "layout": "fit",
+        "modal": true,
+        "title": "Asociar",
+        "width": 392
+    },
+    "name": "MyWindow1",
+    "designerId": "f70c7932-6291-4a08-b7df-990dd60bd4e0",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "currentRecord",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "cf2c2cd2-30f6-4a95-b90e-b1406b8441af",
+    "viewModelInstanceId": "1dc27913-5a6d-45a4-93ed-91225009a85e",
+    "cn": [
+        {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "gridAsociar",
+                "store": "StoreComboProductos",
+                "title": ""
+            },
+            "name": "MyGridPanel13",
+            "designerId": "a9f9c67c-0a03-4f8f-8eca-589de8af5657",
+            "cn": [
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "claveproducto",
+                        "text": "Clave"
+                    },
+                    "name": "MyColumn49",
+                    "designerId": "78f096c1-5766-49c0-a714-1a59519bc84a",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter7",
+                            "designerId": "6fda3629-528e-4b2a-b642-18a234316ff8"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "nombreproducto",
+                        "defaultWidth": 200,
+                        "maxWidth": 260,
+                        "minWidth": 260,
+                        "text": "Descripcion",
+                        "width": 260
+                    },
+                    "name": "MyColumn50",
+                    "designerId": "5218f024-acef-46dd-8589-95335b5ddbba",
+                    "cn": [
+                        {
+                            "type": "Ext.grid.filters.filter.String",
+                            "reference": {
+                                "name": "filter",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "name": "MyStringFilter8",
+                            "designerId": "0cb992ae-a165-4ec9-b19d-85ab396fca7c"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.View",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridView11",
+                    "designerId": "a810cd27-e358-45f4-af17-85eef993c310",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onViewItemDblClick",
+                                "implHandler": [
+                                    "recBase = Ext.WindowMgr.get(\"wndAsociaProducto\").currentRecord;",
+                                    "this.AsociaProducto(recBase,record);"
+                                ],
+                                "name": "itemdblclick",
+                                "scope": "me"
+                            },
+                            "name": "onViewItemDblClick",
+                            "designerId": "ea31b182-d1fe-499f-85ef-9996c66d3a83"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom"
+                    },
+                    "name": "MyToolbar16",
+                    "designerId": "e29dfab1-bd05-4b2b-92a2-a6579a2232f6",
+                    "cn": [
+                        {
+                            "type": "Ext.toolbar.Fill",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null
+                            },
+                            "name": "MyFill9",
+                            "designerId": "9bdc505d-9105-44b7-b5c0-7bf00a62497b"
+                        },
+                        {
+                            "type": "Ext.form.field.Number",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "allowOnlyWhitespace": false,
+                                "fieldLabel": "Proporción",
+                                "id": "fldProporcion",
+                                "labelWidth": 65,
+                                "layout|flex": null,
+                                "width": 120
+                            },
+                            "name": "MyNumberField11",
+                            "designerId": "ed4cacf3-dac6-4afe-ae4b-4230a3347fa6"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "resources/tick.png",
+                                "layout|flex": null,
+                                "overflowText": "",
+                                "text": "Aceptar"
+                            },
+                            "name": "MyButton49",
+                            "designerId": "6fedcf8c-edd6-48af-8ef4-de2c016c4519",
+                            "cn": [
+                                {
+                                    "type": "viewcontrollereventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onButtonClick",
+                                        "implHandler": [
+                                            "if (Ext.ComponentMgr.get(\"gridAsociar\").getSelection().length <= 0) return false;",
+                                            "",
+                                            "       recBase = Ext.WindowMgr.get(\"wndAsociaProducto\").currentRecord;",
+                                            "        this.AsociaProducto(recBase,Ext.ComponentMgr.get(\"gridAsociar\").getSelection()[0]);"
+                                        ],
+                                        "name": "click",
+                                        "scope": "me"
+                                    },
+                                    "name": "onButtonClick",
+                                    "designerId": "61513bb4-40aa-440c-be30-447f3ca23bcd"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.grid.filters.Filters",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "MyGridFiltersPlugin5",
+                    "designerId": "085cd614-c0c2-4e01-bdf2-5f5a12e2aee3"
+                }
+            ]
+        }
+    ]
+}
